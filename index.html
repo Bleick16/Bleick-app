@@ -1,0 +1,2010 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#10b981">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Bleick v6.1">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmdHcmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzBmMTcyYSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwNjVmNDYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJHcmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzM0ZDM5OSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxMGI5ODEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTEyIiBmaWxsPSJ1cmwoI2JnR3JhZCkiLz4KICA8Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjE3NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTBiOTgxIiBzdHJva2Utb3BhY2l0eT0iMC4yMiIgc3Ryb2tlLXdpZHRoPSIxMCIvPgogIDxwYXRoIGQ9Ik0xNzAgMTE2IEgyOTIgQzM0NiAxMTYgMzgyIDE0NiAzODIgMTkwIEMzODIgMjIyIDM2MiAyNDQgMzMyIDI1MiBDMzY4IDI2MCAzOTIgMjg2IDM5MiAzMjQgQzM5MiAzNzAgMzUyIDM5NiAyOTIgMzk2IEgxNzAgWiBNMjI4IDE2NCBWMjMwIEgyODYgQzMxMiAyMzAgMzI2IDIxNiAzMjYgMTk3IEMzMjYgMTc4IDMxMiAxNjQgMjg2IDE2NCBaIE0yMjggMjc2IFYzNDggSDI5MCBDMzE4IDM0OCAzMzQgMzM0IDMzNCAzMTIgQzMzNCAyOTAgMzE4IDI3NiAyOTAgMjc2IFoiIGZpbGw9InVybCgjYkdyYWQpIi8+Cjwvc3ZnPg==">
+  <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmdHcmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzBmMTcyYSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwNjVmNDYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJHcmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzM0ZDM5OSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxMGI5ODEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTEyIiBmaWxsPSJ1cmwoI2JnR3JhZCkiLz4KICA8Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjE3NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTBiOTgxIiBzdHJva2Utb3BhY2l0eT0iMC4yMiIgc3Ryb2tlLXdpZHRoPSIxMCIvPgogIDxwYXRoIGQ9Ik0xNzAgMTE2IEgyOTIgQzM0NiAxMTYgMzgyIDE0NiAzODIgMTkwIEMzODIgMjIyIDM2MiAyNDQgMzMyIDI1MiBDMzY4IDI2MCAzOTIgMjg2IDM5MiAzMjQgQzM5MiAzNzAgMzUyIDM5NiAyOTIgMzk2IEgxNzAgWiBNMjI4IDE2NCBWMjMwIEgyODYgQzMxMiAyMzAgMzI2IDIxNiAzMjYgMTk3IEMzMjYgMTc4IDMxMiAxNjQgMjg2IDE2NCBaIE0yMjggMjc2IFYzNDggSDI5MCBDMzE4IDM0OCAzMzQgMzM0IDMzNCAzMTIgQzMzNCAyOTAgMzE4IDI3NiAyOTAgMjc2IFoiIGZpbGw9InVybCgjYkdyYWQpIi8+Cjwvc3ZnPg==">
+  <link rel="manifest" href="./manifest.json">
+
+  <title>Bleick v6.1</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --card-hover: #334155;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --primary: #10b981;
+      --primary-dark: #059669;
+      --danger: #ef4444;
+      --warning: #f59e0b;
+      --water: #38bdf8;
+      --border: #334155;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 16px;
+    }
+    .app-container {
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding-bottom: 48px;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px 0;
+    }
+    header h1 {
+      font-size: 1.18rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .header-actions {
+      display: flex;
+      gap: 8px;
+    }
+    .btn-top {
+      background: var(--card);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 8px 11px;
+      border-radius: 10px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-top.active {
+      background: var(--primary);
+      color: #064e3b;
+      border-color: var(--primary);
+    }
+    .date-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 8px 12px;
+    }
+    .btn-nav-day {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .btn-nav-day:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+    .date-display {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      cursor: pointer;
+    }
+    .date-display strong {
+      font-size: 0.96rem;
+      color: var(--text);
+    }
+    .date-display span {
+      font-size: 0.74rem;
+      color: var(--primary);
+      font-weight: 600;
+    }
+    .balance-card {
+      background: linear-gradient(145deg, #1e293b, #0f172a);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+    .balance-label {
+      font-size: 0.86rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+    }
+    .balance-value {
+      font-size: 3.1rem;
+      font-weight: 800;
+      margin: 6px 0;
+      color: var(--primary);
+      line-height: 1.1;
+    }
+    .balance-value.warning { color: var(--warning); }
+    .balance-value.danger { color: var(--danger); }
+    .balance-unit {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .progress-bar-bg {
+      width: 100%;
+      height: 12px;
+      background: #0f172a;
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 14px 0;
+      border: 1px solid var(--border);
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--primary);
+      width: 0%;
+      transition: width 0.3s ease, background-color 0.3s ease;
+    }
+    .stats-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      color: var(--muted);
+      padding-top: 4px;
+    }
+    .stats-row strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    /* Category Tabs */
+    .category-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+    }
+    .cat-tab {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 9px 6px;
+      border-radius: 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+    }
+    .cat-tab.active {
+      background: var(--primary);
+      color: #064e3b;
+      border-color: var(--primary);
+    }
+
+    /* Input & Quick Chips */
+    .input-card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .input-group {
+      display: flex;
+      gap: 8px;
+    }
+    input[type="text"], input[type="number"] {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 12px 14px;
+      border-radius: 12px;
+      font-size: 0.98rem;
+      outline: none;
+    }
+    input[type="text"] {
+      flex: 1;
+    }
+    input[type="text"]:focus, input[type="number"]:focus {
+      border-color: var(--primary);
+    }
+    .btn-add {
+      background: var(--primary);
+      color: #064e3b;
+      font-weight: 800;
+      border: none;
+      padding: 0 18px;
+      border-radius: 12px;
+      font-size: 1.05rem;
+      cursor: pointer;
+    }
+    .btn-add:active {
+      background: var(--primary-dark);
+    }
+    .suggestions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      max-height: 240px;
+      overflow-y: auto;
+      padding-right: 2px;
+    }
+    .chip {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 7px 9px;
+      border-radius: 10px;
+      font-size: 0.77rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .chip:active {
+      background: var(--card-hover);
+    }
+    .chip span {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* Water Card */
+    .water-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .water-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .water-top h2 {
+      font-size: 0.96rem;
+      font-weight: 700;
+    }
+    .water-amount {
+      font-size: 1.02rem;
+      font-weight: 800;
+      color: var(--water);
+    }
+    .water-sub-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .btn-link-small {
+      background: none;
+      border: none;
+      color: var(--water);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    .water-bar-bg {
+      width: 100%;
+      height: 10px;
+      background: var(--bg);
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .water-bar-fill {
+      height: 100%;
+      background: var(--water);
+      width: 0%;
+      transition: width 0.25s ease;
+    }
+    .water-buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+    }
+    .btn-water {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: #e0f2fe;
+      padding: 9px 6px;
+      border-radius: 10px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .btn-water:active {
+      background: #0369a1;
+    }
+    .btn-water-undo {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 9px 6px;
+      border-radius: 10px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* Manual Activity Card (W88 Pro Max) */
+    .activity-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .activity-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .activity-top h2 {
+      font-size: 0.96rem;
+      font-weight: 700;
+    }
+    .activity-badge {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #c084fc;
+    }
+    .activity-form {
+      display: grid;
+      grid-template-columns: 1.25fr 0.8fr auto;
+      gap: 6px;
+    }
+    .activity-select, .activity-km-input {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 0.86rem;
+      outline: none;
+      width: 100%;
+    }
+    .btn-act-add {
+      background: #a855f7;
+      color: #ffffff;
+      border: none;
+      padding: 0 14px;
+      border-radius: 10px;
+      font-size: 0.84rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .act-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .act-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: 0.85rem;
+    }
+
+    /* Weight Tracker Card */
+    .weight-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .weight-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .weight-header h2 {
+      font-size: 0.96rem;
+      font-weight: 700;
+    }
+    .weight-badge {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--primary);
+      padding: 4px 9px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+    .weight-badge.gain {
+      background: rgba(239, 68, 68, 0.15);
+      color: var(--danger);
+    }
+    .weight-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      text-align: center;
+    }
+    .w-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 9px 6px;
+    }
+    .w-box small {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+    .w-box strong {
+      font-size: 0.98rem;
+      color: var(--text);
+    }
+    .weight-input-row {
+      display: flex;
+      gap: 8px;
+    }
+    .weight-input-row input {
+      flex: 1;
+      padding: 10px 12px;
+      font-size: 0.92rem;
+    }
+    .btn-weight-save {
+      background: #334155;
+      color: var(--text);
+      border: 1px solid #475569;
+      padding: 0 14px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .btn-weight-save:active {
+      background: var(--primary);
+      color: #064e3b;
+    }
+    .weight-history-mini {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-top: 2px;
+    }
+    .w-log-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 7px 10px;
+      font-size: 0.8rem;
+    }
+
+    /* Grouped Sections List */
+    .history-card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 16px;
+      border: 1px solid var(--border);
+    }
+    .history-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .history-header h2 {
+      font-size: 0.98rem;
+      font-weight: 700;
+    }
+    .btn-clear {
+      background: transparent;
+      border: 1px solid var(--danger);
+      color: var(--danger);
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .group-section {
+      margin-bottom: 14px;
+    }
+    .group-section:last-child {
+      margin-bottom: 0;
+    }
+    .group-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 8px;
+    }
+    .group-title span:last-child {
+      color: var(--warning);
+    }
+    .history-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .history-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg);
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+    .item-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .item-name {
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+    .item-time {
+      font-size: 0.73rem;
+      color: var(--muted);
+    }
+    .item-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .item-kcal {
+      font-weight: 700;
+      color: var(--warning);
+      font-size: 0.92rem;
+    }
+    .btn-del {
+      background: #334155;
+      color: var(--text);
+      border: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .empty-msg {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.88rem;
+      padding: 14px 0;
+    }
+
+    /* Monthly / Archive View */
+    .archive-view {
+      display: none;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .archive-view.open {
+      display: flex;
+    }
+    .month-selector {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px;
+    }
+    .month-selector select {
+      background: var(--bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      outline: none;
+    }
+    .month-summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .summary-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      text-align: center;
+    }
+    .summary-box small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.76rem;
+      margin-bottom: 4px;
+    }
+    .summary-box strong {
+      font-size: 1.15rem;
+      color: var(--primary);
+    }
+    .day-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 12px;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+    .day-row:hover {
+      border-color: var(--primary);
+    }
+    .day-row-left {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .day-row-left strong {
+      font-size: 0.92rem;
+    }
+    .day-row-left span {
+      font-size: 0.76rem;
+      color: var(--muted);
+    }
+    .day-row-right {
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .badge-ok {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.84rem;
+    }
+    .badge-over {
+      color: var(--danger);
+      font-weight: 700;
+      font-size: 0.84rem;
+    }
+
+    /* Modals */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+      z-index: 50;
+    }
+    .modal-backdrop.open {
+      display: flex;
+    }
+    .modal {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px;
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .modal h3 {
+      font-size: 1.08rem;
+    }
+    .preset-btn {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 11px 12px;
+      border-radius: 12px;
+      text-align: left;
+      cursor: pointer;
+    }
+    .preset-btn strong {
+      display: block;
+      color: var(--primary);
+      font-size: 0.92rem;
+    }
+    .preset-btn small {
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    .modal-footer {
+      display: flex;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .hint {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <h1><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmdHcmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzBmMTcyYSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwNjVmNDYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJHcmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzM0ZDM5OSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxMGI5ODEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTEyIiBmaWxsPSJ1cmwoI2JnR3JhZCkiLz4KICA8Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjE3NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTBiOTgxIiBzdHJva2Utb3BhY2l0eT0iMC4yMiIgc3Ryb2tlLXdpZHRoPSIxMCIvPgogIDxwYXRoIGQ9Ik0xNzAgMTE2IEgyOTIgQzM0NiAxMTYgMzgyIDE0NiAzODIgMTkwIEMzODIgMjIyIDM2MiAyNDQgMzMyIDI1MiBDMzY4IDI2MCAzOTIgMjg2IDM5MiAzMjQgQzM5MiAzNzAgMzUyIDM5NiAyOTIgMzk2IEgxNzAgWiBNMjI4IDE2NCBWMjMwIEgyODYgQzMxMiAyMzAgMzI2IDIxNiAzMjYgMTk3IEMzMjYgMTc4IDMxMiAxNjQgMjg2IDE2NCBaIE0yMjggMjc2IFYzNDggSDI5MCBDMzE4IDM0OCAzMzQgMzM0IDMzNCAzMTIgQzMzNCAyOTAgMzE4IDI3NiAyOTAgMjc2IFoiIGZpbGw9InVybCgjYkdyYWQpIi8+Cjwvc3ZnPg==" alt="Bleick" style="width:28px;height:28px;border-radius:8px;border:1px solid var(--border);"> Bleick <small style="font-size:0.72rem;color:var(--primary);font-weight:700;">v6.1</small></h1>
+      <div class="header-actions">
+        <button class="btn-top" id="btnToggleHistory" onclick="toggleArchiveView()">📅 Meses</button>
+        <button class="btn-top" onclick="openGoalModal()">Meta: <span id="headerGoal">2300</span></button>
+      </div>
+    </header>
+
+    <!-- DAILY VIEW -->
+    <div id="dailyView" style="display:flex; flex-direction:column; gap:14px;">
+      <div class="date-nav">
+        <button class="btn-nav-day" onclick="changeDay(-1)">◀</button>
+        <div class="date-display" onclick="goToToday()">
+          <strong id="selectedDateLabel">Hoje</strong>
+          <span id="selectedDateSub">Toque para voltar a hoje</span>
+        </div>
+        <button class="btn-nav-day" id="btnNextDay" onclick="changeDay(1)">▶</button>
+      </div>
+
+      <div class="balance-card">
+        <div class="balance-label" id="balanceTitle">Você ainda pode comer hoje</div>
+        <div class="balance-value" id="remainingKcal">2300</div>
+        <div class="balance-unit" id="balanceUnit">kcal restantes</div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progressBar"></div>
+        </div>
+        <div class="stats-row">
+          <div>Consumido: <strong id="consumedKcal">0 kcal</strong></div>
+          <div>Meta: <strong id="goalKcal">2300 kcal</strong></div>
+        </div>
+      </div>
+
+      <!-- FOOD INPUT & CATEGORIES -->
+      <div class="input-card">
+        <div class="category-tabs">
+          <button class="cat-tab active" data-cat="refeicoes" onclick="selectCategory('refeicoes')">🍽️ Almoço/Jantar</button>
+          <button class="cat-tab" data-cat="frutas" onclick="selectCategory('frutas')">🍎 Frutas</button>
+          <button class="cat-tab" data-cat="doces" onclick="selectCategory('doces')">🍫 Doces</button>
+          <button class="cat-tab" data-cat="bebidas" onclick="selectCategory('bebidas')">🥤 Bebidas</button>
+        </div>
+
+        <div class="input-group">
+          <input type="text" id="foodInput" placeholder="Ex: 350, 2 ovos, coca zero, tubaina..." autocomplete="off">
+          <button class="btn-add" onclick="handleAdd()">+</button>
+        </div>
+        <div class="hint" id="catHint">Categoria ativa: <strong>🍽️ Almoço e Jantar</strong>. Digite calorias ou o nome do item, ou toque nos atalhos:</div>
+        <div class="suggestions" id="quickChips"></div>
+      </div>
+
+      <!-- ATIVIDADES FÍSICAS POR KM (REGISTRO MANUAL W88 PRO MAX) -->
+      <div class="activity-card">
+        <div class="activity-top">
+          <h2>🏃 Atividades Físicas (km)</h2>
+          <span class="activity-badge" id="activitySummaryText">0,0 km • +0 kcal</span>
+        </div>
+        <div class="hint">Registro manual (W88 Pro Max): informe quantos km caminhou, correu ou pedalou no dia.</div>
+        <div class="activity-form">
+          <select id="actTypeSelect" class="activity-select">
+            <option value="caminhada">🚶 Caminhada</option>
+            <option value="corrida">🏃 Corrida</option>
+            <option value="bicicleta">🚴 Bicicleta</option>
+          </select>
+          <input type="number" step="0.1" min="0.1" id="actKmInput" class="activity-km-input" placeholder="km (ex: 2)">
+          <button class="btn-act-add" onclick="addActivityEntry()">+ Add</button>
+        </div>
+        <ul class="act-list" id="activityList"></ul>
+      </div>
+
+      <!-- WATER TRACKER WITH DAILY GOAL -->
+      <div class="water-card">
+        <div class="water-top">
+          <h2>💧 Água Consumida</h2>
+          <span class="water-amount" id="waterLitersText">0,00 L (0 ml)</span>
+        </div>
+        <div class="water-sub-row">
+          <span id="waterGoalText">Meta diária: 3,50 L (0%)</span>
+          <button class="btn-link-small" onclick="openWaterModal()">Alterar meta de água</button>
+        </div>
+        <div class="water-bar-bg">
+          <div class="water-bar-fill" id="waterBar"></div>
+        </div>
+        <div class="water-buttons">
+          <button class="btn-water" onclick="addWater(250)">+250 ml</button>
+          <button class="btn-water" onclick="addWater(500)">+500 ml</button>
+          <button class="btn-water" onclick="addWater(1000)">+1,0 L</button>
+          <button class="btn-water-undo" onclick="removeLastWater()">-250 ml</button>
+        </div>
+      </div>
+
+      <!-- WEIGHT TRACKER STARTING AT 160 KG -->
+      <div class="weight-card">
+        <div class="weight-header">
+          <h2>⚖️ Controle de Peso</h2>
+          <span class="weight-badge" id="weightDiffBadge">Início: 160,0 kg</span>
+        </div>
+        <div class="weight-metrics">
+          <div class="w-box">
+            <small>Peso Inicial</small>
+            <strong id="startWeightVal">160,0 kg</strong>
+          </div>
+          <div class="w-box">
+            <small>Peso Atual</small>
+            <strong id="currentWeightVal">160,0 kg</strong>
+          </div>
+          <div class="w-box">
+            <small>Variação</small>
+            <strong id="deltaWeightVal">0,0 kg</strong>
+          </div>
+        </div>
+        <div class="weight-input-row">
+          <input type="number" step="0.1" id="weightInput" placeholder="Novo peso em kg (ex: 158.4)">
+          <button class="btn-weight-save" onclick="saveWeightEntry()">Atualizar Peso</button>
+        </div>
+        <div class="weight-history-mini" id="weightHistoryList"></div>
+      </div>
+
+      <!-- GROUPED DAILY HISTORY -->
+      <div class="history-card">
+        <div class="history-header">
+          <h2>Registrado em <span id="listDateLabel">Hoje</span></h2>
+          <button class="btn-clear" onclick="clearSelectedDay()">Zerar Dia</button>
+        </div>
+        <div id="groupedHistoryContainer"></div>
+      </div>
+    </div>
+
+    <!-- ARCHIVE / MONTHLY VIEW -->
+    <div id="archiveView" class="archive-view">
+      <div class="month-selector">
+        <span style="font-weight:700; font-size:0.95rem;">Histórico do Mês:</span>
+        <select id="monthSelect" onchange="renderArchive()"></select>
+      </div>
+
+      <div class="month-summary-grid">
+        <div class="summary-box">
+          <small>Dias Registrados</small>
+          <strong id="monthDaysCount">0 dias</strong>
+        </div>
+        <div class="summary-box">
+          <small>Média Diária</small>
+          <strong id="monthAvgKcal">0 kcal</strong>
+        </div>
+        <div class="summary-box">
+          <small>Total Consumido</small>
+          <strong id="monthTotalKcal">0 kcal</strong>
+        </div>
+        <div class="summary-box">
+          <small>Saldo Acumulado</small>
+          <strong id="monthNetBalance">0 kcal</strong>
+        </div>
+      </div>
+
+      <div class="history-card">
+        <div class="history-header">
+          <h2>Dias do Mês (toque para abrir)</h2>
+        </div>
+        <ul class="history-list" id="monthDaysList"></ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL META CALORIAS -->
+  <div class="modal-backdrop" id="goalModal">
+    <div class="modal">
+      <h3>Configurar Meta Diária de Calorias</h3>
+      <p class="hint">Baseado no seu perfil (28 anos, 1,80m, 160kg ~3.200 kcal/dia):</p>
+      <button class="preset-btn" onclick="setGoal(2200)">
+        <strong>2.200 kcal — Emagrecimento Acelerado</strong>
+        <small>Déficit de ~1.000 kcal/dia (~1 kg por semana)</small>
+      </button>
+      <button class="preset-btn" onclick="setGoal(2300)">
+        <strong>2.300 kcal — Déficit Equilibrado (Padrão)</strong>
+        <small>Déficit de ~900 kcal/dia com boa margem</small>
+      </button>
+      <button class="preset-btn" onclick="setGoal(2600)">
+        <strong>2.600 kcal — Emagrecimento Moderado</strong>
+        <small>Déficit de ~600 kcal/dia (~0,5 kg por semana)</small>
+      </button>
+      <button class="preset-btn" onclick="setGoal(3200)">
+        <strong>3.200 kcal — Manutenção de Peso</strong>
+        <small>Mantém o peso atual estável</small>
+      </button>
+      <div class="modal-footer">
+        <input type="number" id="customGoalInput" placeholder="Outro valor (ex: 2400)">
+        <button class="btn-add" onclick="saveCustomGoal()">Salvar</button>
+      </div>
+      <button class="btn-top" style="width:100%; margin-top:4px; padding:10px;" onclick="closeGoalModal()">Fechar</button>
+    </div>
+  </div>
+
+  <!-- MODAL META ÁGUA -->
+  <div class="modal-backdrop" id="waterModal">
+    <div class="modal">
+      <h3>Meta Diária de Água</h3>
+      <p class="hint">Escolha ou digite sua meta diária de água:</p>
+      <button class="preset-btn" onclick="setWaterGoal(2500)">
+        <strong>2,50 Litros (2.500 ml)</strong>
+        <small>Meta mínima de hidratação diária</small>
+      </button>
+      <button class="preset-btn" onclick="setWaterGoal(3500)">
+        <strong>3,50 Litros (3.500 ml) — Padrão</strong>
+        <small>Recomendado para rotina ativa e perda de peso</small>
+      </button>
+      <button class="preset-btn" onclick="setWaterGoal(4500)">
+        <strong>4,50 Litros (4.500 ml)</strong>
+        <small>Alta hidratação diária</small>
+      </button>
+      <div class="modal-footer">
+        <input type="number" id="customWaterGoalInput" placeholder="Em ml (ex: 3000)">
+        <button class="btn-add" onclick="saveCustomWaterGoal()">Salvar</button>
+      </div>
+      <button class="btn-top" style="width:100%; margin-top:4px; padding:10px;" onclick="closeWaterModal()">Fechar</button>
+    </div>
+  </div>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(() => {});
+      });
+    }
+
+    const CATEGORIES = {
+      refeicoes: { label: 'Almoço e Jantar', icon: '🍽️' },
+      frutas: { label: 'Frutas', icon: '🍎' },
+      doces: { label: 'Doces', icon: '🍫' },
+      bebidas: { label: 'Bebidas', icon: '🥤' }
+    };
+
+    const FOOD_DB = [
+      // ==================== ALMOÇO E JANTAR ====================
+      { cat: 'refeicoes', keys: ['arroz branco', 'arroz'], name: 'Arroz branco cozido (150g)', kcal: 195 },
+      { cat: 'refeicoes', keys: ['arroz integral'], name: 'Arroz integral cozido (150g)', kcal: 185 },
+      { cat: 'refeicoes', keys: ['arroz carreteiro'], name: 'Arroz carreteiro (200g)', kcal: 330 },
+      { cat: 'refeicoes', keys: ['feijao', 'feijão', 'feijao carioca', 'feijao preto'], name: 'Feijão cozido (1 concha - 100g)', kcal: 76 },
+      { cat: 'refeicoes', keys: ['feijao tropeiro', 'feijão tropeiro'], name: 'Feijão tropeiro (150g)', kcal: 360 },
+      { cat: 'refeicoes', keys: ['feijoada'], name: 'Feijoada completa (1 concha grande - 250g)', kcal: 420 },
+      { cat: 'refeicoes', keys: ['frango', 'peito de frango', 'file de frango', 'bife de frango', 'bife frango'], name: 'Peito de frango grelhado (150g)', kcal: 240 },
+      { cat: 'refeicoes', keys: ['frango frito', 'frango empanado'], name: 'Frango frito / empanado (150g)', kcal: 390 },
+      { cat: 'refeicoes', keys: ['coxa frango', 'sobrecoxa', 'frango assado'], name: 'Coxa/sobrecoxa assada sem pele (150g)', kcal: 295 },
+      { cat: 'refeicoes', keys: ['coracao de frango', 'coração de frango'], name: 'Coração de frango assado/grelhado (100g)', kcal: 215 },
+      { cat: 'refeicoes', keys: ['bife', 'bifes', 'bife bovino', 'bife acebolado'], name: 'Bife bovino grelhado (1 un ~120g)', kcal: 250 },
+      { cat: 'refeicoes', keys: ['bife a parmegiana', 'parmegiana'], name: 'Bife/frango à parmegiana (1 filé médio - 220g)', kcal: 540 },
+      { cat: 'refeicoes', keys: ['carne moida', 'carne moída', 'patinho'], name: 'Carne moída refogada / patinho (150g)', kcal: 285 },
+      { cat: 'refeicoes', keys: ['carne de panela', 'acem', 'acém', 'musculo', 'músculo'], name: 'Carne de panela cozida (150g)', kcal: 310 },
+      { cat: 'refeicoes', keys: ['picanha', 'alcatra', 'contrafile', 'contra-filé', 'carne'], name: 'Carne bovina assada/grelhada (150g)', kcal: 320 },
+      { cat: 'refeicoes', keys: ['cupim'], name: 'Cupim assado (150g)', kcal: 420 },
+      { cat: 'refeicoes', keys: ['costela', 'costela bovina'], name: 'Costela bovina cozida/assada (150g)', kcal: 440 },
+      { cat: 'refeicoes', keys: ['lombo suino', 'lombo', 'bisteca', 'carne de porco', 'pernil'], name: 'Bisteca / lombo / pernil suíno (150g)', kcal: 335 },
+      { cat: 'refeicoes', keys: ['bacon'], name: 'Bacon frito (3 fatias - 30g)', kcal: 162 },
+      { cat: 'refeicoes', keys: ['calabresa', 'linguica', 'linguiça'], name: 'Linguiça calabresa/toscana (100g)', kcal: 296 },
+      { cat: 'refeicoes', keys: ['peixe', 'file de peixe', 'tilapia', 'tilápia', 'merluza'], name: 'Filé de peixe grelhado/assado (150g)', kcal: 210 },
+      { cat: 'refeicoes', keys: ['peixe frito', 'tilapia frita'], name: 'Filé de peixe frito/empanado (150g)', kcal: 340 },
+      { cat: 'refeicoes', keys: ['salmao', 'salmão'], name: 'Salmão grelhado (150g)', kcal: 312 },
+      { cat: 'refeicoes', keys: ['sardinha', 'atum'], name: 'Atum ou sardinha em lata (1 lata - 120g)', kcal: 190 },
+      { cat: 'refeicoes', keys: ['batata airfryer', 'batata na airfryer'], name: 'Batata na AirFryer (150g)', kcal: 140 },
+      { cat: 'refeicoes', keys: ['batata frita', 'fritas'], name: 'Batata frita (porção 150g)', kcal: 410 },
+      { cat: 'refeicoes', keys: ['pure de batata', 'purê de batata', 'pure', 'purê'], name: 'Purê de batata (150g)', kcal: 170 },
+      { cat: 'refeicoes', keys: ['batata doce'], name: 'Batata-doce cozida/assada (150g)', kcal: 130 },
+      { cat: 'refeicoes', keys: ['mandioca', 'aipim', 'macaxeira'], name: 'Mandioca/aipim cozido (150g)', kcal: 188 },
+      { cat: 'refeicoes', keys: ['mandioca frita'], name: 'Mandioca frita (150g)', kcal: 390 },
+      { cat: 'refeicoes', keys: ['farofa'], name: 'Farofa pronta / tradicional (3 colheres sopa - 45g)', kcal: 180 },
+      { cat: 'refeicoes', keys: ['macarrao', 'macarrão', 'espaguete', 'massa'], name: 'Macarrão cozido com molho simples (150g)', kcal: 210 },
+      { cat: 'refeicoes', keys: ['macarrao bolonhesa', 'macarrão bolonhesa'], name: 'Macarrão à bolonhesa (250g)', kcal: 360 },
+      { cat: 'refeicoes', keys: ['lasanha'], name: 'Lasanha (1 fatia média - 200g)', kcal: 310 },
+      { cat: 'refeicoes', keys: ['nhoque'], name: 'Nhoque ao sugo (200g)', kcal: 280 },
+      { cat: 'refeicoes', keys: ['estrogonofe', 'strogonoff'], name: 'Estrogonofe de frango ou carne (200g)', kcal: 340 },
+      { cat: 'refeicoes', keys: ['escondidinho'], name: 'Escondidinho de carne seca / frango (250g)', kcal: 390 },
+      { cat: 'refeicoes', keys: ['panqueca'], name: 'Panqueca de carne/frango (1 unidade)', kcal: 210 },
+      { cat: 'refeicoes', keys: ['ovo', 'ovos', 'ovo cozido', 'ovo mexido'], name: 'Ovo cozido/mexido (1 un - ~50g)', kcal: 75 },
+      { cat: 'refeicoes', keys: ['ovo frito'], name: 'Ovo frito no óleo/manteiga (1 un)', kcal: 105 },
+      { cat: 'refeicoes', keys: ['omelete'], name: 'Omelete simples (2 ovos - ~110g)', kcal: 165 },
+      { cat: 'refeicoes', keys: ['miojo', 'miojo galinha caipira', 'galinha caipira'], name: 'Miojo Galinha Caipira (pacote ~85g)', kcal: 375 },
+      { cat: 'refeicoes', keys: ['miojo carne', 'miojo de carne'], name: 'Miojo Sabor Carne (pacote ~85g)', kcal: 375 },
+      { cat: 'refeicoes', keys: ['miojo tomate', 'miojo bolonhesa'], name: 'Miojo Tomate/Bolonhesa (pacote ~85g)', kcal: 370 },
+      { cat: 'refeicoes', keys: ['miojo queijo', 'miojo requeijao', 'miojo requeijão'], name: 'Miojo Queijo/Requeijão (pacote ~85g)', kcal: 385 },
+      { cat: 'refeicoes', keys: ['cup noodles', 'cup'], name: 'Cup Noodles (copo ~69g)', kcal: 300 },
+      { cat: 'refeicoes', keys: ['yakisoba'], name: 'Yakisoba carne/frango (300g)', kcal: 410 },
+      { cat: 'refeicoes', keys: ['salsicha', 'salsichas', 'hot dog'], name: 'Salsicha hot dog (1 un - 50g)', kcal: 130 },
+      { cat: 'refeicoes', keys: ['cachorro quente', 'dogao', 'dogão'], name: 'Cachorro-quente completo (1 un)', kcal: 420 },
+      { cat: 'refeicoes', keys: ['nuggets', 'nugget', 'empanado frango'], name: 'Nuggets de frango (6 un - ~150g)', kcal: 315 },
+      { cat: 'refeicoes', keys: ['hamburguer', 'hambúrguer', 'hamburguer congelado', 'burger'], name: 'Hambúrguer bovino congelado (1 un - 80g)', kcal: 210 },
+      { cat: 'refeicoes', keys: ['hamburguer frango', 'burger frango'], name: 'Hambúrguer de frango congelado (1 un - 80g)', kcal: 175 },
+      { cat: 'refeicoes', keys: ['cheeseburger', 'hamburguer com queijo'], name: 'Hambúrguer congelado + 1 fatia queijo', kcal: 285 },
+      { cat: 'refeicoes', keys: ['x burguer', 'x-burguer', 'x salada', 'x-salada'], name: 'X-Burguer / X-Salada de lanchonete (1 un)', kcal: 540 },
+      { cat: 'refeicoes', keys: ['x bacon', 'x-bacon', 'x tudo', 'x-tudo'], name: 'X-Bacon / X-Tudo de lanchonete (1 un)', kcal: 780 },
+      { cat: 'refeicoes', keys: ['pizza'], name: 'Pizza sabor tradicional (1 fatia média - 110g)', kcal: 290 },
+      { cat: 'refeicoes', keys: ['esfiha'], name: 'Esfiha aberta/fechada carne ou queijo (1 un)', kcal: 190 },
+      { cat: 'refeicoes', keys: ['coxinha'], name: 'Coxinha média (1 un - 100g)', kcal: 260 },
+      { cat: 'refeicoes', keys: ['pastel'], name: 'Pastel frito médio (1 un - 110g)', kcal: 300 },
+      { cat: 'refeicoes', keys: ['kibe', 'quibe'], name: 'Quibe frito médio (1 un - 90g)', kcal: 225 },
+      { cat: 'refeicoes', keys: ['empada', 'empadao', 'empadão'], name: 'Empada média (1 un - 80g)', kcal: 230 },
+      { cat: 'refeicoes', keys: ['joelho', 'enroladinho', 'salgado assado'], name: 'Salgado assado presunto e queijo (1 un - 120g)', kcal: 310 },
+      { cat: 'refeicoes', keys: ['pao', 'pão', 'pao frances', 'pão francês'], name: 'Pão francês (1 un - 50g)', kcal: 135 },
+      { cat: 'refeicoes', keys: ['pao de forma', 'pão de forma'], name: 'Pão de forma (2 fatias - 50g)', kcal: 125 },
+      { cat: 'refeicoes', keys: ['misto quente'], name: 'Misto quente (pão + queijo + presunto)', kcal: 290 },
+      { cat: 'refeicoes', keys: ['pao de queijo', 'pão de queijo'], name: 'Pão de queijo médio (1 un - 30g)', kcal: 95 },
+      { cat: 'refeicoes', keys: ['tapioca'], name: 'Tapioca simples (100g)', kcal: 140 },
+      { cat: 'refeicoes', keys: ['cuscuz'], name: 'Cuscuz de milho (150g)', kcal: 170 },
+      { cat: 'refeicoes', keys: ['queijo mussarela', 'mussarela', 'queijo prato'], name: 'Queijo mussarela / prato (2 fatias - 40g)', kcal: 130 },
+      { cat: 'refeicoes', keys: ['presunto'], name: 'Presunto cozido (2 fatias - 40g)', kcal: 48 },
+      { cat: 'refeicoes', keys: ['requeijao', 'requeijão'], name: 'Requeijão cremoso (1 colher sopa - 30g)', kcal: 78 },
+      { cat: 'refeicoes', keys: ['manteiga', 'margarina'], name: 'Manteiga / margarina (1 ponta de faca / 10g)', kcal: 72 },
+      { cat: 'refeicoes', keys: ['prato feito', 'almoco', 'almoço', 'jantar'], name: 'Refeição (Arroz + Feijão + Carne/Frango)', kcal: 550 },
+
+      // ==================== FRUTAS ====================
+      { cat: 'frutas', keys: ['banana', 'banana prata', 'banana nanica'], name: 'Banana (1 unidade)', kcal: 90 },
+      { cat: 'frutas', keys: ['maca', 'maçã'], name: 'Maçã (1 unidade)', kcal: 75 },
+      { cat: 'frutas', keys: ['laranja'], name: 'Laranja (1 unidade)', kcal: 62 },
+      { cat: 'frutas', keys: ['mamao', 'mamão'], name: 'Mamão papaia (1/2 unidade)', kcal: 65 },
+      { cat: 'frutas', keys: ['melancia'], name: 'Melancia (1 fatia média - 200g)', kcal: 60 },
+      { cat: 'frutas', keys: ['abacaxi'], name: 'Abacaxi (1 fatia - 100g)', kcal: 50 },
+      { cat: 'frutas', keys: ['morango'], name: 'Morango (10 unidades - 120g)', kcal: 38 },
+      { cat: 'frutas', keys: ['uva'], name: 'Uva (1 cacho pequeno - 100g)', kcal: 70 },
+      { cat: 'frutas', keys: ['manga'], name: 'Manga (1/2 unidade)', kcal: 75 },
+      { cat: 'frutas', keys: ['pera', 'pêra'], name: 'Pera (1 unidade)', kcal: 85 },
+      { cat: 'frutas', keys: ['goiaba'], name: 'Goiaba (1 unidade - 150g)', kcal: 95 },
+      { cat: 'frutas', keys: ['kiwi', 'kiuí'], name: 'Kiwi (1 unidade)', kcal: 46 },
+      { cat: 'frutas', keys: ['melao', 'melão'], name: 'Melão (1 fatia - 150g)', kcal: 44 },
+      { cat: 'frutas', keys: ['acerola'], name: 'Acerola (100g)', kcal: 33 },
+      { cat: 'frutas', keys: ['maracuja', 'maracujá'], name: 'Maracujá (1 unidade)', kcal: 68 },
+      { cat: 'frutas', keys: ['abacate'], name: 'Abacate (100g)', kcal: 160 },
+      { cat: 'frutas', keys: ['tangerina', 'mexerica', 'bergamota'], name: 'Tangerina/mexerica (1 unidade)', kcal: 50 },
+      { cat: 'frutas', keys: ['pessego', 'pêssego'], name: 'Pêssego (1 unidade)', kcal: 45 },
+      { cat: 'frutas', keys: ['ameixa'], name: 'Ameixa fresca (2 unidades)', kcal: 48 },
+      { cat: 'frutas', keys: ['caqui'], name: 'Caqui (1 unidade)', kcal: 80 },
+
+      // ==================== DOCES ====================
+      { cat: 'doces', keys: ['crunch', 'barra crunch', 'chocolate crunch'], name: 'Barra Crunch (80g)', kcal: 429 },
+      { cat: 'doces', keys: ['diamante negro', 'barra diamante negro'], name: 'Barra Diamante Negro (90g)', kcal: 477 },
+      { cat: 'doces', keys: ['laka'], name: 'Barra Laka (80g)', kcal: 425 },
+      { cat: 'doces', keys: ['laka oreo'], name: 'Barra Laka Oreo (90g)', kcal: 485 },
+      { cat: 'doces', keys: ['shot', 'lacta shot'], name: 'Barra Lacta Shot (80g)', kcal: 435 },
+      { cat: 'doces', keys: ['ouro branco barra', 'barra ouro branco'], name: 'Barra Ouro Branco (98g)', kcal: 525 },
+      { cat: 'doces', keys: ['sonho de valsa barra', 'barra sonho de valsa'], name: 'Barra Sonho de Valsa (98g)', kcal: 520 },
+      { cat: 'doces', keys: ['galak'], name: 'Barra Galak (80g)', kcal: 432 },
+      { cat: 'doces', keys: ['alpino'], name: 'Barra Alpino (85g)', kcal: 448 },
+      { cat: 'doces', keys: ['prestigio', 'prestígio'], name: 'Barra Prestígio (80g)', kcal: 384 },
+      { cat: 'doces', keys: ['charge'], name: 'Barra Charge (40g)', kcal: 184 },
+      { cat: 'doces', keys: ['chokito'], name: 'Chokito (1 un - 32g)', kcal: 141 },
+      { cat: 'doces', keys: ['suflair'], name: 'Barra Suflair (50g)', kcal: 265 },
+      { cat: 'doces', keys: ['classic', 'nestle classic'], name: 'Barra Nestlé Classic ao Leite (80g)', kcal: 426 },
+      { cat: 'doces', keys: ['sensacao', 'sensação'], name: 'Barra Sensação (80g)', kcal: 390 },
+      { cat: 'doces', keys: ['talento'], name: 'Barra Garoto Talento (85g)', kcal: 465 },
+      { cat: 'doces', keys: ['baton'], name: 'Chocolate Baton Garoto (1 un - 16g)', kcal: 86 },
+      { cat: 'doces', keys: ['serenata de amor', 'serenata'], name: 'Bombom Serenata de Amor (1 un - 16,5g)', kcal: 88 },
+      { cat: 'doces', keys: ['caribe'], name: 'Bombom Caribe Garoto (1 un - 28g)', kcal: 112 },
+      { cat: 'doces', keys: ['crocante'], name: 'Bombom Crocante Garoto (1 un - 25g)', kcal: 118 },
+      { cat: 'doces', keys: ['bis', 'caixa bis'], name: 'Caixa Bis ao Leite (100,8g)', kcal: 536 },
+      { cat: 'doces', keys: ['bis xtra', 'bis extra'], name: 'Bis Xtra (1 un - 45g)', kcal: 235 },
+      { cat: 'doces', keys: ['sonho de valsa', 'valsa'], name: 'Bombom Sonho de Valsa (1 un - 20g)', kcal: 103 },
+      { cat: 'doces', keys: ['ouro branco'], name: 'Bombom Ouro Branco (1 un - 21,5g)', kcal: 112 },
+      { cat: 'doces', keys: ['kitkat', 'kit kat'], name: 'KitKat ao Leite (1 un - 41,5g)', kcal: 218 },
+      { cat: 'doces', keys: ['snickers'], name: 'Snickers (1 un - 45g)', kcal: 218 },
+      { cat: 'doces', keys: ['twix'], name: 'Twix (1 un - 40g)', kcal: 198 },
+      { cat: 'doces', keys: ['m&m', 'mms', 'mm', 'confete'], name: 'M&Ms / Confete chocolate (pacote ~45g)', kcal: 215 },
+      { cat: 'doces', keys: ['hersheys', 'hershey'], name: 'Barra Hersheys (82g)', kcal: 435 },
+      { cat: 'doces', keys: ['milka'], name: 'Barra Milka (100g)', kcal: 530 },
+      { cat: 'doces', keys: ['trento'], name: 'Trento (1 un - 32g)', kcal: 165 },
+      { cat: 'doces', keys: ['tortuguita'], name: 'Tortuguita Arcor (1 un - 18g)', kcal: 96 },
+      { cat: 'doces', keys: ['kinder bueno', 'kinder'], name: 'Kinder Bueno (1 un - 43g)', kcal: 246 },
+      { cat: 'doces', keys: ['kinder ovo'], name: 'Kinder Ovo (20g)', kcal: 110 },
+      { cat: 'doces', keys: ['ferrero rocher', 'ferrero'], name: 'Ferrero Rocher (1 un - 12,5g)', kcal: 73 },
+      { cat: 'doces', keys: ['raffaello'], name: 'Raffaello (1 un - 10g)', kcal: 62 },
+      { cat: 'doces', keys: ['nutella'], name: 'Nutella (1 colher de sopa cheia - 20g)', kcal: 108 },
+      { cat: 'doces', keys: ['oreo', 'bolacha recheada', 'biscoito recheado', 'negresco', 'trakinas', 'passatempo', 'bono'], name: 'Biscoito recheado Oreo/Negresco/Bono/Trakinas (4 un - ~40g)', kcal: 190 },
+      { cat: 'doces', keys: ['wafer', 'biscolata', 'bauducco wafer'], name: 'Biscoito Wafer chocolate/morango (4 un - 30g)', kcal: 155 },
+      { cat: 'doces', keys: ['cookie', 'cookies', 'toddy cookie'], name: 'Cookies com gotas de chocolate (4 un - 40g)', kcal: 195 },
+      { cat: 'doces', keys: ['pao de mel', 'pão de mel'], name: 'Pão de mel coberto com chocolate (1 un - 50g)', kcal: 205 },
+      { cat: 'doces', keys: ['brownie'], name: 'Brownie de chocolate (1 pedaço - 60g)', kcal: 260 },
+      { cat: 'doces', keys: ['sonho de padaria', 'sonho creme', 'sonho doce de leite'], name: 'Sonho de padaria recheado (1 un - 90g)', kcal: 330 },
+      { cat: 'doces', keys: ['churros'], name: 'Churros recheado doce de leite (1 un)', kcal: 290 },
+      { cat: 'doces', keys: ['donuts', 'donut'], name: 'Donut / rosquinha doce coberta (1 un - 65g)', kcal: 265 },
+      { cat: 'doces', keys: ['brigadeiro'], name: 'Brigadeiro tradicional (1 un - 20g)', kcal: 75 },
+      { cat: 'doces', keys: ['beijinho'], name: 'Beijinho de coco (1 un - 20g)', kcal: 70 },
+      { cat: 'doces', keys: ['pacoca', 'paçoca'], name: 'Paçoca rolha (1 un - 20g)', kcal: 95 },
+      { cat: 'doces', keys: ['pe de moleque', 'pé de moleque'], name: 'Pé de moleque (1 un - 25g)', kcal: 120 },
+      { cat: 'doces', keys: ['goiabada'], name: 'Goiabada cascão (1 fatia - 40g)', kcal: 125 },
+      { cat: 'doces', keys: ['doce de leite'], name: 'Doce de leite cremoso (1 colher sopa - 25g)', kcal: 80 },
+      { cat: 'doces', keys: ['leite condensado'], name: 'Leite condensado (1 colher sopa - 20g)', kcal: 65 },
+      { cat: 'doces', keys: ['pudim'], name: 'Pudim de leite condensado (1 fatia - 110g)', kcal: 220 },
+      { cat: 'doces', keys: ['mousse', 'mousse de maracuja', 'mousse de chocolate'], name: 'Mousse chocolate/maracujá (1 taça - 100g)', kcal: 215 },
+      { cat: 'doces', keys: ['bolo de chocolate', 'bolo', 'bolo de cenoura'], name: 'Bolo de chocolate / cenoura c/ cobertura (1 fatia - 80g)', kcal: 280 },
+      { cat: 'doces', keys: ['torta doce', 'torta holandesa', 'torta de limao', 'torta de limão'], name: 'Torta doce (1 fatia média - 100g)', kcal: 330 },
+      { cat: 'doces', keys: ['sorvete', 'casquinha', 'picole', 'picolé'], name: 'Sorvete / picolé (100g ou 1 casquinha)', kcal: 170 },
+      { cat: 'doces', keys: ['milkshake', 'milk shake'], name: 'Milkshake médio (300ml)', kcal: 430 },
+      { cat: 'doces', keys: ['acai', 'açaí'], name: 'Açaí na tigela simples (200ml)', kcal: 220 },
+      { cat: 'doces', keys: ['fini', 'bala fini', 'goma'], name: 'Balas de gelatina Fini (1 pacote - 90g)', kcal: 310 },
+      { cat: 'doces', keys: ['pipoca', 'pipoca microondas', 'pipoca de microondas', 'pipoca manteiga'], name: 'Pipoca de microondas manteiga (~100g)', kcal: 440 },
+      { cat: 'doces', keys: ['pipoca light', 'pipoca microondas light'], name: 'Pipoca de microondas light (~100g)', kcal: 320 },
+
+      // ==================== BEBIDAS (NORMAL E ZERO - TODAS AS MARCAS DO BRASIL) ====================
+      // --- Refrigerantes de Cola ---
+      { cat: 'bebidas', keys: ['coca zero', 'coca cola zero', 'coca-cola zero', 'coca zero lata'], name: 'Coca-Cola Zero Açúcar (lata 350ml)', kcal: 0 },
+      { cat: 'bebidas', keys: ['coca cola', 'coca-cola', 'coca normal', 'coca lata'], name: 'Coca-Cola Original Normal (lata 350ml)', kcal: 149 },
+      { cat: 'bebidas', keys: ['pepsi black', 'pepsi zero', 'pepsi black lata'], name: 'Pepsi Black Zero Açúcar (lata 350ml)', kcal: 0 },
+      { cat: 'bebidas', keys: ['pepsi twist zero'], name: 'Pepsi Twist Zero (lata 350ml)', kcal: 0 },
+      { cat: 'bebidas', keys: ['pepsi twist'], name: 'Pepsi Twist Normal (lata 350ml)', kcal: 147 },
+      { cat: 'bebidas', keys: ['pepsi', 'pepsi normal', 'pepsi lata'], name: 'Pepsi Original Normal (lata 350ml)', kcal: 147 },
+      { cat: 'bebidas', keys: ['dolly cola zero'], name: 'Dolly Cola Zero (lata 350ml)', kcal: 0 },
+      { cat: 'bebidas', keys: ['dolly cola'], name: 'Dolly Cola Normal (lata 350ml)', kcal: 145 },
+      { cat: 'bebidas', keys: ['tubaina zero', 'tubaína zero', 'itubaina zero', 'itubaína zero'], name: 'Tubaína / Itubaína Zero (lata 350ml)', kcal: 0 },
+      { cat: 'bebidas', keys: ['tubaina', 'tubaína', 'itubaina', 'itubaína', 'tubaina normal'], name: 'Tubaína / Itubaína Normal (lata 350ml)', kcal: 148 },
+
+      // --- Refrigerantes de Guaraná ---
+      { cat: 'bebidas', keys: ['guarana zero', 'guaraná zero', 'guarana antarctica zero', 'guarana zero lata'], name: 'Guaraná Antarctica Zero (lata 350ml)', kcal: 0 },
+      { cat: 'bebidas', keys: ['guarana', 'guaraná', 'guarana antarctica', 'guaraná normal', 'guarana lata'], name: 'Guaraná Antarctica Normal (lata 350ml)', kcal: 140 },
+      { cat: 'bebidas', keys: ['kuat zero'], name: 'Kuat Zero (lata 350ml)', kcal: 0 },
+      { cat: 'bebidas', keys: ['kuat', 'kuat normal'], name: 'Kuat Normal (lata 350ml)', kcal: 142 },
+      { cat: 'bebidas', keys: ['dolly guarana zero', 'dolly zero'], name: 'Dolly Guaraná Zero (lata 350ml)', kcal: 0 },
+      { cat: 'bebidas', keys: ['dolly guarana', 'dolly'], name: 'Dolly Guaraná Normal (lata 350ml)', kcal: 140 },
+      { cat: 'bebidas', keys: ['fanta guarana zero', 'fanta guaraná zero'], name: 'Fanta Guaraná Zero (lata 350ml)', kcal: 0 },
+      { cat: 'bebidas', keys: ['fanta guarana', 'fanta guaraná'], name: 'Fanta Guaraná Normal (lata 350ml)', kcal: 145 },
+      { cat: 'bebidas', keys: ['guarana jesus zero', 'guaraná jesus zero'], name: 'Guaraná Jesus Zero (lata 350ml)', kcal: 0 },
+      { cat: 'bebidas', keys: ['guarana jesus', 'guaraná jesus'], name: 'Guaraná Jesus Normal (lata 350ml)', kcal: 155 },
+      { cat: 'bebidas', keys: ['fruki zero', 'guarana fruki zero'], name: 'Guaraná Fruki Zero (lata 350ml)', kcal: 0 },
+      { cat: 'bebidas', keys: ['fruki', 'guarana fruki'], name: 'Guaraná Fruki Normal (lata 350ml)', kcal: 140 },
+      { cat: 'bebidas', keys: ['mineiro zero', 'guarana mineiro zero'], name: 'Guaraná Mineiro Zero (lata 350ml)', kcal: 0 },
+      { cat: 'bebidas', keys: ['mineiro', 'guarana mineiro'], name: 'Guaraná Mineiro Normal (lata 350ml)', kcal: 144 },
+      { cat: 'bebidas', keys: ['convencao zero', 'convenção zero'], name: 'Refrigerante Convenção Zero (lata 350ml)', kcal: 0 },
+      { cat: 'bebidas', keys: ['convencao', 'convenção'], name: 'Refrigerante Convenção Normal (lata 350ml)', kcal: 145 },
+      { cat: 'bebidas', keys: ['sao geraldo', 'são geraldo', 'cajuina', 'cajuína'], name: 'Cajuína São Geraldo (lata 350ml)', kcal: 150 },
+
+      // --- Refrigerantes de Laranja, Uva, Limão, Maçã e Outros ---
+      { cat: 'bebidas', keys: ['fanta laranja zero', 'fanta zero', 'fanta zero lata'], name: 'Fanta Laranja Zero (lata 350ml)', kcal: 0 },
+      { cat: 'bebidas', keys: ['fanta laranja', 'fanta', 'fanta normal', 'fanta lata'], name: 'Fanta Laranja Normal (lata 350ml)', kcal: 161 },
+      { cat: 'bebidas', keys: ['fanta uva zero'], name: 'Fanta Uva Zero (lata 350ml)', kcal: 0 },
+      { cat: 'bebidas', keys: ['fanta uva', 'fanta uva normal'], name: 'Fanta Uva Normal (lata 350ml)', kcal: 175 },
+      { cat: 'bebidas', keys: ['fanta maracuja zero', 'fanta maracujá zero'], name: 'Fanta Maracujá Zero (lata 350ml)', kcal: 0 },
+      { cat: 'bebidas', keys: ['fanta maracuja', 'fanta maracujá'], name: 'Fanta Maracujá Normal (lata 350ml)', kcal: 152 },
+      { cat: 'bebidas', keys: ['fanta caju'], name: 'Fanta Caju Normal (lata 350ml)', kcal: 154 },
+      { cat: 'bebidas', keys: ['sukita zero'], name: 'Sukita Laranja Zero (lata 350ml)', kcal: 0 },
+      { cat: 'bebidas', keys: ['sukita', 'sukita normal'], name: 'Sukita Laranja Normal (lata 350ml)', kcal: 155 },
+      { cat: 'bebidas', keys: ['sukita uva'], name: 'Sukita Uva Normal (lata 350ml)', kcal: 165 },
+      { cat: 'bebidas', keys: ['sprite zero', 'sprite zero lata'], name: 'Sprite Zero Açúcar (lata 350ml)', kcal: 0 },
+      { cat: 'bebidas', keys: ['sprite', 'sprite normal', 'sprite lata'], name: 'Sprite Original Normal (lata 350ml)', kcal: 147 },
+      { cat: 'bebidas', keys: ['sprite lemon fresh'], name: 'Sprite Lemon Fresh Zero (garrafa 510ml)', kcal: 0 },
+      { cat: 'bebidas', keys: ['soda zero', 'soda limonada zero'], name: 'Soda Limonada Antarctica Zero (lata 350ml)', kcal: 0 },
+      { cat: 'bebidas', keys: ['soda', 'soda limonada', 'soda normal'], name: 'Soda Limonada Antarctica Normal (lata 350ml)', kcal: 145 },
+      { cat: 'bebidas', keys: ['h2oh', 'h2o limoneto', 'h2oh limoneto', 'h2oh citrus'], name: 'H2OH! Limoneto / Citrus Zero (500ml)', kcal: 0 },
+      { cat: 'bebidas', keys: ['schweppes citrus zero'], name: 'Schweppes Citrus Zero (lata 350ml)', kcal: 0 },
+      { cat: 'bebidas', keys: ['schweppes citrus', 'schweppes'], name: 'Schweppes Citrus Normal (lata 350ml)', kcal: 136 },
+      { cat: 'bebidas', keys: ['tonica zero', 'tônica zero', 'agua tonica zero', 'schweppes tonica zero'], name: 'Água Tônica Zero (lata 350ml)', kcal: 0 },
+      { cat: 'bebidas', keys: ['tonica', 'tônica', 'agua tonica', 'schweppes tonica'], name: 'Água Tônica Normal (lata 350ml)', kcal: 126 },
+      { cat: 'bebidas', keys: ['grapette zero'], name: 'Grapette Uva Zero (lata 350ml)', kcal: 0 },
+      { cat: 'bebidas', keys: ['grapette'], name: 'Grapette Uva Normal (lata 350ml)', kcal: 168 },
+      { cat: 'bebidas', keys: ['refrigerante zero', 'refri zero'], name: 'Refrigerante Zero genérico (lata 350ml)', kcal: 0 },
+      { cat: 'bebidas', keys: ['refrigerante normal', 'refri normal', 'refrigerante lata'], name: 'Refrigerante Normal genérico (lata 350ml)', kcal: 150 },
+
+      // --- Energéticos e Isotônicos (Normal & Zero) ---
+      { cat: 'bebidas', keys: ['monster zero', 'monster ultra', 'monster mango loco zero', 'energetico zero'], name: 'Monster Zero Açúcar / Ultra (lata 473ml)', kcal: 15 },
+      { cat: 'bebidas', keys: ['monster mango loco', 'monster normal', 'monster original', 'monster verde', 'monster'], name: 'Monster Energy Normal (lata 473ml)', kcal: 220 },
+      { cat: 'bebidas', keys: ['red bull zero', 'redbull zero', 'red bull sugarfree'], name: 'Red Bull Sugarfree / Zero (lata 250ml)', kcal: 8 },
+      { cat: 'bebidas', keys: ['red bull', 'redbull', 'red bull normal'], name: 'Red Bull Energy Drink Normal (lata 250ml)', kcal: 112 },
+      { cat: 'bebidas', keys: ['tnt zero', 'tnt energy zero'], name: 'TNT Energy Zero (lata 269ml)', kcal: 5 },
+      { cat: 'bebidas', keys: ['tnt', 'tnt normal', 'tnt energetico'], name: 'TNT Energy Drink Normal (lata 269ml)', kcal: 121 },
+      { cat: 'bebidas', keys: ['baly zero', 'bally zero'], name: 'Baly Energy Zero (lata 250ml)', kcal: 5 },
+      { cat: 'bebidas', keys: ['baly', 'baly normal'], name: 'Baly Energy Drink Normal (lata 250ml)', kcal: 115 },
+      { cat: 'bebidas', keys: ['fusion zero'], name: 'Fusion Energy Zero (lata 250ml)', kcal: 5 },
+      { cat: 'bebidas', keys: ['fusion'], name: 'Fusion Energy Drink Normal (lata 250ml)', kcal: 112 },
+      { cat: 'bebidas', keys: ['gatorade zero', 'powerade zero', 'isotonico zero'], name: 'Gatorade / Powerade Zero (garrafa 500ml)', kcal: 0 },
+      { cat: 'bebidas', keys: ['gatorade', 'powerade', 'isotonico', 'isotônico'], name: 'Gatorade / Powerade Normal (garrafa 500ml)', kcal: 120 },
+
+      // --- Sucos, Chás Gelados, Cafés, Lácteos & Outros (Normal & Zero) ---
+      { cat: 'bebidas', keys: ['del valle zero', 'suco zero', 'suco light', 'kapo zero', 'ades zero'], name: 'Suco / Néctar Zero ou Light (caixa 200ml)', kcal: 10 },
+      { cat: 'bebidas', keys: ['del valle', 'kapo', 'suco de caixinha', 'suco', 'suco de laranja', 'suco de uva'], name: 'Suco / Néctar Del Valle / Kapo Normal (200ml)', kcal: 95 },
+      { cat: 'bebidas', keys: ['suco integral', 'suco de uva integral'], name: 'Suco de uva integral sem açúcar (copo 200ml)', kcal: 128 },
+      { cat: 'bebidas', keys: ['agua de coco', 'água de coco'], name: 'Água de coco (caixa/copo 200ml)', kcal: 40 },
+      { cat: 'bebidas', keys: ['mate leao zero', 'leao zero', 'cha zero', 'chá zero', 'ice tea zero', 'lipton zero'], name: 'Chá Gelado / Matte Leão / Lipton Zero (340ml)', kcal: 0 },
+      { cat: 'bebidas', keys: ['mate leao', 'matte leao', 'cha gelado', 'chá gelado', 'ice tea', 'lipton'], name: 'Chá Gelado / Matte Leão / Lipton Normal (340ml)', kcal: 85 },
+      { cat: 'bebidas', keys: ['guaravita zero', 'guaraviton zero'], name: 'Guaravita / Guaraviton Zero (copo/garrafa)', kcal: 0 },
+      { cat: 'bebidas', keys: ['guaravita', 'guaraviton'], name: 'Guaravita / Guaraviton Normal (290ml)', kcal: 115 },
+      { cat: 'bebidas', keys: ['cafe sem acucar', 'café sem açúcar', 'cafe preto', 'café preto'], name: 'Café preto sem açúcar (xícara 150ml)', kcal: 3 },
+      { cat: 'bebidas', keys: ['cafe com acucar', 'café com açúcar', 'cafe', 'café'], name: 'Café com açúcar (xícara 150ml)', kcal: 45 },
+      { cat: 'bebidas', keys: ['cappuccino zero', 'capuccino zero'], name: 'Cappuccino Zero Açúcar (xícara 150ml)', kcal: 55 },
+      { cat: 'bebidas', keys: ['cappuccino', 'capuccino'], name: 'Cappuccino tradicional (xícara 150ml)', kcal: 95 },
+      { cat: 'bebidas', keys: ['toddy', 'nescau', 'achocolatado', 'toddynho'], name: 'Achocolatado Toddynho / Nescau (caixinha 200ml)', kcal: 185 },
+      { cat: 'bebidas', keys: ['leite', 'copo de leite', 'leite integral'], name: 'Leite integral (copo 200ml)', kcal: 120 },
+      { cat: 'bebidas', keys: ['leite desnatado'], name: 'Leite desnatado (copo 200ml)', kcal: 70 },
+      { cat: 'bebidas', keys: ['yakult'], name: 'Leite fermentado Yakult / Chamyto (1 frasco - 80g)', kcal: 51 },
+      { cat: 'bebidas', keys: ['iogurte zero', 'danone zero'], name: 'Iogurte Zero Açúcar (garrafinha 170g)', kcal: 65 },
+      { cat: 'bebidas', keys: ['iogurte', 'danone'], name: 'Iogurte tradicional (garrafinha 170g)', kcal: 135 },
+      { cat: 'bebidas', keys: ['cerveja zero', 'cerveja sem alcool', 'heineken zero', 'brahma zero', 'budweiser zero'], name: 'Cerveja Zero Álcool (lata 350ml)', kcal: 55 },
+      { cat: 'bebidas', keys: ['cerveja', 'cerveja lata', 'heineken', 'brahma', 'skol', 'amstel'], name: 'Cerveja pilsen normal (lata 350ml)', kcal: 150 }
+    ];
+
+    const QUICK_CHIPS_BY_CAT = {
+      refeicoes: [
+        { label: 'Arroz (150g)', kcal: 195 },
+        { label: 'Feijão (1 concha)', kcal: 76 },
+        { label: 'Frango (150g)', kcal: 240 },
+        { label: 'Bife (120g)', kcal: 250 },
+        { label: 'Carne Moída (150g)', kcal: 285 },
+        { label: 'Peixe (150g)', kcal: 210 },
+        { label: 'Ovo Cozido (1 un)', kcal: 75 },
+        { label: 'Ovo Frito (1 un)', kcal: 105 },
+        { label: 'Batata AirFryer (150g)', kcal: 140 },
+        { label: 'Batata Frita (150g)', kcal: 410 },
+        { label: 'Macarrão (150g)', kcal: 210 },
+        { label: 'Lasanha (1 fatia)', kcal: 310 },
+        { label: 'Strogonoff (200g)', kcal: 340 },
+        { label: 'Miojo (1 pct)', kcal: 375 },
+        { label: 'Hambúrguer Cong.', kcal: 210 },
+        { label: 'Nuggets (6 un)', kcal: 315 },
+        { label: 'Salsicha (1 un)', kcal: 130 },
+        { label: 'Pizza (1 fatia)', kcal: 290 },
+        { label: 'Coxinha (1 un)', kcal: 260 },
+        { label: 'Pão Francês (1 un)', kcal: 135 },
+        { label: 'Pão de Queijo (1 un)', kcal: 95 }
+      ],
+      frutas: [
+        { label: 'Banana (1 un)', kcal: 90 },
+        { label: 'Maçã (1 un)', kcal: 75 },
+        { label: 'Laranja (1 un)', kcal: 62 },
+        { label: 'Mamão (1/2 un)', kcal: 65 },
+        { label: 'Melancia (1 fatia)', kcal: 60 },
+        { label: 'Abacaxi (1 fatia)', kcal: 50 },
+        { label: 'Morango (10 un)', kcal: 38 },
+        { label: 'Uva (100g)', kcal: 70 },
+        { label: 'Manga (1/2 un)', kcal: 75 },
+        { label: 'Pera (1 un)', kcal: 85 },
+        { label: 'Goiaba (1 un)', kcal: 95 },
+        { label: 'Kiwi (1 un)', kcal: 46 },
+        { label: 'Tangerina (1 un)', kcal: 50 }
+      ],
+      doces: [
+        { label: 'Crunch (80g)', kcal: 429 },
+        { label: 'Diamante Negro (90g)', kcal: 477 },
+        { label: 'Laka (80g)', kcal: 425 },
+        { label: 'Shot (80g)', kcal: 435 },
+        { label: 'KitKat (41,5g)', kcal: 218 },
+        { label: 'Snickers (45g)', kcal: 218 },
+        { label: 'Twix (40g)', kcal: 198 },
+        { label: 'M&Ms (45g)', kcal: 215 },
+        { label: 'Bis Caixa (100g)', kcal: 536 },
+        { label: 'Bis Xtra (45g)', kcal: 235 },
+        { label: 'Alpino (85g)', kcal: 448 },
+        { label: 'Galak (80g)', kcal: 432 },
+        { label: 'Prestígio (80g)', kcal: 384 },
+        { label: 'Suflair (50g)', kcal: 265 },
+        { label: 'Talento (85g)', kcal: 465 },
+        { label: 'Baton (16g)', kcal: 86 },
+        { label: 'Kinder Bueno', kcal: 246 },
+        { label: 'Sonho de Valsa', kcal: 103 },
+        { label: 'Ouro Branco', kcal: 112 },
+        { label: 'Oreo/Bono (4 un)', kcal: 190 },
+        { label: 'Brigadeiro (1 un)', kcal: 75 },
+        { label: 'Paçoca (1 un)', kcal: 95 },
+        { label: 'Pudim (1 fatia)', kcal: 220 },
+        { label: 'Bolo Choc. (1 fatia)', kcal: 280 },
+        { label: 'Pipoca Micro. (pct)', kcal: 440 },
+        { label: 'Pipoca Light (pct)', kcal: 320 }
+      ],
+      bebidas: [
+        { label: 'Coca Zero Lata', kcal: 0 },
+        { label: 'Coca Normal Lata', kcal: 149 },
+        { label: 'Guaraná Zero Lata', kcal: 0 },
+        { label: 'Guaraná Normal Lata', kcal: 140 },
+        { label: 'Pepsi Black Zero', kcal: 0 },
+        { label: 'Pepsi Normal Lata', kcal: 147 },
+        { label: 'Sprite Zero Lata', kcal: 0 },
+        { label: 'Sprite Normal Lata', kcal: 147 },
+        { label: 'Fanta Laranja Zero', kcal: 0 },
+        { label: 'Fanta Laranja Normal', kcal: 161 },
+        { label: 'Fanta Uva Zero', kcal: 0 },
+        { label: 'Fanta Uva Normal', kcal: 175 },
+        { label: 'Kuat Zero Lata', kcal: 0 },
+        { label: 'Kuat Normal Lata', kcal: 142 },
+        { label: 'Dolly Zero Lata', kcal: 0 },
+        { label: 'Dolly Normal Lata', kcal: 140 },
+        { label: 'Sukita Zero Lata', kcal: 0 },
+        { label: 'Sukita Normal Lata', kcal: 155 },
+        { label: 'Tubaína Zero Lata', kcal: 0 },
+        { label: 'Tubaína Normal Lata', kcal: 148 },
+        { label: 'Soda Zero Lata', kcal: 0 },
+        { label: 'Soda Normal Lata', kcal: 145 },
+        { label: 'Schweppes Zero', kcal: 0 },
+        { label: 'Schweppes Normal', kcal: 136 },
+        { label: 'Tônica Zero Lata', kcal: 0 },
+        { label: 'Tônica Normal Lata', kcal: 126 },
+        { label: 'H2OH! Zero (500ml)', kcal: 0 },
+        { label: 'Monster Zero', kcal: 15 },
+        { label: 'Monster Normal', kcal: 220 },
+        { label: 'Red Bull Zero', kcal: 8 },
+        { label: 'Red Bull Normal', kcal: 112 },
+        { label: 'TNT Zero', kcal: 5 },
+        { label: 'TNT Normal', kcal: 121 },
+        { label: 'Baly Zero', kcal: 5 },
+        { label: 'Baly Normal', kcal: 115 },
+        { label: 'Gatorade Zero', kcal: 0 },
+        { label: 'Gatorade Normal', kcal: 120 },
+        { label: 'Del Valle Zero', kcal: 10 },
+        { label: 'Del Valle Normal', kcal: 95 },
+        { label: 'Matte Leão Zero', kcal: 0 },
+        { label: 'Matte Leão Normal', kcal: 85 },
+        { label: 'Café s/ açúcar', kcal: 3 }
+      ]
+    };
+
+    const MONTHS_PT = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+    const WEEKDAYS_PT = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+
+    function dateToKey(d) {
+      return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+    }
+
+    function keyToDate(key) {
+      const [y, m, d] = key.split('-').map(Number);
+      return new Date(y, m - 1, d);
+    }
+
+    function getTodayKey() {
+      return dateToKey(new Date());
+    }
+
+    let state = {
+      goal: 2300,
+      waterGoalMl: 3500,
+      startWeightKg: 160.0,
+      weightLogs: [
+        { id: 'init-160', date: getTodayKey(), weight: 160.0, label: 'Peso Inicial' }
+      ],
+      history: {}
+    };
+
+    let selectedDateKey = getTodayKey();
+    let activeCategory = 'refeicoes';
+    let isArchiveOpen = false;
+
+    function loadState() {
+      try {
+        const v6 = localStorage.getItem('saldo_calorico_v6');
+        const v5 = localStorage.getItem('saldo_calorico_v5');
+        const v2 = localStorage.getItem('saldo_calorico_v2');
+        const rawSource = v6 || v5 || v2;
+        if (rawSource) {
+          const parsed = JSON.parse(rawSource);
+          state.goal = parsed.goal || 2300;
+          state.waterGoalMl = parsed.waterGoalMl || 3500;
+          state.startWeightKg = typeof parsed.startWeightKg === 'number' ? parsed.startWeightKg : 160.0;
+          state.weightLogs = Array.isArray(parsed.weightLogs) && parsed.weightLogs.length > 0
+            ? parsed.weightLogs
+            : [{ id: 'init-160', date: getTodayKey(), weight: state.startWeightKg, label: 'Peso Inicial' }];
+          state.history = parsed.history || {};
+          if (!v6) saveState();
+        }
+      } catch (e) {}
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem('saldo_calorico_v6', JSON.stringify(state));
+      } catch (e) {}
+    }
+
+    function selectCategory(cat) {
+      activeCategory = cat;
+      document.querySelectorAll('.cat-tab').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.cat === cat);
+      });
+      document.getElementById('catHint').innerHTML =
+        `Categoria ativa: <strong>${CATEGORIES[cat].icon} ${CATEGORIES[cat].label}</strong>. Digite calorias ou o nome do item, ou toque nos atalhos:`;
+      renderChips();
+    }
+
+    const ACT_META = {
+      caminhada: { label: 'Caminhada', icon: '🚶', perKgKm: 0.65 },
+      corrida: { label: 'Corrida', icon: '🏃', perKgKm: 1.03 },
+      bicicleta: { label: 'Bicicleta', icon: '🚴', perKgKm: 0.35 }
+    };
+
+    function getCurrentWeightForCalc() {
+      if (state.weightLogs && state.weightLogs.length > 0) return state.weightLogs[0].weight;
+      return state.startWeightKg || 160.0;
+    }
+
+    function addActivityEntry() {
+      const type = document.getElementById('actTypeSelect').value;
+      const kmVal = parseFloat(String(document.getElementById('actKmInput').value).replace(',', '.'));
+      if (isNaN(kmVal) || kmVal <= 0 || kmVal > 300) {
+        alert('Digite uma distância em km válida (ex: 1.5 ou 2)');
+        return;
+      }
+      const cleanKm = Math.round(kmVal * 10) / 10;
+      const meta = ACT_META[type] || ACT_META.caminhada;
+      const kcal = Math.round(cleanKm * getCurrentWeightForCalc() * meta.perKgKm);
+      if (!state.history[selectedDateKey]) {
+        state.history[selectedDateKey] = { goal: state.goal, items: [], activities: [], waterMl: 0 };
+      }
+      if (!Array.isArray(state.history[selectedDateKey].activities)) {
+        state.history[selectedDateKey].activities = [];
+      }
+      const now = new Date();
+      const time = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
+      state.history[selectedDateKey].activities.unshift({
+        id: Date.now() + Math.random(),
+        type,
+        name: `${meta.icon} ${meta.label} (${cleanKm.toFixed(1).replace('.', ',')} km)`,
+        km: cleanKm,
+        kcal,
+        time
+      });
+      document.getElementById('actKmInput').value = '';
+      saveState();
+      render();
+    }
+
+    function removeActivityEntry(id) {
+      const dData = state.history[selectedDateKey];
+      if (!dData || !Array.isArray(dData.activities)) return;
+      dData.activities = dData.activities.filter(a => a.id !== id);
+      saveState();
+      render();
+    }
+
+    function renderActivitiesSection(activities) {
+      const list = Array.isArray(activities) ? activities : [];
+      const totalKm = list.reduce((s, a) => s + (a.km || 0), 0);
+      const totalKcal = list.reduce((s, a) => s + (a.kcal || 0), 0);
+      document.getElementById('activitySummaryText').textContent =
+        `${(Math.round(totalKm * 10) / 10).toFixed(1).replace('.', ',')} km • +${totalKcal} kcal`;
+      const ul = document.getElementById('activityList');
+      if (list.length === 0) {
+        ul.innerHTML = '<li class="empty-msg" style="padding:6px 0;font-size:0.8rem;">Nenhuma atividade registrada neste dia.</li>';
+        return;
+      }
+      ul.innerHTML = list.map(a => `
+        <li class="act-item">
+          <div>
+            <strong>${a.name}</strong><br>
+            <small style="color:var(--muted);font-size:0.72rem;">Registrado às ${a.time}</small>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="color:#c084fc;font-weight:700;">+${a.kcal} kcal</span>
+            <button class="btn-del" onclick="removeActivityEntry(${a.id})">×</button>
+          </div>
+        </li>
+      `).join('');
+    }
+
+    function getDayData(key) {
+      if (!state.history[key]) {
+        return { goal: state.goal, items: [], waterMl: 0 };
+      }
+      if (typeof state.history[key].waterMl !== 'number') {
+        state.history[key].waterMl = 0;
+      }
+      if (!Array.isArray(state.history[key].activities)) {
+        state.history[key].activities = [];
+      }
+      return state.history[key];
+    }
+
+    function addWater(ml) {
+      if (!state.history[selectedDateKey]) {
+        state.history[selectedDateKey] = { goal: state.goal, items: [], waterMl: 0 };
+      }
+      const cur = state.history[selectedDateKey].waterMl || 0;
+      state.history[selectedDateKey].waterMl = Math.max(0, cur + ml);
+      saveState();
+      render();
+    }
+
+    function removeLastWater() {
+      if (!state.history[selectedDateKey]) return;
+      const cur = state.history[selectedDateKey].waterMl || 0;
+      state.history[selectedDateKey].waterMl = Math.max(0, cur - 250);
+      saveState();
+      render();
+    }
+
+    function formatLiters(ml) {
+      const liters = (ml / 1000).toFixed(2).replace('.', ',');
+      return `${liters} L (${ml} ml)`;
+    }
+
+    function saveWeightEntry() {
+      const input = document.getElementById('weightInput');
+      const raw = parseFloat(String(input.value).replace(',', '.'));
+      if (isNaN(raw) || raw <= 0 || raw > 400) {
+        alert('Digite um peso válido em kg (ex: 158.5)');
+        return;
+      }
+      const rounded = Math.round(raw * 10) / 10;
+      const now = new Date();
+      const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+      state.weightLogs.unshift({
+        id: Date.now() + Math.random(),
+        date: selectedDateKey,
+        time: timeStr,
+        weight: rounded,
+        label: 'Atualização'
+      });
+      input.value = '';
+      saveState();
+      renderWeight();
+    }
+
+    function deleteWeightLog(id) {
+      if (id === 'init-160') {
+        alert('O registro inicial de 160,0 kg é sua referência base.');
+        return;
+      }
+      state.weightLogs = state.weightLogs.filter(w => w.id !== id);
+      if (state.weightLogs.length === 0) {
+        state.weightLogs = [{ id: 'init-160', date: getTodayKey(), weight: state.startWeightKg, label: 'Peso Inicial' }];
+      }
+      saveState();
+      renderWeight();
+    }
+
+    function renderWeight() {
+      const startW = state.startWeightKg || 160.0;
+      const latestW = state.weightLogs.length > 0 ? state.weightLogs[0].weight : startW;
+      const diff = Math.round((latestW - startW) * 10) / 10;
+
+      document.getElementById('startWeightVal').textContent = `${startW.toFixed(1).replace('.', ',')} kg`;
+      document.getElementById('currentWeightVal').textContent = `${latestW.toFixed(1).replace('.', ',')} kg`;
+
+      const diffSign = diff > 0 ? `+${diff.toFixed(1).replace('.', ',')}` : diff.toFixed(1).replace('.', ',');
+      document.getElementById('deltaWeightVal').textContent = `${diffSign} kg`;
+
+      const badge = document.getElementById('weightDiffBadge');
+      badge.classList.remove('gain');
+      if (diff < 0) {
+        badge.textContent = `${Math.abs(diff).toFixed(1).replace('.', ',')} kg eliminados`;
+      } else if (diff > 0) {
+        badge.classList.add('gain');
+        badge.textContent = `+${diff.toFixed(1).replace('.', ',')} kg acima do início`;
+      } else {
+        badge.textContent = `Início: ${startW.toFixed(1).replace('.', ',')} kg`;
+      }
+
+      const listEl = document.getElementById('weightHistoryList');
+      const recent = state.weightLogs.slice(0, 4);
+      listEl.innerHTML = recent.map(log => {
+        const d = keyToDate(log.date);
+        const dateFmt = `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}`;
+        const timePart = log.time ? ` às ${log.time}` : '';
+        const delBtn = log.id === 'init-160' ? '' : `<button class="btn-del" style="width:24px;height:24px;font-size:0.85rem;" onclick="deleteWeightLog(${log.id})">×</button>`;
+        return `
+          <div class="w-log-item">
+            <span><strong>${log.weight.toFixed(1).replace('.', ',')} kg</strong> <small style="color:var(--muted);">• ${dateFmt}${timePart} (${log.label || 'Registro'})</small></span>
+            ${delBtn}
+          </div>
+        `;
+      }).join('');
+    }
+
+    function normalizeText(str) {
+      return str.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").trim();
+    }
+
+    function parseInput(raw) {
+      const clean = raw.trim();
+      if (!clean) return null;
+
+      if (/^\d+([.,]\d+)?$/.test(clean)) {
+        const val = Math.round(parseFloat(clean.replace(',', '.')));
+        return { name: 'Registro manual', kcal: val, cat: activeCategory };
+      }
+
+      const matchEnd = clean.match(/^(.+?)\s+(\d+)\s*(?:kcal|cal)?$/i);
+      if (matchEnd) {
+        return { name: matchEnd[1].trim(), kcal: parseInt(matchEnd[2], 10), cat: activeCategory };
+      }
+      const matchStart = clean.match(/^(\d+)\s*(?:kcal|cal)?\s+(.+)$/i);
+      if (matchStart) {
+        return { name: matchStart[2].trim(), kcal: parseInt(matchStart[1], 10), cat: activeCategory };
+      }
+
+      const norm = normalizeText(clean);
+      let mult = 1;
+      let query = norm;
+      const multMatch = norm.match(/^(\d+)\s*x?\s+(.+)$/);
+      if (multMatch) {
+        mult = parseInt(multMatch[1], 10);
+        query = multMatch[2];
+      }
+
+      let bestMatch = null;
+      let bestLen = 0;
+
+      for (const entry of FOOD_DB) {
+        for (const k of entry.keys) {
+          const nk = normalizeText(k);
+          if (query === nk || query.includes(nk)) {
+            if (nk.length > bestLen) {
+              bestLen = nk.length;
+              bestMatch = entry;
+            }
+          }
+        }
+      }
+
+      if (bestMatch) {
+        const label = mult > 1 ? `${mult}x ${bestMatch.name}` : bestMatch.name;
+        return { name: label, kcal: bestMatch.kcal * mult, cat: bestMatch.cat || activeCategory };
+      }
+
+      return { unknown: true, text: clean, cat: activeCategory };
+    }
+
+    function addEntry(name, kcal, cat) {
+      if (!state.history[selectedDateKey]) {
+        state.history[selectedDateKey] = { goal: state.goal, items: [], waterMl: 0 };
+      }
+      const now = new Date();
+      const time = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
+      state.history[selectedDateKey].items.unshift({
+        id: Date.now() + Math.random(),
+        name,
+        kcal,
+        cat: cat || activeCategory,
+        time
+      });
+      saveState();
+      render();
+    }
+
+    function handleAdd() {
+      const input = document.getElementById('foodInput');
+      const parsed = parseInput(input.value);
+      if (!parsed) return;
+
+      if (parsed.unknown) {
+        const manual = prompt(`Não encontrei "${parsed.text}" na lista. Quantas calorias (kcal) ele tem?`);
+        if (manual && !isNaN(parseInt(manual, 10))) {
+          addEntry(parsed.text, parseInt(manual, 10), parsed.cat);
+          input.value = '';
+        }
+        return;
+      }
+
+      addEntry(parsed.name, parsed.kcal, parsed.cat);
+      input.value = '';
+    }
+
+    function removeItem(id) {
+      if (!state.history[selectedDateKey]) return;
+      state.history[selectedDateKey].items = state.history[selectedDateKey].items.filter(item => item.id !== id);
+      saveState();
+      render();
+    }
+
+    function clearSelectedDay() {
+      const dayData = getDayData(selectedDateKey);
+      if (dayData.items.length === 0 && (!dayData.waterMl || dayData.waterMl === 0)) return;
+      if (confirm('Deseja zerar os registros de comida e água deste dia?')) {
+        state.history[selectedDateKey].items = [];
+        state.history[selectedDateKey].waterMl = 0;
+        saveState();
+        render();
+      }
+    }
+
+    function changeDay(offset) {
+      const d = keyToDate(selectedDateKey);
+      d.setDate(d.getDate() + offset);
+      const nextKey = dateToKey(d);
+      if (nextKey > getTodayKey()) return;
+      selectedDateKey = nextKey;
+      render();
+    }
+
+    function goToToday() {
+      selectedDateKey = getTodayKey();
+      render();
+    }
+
+    function openDateFromArchive(key) {
+      selectedDateKey = key;
+      isArchiveOpen = false;
+      updateViewVisibility();
+      render();
+    }
+
+    function toggleArchiveView() {
+      isArchiveOpen = !isArchiveOpen;
+      updateViewVisibility();
+      if (isArchiveOpen) {
+        populateMonthSelector();
+        renderArchive();
+      } else {
+        render();
+      }
+    }
+
+    function updateViewVisibility() {
+      const daily = document.getElementById('dailyView');
+      const archive = document.getElementById('archiveView');
+      const btn = document.getElementById('btnToggleHistory');
+      if (isArchiveOpen) {
+        daily.style.display = 'none';
+        archive.classList.add('open');
+        btn.classList.add('active');
+        btn.textContent = '◀ Voltar';
+      } else {
+        daily.style.display = 'flex';
+        archive.classList.remove('open');
+        btn.classList.remove('active');
+        btn.textContent = '📅 Meses';
+      }
+    }
+
+    function populateMonthSelector() {
+      const select = document.getElementById('monthSelect');
+      const monthSet = new Set([getTodayKey().slice(0, 7)]);
+      Object.keys(state.history).forEach(k => monthSet.add(k.slice(0, 7)));
+      const sortedMonths = Array.from(monthSet).sort().reverse();
+
+      select.innerHTML = sortedMonths.map(ym => {
+        const [y, m] = ym.split('-').map(Number);
+        return `<option value="${ym}">${MONTHS_PT[m - 1]} ${y}</option>`;
+      }).join('');
+    }
+
+    function renderArchive() {
+      const ym = document.getElementById('monthSelect').value;
+      const keys = Object.keys(state.history)
+        .filter(k => k.startsWith(ym) && ((state.history[k].items && state.history[k].items.length > 0) || (state.history[k].waterMl && state.history[k].waterMl > 0)))
+        .sort()
+        .reverse();
+
+      let totalConsumed = 0;
+      let totalGoal = 0;
+
+      keys.forEach(k => {
+        const dData = state.history[k];
+        const daySum = dData.items.reduce((s, i) => s + i.kcal, 0);
+        totalConsumed += daySum;
+        totalGoal += (dData.goal || state.goal);
+      });
+
+      const daysCount = keys.length;
+      const avgKcal = daysCount > 0 ? Math.round(totalConsumed / daysCount) : 0;
+      const netBalance = totalGoal - totalConsumed;
+
+      document.getElementById('monthDaysCount').textContent = `${daysCount} ${daysCount === 1 ? 'dia' : 'dias'}`;
+      document.getElementById('monthAvgKcal').textContent = `${avgKcal} kcal`;
+      document.getElementById('monthTotalKcal').textContent = `${totalConsumed} kcal`;
+
+      const netEl = document.getElementById('monthNetBalance');
+      netEl.textContent = (netBalance >= 0 ? `+${netBalance}` : `${netBalance}`) + ' kcal';
+      netEl.style.color = netBalance >= 0 ? '#10b981' : '#ef4444';
+
+      const listEl = document.getElementById('monthDaysList');
+      if (daysCount === 0) {
+        listEl.innerHTML = '<li class="empty-msg">Nenhum registro salvo neste mês ainda.</li>';
+        return;
+      }
+
+      listEl.innerHTML = keys.map(k => {
+        const d = keyToDate(k);
+        const dData = state.history[k];
+        const daySum = dData.items.reduce((s, i) => s + i.kcal, 0);
+        const dayGoal = dData.goal || state.goal;
+        const diff = dayGoal - daySum;
+        const dateStr = `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')} (${WEEKDAYS_PT[d.getDay()]})`;
+
+        return `
+          <li class="day-row" onclick="openDateFromArchive('${k}')">
+            <div class="day-row-left">
+              <strong>${dateStr}</strong>
+              <span>${dData.items.length} ${dData.items.length === 1 ? 'item' : 'itens'} • 💧 ${((dData.waterMl || 0) / 1000).toFixed(2).replace('.', ',')} L • Meta: ${dayGoal} kcal</span>
+            </div>
+            <div class="day-row-right">
+              <strong style="font-size:0.95rem;">${daySum} kcal</strong>
+              <span class="${diff >= 0 ? 'badge-ok' : 'badge-over'}">
+                ${diff >= 0 ? `Sobrou ${diff} kcal` : `Passou ${Math.abs(diff)} kcal`}
+              </span>
+            </div>
+          </li>
+        `;
+      }).join('');
+    }
+
+    function openGoalModal() { document.getElementById('goalModal').classList.add('open'); }
+    function closeGoalModal() { document.getElementById('goalModal').classList.remove('open'); }
+    function openWaterModal() { document.getElementById('waterModal').classList.add('open'); }
+    function closeWaterModal() { document.getElementById('waterModal').classList.remove('open'); }
+
+    function setGoal(val) {
+      state.goal = val;
+      if (state.history[selectedDateKey]) {
+        state.history[selectedDateKey].goal = val;
+      }
+      saveState();
+      render();
+      closeGoalModal();
+    }
+
+    function saveCustomGoal() {
+      const val = parseInt(document.getElementById('customGoalInput').value, 10);
+      if (val && val > 0) {
+        setGoal(val);
+        document.getElementById('customGoalInput').value = '';
+      }
+    }
+
+    function setWaterGoal(ml) {
+      state.waterGoalMl = ml;
+      saveState();
+      render();
+      closeWaterModal();
+    }
+
+    function saveCustomWaterGoal() {
+      const val = parseInt(document.getElementById('customWaterGoalInput').value, 10);
+      if (val && val >= 500) {
+        setWaterGoal(val);
+        document.getElementById('customWaterGoalInput').value = '';
+      }
+    }
+
+    function renderChips() {
+      const container = document.getElementById('quickChips');
+      const chips = QUICK_CHIPS_BY_CAT[activeCategory] || [];
+      container.innerHTML = chips.map(c =>
+        `<button class="chip" onclick="addEntry('${c.label}', ${c.kcal}, '${activeCategory}')">${c.label} <span>+${c.kcal}</span></button>`
+      ).join('');
+    }
+
+    function formatFriendlyDate(key) {
+      const todayKey = getTodayKey();
+      const d = keyToDate(key);
+      const ddmm = `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}/${d.getFullYear()}`;
+      if (key === todayKey) {
+        return { title: `Hoje • ${ddmm.slice(0, 5)}`, sub: `${WEEKDAYS_PT[d.getDay()]} (Dia atual)` };
+      }
+      return { title: `${WEEKDAYS_PT[d.getDay()]} • ${ddmm}`, sub: 'Toque aqui para voltar a Hoje' };
+    }
+
+    function renderGroupedHistory(items) {
+      const container = document.getElementById('groupedHistoryContainer');
+      if (!items || items.length === 0) {
+        container.innerHTML = '<div class="empty-msg">Nenhum item registrado nesta data.</div>';
+        return;
+      }
+
+      const order = ['refeicoes', 'frutas', 'doces', 'bebidas'];
+      let html = '';
+
+      order.forEach(catKey => {
+        const catItems = items.filter(i => (i.cat || 'refeicoes') === catKey);
+        if (catItems.length === 0) return;
+        const catSum = catItems.reduce((acc, i) => acc + i.kcal, 0);
+        const metaCat = CATEGORIES[catKey];
+
+        html += `
+          <div class="group-section">
+            <div class="group-title">
+              <span>${metaCat.icon} ${metaCat.label}</span>
+              <span>${catSum} kcal</span>
+            </div>
+            <ul class="history-list">
+              ${catItems.map(item => `
+                <li class="history-item">
+                  <div class="item-info">
+                    <span class="item-name">${item.name}</span>
+                    <span class="item-time">Registrado às ${item.time}</span>
+                  </div>
+                  <div class="item-actions">
+                    <span class="item-kcal">-${item.kcal} kcal</span>
+                    <button class="btn-del" onclick="removeItem(${item.id})">×</button>
+                  </div>
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    function render() {
+      const todayKey = getTodayKey();
+      const info = formatFriendlyDate(selectedDateKey);
+      document.getElementById('selectedDateLabel').textContent = info.title;
+      document.getElementById('selectedDateSub').textContent = info.sub;
+      document.getElementById('listDateLabel').textContent = selectedDateKey === todayKey ? 'Hoje' : info.title.split('•')[1].trim();
+      document.getElementById('btnNextDay').disabled = (selectedDateKey >= todayKey);
+
+      const dayData = getDayData(selectedDateKey);
+      const activeGoal = dayData.goal || state.goal;
+
+      document.getElementById('headerGoal').textContent = activeGoal;
+      document.getElementById('goalKcal').textContent = activeGoal + ' kcal';
+      document.getElementById('balanceTitle').textContent = selectedDateKey === todayKey
+        ? 'Você ainda pode comer hoje'
+        : 'Saldo deste dia';
+
+      const activitiesBurn = (dayData.activities || []).reduce((acc, a) => acc + (a.kcal || 0), 0);
+      const consumed = dayData.items.reduce((acc, item) => acc + item.kcal, 0);
+      const remaining = (activeGoal + activitiesBurn) - consumed;
+
+      const waterMl = dayData.waterMl || 0;
+      const waterGoalMl = state.waterGoalMl || 3500;
+      const waterGoalL = (waterGoalMl / 1000).toFixed(2).replace('.', ',');
+      const waterPct = Math.min(100, Math.round((waterMl / waterGoalMl) * 100));
+
+      document.getElementById('waterLitersText').textContent = formatLiters(waterMl);
+      document.getElementById('waterGoalText').textContent = `Meta diária: ${waterGoalL} L (${waterPct}%)`;
+      document.getElementById('waterBar').style.width = Math.min(100, (waterMl / waterGoalMl) * 100) + '%';
+
+      document.getElementById('consumedKcal').textContent = consumed + ' kcal';
+      const remEl = document.getElementById('remainingKcal');
+      remEl.textContent = remaining;
+
+      remEl.classList.remove('warning', 'danger');
+      const bar = document.getElementById('progressBar');
+      const pct = Math.min(100, Math.max(0, (consumed / activeGoal) * 100));
+      bar.style.width = pct + '%';
+
+      if (remaining < 0) {
+        remEl.classList.add('danger');
+        bar.style.backgroundColor = '#ef4444';
+      } else if (remaining <= activeGoal * 0.2) {
+        remEl.classList.add('warning');
+        bar.style.backgroundColor = '#f59e0b';
+      } else {
+        bar.style.backgroundColor = '#10b981';
+      }
+
+      renderActivitiesSection(dayData.activities);
+      renderGroupedHistory(dayData.items);
+      renderWeight();
+    }
+
+    document.getElementById('foodInput').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') handleAdd();
+    });
+
+    loadState();
+    selectCategory(activeCategory);
+    render();
+  </script>
+</body>
+</html>
