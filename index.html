@@ -2,17 +2,18 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#10b981">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Bleick">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmdHcmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzBmMTcyYSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwNjVmNDYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJHcmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzM0ZDM5OSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxMGI5ODEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTEyIiBmaWxsPSJ1cmwoI2JnR3JhZCkiLz4KICA8Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjE3NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTBiOTgxIiBzdHJva2Utb3BhY2l0eT0iMC4yMiIgc3Ryb2tlLXdpZHRoPSIxMCIvPgogIDxwYXRoIGQ9Ik0xNzAgMTE2IEgyOTIgQzM0NiAxMTYgMzgyIDE0NiAzODIgMTkwIEMzODIgMjIyIDM2MiAyNDQgMzMyIDI1MiBDMzY4IDI2MCAzOTIgMjg2IDM5MiAzMjQgQzM5MiAzNzAgMzUyIDM5NiAyOTIgMzk2IEgxNzAgWiBNMjI4IDE2NCBWMjMwIEgyODYgQzMxMiAyMzAgMzI2IDIxNiAzMjYgMTk3IEMzMjYgMTc4IDMxMiAxNjQgMjg2IDE2NCBaIE0yMjggMjc2IFYzNDggSDI5MCBDMzE4IDM0OCAzMzQgMzM0IDMzNCAzMTIgQzMzNCAyOTAgMzE4IDI3NiAyOTAgMjc2IFoiIGZpbGw9InVybCgjYkdyYWQpIi8+Cjwvc3ZnPg==">
-  <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmdHcmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzBmMTcyYSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwNjVmNDYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJHcmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzM0ZDM5OSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxMGI5ODEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTEyIiBmaWxsPSJ1cmwoI2JnR3JhZCkiLz4KICA8Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjE3NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTBiOTgxIiBzdHJva2Utb3BhY2l0eT0iMC4yMiIgc3Ryb2tlLXdpZHRoPSIxMCIvPgogIDxwYXRoIGQ9Ik0xNzAgMTE2IEgyOTIgQzM0NiAxMTYgMzgyIDE0NiAzODIgMTkwIEMzODIgMjIyIDM2MiAyNDQgMzMyIDI1MiBDMzY4IDI2MCAzOTIgMjg2IDM5MiAzMjQgQzM5MiAzNzAgMzUyIDM5NiAyOTIgMzk2IEgxNzAgWiBNMjI4IDE2NCBWMjMwIEgyODYgQzMxMiAyMzAgMzI2IDIxNiAzMjYgMTk3IEMzMjYgMTc4IDMxMiAxNjQgMjg2IDE2NCBaIE0yMjggMjc2IFYzNDggSDI5MCBDMzE4IDM0OCAzMzQgMzM0IDMzNCAzMTIgQzMzNCAyOTAgMzE4IDI3NiAyOTAgMjc2IFoiIGZpbGw9InVybCgjYkdyYWQpIi8+Cjwvc3ZnPg==">
+  <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
+  <link rel="apple-touch-icon" href="./icon-192.png">
   <link rel="manifest" href="./manifest.json">
 
   <meta name="description" content="Bleick - Controle diário de saldo calórico, água, peso e atividades físicas.">
-  <title>Bleick v6.4</title>
+  <title>Bleick v7.1</title>
   <style>
     :root {
       --bg: #0f172a;
@@ -42,13 +43,24 @@
       justify-content: center;
       padding: 16px;
     }
+    button {
+      touch-action: manipulation;
+    }
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
     .app-container {
       width: 100%;
       max-width: 480px;
       display: flex;
       flex-direction: column;
       gap: 14px;
-      padding-bottom: 48px;
+      padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px));
     }
     header {
       display: flex;
@@ -601,6 +613,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 10px;
       background: var(--bg);
       padding: 10px 12px;
       border-radius: 10px;
@@ -610,10 +623,13 @@
       display: flex;
       flex-direction: column;
       gap: 2px;
+      min-width: 0;
+      flex: 1;
     }
     .item-name {
       font-size: 0.92rem;
       font-weight: 600;
+      overflow-wrap: anywhere;
     }
     .item-time {
       font-size: 0.73rem;
@@ -623,6 +639,8 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      flex-shrink: 0;
+      white-space: nowrap;
     }
     .item-kcal {
       font-weight: 700;
@@ -638,6 +656,7 @@
       border-radius: 8px;
       font-weight: bold;
       cursor: pointer;
+      flex-shrink: 0;
     }
     .empty-msg {
       text-align: center;
@@ -759,6 +778,9 @@
       padding: 20px;
       width: 100%;
       max-width: 400px;
+      max-height: 88vh;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
       display: flex;
       flex-direction: column;
       gap: 12px;
@@ -794,12 +816,60 @@
       color: var(--muted);
       line-height: 1.4;
     }
+    .toast {
+      position: fixed;
+      bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: #064e3b;
+      color: #ecfdf5;
+      border: 1px solid var(--primary);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      z-index: 100;
+      max-width: 92vw;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+      pointer-events: auto;
+    }
+    .toast.error {
+      background: #7f1d1d;
+      border-color: var(--danger);
+      color: #fef2f2;
+    }
+    .toast-text {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .toast-undo {
+      background: rgba(255,255,255,0.18);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.35);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
   </style>
 </head>
 <body>
   <div class="app-container">
     <header>
-      <h1><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmdHcmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzBmMTcyYSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwNjVmNDYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJHcmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzM0ZDM5OSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxMGI5ODEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTEyIiBmaWxsPSJ1cmwoI2JnR3JhZCkiLz4KICA8Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjE3NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTBiOTgxIiBzdHJva2Utb3BhY2l0eT0iMC4yMiIgc3Ryb2tlLXdpZHRoPSIxMCIvPgogIDxwYXRoIGQ9Ik0xNzAgMTE2IEgyOTIgQzM0NiAxMTYgMzgyIDE0NiAzODIgMTkwIEMzODIgMjIyIDM2MiAyNDQgMzMyIDI1MiBDMzY4IDI2MCAzOTIgMjg2IDM5MiAzMjQgQzM5MiAzNzAgMzUyIDM5NiAyOTIgMzk2IEgxNzAgWiBNMjI4IDE2NCBWMjMwIEgyODYgQzMxMiAyMzAgMzI2IDIxNiAzMjYgMTk3IEMzMjYgMTc4IDMxMiAxNjQgMjg2IDE2NCBaIE0yMjggMjc2IFYzNDggSDI5MCBDMzE4IDM0OCAzMzQgMzM0IDMzNCAzMTIgQzMzNCAyOTAgMzE4IDI3NiAyOTAgMjc2IFoiIGZpbGw9InVybCgjYkdyYWQpIi8+Cjwvc3ZnPg==" alt="Bleick" style="width:28px;height:28px;border-radius:8px;border:1px solid var(--border);"> Bleick <small style="font-size:0.72rem;color:var(--primary);font-weight:700;">v6.4</small></h1>
+      <h1><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmdHcmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzBmMTcyYSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwNjVmNDYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJHcmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzM0ZDM5OSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxMGI5ODEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTEyIiBmaWxsPSJ1cmwoI2JnR3JhZCkiLz4KICA8Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjE3NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTBiOTgxIiBzdHJva2Utb3BhY2l0eT0iMC4yMiIgc3Ryb2tlLXdpZHRoPSIxMCIvPgogIDxwYXRoIGQ9Ik0xNzAgMTE2IEgyOTIgQzM0NiAxMTYgMzgyIDE0NiAzODIgMTkwIEMzODIgMjIyIDM2MiAyNDQgMzMyIDI1MiBDMzY4IDI2MCAzOTIgMjg2IDM5MiAzMjQgQzM5MiAzNzAgMzUyIDM5NiAyOTIgMzk2IEgxNzAgWiBNMjI4IDE2NCBWMjMwIEgyODYgQzMxMiAyMzAgMzI2IDIxNiAzMjYgMTk3IEMzMjYgMTc4IDMxMiAxNjQgMjg2IDE2NCBaIE0yMjggMjc2IFYzNDggSDI5MCBDMzE4IDM0OCAzMzQgMzM0IDMzNCAzMTIgQzMzNCAyOTAgMzE4IDI3NiAyOTAgMjc2IFoiIGZpbGw9InVybCgjYkdyYWQpIi8+Cjwvc3ZnPg==" alt="Bleick" style="width:28px;height:28px;border-radius:8px;border:1px solid var(--border);"> Bleick <small style="font-size:0.72rem;color:var(--primary);font-weight:700;">v7.1</small></h1>
       <div class="header-actions">
         <button class="btn-top" id="btnToggleHistory" onclick="toggleArchiveView()">📅 Meses</button>
         <button class="btn-top" onclick="openGoalModal()">Meta: <span id="headerGoal">2300</span></button>
@@ -840,7 +910,7 @@
         </div>
 
         <div class="input-group">
-          <input type="text" id="foodInput" placeholder="Ex: 350, 2 ovos, coca zero, tubaina..." autocomplete="off">
+          <input type="text" id="foodInput" placeholder="Ex: 350, 2 ovos, picanha 300g, coca zero..." autocomplete="off">
           <button class="btn-add" onclick="handleAdd()">+</button>
         </div>
         <div class="hint" id="catHint">Categoria ativa: <strong>🍽️ Almoço e Jantar</strong>. Digite calorias ou o nome do item, ou toque nos atalhos:</div>
@@ -860,7 +930,7 @@
             <option value="corrida">🏃 Corrida</option>
             <option value="bicicleta">🚴 Bicicleta</option>
           </select>
-          <input type="number" step="0.1" min="0.1" id="actKmInput" class="activity-km-input" placeholder="km (ex: 2)">
+          <input type="number" inputmode="decimal" step="0.01" min="0.05" max="300" id="actKmInput" class="activity-km-input" placeholder="km (ex: 2)">
           <button class="btn-act-add" onclick="addActivityEntry()">+ Add</button>
         </div>
         <ul class="act-list" id="activityList"></ul>
@@ -909,7 +979,7 @@
         </div>
         <div class="weight-auto-box" id="weightAutoSummary">
           <div class="weight-auto-row">
-            <span>Efeito do dia selecionado:</span>
+            <span id="dayWeightEffectLabel">Projeção de hoje:</span>
             <strong id="dayWeightEffect">0,000 kg (0 kcal)</strong>
           </div>
           <div class="weight-auto-row">
@@ -919,7 +989,7 @@
           <small style="color:var(--muted);font-size:0.72rem;">Atualiza automaticamente todo dia: comer acima do gasto aumenta o peso (~1 kg a cada 7.700 kcal extras) e comer abaixo reduz.</small>
         </div>
         <div class="weight-input-row">
-          <input type="number" step="0.1" id="weightInput" placeholder="Calibrar com balança (ex: 158.4)">
+          <input type="number" inputmode="decimal" step="0.1" min="30" max="400" id="weightInput" placeholder="Calibrar com balança (ex: 158.4)">
           <button class="btn-weight-save" onclick="saveWeightEntry()">Calibrar Balança</button>
         </div>
         <div class="weight-history-mini" id="weightHistoryList"></div>
@@ -971,7 +1041,7 @@
   </div>
 
   <!-- MODAL META CALORIAS -->
-  <div class="modal-backdrop" id="goalModal">
+  <div class="modal-backdrop" id="goalModal" onclick="if(event.target===this)closeGoalModal()">
     <div class="modal">
       <h3>Configurar Meta Diária de Calorias</h3>
       <p class="hint">Baseado no seu perfil (28 anos, 1,80m, 160kg ~3.200 kcal/dia):</p>
@@ -992,7 +1062,7 @@
         <small>Mantém o peso atual estável</small>
       </button>
       <div class="modal-footer">
-        <input type="number" id="customGoalInput" placeholder="Outro valor (ex: 2400)">
+        <input type="number" inputmode="numeric" min="500" max="15000" id="customGoalInput" placeholder="Outro valor (ex: 2400)">
         <button class="btn-add" onclick="saveCustomGoal()">Salvar</button>
       </div>
       <div style="border-top:1px solid var(--border);padding-top:10px;margin-top:2px;display:flex;flex-direction:column;gap:8px;">
@@ -1008,7 +1078,7 @@
   </div>
 
   <!-- MODAL META ÁGUA -->
-  <div class="modal-backdrop" id="waterModal">
+  <div class="modal-backdrop" id="waterModal" onclick="if(event.target===this)closeWaterModal()">
     <div class="modal">
       <h3>Meta Diária de Água</h3>
       <p class="hint">Escolha ou digite sua meta diária de água:</p>
@@ -1025,17 +1095,22 @@
         <small>Alta hidratação diária</small>
       </button>
       <div class="modal-footer">
-        <input type="number" id="customWaterGoalInput" placeholder="Em ml (ex: 3000)">
+        <input type="number" inputmode="numeric" min="500" max="15000" id="customWaterGoalInput" placeholder="Em ml (ex: 3000)">
         <button class="btn-add" onclick="saveCustomWaterGoal()">Salvar</button>
       </div>
       <button class="btn-top" style="width:100%; margin-top:4px; padding:10px;" onclick="closeWaterModal()">Fechar</button>
     </div>
   </div>
 
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
   <script>
+    let _swReg = null;
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js').catch(() => {});
+        navigator.serviceWorker.register('./sw.js').then((reg) => {
+          _swReg = reg;
+        }).catch(() => {});
       });
     }
 
@@ -1050,7 +1125,7 @@
       // ==================== NOVAS ADIÇÕES (v6.4) ====================
       { cat: 'refeicoes', keys: ['picanha assada', 'picanha na brasa', 'picanha grelhada', 'picanha'], name: 'Picanha assada / grelhada (150g)', kcal: 360 },
       { cat: 'refeicoes', keys: ['costelinha de porco assada', 'costelinha de porco', 'custelinha de porco', 'custelinhas de porco', 'costelinha suina', 'costelinha suína', 'costelinha'], name: 'Costelinha de porco assada (150g)', kcal: 425 },
-      { cat: 'refeicoes', keys: ['pao frances', 'pão francês', 'pao de sal', 'pão de sal', 'media', 'cacetinho'], name: 'Pão francês (1 unidade - 50g)', kcal: 135 },
+      { cat: 'refeicoes', keys: ['pao frances', 'pão francês', 'pao de sal', 'pão de sal', 'pao media', 'cacetinho', 'pao', 'pão'], name: 'Pão francês (1 unidade - 50g)', kcal: 135 },
       { cat: 'refeicoes', keys: ['pao de hamburguer', 'pão de hambúrguer', 'pao hamburguer', 'pão hambúrguer', 'pao de burger', 'pao brioche'], name: 'Pão de hambúrguer tradicional (1 unidade - 70g)', kcal: 195 },
       { cat: 'refeicoes', keys: ['farofa por colher', 'colher de farofa', 'colher farofa', 'farofa colher', 'farofa'], name: 'Farofa tradicional (1 colher de sopa - 15g)', kcal: 60 },
       { cat: 'refeicoes', keys: ['manteiga por colher', 'colher de manteiga', 'colher manteiga', 'manteiga colher', 'manteiga', 'margarina'], name: 'Manteiga / margarina (1 colher de chá cheia - 10g)', kcal: 72 },
@@ -1087,7 +1162,7 @@
       { cat: 'refeicoes', keys: ['peixe frito', 'tilapia frita'], name: 'Filé de peixe frito/empanado (150g)', kcal: 340 },
       { cat: 'refeicoes', keys: ['salmao', 'salmão'], name: 'Salmão grelhado (150g)', kcal: 312 },
       { cat: 'refeicoes', keys: ['sardinha', 'atum'], name: 'Atum ou sardinha em lata (1 lata - 120g)', kcal: 190 },
-      { cat: 'refeicoes', keys: ['batata airfryer', 'batata na airfryer'], name: 'Batata na AirFryer (150g)', kcal: 140 },
+      { cat: 'refeicoes', keys: ['batata', 'batata cozida', 'batata assada', 'batata airfryer', 'batata na airfryer'], name: 'Batata cozida / AirFryer (150g)', kcal: 140 },
       { cat: 'refeicoes', keys: ['batata frita', 'fritas'], name: 'Batata frita (porção 150g)', kcal: 410 },
       { cat: 'refeicoes', keys: ['pure de batata', 'purê de batata', 'pure', 'purê'], name: 'Purê de batata (150g)', kcal: 170 },
       { cat: 'refeicoes', keys: ['batata doce'], name: 'Batata-doce cozida/assada (150g)', kcal: 130 },
@@ -1125,39 +1200,41 @@
       { cat: 'refeicoes', keys: ['kibe', 'quibe'], name: 'Quibe frito médio (1 un - 90g)', kcal: 225 },
       { cat: 'refeicoes', keys: ['empada', 'empadao', 'empadão'], name: 'Empada média (1 un - 80g)', kcal: 230 },
       { cat: 'refeicoes', keys: ['joelho', 'enroladinho', 'salgado assado'], name: 'Salgado assado presunto e queijo (1 un - 120g)', kcal: 310 },
-      { cat: 'refeicoes', keys: ['pao', 'pão', 'pao frances', 'pão francês'], name: 'Pão francês (1 un - 50g)', kcal: 135 },
       { cat: 'refeicoes', keys: ['pao de forma', 'pão de forma'], name: 'Pão de forma (2 fatias - 50g)', kcal: 125 },
-      { cat: 'refeicoes', keys: ['misto quente'], name: 'Misto quente (pão + queijo + presunto)', kcal: 290 },
+      { cat: 'refeicoes', keys: ['misto quente', 'sanduiche', 'sanduíche', 'lanche natural'], name: 'Misto quente / Sanduíche (pão + queijo + presunto)', kcal: 290 },
       { cat: 'refeicoes', keys: ['pao de queijo', 'pão de queijo'], name: 'Pão de queijo médio (1 un - 30g)', kcal: 95 },
       { cat: 'refeicoes', keys: ['tapioca'], name: 'Tapioca simples (100g)', kcal: 140 },
       { cat: 'refeicoes', keys: ['cuscuz'], name: 'Cuscuz de milho (150g)', kcal: 170 },
-      { cat: 'refeicoes', keys: ['queijo mussarela', 'mussarela', 'queijo prato'], name: 'Queijo mussarela / prato (2 fatias - 40g)', kcal: 130 },
+      { cat: 'refeicoes', keys: ['queijo', 'queijo mussarela', 'mussarela', 'queijo prato'], name: 'Queijo mussarela / prato (2 fatias - 40g)', kcal: 130 },
       { cat: 'refeicoes', keys: ['presunto'], name: 'Presunto cozido (2 fatias - 40g)', kcal: 48 },
       { cat: 'refeicoes', keys: ['requeijao', 'requeijão'], name: 'Requeijão cremoso (1 colher sopa - 30g)', kcal: 78 },
       
-      { cat: 'refeicoes', keys: ['prato feito', 'almoco', 'almoço', 'jantar'], name: 'Refeição (Arroz + Feijão + Carne/Frango)', kcal: 550 },
+      { cat: 'refeicoes', keys: ['prato feito', 'marmita', 'marmitex', 'almoco', 'almoço', 'jantar'], name: 'Refeição / Marmita (Arroz + Feijão + Carne/Frango)', kcal: 550 },
 
       // ==================== FRUTAS ====================
-      { cat: 'frutas', keys: ['banana', 'banana prata', 'banana nanica'], name: 'Banana (1 unidade)', kcal: 90 },
-      { cat: 'frutas', keys: ['maca', 'maçã'], name: 'Maçã (1 unidade)', kcal: 75 },
-      { cat: 'frutas', keys: ['laranja'], name: 'Laranja (1 unidade)', kcal: 62 },
-      { cat: 'frutas', keys: ['mamao', 'mamão'], name: 'Mamão papaia (1/2 unidade)', kcal: 65 },
+      { cat: 'frutas', keys: ['castanha do para', 'castanha-do-para', 'castanha do pará', 'castanha-do-pará'], name: 'Castanha-do-Pará (1 unidade - 5g)', kcal: 33 },
+      { cat: 'frutas', keys: ['castanha de caju', 'castanha caju', 'castanha'], name: 'Castanha de caju torrada (punhado - 30g)', kcal: 172 },
+      { cat: 'frutas', keys: ['amendoim', 'amendoim torrado'], name: 'Amendoim torrado (punhado - 30g)', kcal: 176 },
+      { cat: 'frutas', keys: ['banana', 'banana prata', 'banana nanica'], name: 'Banana (1 un - 100g)', kcal: 90 },
+      { cat: 'frutas', keys: ['maca', 'maçã'], name: 'Maçã (1 un - 130g)', kcal: 75 },
+      { cat: 'frutas', keys: ['laranja'], name: 'Laranja (1 un - 140g)', kcal: 62 },
+      { cat: 'frutas', keys: ['mamao', 'mamão'], name: 'Mamão papaia (1/2 un - 150g)', kcal: 65 },
       { cat: 'frutas', keys: ['melancia'], name: 'Melancia (1 fatia média - 200g)', kcal: 60 },
       { cat: 'frutas', keys: ['abacaxi'], name: 'Abacaxi (1 fatia - 100g)', kcal: 50 },
       { cat: 'frutas', keys: ['morango'], name: 'Morango (10 unidades - 120g)', kcal: 38 },
       { cat: 'frutas', keys: ['uva'], name: 'Uva (1 cacho pequeno - 100g)', kcal: 70 },
-      { cat: 'frutas', keys: ['manga'], name: 'Manga (1/2 unidade)', kcal: 75 },
-      { cat: 'frutas', keys: ['pera', 'pêra'], name: 'Pera (1 unidade)', kcal: 85 },
+      { cat: 'frutas', keys: ['manga'], name: 'Manga (1/2 un - 125g)', kcal: 75 },
+      { cat: 'frutas', keys: ['pera', 'pêra'], name: 'Pera (1 un - 150g)', kcal: 85 },
       { cat: 'frutas', keys: ['goiaba'], name: 'Goiaba (1 unidade - 150g)', kcal: 95 },
-      { cat: 'frutas', keys: ['kiwi', 'kiuí'], name: 'Kiwi (1 unidade)', kcal: 46 },
+      { cat: 'frutas', keys: ['kiwi', 'kiuí'], name: 'Kiwi (1 un - 75g)', kcal: 46 },
       { cat: 'frutas', keys: ['melao', 'melão'], name: 'Melão (1 fatia - 150g)', kcal: 44 },
       { cat: 'frutas', keys: ['acerola'], name: 'Acerola (100g)', kcal: 33 },
       { cat: 'frutas', keys: ['maracuja', 'maracujá'], name: 'Maracujá (1 unidade)', kcal: 68 },
       { cat: 'frutas', keys: ['abacate'], name: 'Abacate (100g)', kcal: 160 },
-      { cat: 'frutas', keys: ['tangerina', 'mexerica', 'bergamota'], name: 'Tangerina/mexerica (1 unidade)', kcal: 50 },
-      { cat: 'frutas', keys: ['pessego', 'pêssego'], name: 'Pêssego (1 unidade)', kcal: 45 },
+      { cat: 'frutas', keys: ['tangerina', 'mexerica', 'bergamota'], name: 'Tangerina/mexerica (1 un - 110g)', kcal: 50 },
+      { cat: 'frutas', keys: ['pessego', 'pêssego'], name: 'Pêssego (1 un - 110g)', kcal: 45 },
       { cat: 'frutas', keys: ['ameixa'], name: 'Ameixa fresca (2 unidades)', kcal: 48 },
-      { cat: 'frutas', keys: ['caqui'], name: 'Caqui (1 unidade)', kcal: 80 },
+      { cat: 'frutas', keys: ['caqui'], name: 'Caqui (1 un - 115g)', kcal: 80 },
 
       // ==================== DOCES ====================
       { cat: 'doces', keys: ['crunch', 'barra crunch', 'chocolate crunch'], name: 'Barra Crunch (80g)', kcal: 429 },
@@ -1173,7 +1250,7 @@
       { cat: 'doces', keys: ['charge'], name: 'Barra Charge (40g)', kcal: 184 },
       { cat: 'doces', keys: ['chokito'], name: 'Chokito (1 un - 32g)', kcal: 141 },
       { cat: 'doces', keys: ['suflair'], name: 'Barra Suflair (50g)', kcal: 265 },
-      { cat: 'doces', keys: ['classic', 'nestle classic'], name: 'Barra Nestlé Classic ao Leite (80g)', kcal: 426 },
+      { cat: 'doces', keys: ['chocolate', 'barra de chocolate', 'classic', 'nestle classic'], name: 'Chocolate ao Leite / Nestlé Classic (barra 80g)', kcal: 426 },
       { cat: 'doces', keys: ['sensacao', 'sensação'], name: 'Barra Sensação (80g)', kcal: 390 },
       { cat: 'doces', keys: ['talento'], name: 'Barra Garoto Talento (85g)', kcal: 465 },
       { cat: 'doces', keys: ['baton'], name: 'Chocolate Baton Garoto (1 un - 16g)', kcal: 86 },
@@ -1197,7 +1274,7 @@
       { cat: 'doces', keys: ['ferrero rocher', 'ferrero'], name: 'Ferrero Rocher (1 un - 12,5g)', kcal: 73 },
       { cat: 'doces', keys: ['raffaello'], name: 'Raffaello (1 un - 10g)', kcal: 62 },
       { cat: 'doces', keys: ['nutella'], name: 'Nutella (1 colher de sopa cheia - 20g)', kcal: 108 },
-      { cat: 'doces', keys: ['oreo', 'bolacha recheada', 'biscoito recheado', 'negresco', 'trakinas', 'passatempo', 'bono'], name: 'Biscoito recheado Oreo/Negresco/Bono/Trakinas (4 un - ~40g)', kcal: 190 },
+      { cat: 'doces', keys: ['oreo', 'biscoito', 'bolacha', 'bolacha recheada', 'biscoito recheado', 'negresco', 'trakinas', 'passatempo', 'bono'], name: 'Biscoito recheado Oreo/Negresco/Bono/Trakinas (4 un - ~40g)', kcal: 190 },
       { cat: 'doces', keys: ['wafer', 'biscolata', 'bauducco wafer'], name: 'Biscoito Wafer chocolate/morango (4 un - 30g)', kcal: 155 },
       { cat: 'doces', keys: ['cookie', 'cookies', 'toddy cookie'], name: 'Cookies com gotas de chocolate (4 un - 40g)', kcal: 195 },
       { cat: 'doces', keys: ['pao de mel', 'pão de mel'], name: 'Pão de mel coberto com chocolate (1 un - 50g)', kcal: 205 },
@@ -1226,7 +1303,7 @@
       // ==================== BEBIDAS (NORMAL E ZERO - TODAS AS MARCAS DO BRASIL) ====================
       // --- Refrigerantes de Cola ---
       { cat: 'bebidas', keys: ['coca zero', 'coca cola zero', 'coca-cola zero', 'coca zero lata'], name: 'Coca-Cola Zero Açúcar (lata 350ml)', kcal: 0 },
-      { cat: 'bebidas', keys: ['coca cola', 'coca-cola', 'coca normal', 'coca lata'], name: 'Coca-Cola Original Normal (lata 350ml)', kcal: 149 },
+      { cat: 'bebidas', keys: ['coca', 'coca cola', 'coca-cola', 'coca normal', 'coca lata'], name: 'Coca-Cola Original Normal (lata 350ml)', kcal: 149 },
       { cat: 'bebidas', keys: ['pepsi black', 'pepsi zero', 'pepsi black lata'], name: 'Pepsi Black Zero Açúcar (lata 350ml)', kcal: 0 },
       { cat: 'bebidas', keys: ['pepsi twist zero'], name: 'Pepsi Twist Zero (lata 350ml)', kcal: 0 },
       { cat: 'bebidas', keys: ['pepsi twist'], name: 'Pepsi Twist Normal (lata 350ml)', kcal: 147 },
@@ -1279,7 +1356,7 @@
       { cat: 'bebidas', keys: ['grapette zero'], name: 'Grapette Uva Zero (lata 350ml)', kcal: 0 },
       { cat: 'bebidas', keys: ['grapette'], name: 'Grapette Uva Normal (lata 350ml)', kcal: 168 },
       { cat: 'bebidas', keys: ['refrigerante zero', 'refri zero'], name: 'Refrigerante Zero genérico (lata 350ml)', kcal: 0 },
-      { cat: 'bebidas', keys: ['refrigerante normal', 'refri normal', 'refrigerante lata'], name: 'Refrigerante Normal genérico (lata 350ml)', kcal: 150 },
+      { cat: 'bebidas', keys: ['refrigerante', 'refri', 'refrigerante normal', 'refri normal', 'refrigerante lata'], name: 'Refrigerante Normal genérico (lata 350ml)', kcal: 150 },
 
       // --- Energéticos e Isotônicos (Normal & Zero) ---
       { cat: 'bebidas', keys: ['monster zero', 'monster ultra', 'monster mango loco zero', 'energetico zero'], name: 'Monster Zero Açúcar / Ultra (lata 473ml)', kcal: 15 },
@@ -1442,11 +1519,22 @@
     const MONTHS_PT = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
     const WEEKDAYS_PT = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
 
+    const DATE_KEY_RE = /^\d{4}-\d{2}-\d{2}$/;
+
+    function isValidDateKey(key) {
+      if (typeof key !== 'string' || !DATE_KEY_RE.test(key)) return false;
+      const [y, m, d] = key.split('-').map(Number);
+      if (m < 1 || m > 12 || d < 1 || d > 31) return false;
+      const dt = new Date(y, m - 1, d);
+      return dt.getFullYear() === y && dt.getMonth() === m - 1 && dt.getDate() === d;
+    }
+
     function dateToKey(d) {
       return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
     }
 
     function keyToDate(key) {
+      if (!isValidDateKey(key)) return new Date();
       const [y, m, d] = key.split('-').map(Number);
       return new Date(y, m - 1, d);
     }
@@ -1468,6 +1556,160 @@
     let selectedDateKey = getTodayKey();
     let activeCategory = 'refeicoes';
     let isArchiveOpen = false;
+    let showAllWeightLogs = false;
+    let stateVersion = 0;
+
+    function genId() {
+      return 'id_' + Date.now().toString(36) + '_' + Math.floor(Math.random() * 1e6).toString(36);
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function normalizeText(str) {
+      return String(str).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+    }
+
+    // Pre-index FOOD_DB once at startup with reference gram/ml parsing for proportional scaling
+    const INDEXED_FOOD_DB = FOOD_DB.map((entry, idx) => {
+      const um = entry.name.match(/(\d+(?:[.,]\d+)?)\s*(g|ml)\b/i);
+      const refAmount = um ? parseFloat(um[1].replace(',', '.')) : null;
+      const refUnit = um ? um[2].toLowerCase() : null;
+      const baseName = entry.name.replace(/\s*\([^)]*\)\s*$/, '').trim();
+      return {
+        ...entry,
+        _idx: idx,
+        _normName: normalizeText(entry.name),
+        _normKeys: entry.keys.map(k => normalizeText(k)),
+        _refAmount: refAmount,
+        _refUnit: refUnit,
+        _baseName: baseName || entry.name
+      };
+    });
+
+    let _toastTimer = null;
+    let _undoCallback = null;
+    function showToast(msg, options = {}) {
+      const el = document.getElementById('toast');
+      if (!el) return;
+      _undoCallback = typeof options.onUndo === 'function' ? options.onUndo : null;
+      el.classList.toggle('error', Boolean(options.error));
+      el.innerHTML = `<span class="toast-text">${escapeHtml(msg)}</span>` +
+        (_undoCallback ? `<button type="button" class="toast-undo" id="toastUndoBtn">Desfazer</button>` : '');
+      el.classList.add('show');
+      clearTimeout(_toastTimer);
+      const duration = _undoCallback ? 4200 : 2200;
+      _toastTimer = setTimeout(() => {
+        el.classList.remove('show');
+        _undoCallback = null;
+      }, duration);
+    }
+
+    function dayHasData(d) {
+      if (!d || typeof d !== 'object') return false;
+      const hasItems = Array.isArray(d.items) && d.items.length > 0;
+      const hasActs = Array.isArray(d.activities) && d.activities.length > 0;
+      const hasWater = typeof d.waterMl === 'number' && d.waterMl > 0;
+      return hasItems || hasActs || hasWater;
+    }
+
+    function pruneEmptyDay(key) {
+      if (state.history[key] && !dayHasData(state.history[key])) {
+        delete state.history[key];
+      }
+    }
+
+    function ensureDayData(key) {
+      if (!state.history[key]) {
+        state.history[key] = { goal: state.goal, items: [], activities: [], waterMl: 0 };
+      } else {
+        if (!Array.isArray(state.history[key].items)) state.history[key].items = [];
+        if (!Array.isArray(state.history[key].activities)) state.history[key].activities = [];
+        if (typeof state.history[key].waterMl !== 'number' || isNaN(state.history[key].waterMl)) {
+          state.history[key].waterMl = 0;
+        }
+      }
+      return state.history[key];
+    }
+
+    function getDayData(key) {
+      if (!state.history[key]) {
+        return { goal: state.goal, items: [], activities: [], waterMl: 0 };
+      }
+      return ensureDayData(key);
+    }
+
+    function sanitizeLoadedState(parsed) {
+      const clean = {
+        goal: Number(parsed.goal) >= 500 && Number(parsed.goal) <= 15000 ? Math.round(Number(parsed.goal)) : 2300,
+        waterGoalMl: Number(parsed.waterGoalMl) >= 500 && Number(parsed.waterGoalMl) <= 15000 ? Math.round(Number(parsed.waterGoalMl)) : 3500,
+        startWeightKg: typeof parsed.startWeightKg === 'number' && parsed.startWeightKg >= 30 && parsed.startWeightKg <= 400 ? parsed.startWeightKg : 160.0,
+        weightLogs: [],
+        history: {}
+      };
+
+      if (Array.isArray(parsed.weightLogs)) {
+        clean.weightLogs = parsed.weightLogs
+          .filter(w => w && isValidDateKey(w.date) && typeof w.weight === 'number' && w.weight > 0 && w.weight <= 400)
+          .map(w => ({
+            id: w.id !== undefined ? w.id : genId(),
+            date: w.date,
+            time: typeof w.time === 'string' ? w.time : '',
+            weight: Math.round(w.weight * 10) / 10,
+            label: typeof w.label === 'string' ? w.label : 'Balança'
+          }));
+      }
+      if (clean.weightLogs.length === 0) {
+        clean.weightLogs = [{ id: 'init-160', date: getTodayKey(), weight: clean.startWeightKg, label: 'Peso Inicial' }];
+      } else {
+        clean.weightLogs.sort((a, b) => {
+          const cmp = String(b.date || '').localeCompare(String(a.date || ''));
+          if (cmp !== 0) return cmp;
+          if (String(a.id) === 'init-160') return 1;
+          if (String(b.id) === 'init-160') return -1;
+          return String(b.time || '').localeCompare(String(a.time || ''));
+        });
+      }
+
+      if (parsed.history && typeof parsed.history === 'object') {
+        Object.keys(parsed.history).forEach(k => {
+          if (!isValidDateKey(k)) return;
+          const d = parsed.history[k];
+          if (!d || typeof d !== 'object') return;
+          const items = Array.isArray(d.items)
+            ? d.items.filter(i => i && typeof i.name === 'string' && !isNaN(Number(i.kcal))).map(i => ({
+                id: i.id !== undefined ? i.id : genId(),
+                name: i.name,
+                kcal: Math.max(0, Math.round(Number(i.kcal))),
+                cat: CATEGORIES[i.cat] ? i.cat : 'refeicoes',
+                time: typeof i.time === 'string' ? i.time : ''
+              }))
+            : [];
+          const activities = Array.isArray(d.activities)
+            ? d.activities.filter(a => a && !isNaN(Number(a.kcal))).map(a => ({
+                id: a.id !== undefined ? a.id : genId(),
+                type: a.type || 'caminhada',
+                name: typeof a.name === 'string' ? a.name : 'Atividade',
+                km: Number(a.km) > 0 ? Number(a.km) : 0,
+                kcal: Math.max(0, Math.round(Number(a.kcal))),
+                time: typeof a.time === 'string' ? a.time : ''
+              }))
+            : [];
+          const waterMl = typeof d.waterMl === 'number' && d.waterMl > 0 ? Math.round(d.waterMl) : 0;
+          const goal = Number(d.goal) >= 500 && Number(d.goal) <= 15000 ? Math.round(Number(d.goal)) : clean.goal;
+          if (items.length > 0 || activities.length > 0 || waterMl > 0) {
+            clean.history[k] = { goal, items, activities, waterMl };
+          }
+        });
+      }
+      return clean;
+    }
 
     function loadState() {
       try {
@@ -1477,22 +1719,20 @@
         const rawSource = v6 || v5 || v2;
         if (rawSource) {
           const parsed = JSON.parse(rawSource);
-          state.goal = parsed.goal || 2300;
-          state.waterGoalMl = parsed.waterGoalMl || 3500;
-          state.startWeightKg = typeof parsed.startWeightKg === 'number' ? parsed.startWeightKg : 160.0;
-          state.weightLogs = Array.isArray(parsed.weightLogs) && parsed.weightLogs.length > 0
-            ? parsed.weightLogs
-            : [{ id: 'init-160', date: getTodayKey(), weight: state.startWeightKg, label: 'Peso Inicial' }];
-          state.history = parsed.history || {};
+          state = sanitizeLoadedState(parsed);
           if (!v6) saveState();
         }
       } catch (e) {}
+      stateVersion++;
     }
 
     function saveState() {
+      stateVersion++;
       try {
         localStorage.setItem('saldo_calorico_v6', JSON.stringify(state));
-      } catch (e) {}
+      } catch (e) {
+        showToast('⚠️ Espaço cheio no dispositivo: faça um backup!', { error: true });
+      }
     }
 
     function selectCategory(cat) {
@@ -1502,7 +1742,7 @@
       });
       document.getElementById('catHint').innerHTML =
         `Categoria ativa: <strong>${CATEGORIES[cat].icon} ${CATEGORIES[cat].label}</strong>. Digite calorias ou o nome do item, ou toque nos atalhos:`;
-      renderChips();
+      renderChips(document.getElementById('foodInput').value);
     }
 
     const ACT_META = {
@@ -1514,45 +1754,45 @@
     const KCAL_PER_KG = 7700;
 
     function getDailyMaintenanceKcal(weightKg) {
-      // Mifflin-St Jeor for male, 28y, 180cm + light daily movement factor (1.35)
-      // At 160 kg: (10*160 + 6.25*180 - 5*28 + 5) * 1.35 = 2590 * 1.35 ≈ 3496, or proportional to 3200 kcal baseline at 160kg
       const w = weightKg || state.startWeightKg || 160.0;
       return Math.round(3200 * (w / 160.0));
     }
 
+    // O(1) memoization keyed by stateVersion + selectedDateKey + todayKey
     let _cachedTimeline = null;
-    let _cachedTimelineSig = '';
+    let _cachedTimelineKey = '';
 
     function computeAutoWeightTimeline() {
-      const sig = JSON.stringify({
-        s: state.startWeightKg,
-        w: state.weightLogs,
-        h: state.history,
-        d: selectedDateKey,
-        t: getTodayKey()
-      });
-      if (_cachedTimeline && _cachedTimelineSig === sig) {
+      const todayKey = getTodayKey();
+      const cacheKey = `${stateVersion}|${selectedDateKey}|${todayKey}`;
+      if (_cachedTimeline && _cachedTimelineKey === cacheKey) {
         return _cachedTimeline;
       }
 
       const startW = state.startWeightKg || 160.0;
-      const todayKey = getTodayKey();
+      const chronoLogs = [...(state.weightLogs || [])]
+        .filter(l => l && isValidDateKey(l.date))
+        .reverse()
+        .sort((a, b) => a.date.localeCompare(b.date));
 
-      // Reverse a copy so chronological order puts older entries first and newer entries last on the same day
-      const chronoLogs = [...(state.weightLogs || [])].reverse().sort((a, b) => a.date.localeCompare(b.date));
       const firstLogDate = chronoLogs.length > 0 ? chronoLogs[0].date : todayKey;
 
       const allDates = new Set([todayKey, selectedDateKey, firstLogDate]);
-      Object.keys(state.history || {}).forEach(k => allDates.add(k));
+      Object.keys(state.history || {}).forEach(k => {
+        if (isValidDateKey(k) && dayHasData(state.history[k])) allDates.add(k);
+      });
       chronoLogs.forEach(l => allDates.add(l.date));
 
-      const minDateStr = Array.from(allDates).sort()[0];
+      const sortedDates = Array.from(allDates).sort();
+      const minDateStr = sortedDates[0];
       const maxDateStr = todayKey > selectedDateKey ? todayKey : selectedDateKey;
 
-      // Latest manual/scale entry on each date wins
+      // Only real scale calibrations anchor/reset the timeline; init-160 is just the starting reference
       const scaleByDate = {};
       chronoLogs.forEach(l => {
-        scaleByDate[l.date] = l.weight;
+        if (String(l.id) !== 'init-160') {
+          scaleByDate[l.date] = l.weight;
+        }
       });
 
       let runningWeight = scaleByDate[minDateStr] !== undefined ? scaleByDate[minDateStr] : startW;
@@ -1560,8 +1800,10 @@
 
       let cursor = keyToDate(minDateStr);
       const endDt = keyToDate(maxDateStr);
+      let guard = 0;
 
-      while (cursor <= endDt) {
+      while (cursor <= endDt && guard < 3660) {
+        guard++;
         const dKey = dateToKey(cursor);
         if (scaleByDate[dKey] !== undefined && dKey !== minDateStr) {
           runningWeight = scaleByDate[dKey];
@@ -1595,7 +1837,7 @@
       }
 
       _cachedTimeline = timeline;
-      _cachedTimelineSig = sig;
+      _cachedTimelineKey = cacheKey;
       return timeline;
     }
 
@@ -1608,49 +1850,63 @@
 
     function addActivityEntry() {
       const type = document.getElementById('actTypeSelect').value;
-      const kmVal = parseFloat(String(document.getElementById('actKmInput').value).replace(',', '.'));
+      const kmInput = document.getElementById('actKmInput');
+      const kmVal = parseFloat(String(kmInput.value).replace(',', '.'));
       if (isNaN(kmVal) || kmVal <= 0 || kmVal > 300) {
         alert('Digite uma distância em km válida (ex: 1.5 ou 2)');
         return;
       }
-      const cleanKm = Math.round(kmVal * 10) / 10;
+      const cleanKm = Math.round(kmVal * 100) / 100;
+      const kmFmt = Number.isInteger(cleanKm * 10) ? cleanKm.toFixed(1).replace('.', ',') : cleanKm.toFixed(2).replace('.', ',');
       const meta = ACT_META[type] || ACT_META.caminhada;
       const kcal = Math.round(cleanKm * getCurrentWeightForCalc() * meta.perKgKm);
-      if (!state.history[selectedDateKey]) {
-        state.history[selectedDateKey] = { goal: state.goal, items: [], activities: [], waterMl: 0 };
-      }
-      if (!Array.isArray(state.history[selectedDateKey].activities)) {
-        state.history[selectedDateKey].activities = [];
-      }
+      const dayObj = ensureDayData(selectedDateKey);
       const now = new Date();
       const time = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
-      state.history[selectedDateKey].activities.unshift({
-        id: Date.now() + Math.random(),
+      dayObj.activities.unshift({
+        id: genId(),
         type,
-        name: `${meta.icon} ${meta.label} (${cleanKm.toFixed(1).replace('.', ',')} km)`,
+        name: `${meta.icon} ${meta.label} (${kmFmt} km)`,
         km: cleanKm,
         kcal,
         time
       });
-      document.getElementById('actKmInput').value = '';
+      kmInput.value = '';
       saveState();
       render();
+      showToast(`✓ ${meta.label} +${kcal} kcal`);
     }
 
     function removeActivityEntry(id) {
       const dData = state.history[selectedDateKey];
       if (!dData || !Array.isArray(dData.activities)) return;
-      dData.activities = dData.activities.filter(a => a.id !== id);
+      const idx = dData.activities.findIndex(a => String(a.id) === String(id));
+      if (idx === -1) return;
+      const removed = dData.activities[idx];
+      const dateSnap = selectedDateKey;
+      dData.activities.splice(idx, 1);
+      pruneEmptyDay(dateSnap);
       saveState();
       render();
+      showToast(`Removido: ${removed.name}`, {
+        onUndo: () => {
+          const targetDay = ensureDayData(dateSnap);
+          targetDay.activities.splice(Math.min(idx, targetDay.activities.length), 0, removed);
+          saveState();
+          render();
+          showToast('Atividade restaurada');
+        }
+      });
     }
 
     function renderActivitiesSection(activities) {
       const list = Array.isArray(activities) ? activities : [];
       const totalKm = list.reduce((s, a) => s + (a.km || 0), 0);
       const totalKcal = list.reduce((s, a) => s + (a.kcal || 0), 0);
+      const roundedTotalKm = Math.round(totalKm * 100) / 100;
+      const totalKmFmt = Number.isInteger(roundedTotalKm * 10) ? roundedTotalKm.toFixed(1).replace('.', ',') : roundedTotalKm.toFixed(2).replace('.', ',');
       document.getElementById('activitySummaryText').textContent =
-        `${(Math.round(totalKm * 10) / 10).toFixed(1).replace('.', ',')} km • +${totalKcal} kcal`;
+        `${totalKmFmt} km • +${totalKcal} kcal`;
       const ul = document.getElementById('activityList');
       if (list.length === 0) {
         ul.innerHTML = '<li class="empty-msg" style="padding:6px 0;font-size:0.8rem;">Nenhuma atividade registrada neste dia.</li>';
@@ -1659,44 +1915,43 @@
       ul.innerHTML = list.map(a => `
         <li class="act-item">
           <div>
-            <strong>${a.name}</strong><br>
-            <small style="color:var(--muted);font-size:0.72rem;">Registrado às ${a.time}</small>
+            <strong>${escapeHtml(a.name)}</strong><br>
+            <small style="color:var(--muted);font-size:0.72rem;">Registrado às ${escapeHtml(a.time || '')}</small>
           </div>
           <div style="display:flex;align-items:center;gap:8px;">
             <span style="color:#c084fc;font-weight:700;">+${a.kcal} kcal</span>
-            <button class="btn-del" onclick="removeActivityEntry(${a.id})">×</button>
+            <button class="btn-del" data-del-act="${escapeHtml(String(a.id))}" aria-label="Remover atividade">×</button>
           </div>
         </li>
       `).join('');
     }
 
-    function getDayData(key) {
-      if (!state.history[key]) {
-        return { goal: state.goal, items: [], waterMl: 0 };
-      }
-      if (typeof state.history[key].waterMl !== 'number') {
-        state.history[key].waterMl = 0;
-      }
-      if (!Array.isArray(state.history[key].activities)) {
-        state.history[key].activities = [];
-      }
-      return state.history[key];
-    }
-
     function addWater(ml) {
-      if (!state.history[selectedDateKey]) {
-        state.history[selectedDateKey] = { goal: state.goal, items: [], waterMl: 0 };
-      }
-      const cur = state.history[selectedDateKey].waterMl || 0;
-      state.history[selectedDateKey].waterMl = Math.max(0, cur + ml);
+      const dateSnap = selectedDateKey;
+      const dayObj = ensureDayData(dateSnap);
+      const prevWater = dayObj.waterMl || 0;
+      dayObj.waterMl = Math.max(0, prevWater + ml);
       saveState();
       render();
+      const label = ml >= 1000 ? `${(ml / 1000).toFixed(1).replace('.', ',')} L` : `${ml} ml`;
+      showToast(`💧 +${label} de água`, {
+        onUndo: () => {
+          const targetDay = ensureDayData(dateSnap);
+          targetDay.waterMl = Math.max(0, prevWater);
+          pruneEmptyDay(dateSnap);
+          saveState();
+          render();
+          showToast('Água desfeita');
+        }
+      });
     }
 
     function removeLastWater() {
       if (!state.history[selectedDateKey]) return;
       const cur = state.history[selectedDateKey].waterMl || 0;
+      if (cur <= 0) return;
       state.history[selectedDateKey].waterMl = Math.max(0, cur - 250);
+      pruneEmptyDay(selectedDateKey);
       saveState();
       render();
     }
@@ -1706,39 +1961,64 @@
       return `${liters} L (${ml} ml)`;
     }
 
+    function sortWeightLogsDesc() {
+      if (!Array.isArray(state.weightLogs)) return;
+      state.weightLogs.sort((a, b) => {
+        const cmp = String(b.date || '').localeCompare(String(a.date || ''));
+        if (cmp !== 0) return cmp;
+        if (String(a.id) === 'init-160') return 1;
+        if (String(b.id) === 'init-160') return -1;
+        return String(b.time || '').localeCompare(String(a.time || ''));
+      });
+    }
+
     function saveWeightEntry() {
       const input = document.getElementById('weightInput');
       const raw = parseFloat(String(input.value).replace(',', '.'));
-      if (isNaN(raw) || raw <= 0 || raw > 400) {
-        alert('Digite um peso válido em kg (ex: 158.5)');
+      if (isNaN(raw) || raw < 30 || raw > 400) {
+        alert('Digite um peso válido entre 30 e 400 kg (ex: 158.5)');
         return;
       }
       const rounded = Math.round(raw * 10) / 10;
       const now = new Date();
       const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
       state.weightLogs.unshift({
-        id: Date.now() + Math.random(),
+        id: genId(),
         date: selectedDateKey,
         time: timeStr,
         weight: rounded,
-        label: 'Atualização'
+        label: 'Balança'
       });
+      sortWeightLogsDesc();
       input.value = '';
       saveState();
       render();
+      showToast(`⚖️ Peso calibrado: ${rounded.toFixed(1).replace('.', ',')} kg`);
     }
 
     function deleteWeightLog(id) {
-      if (id === 'init-160') {
+      if (String(id) === 'init-160') {
         alert('O registro inicial de 160,0 kg é sua referência base.');
         return;
       }
-      state.weightLogs = state.weightLogs.filter(w => w.id !== id);
+      const idx = state.weightLogs.findIndex(w => String(w.id) === String(id));
+      if (idx === -1) return;
+      const removed = state.weightLogs[idx];
+      state.weightLogs.splice(idx, 1);
       if (state.weightLogs.length === 0) {
         state.weightLogs = [{ id: 'init-160', date: getTodayKey(), weight: state.startWeightKg, label: 'Peso Inicial' }];
       }
       saveState();
       render();
+      showToast(`Pesagem de ${Number(removed.weight).toFixed(1).replace('.', ',')} kg removida`, {
+        onUndo: () => {
+          state.weightLogs.splice(Math.min(idx, state.weightLogs.length), 0, removed);
+          sortWeightLogsDesc();
+          saveState();
+          render();
+          showToast('Pesagem restaurada');
+        }
+      });
     }
 
     function renderWeight() {
@@ -1773,9 +2053,12 @@
         badge.textContent = `Início: ${startW.toFixed(1).replace('.', ',')} kg`;
       }
 
-      // Daily automatic impact details
+      const dayEffLabelEl = document.getElementById('dayWeightEffectLabel');
       const dayEffEl = document.getElementById('dayWeightEffect');
       const dayTdeeEl = document.getElementById('dayTdeeRef');
+      if (dayEffLabelEl) {
+        dayEffLabelEl.textContent = selectedDateKey === todayKey ? 'Projeção de hoje:' : 'Efeito do dia:';
+      }
       if (dayEffEl && dayTdeeEl) {
         dayTdeeEl.textContent = `${activeDayInfo.totalBurn.toLocaleString('pt-BR')} kcal/dia`;
         if (!activeDayInfo.hasActivityOrFood) {
@@ -1792,72 +2075,178 @@
       }
 
       const listEl = document.getElementById('weightHistoryList');
-      const recent = state.weightLogs.slice(0, 4);
-      listEl.innerHTML = recent.map(log => {
+      const totalLogs = state.weightLogs.length;
+      const visibleLogs = showAllWeightLogs ? state.weightLogs : state.weightLogs.slice(0, 4);
+      let logsHtml = visibleLogs.map(log => {
         const d = keyToDate(log.date);
         const dateFmt = `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}`;
-        const timePart = log.time ? ` às ${log.time}` : '';
-        const delBtn = log.id === 'init-160' ? '' : `<button class="btn-del" style="width:24px;height:24px;font-size:0.85rem;" onclick="deleteWeightLog(${log.id})">×</button>`;
-        const tagLabel = log.id === 'init-160' ? 'Peso Inicial' : 'Balança';
+        const timePart = log.time ? ` às ${escapeHtml(log.time)}` : '';
+        const delBtn = String(log.id) === 'init-160'
+          ? ''
+          : `<button class="btn-del" style="width:24px;height:24px;font-size:0.85rem;" data-del-weight="${escapeHtml(String(log.id))}" aria-label="Remover pesagem">×</button>`;
+        const tagLabel = String(log.id) === 'init-160' ? 'Peso Inicial' : 'Balança';
         return `
           <div class="w-log-item">
-            <span><strong>${log.weight.toFixed(1).replace('.', ',')} kg</strong> <small style="color:var(--muted);">• ${dateFmt}${timePart} (${tagLabel})</small></span>
+            <span><strong>${Number(log.weight).toFixed(1).replace('.', ',')} kg</strong> <small style="color:var(--muted);">• ${dateFmt}${timePart} (${tagLabel})</small></span>
             ${delBtn}
           </div>
         `;
       }).join('');
+      if (totalLogs > 4) {
+        const toggleTxt = showAllWeightLogs ? 'Mostrar menos' : `Ver todas as pesagens (${totalLogs})`;
+        logsHtml += `<button type="button" class="btn-link-small" style="align-self:center;margin-top:4px;color:var(--muted);" data-toggle-weights="1">${toggleTxt}</button>`;
+      }
+      listEl.innerHTML = logsHtml;
     }
 
-    function escapeHtml(str) {
-      return String(str)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#39;');
+    function extractQueryModifiers(normText) {
+      let query = normText;
+      let mult = 1;
+      let reqAmount = null;
+      let reqUnit = null;
+      let reqDisplay = '';
+
+      // 1. Check explicit weight/volume units anywhere (e.g., "picanha 300g", "200g de arroz", "coca normal 600ml", "1,5l guarana")
+      const unitRe = /(?:^|\s)(\d+(?:[.,]\d+)?)\s*(kg|g|gr|gramas?|ml|litros?|l)\b/i;
+      const uMatch = query.match(unitRe);
+      if (uMatch) {
+        const rawVal = parseFloat(uMatch[1].replace(',', '.'));
+        const rawU = uMatch[2].toLowerCase();
+        if (!isNaN(rawVal) && rawVal > 0 && rawVal <= 10000) {
+          if (rawU === 'kg') {
+            reqAmount = rawVal * 1000;
+            reqUnit = 'g';
+            reqDisplay = `${rawVal.toString().replace('.', ',')}kg`;
+          } else if (rawU === 'g' || rawU === 'gr' || rawU.startsWith('grama')) {
+            reqAmount = rawVal;
+            reqUnit = 'g';
+            reqDisplay = `${Math.round(rawVal)}g`;
+          } else if (rawU === 'l' || rawU.startsWith('litro')) {
+            reqAmount = rawVal * 1000;
+            reqUnit = 'ml';
+            reqDisplay = `${rawVal.toString().replace('.', ',')}L`;
+          } else if (rawU === 'ml') {
+            reqAmount = rawVal;
+            reqUnit = 'ml';
+            reqDisplay = `${Math.round(rawVal)}ml`;
+          }
+          query = query.replace(uMatch[0], ' ').replace(/^\s*de\s+/i, '').replace(/\s+/g, ' ').trim();
+        }
+      }
+
+      // 2. If no weight/volume unit, check fractions/halves, leading multiplier, or trailing count+unit ("farofa 2 colheres", "pizza 2 fatias", "ovo 3 un")
+      if (reqAmount === null) {
+        const fracMatch = query.match(/^(?:(1\/2|1\/4|3\/4|meia|meio)\s+(?:de\s+)?)(.+)$/i);
+        if (fracMatch) {
+          const tok = fracMatch[1].toLowerCase();
+          if (tok === '1/2' || tok === 'meia' || tok === 'meio') mult = 0.5;
+          else if (tok === '1/4') mult = 0.25;
+          else if (tok === '3/4') mult = 0.75;
+          query = fracMatch[2].trim();
+        } else {
+          const multMatch = query.match(/^(\d+(?:[.,]\d+)?)(?:\s*x\s*|\s+)(.+)$/i);
+          if (multMatch) {
+            const parsedMult = parseFloat(multMatch[1].replace(',', '.'));
+            if (!isNaN(parsedMult) && parsedMult > 0 && parsedMult <= 50) {
+              mult = parsedMult;
+              query = multMatch[2].trim();
+            }
+          } else {
+            const trailCountRe = /(?:^|\s)(\d+(?:[.,]\d+)?)\s*(?:colher(?:es)?|fatias?|un(?:idades?)?|xicaras?|chicaras?|conchas?|latas?|copos?|pedacos?|fileiras?|quadradinhos?|pacotes?|pcts?|barras?)\b/i;
+            const tcMatch = query.match(trailCountRe);
+            if (tcMatch) {
+              const parsedMult = parseFloat(tcMatch[1].replace(',', '.'));
+              if (!isNaN(parsedMult) && parsedMult > 0 && parsedMult <= 50) {
+                mult = parsedMult;
+                query = query.replace(tcMatch[0], ' ').replace(/\s+/g, ' ').trim();
+              }
+            }
+          }
+        }
+      }
+
+      return { query, mult, reqAmount, reqUnit, reqDisplay };
     }
 
-    function normalizeText(str) {
-      return String(str).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+    function applyEntryScaling(entry, mods) {
+      if (mods.reqAmount !== null && entry._refUnit === mods.reqUnit && entry._refAmount > 0) {
+        const scaledKcal = Math.round(entry.kcal * (mods.reqAmount / entry._refAmount));
+        return {
+          name: `${entry._baseName} (${mods.reqDisplay})`,
+          kcal: scaledKcal,
+          cat: entry.cat || activeCategory
+        };
+      }
+      const mult = mods.mult || 1;
+      const multStr = Number.isInteger(mult) ? `${mult}` : `${mult.toFixed(2).replace(/0$/, '').replace('.', ',')}`;
+      const label = mult !== 1 ? `${multStr}x ${entry.name}` : entry.name;
+      return {
+        name: label,
+        kcal: Math.round(entry.kcal * mult),
+        cat: entry.cat || activeCategory
+      };
     }
 
     function parseInput(raw) {
       const clean = raw.trim();
       if (!clean) return null;
 
+      // Pure calorie number (e.g., "350" or "350 kcal")
       if (/^\d+([.,]\d+)?\s*(?:kcal|cal)?$/i.test(clean)) {
         const numPart = clean.replace(/\s*(?:kcal|cal)$/i, '');
         const val = Math.round(parseFloat(numPart.replace(',', '.')));
         return { name: 'Registro manual', kcal: val, cat: activeCategory };
       }
 
+      // Multiplied raw calories (e.g., "2x 150", "2x150", "3x 200 kcal")
+      const multRawMatch = clean.match(/^(\d+(?:[.,]\d+)?)\s*x\s*(\d+(?:[.,]\d+)?)\s*(?:kcal|cal)?$/i);
+      if (multRawMatch) {
+        const mFactor = parseFloat(multRawMatch[1].replace(',', '.'));
+        const baseKcal = parseFloat(multRawMatch[2].replace(',', '.'));
+        if (!isNaN(mFactor) && !isNaN(baseKcal) && mFactor > 0 && mFactor <= 50 && baseKcal >= 0) {
+          const total = Math.round(mFactor * baseKcal);
+          const fStr = Number.isInteger(mFactor) ? `${mFactor}` : `${mFactor.toString().replace('.', ',')}`;
+          const bStr = Math.round(baseKcal);
+          return { name: `${fStr}x ${bStr} kcal (manual)`, kcal: total, cat: activeCategory };
+        }
+      }
+
+      // Explicit leading unit (e.g., "350 kcal bolo caseiro")
+      const matchStartUnit = clean.match(/^(\d+)\s*(?:kcal|cal)\s+(.+)$/i);
+      if (matchStartUnit) {
+        return { name: matchStartUnit[2].trim(), kcal: parseInt(matchStartUnit[1], 10), cat: activeCategory };
+      }
+
+      // Trailing calories (e.g., "pastel 300" or "bolo 250 kcal")
       const matchEnd = clean.match(/^(.+?)\s+(\d+)\s*(?:kcal|cal)?$/i);
       if (matchEnd) {
         return { name: matchEnd[1].trim(), kcal: parseInt(matchEnd[2], 10), cat: activeCategory };
       }
-      const matchStart = clean.match(/^(\d+)\s*(?:kcal|cal)?\s+(.+)$/i);
-      if (matchStart) {
-        return { name: matchStart[2].trim(), kcal: parseInt(matchStart[1], 10), cat: activeCategory };
-      }
 
       const norm = normalizeText(clean);
-      let mult = 1;
-      let query = norm;
-      const multMatch = norm.match(/^(\d+)\s*x?\s+(.+)$/);
-      if (multMatch) {
-        mult = parseInt(multMatch[1], 10);
-        query = multMatch[2];
-      }
+      const mods = extractQueryModifiers(norm);
+      const query = mods.query;
 
       let bestMatch = null;
-      let bestLen = 0;
+      let bestScore = -1;
 
-      for (const entry of FOOD_DB) {
-        for (const k of entry.keys) {
-          const nk = normalizeText(k);
-          if (query === nk || query.includes(nk)) {
-            if (nk.length > bestLen) {
-              bestLen = nk.length;
+      if (query.length > 0) {
+        for (const entry of INDEXED_FOOD_DB) {
+          for (const nk of entry._normKeys) {
+            let score = -1;
+            if (query === nk) {
+              score = 1000 + nk.length;
+            } else {
+              const escaped = nk.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+              const wordRe = new RegExp(`(?:^|\\s)${escaped}(?:$|\\s)`);
+              if (wordRe.test(query)) {
+                score = 500 + nk.length;
+              } else if (nk.length >= 4 && query.includes(nk)) {
+                score = 100 + nk.length;
+              }
+            }
+            if (score > bestScore) {
+              bestScore = score;
               bestMatch = entry;
             }
           }
@@ -1865,28 +2254,36 @@
       }
 
       if (bestMatch) {
-        const label = mult > 1 ? `${mult}x ${bestMatch.name}` : bestMatch.name;
-        return { name: label, kcal: bestMatch.kcal * mult, cat: bestMatch.cat || activeCategory };
+        return applyEntryScaling(bestMatch, mods);
+      }
+
+      // Fallback: leading number without unit when food is not in DB (e.g., "350 lasanha da tia")
+      const matchStartFallback = clean.match(/^(\d+)\s+(.+)$/i);
+      if (matchStartFallback) {
+        const val = parseInt(matchStartFallback[1], 10);
+        if (val >= 20 && val <= 20000) {
+          return { name: matchStartFallback[2].trim(), kcal: val, cat: activeCategory };
+        }
       }
 
       return { unknown: true, text: clean, cat: activeCategory };
     }
 
     function addEntry(name, kcal, cat) {
-      if (!state.history[selectedDateKey]) {
-        state.history[selectedDateKey] = { goal: state.goal, items: [], waterMl: 0 };
-      }
+      const safeKcal = Math.min(20000, Math.max(0, Math.round(kcal)));
+      const dayObj = ensureDayData(selectedDateKey);
       const now = new Date();
       const time = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
-      state.history[selectedDateKey].items.unshift({
-        id: Date.now() + Math.random(),
+      dayObj.items.unshift({
+        id: genId(),
         name,
-        kcal,
+        kcal: safeKcal,
         cat: cat || activeCategory,
         time
       });
       saveState();
       render();
+      showToast(`✓ ${name} (${safeKcal} kcal)`);
     }
 
     function handleAdd() {
@@ -1896,36 +2293,62 @@
 
       if (parsed.unknown) {
         const manual = prompt(`Não encontrei "${parsed.text}" na lista. Quantas calorias (kcal) ele tem?`);
-        if (manual && !isNaN(parseInt(manual, 10))) {
-          addEntry(parsed.text, parseInt(manual, 10), parsed.cat);
-          input.value = '';
+        if (manual === null) return;
+        const val = parseInt(manual.trim(), 10);
+        if (isNaN(val) || val < 0 || val > 20000) {
+          alert('Digite um valor de calorias válido entre 0 e 20.000 kcal.');
+          return;
         }
+        addEntry(parsed.text, val, parsed.cat);
+        input.value = '';
+        renderChips('');
         return;
       }
 
       addEntry(parsed.name, parsed.kcal, parsed.cat);
       input.value = '';
+      renderChips('');
     }
 
     function removeItem(id) {
-      if (!state.history[selectedDateKey]) return;
-      state.history[selectedDateKey].items = state.history[selectedDateKey].items.filter(item => item.id !== id);
+      const dData = state.history[selectedDateKey];
+      if (!dData || !Array.isArray(dData.items)) return;
+      const idx = dData.items.findIndex(item => String(item.id) === String(id));
+      if (idx === -1) return;
+      const removed = dData.items[idx];
+      const dateSnap = selectedDateKey;
+      dData.items.splice(idx, 1);
+      pruneEmptyDay(dateSnap);
       saveState();
       render();
+      showToast(`Removido: ${removed.name}`, {
+        onUndo: () => {
+          const targetDay = ensureDayData(dateSnap);
+          targetDay.items.splice(Math.min(idx, targetDay.items.length), 0, removed);
+          saveState();
+          render();
+          showToast('Item restaurado');
+        }
+      });
     }
 
     function clearSelectedDay() {
       const dayData = getDayData(selectedDateKey);
-      const hasItems = dayData.items && dayData.items.length > 0;
-      const hasWater = dayData.waterMl && dayData.waterMl > 0;
-      const hasActs = dayData.activities && dayData.activities.length > 0;
-      if (!hasItems && !hasWater && !hasActs) return;
+      if (!dayHasData(dayData)) return;
       if (confirm('Deseja zerar os registros de comida, atividades e água deste dia?')) {
-        state.history[selectedDateKey].items = [];
-        state.history[selectedDateKey].activities = [];
-        state.history[selectedDateKey].waterMl = 0;
+        const backupDay = JSON.parse(JSON.stringify(dayData));
+        const dateSnap = selectedDateKey;
+        delete state.history[dateSnap];
         saveState();
         render();
+        showToast('Dia zerado', {
+          onUndo: () => {
+            state.history[dateSnap] = backupDay;
+            saveState();
+            render();
+            showToast('Dia restaurado');
+          }
+        });
       }
     }
 
@@ -1980,40 +2403,50 @@
 
     function populateMonthSelector() {
       const select = document.getElementById('monthSelect');
+      const prevVal = select.value;
       const monthSet = new Set([getTodayKey().slice(0, 7)]);
-      Object.keys(state.history).forEach(k => monthSet.add(k.slice(0, 7)));
+      Object.keys(state.history).forEach(k => {
+        if (isValidDateKey(k) && dayHasData(state.history[k])) {
+          monthSet.add(k.slice(0, 7));
+        }
+      });
       const sortedMonths = Array.from(monthSet).sort().reverse();
 
       select.innerHTML = sortedMonths.map(ym => {
         const [y, m] = ym.split('-').map(Number);
         return `<option value="${ym}">${MONTHS_PT[m - 1]} ${y}</option>`;
       }).join('');
+
+      if (prevVal && sortedMonths.includes(prevVal)) {
+        select.value = prevVal;
+      }
     }
 
     function renderArchive() {
       const ym = document.getElementById('monthSelect').value;
       const keys = Object.keys(state.history)
-        .filter(k => {
-          if (!k.startsWith(ym)) return false;
-          const d = state.history[k];
-          return (d.items && d.items.length > 0) || (d.waterMl && d.waterMl > 0) || (d.activities && d.activities.length > 0);
-        })
+        .filter(k => isValidDateKey(k) && k.startsWith(ym) && dayHasData(state.history[k]))
         .sort()
         .reverse();
 
       let totalConsumed = 0;
       let totalBudget = 0;
+      let foodDaysCount = 0;
 
       keys.forEach(k => {
         const dData = state.history[k];
-        const daySum = (dData.items || []).reduce((s, i) => s + i.kcal, 0);
+        const hasMeals = Array.isArray(dData.items) && dData.items.length > 0;
+        const daySum = hasMeals ? dData.items.reduce((s, i) => s + i.kcal, 0) : 0;
         const dayActBurn = (dData.activities || []).reduce((s, a) => s + (a.kcal || 0), 0);
-        totalConsumed += daySum;
-        totalBudget += (dData.goal || state.goal) + dayActBurn;
+        if (hasMeals) {
+          foodDaysCount++;
+          totalConsumed += daySum;
+          totalBudget += (dData.goal || state.goal) + dayActBurn;
+        }
       });
 
       const daysCount = keys.length;
-      const avgKcal = daysCount > 0 ? Math.round(totalConsumed / daysCount) : 0;
+      const avgKcal = foodDaysCount > 0 ? Math.round(totalConsumed / foodDaysCount) : 0;
       const netBalance = totalBudget - totalConsumed;
 
       document.getElementById('monthDaysCount').textContent = `${daysCount} ${daysCount === 1 ? 'dia' : 'dias'}`;
@@ -2033,24 +2466,26 @@
       listEl.innerHTML = keys.map(k => {
         const d = keyToDate(k);
         const dData = state.history[k];
-        const daySum = (dData.items || []).reduce((s, i) => s + i.kcal, 0);
+        const hasMeals = Array.isArray(dData.items) && dData.items.length > 0;
+        const daySum = hasMeals ? dData.items.reduce((s, i) => s + i.kcal, 0) : 0;
         const dayActBurn = (dData.activities || []).reduce((s, a) => s + (a.kcal || 0), 0);
         const dayBudget = (dData.goal || state.goal) + dayActBurn;
         const diff = dayBudget - daySum;
         const dateStr = `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')} (${WEEKDAYS_PT[d.getDay()]})`;
         const actNote = dayActBurn > 0 ? ` • 🏃 +${dayActBurn} kcal` : '';
+        const statusHtml = hasMeals
+          ? `<span class="${diff >= 0 ? 'badge-ok' : 'badge-over'}">${diff >= 0 ? `Sobrou ${diff} kcal` : `Passou ${Math.abs(diff)} kcal`}</span>`
+          : `<span style="color:var(--muted);font-size:0.78rem;font-weight:600;">Sem refeições</span>`;
 
         return `
-          <li class="day-row" onclick="openDateFromArchive('${k}')">
+          <li class="day-row" data-open-date="${k}">
             <div class="day-row-left">
               <strong>${dateStr}</strong>
               <span>${(dData.items || []).length} ${(dData.items || []).length === 1 ? 'item' : 'itens'} • 💧 ${((dData.waterMl || 0) / 1000).toFixed(2).replace('.', ',')} L${actNote}</span>
             </div>
             <div class="day-row-right">
               <strong style="font-size:0.95rem;">${daySum} kcal</strong>
-              <span class="${diff >= 0 ? 'badge-ok' : 'badge-over'}">
-                ${diff >= 0 ? `Sobrou ${diff} kcal` : `Passou ${Math.abs(diff)} kcal`}
-              </span>
+              ${statusHtml}
             </div>
           </li>
         `;
@@ -2059,39 +2494,53 @@
 
     function exportBackupJson() {
       const payload = JSON.stringify(state, null, 2);
-      const blob = new Blob([payload], { type: 'application/json' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `bleick_backup_${getTodayKey()}.json`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
+      try {
+        const blob = new Blob([payload], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `bleick_backup_${getTodayKey()}.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        // Delay revoke so Android Download Manager / WebView finishes reading the Blob
+        setTimeout(() => URL.revokeObjectURL(url), 5000);
+        showToast('⬇️ Backup salvo');
+      } catch (err) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(payload)
+            .then(() => showToast('📋 Backup copiado para a área de transferência'))
+            .catch(() => showToast('⚠️ Não foi possível exportar o backup', { error: true }));
+        } else {
+          showToast('⚠️ Não foi possível exportar o backup', { error: true });
+        }
+      }
     }
 
     function importBackupJson(event) {
       const file = event.target.files && event.target.files[0];
       if (!file) return;
+      if (file.size > 5 * 1024 * 1024) {
+        alert('Arquivo muito grande para ser um backup do Bleick.');
+        event.target.value = '';
+        return;
+      }
       const reader = new FileReader();
       reader.onload = function(e) {
         try {
           const parsed = JSON.parse(e.target.result);
-          if (!parsed || typeof parsed !== 'object' || !parsed.history) {
+          if (!parsed || typeof parsed !== 'object' || typeof parsed.history !== 'object') {
             alert('Arquivo de backup inválido.');
             return;
           }
-          state.goal = parsed.goal || 2300;
-          state.waterGoalMl = parsed.waterGoalMl || 3500;
-          state.startWeightKg = typeof parsed.startWeightKg === 'number' ? parsed.startWeightKg : 160.0;
-          state.weightLogs = Array.isArray(parsed.weightLogs) && parsed.weightLogs.length > 0
-            ? parsed.weightLogs
-            : [{ id: 'init-160', date: getTodayKey(), weight: state.startWeightKg, label: 'Peso Inicial' }];
-          state.history = parsed.history || {};
+          if (!confirm('Restaurar este backup vai substituir os registros atuais deste aparelho. Deseja continuar?')) {
+            return;
+          }
+          state = sanitizeLoadedState(parsed);
           saveState();
           render();
           closeGoalModal();
-          alert('Backup restaurado com sucesso!');
+          showToast('✓ Backup restaurado!');
         } catch (err) {
           alert('Não foi possível ler o arquivo de backup.');
         }
@@ -2113,14 +2562,17 @@
       saveState();
       render();
       closeGoalModal();
+      showToast(`Meta: ${val} kcal`);
     }
 
     function saveCustomGoal() {
       const val = parseInt(document.getElementById('customGoalInput').value, 10);
-      if (val && val > 0) {
-        setGoal(val);
-        document.getElementById('customGoalInput').value = '';
+      if (!val || val < 500 || val > 15000) {
+        alert('Digite uma meta válida entre 500 e 15.000 kcal.');
+        return;
       }
+      setGoal(val);
+      document.getElementById('customGoalInput').value = '';
     }
 
     function setWaterGoal(ml) {
@@ -2128,36 +2580,58 @@
       saveState();
       render();
       closeWaterModal();
+      showToast(`Meta de água: ${(ml / 1000).toFixed(2).replace('.', ',')} L`);
     }
 
     function saveCustomWaterGoal() {
       const val = parseInt(document.getElementById('customWaterGoalInput').value, 10);
-      if (val && val >= 500) {
-        setWaterGoal(val);
-        document.getElementById('customWaterGoalInput').value = '';
+      if (!val || val < 500 || val > 15000) {
+        alert('Digite uma meta de água válida entre 500 e 15.000 ml.');
+        return;
       }
+      setWaterGoal(val);
+      document.getElementById('customWaterGoalInput').value = '';
     }
 
+    // Event-delegated chip rendering with live gram/ml & fraction scaling
+    let _renderedChips = [];
     function renderChips(filterQuery = '') {
       const container = document.getElementById('quickChips');
-      const q = normalizeText(filterQuery);
+      const norm = normalizeText(filterQuery);
+      const mods = extractQueryModifiers(norm);
+      const q = mods.query;
+
       if (q.length >= 2 && !/^\d/.test(q)) {
-        const matches = FOOD_DB.filter(entry =>
-          entry.keys.some(k => normalizeText(k).includes(q)) || normalizeText(entry.name).includes(q)
-        ).slice(0, 18);
+        const scored = [];
+        for (const entry of INDEXED_FOOD_DB) {
+          let best = 0;
+          for (const k of entry._normKeys) {
+            if (k === q) { best = Math.max(best, 400); }
+            else if (k.startsWith(q)) { best = Math.max(best, 300); }
+            else if (k.includes(q)) { best = Math.max(best, 150); }
+          }
+          if (entry._normName.startsWith(q)) best = Math.max(best, 250);
+          else if (entry._normName.includes(q)) best = Math.max(best, 100);
+          if (best > 0) scored.push({ entry, score: best });
+        }
+        scored.sort((a, b) => b.score - a.score || a.entry._idx - b.entry._idx);
+        const matches = scored.slice(0, 18).map(s => s.entry);
         if (matches.length > 0) {
-          container.innerHTML = matches.map(m => {
-            const safeName = m.name.replace(/'/g, "\'");
-            return `<button class="chip" onclick="addEntry('${safeName}', ${m.kcal}, '${m.cat}'); document.getElementById('foodInput').value=''; renderChips('');">${escapeHtml(m.name)} <span>+${m.kcal}</span></button>`;
-          }).join('');
+          _renderedChips = matches.map(m => {
+            const scaled = applyEntryScaling(m, mods);
+            return { name: scaled.name, kcal: scaled.kcal, cat: scaled.cat, clear: true };
+          });
+          container.innerHTML = _renderedChips.map((c, idx) =>
+            `<button class="chip" data-chip-idx="${idx}">${escapeHtml(c.name)} <span>+${c.kcal}</span></button>`
+          ).join('');
           return;
         }
       }
       const chips = QUICK_CHIPS_BY_CAT[activeCategory] || [];
-      container.innerHTML = chips.map(c => {
-        const safeLabel = c.label.replace(/'/g, "\'");
-        return `<button class="chip" onclick="addEntry('${safeLabel}', ${c.kcal}, '${activeCategory}')">${escapeHtml(c.label)} <span>+${c.kcal}</span></button>`;
-      }).join('');
+      _renderedChips = chips.map(c => ({ name: c.label, kcal: c.kcal, cat: activeCategory, clear: false }));
+      container.innerHTML = _renderedChips.map((c, idx) =>
+        `<button class="chip" data-chip-idx="${idx}">${escapeHtml(c.name)} <span>+${c.kcal}</span></button>`
+      ).join('');
     }
 
     function formatFriendlyDate(key) {
@@ -2197,11 +2671,11 @@
                 <li class="history-item">
                   <div class="item-info">
                     <span class="item-name">${escapeHtml(item.name)}</span>
-                    <span class="item-time">Registrado às ${item.time}</span>
+                    <span class="item-time">Registrado às ${escapeHtml(item.time || '')}</span>
                   </div>
                   <div class="item-actions">
                     <span class="item-kcal">-${item.kcal} kcal</span>
-                    <button class="btn-del" onclick="removeItem(${item.id})">×</button>
+                    <button class="btn-del" data-del-item="${escapeHtml(String(item.id))}" aria-label="Remover item">×</button>
                   </div>
                 </li>
               `).join('')}
@@ -2233,29 +2707,32 @@
       document.getElementById('goalKcal').textContent = activitiesBurn > 0
         ? `${activeGoal} + ${activitiesBurn} kcal`
         : `${activeGoal} kcal`;
-      document.getElementById('balanceTitle').textContent = selectedDateKey === todayKey
-        ? 'Você ainda pode comer hoje'
-        : 'Saldo deste dia';
+      const isOver = remaining < 0;
+      document.getElementById('balanceTitle').textContent = isOver
+        ? (selectedDateKey === todayKey ? 'Você passou da meta hoje' : 'Passou da meta neste dia')
+        : (selectedDateKey === todayKey ? 'Você ainda pode comer hoje' : 'Saldo deste dia');
 
       const waterMl = dayData.waterMl || 0;
       const waterGoalMl = state.waterGoalMl || 3500;
       const waterGoalL = (waterGoalMl / 1000).toFixed(2).replace('.', ',');
-      const waterPct = Math.min(100, Math.round((waterMl / waterGoalMl) * 100));
+      const waterPct = Math.round((waterMl / waterGoalMl) * 100);
+      const waterDoneMark = waterPct >= 100 ? ' ✓' : '';
 
       document.getElementById('waterLitersText').textContent = formatLiters(waterMl);
-      document.getElementById('waterGoalText').textContent = `Meta diária: ${waterGoalL} L (${waterPct}%)`;
+      document.getElementById('waterGoalText').textContent = `Meta diária: ${waterGoalL} L (${waterPct}%${waterDoneMark})`;
       document.getElementById('waterBar').style.width = Math.min(100, (waterMl / waterGoalMl) * 100) + '%';
 
       document.getElementById('consumedKcal').textContent = consumed + ' kcal';
       const remEl = document.getElementById('remainingKcal');
-      remEl.textContent = remaining;
+      remEl.textContent = isOver ? `+${Math.abs(remaining)}` : remaining;
+      document.getElementById('balanceUnit').textContent = isOver ? 'kcal acima da meta' : 'kcal restantes';
 
       remEl.classList.remove('warning', 'danger');
       const bar = document.getElementById('progressBar');
       const pct = effectiveBudget > 0 ? Math.min(100, Math.max(0, (consumed / effectiveBudget) * 100)) : 0;
       bar.style.width = pct + '%';
 
-      if (remaining < 0) {
+      if (isOver) {
         remEl.classList.add('danger');
         bar.style.backgroundColor = '#ef4444';
       } else if (remaining <= effectiveBudget * 0.2) {
@@ -2268,17 +2745,114 @@
       renderActivitiesSection(dayData.activities);
       renderGroupedHistory(dayData.items);
       renderWeight();
+
+      // Keep Monthly archive view in sync if currently open
+      if (isArchiveOpen) {
+        populateMonthSelector();
+        renderArchive();
+      }
     }
 
-    const foodInputEl = document.getElementById('foodInput');
-    foodInputEl.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') {
-        handleAdd();
+    // Delegated event listeners
+    document.getElementById('toast').addEventListener('click', function(e) {
+      if (e.target.closest('#toastUndoBtn') && typeof _undoCallback === 'function') {
+        const fn = _undoCallback;
+        _undoCallback = null;
+        clearTimeout(_toastTimer);
+        document.getElementById('toast').classList.remove('show');
+        fn();
+      }
+    });
+
+    document.getElementById('quickChips').addEventListener('click', function(e) {
+      const btn = e.target.closest('[data-chip-idx]');
+      if (!btn) return;
+      const chip = _renderedChips[Number(btn.dataset.chipIdx)];
+      if (!chip) return;
+      addEntry(chip.name, chip.kcal, chip.cat);
+      if (chip.clear) {
+        document.getElementById('foodInput').value = '';
         renderChips('');
       }
     });
+
+    document.getElementById('groupedHistoryContainer').addEventListener('click', function(e) {
+      const btn = e.target.closest('[data-del-item]');
+      if (btn) removeItem(btn.dataset.delItem);
+    });
+
+    document.getElementById('activityList').addEventListener('click', function(e) {
+      const btn = e.target.closest('[data-del-act]');
+      if (btn) removeActivityEntry(btn.dataset.delAct);
+    });
+
+    document.getElementById('weightHistoryList').addEventListener('click', function(e) {
+      if (e.target.closest('[data-toggle-weights]')) {
+        showAllWeightLogs = !showAllWeightLogs;
+        renderWeight();
+        return;
+      }
+      const btn = e.target.closest('[data-del-weight]');
+      if (btn) deleteWeightLog(btn.dataset.delWeight);
+    });
+
+    document.getElementById('monthDaysList').addEventListener('click', function(e) {
+      const row = e.target.closest('[data-open-date]');
+      if (row) openDateFromArchive(row.dataset.openDate);
+    });
+
+    // Keyboard shortcuts (Enter on inputs + Escape to close modals)
+    const foodInputEl = document.getElementById('foodInput');
+    foodInputEl.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') handleAdd();
+    });
     foodInputEl.addEventListener('input', function(e) {
       renderChips(e.target.value);
+    });
+    document.getElementById('actKmInput').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') addActivityEntry();
+    });
+    document.getElementById('weightInput').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') saveWeightEntry();
+    });
+    document.getElementById('customGoalInput').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') saveCustomGoal();
+    });
+    document.getElementById('customWaterGoalInput').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') saveCustomWaterGoal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeGoalModal();
+        closeWaterModal();
+      }
+    });
+
+    let _lastKnownToday = getTodayKey();
+    function syncMidnightRollover() {
+      const nowToday = getTodayKey();
+      if (nowToday !== _lastKnownToday) {
+        if (selectedDateKey === _lastKnownToday) {
+          selectedDateKey = nowToday;
+        }
+        _lastKnownToday = nowToday;
+        render();
+      }
+    }
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') {
+        syncMidnightRollover();
+        if (_swReg && typeof _swReg.update === 'function') {
+          _swReg.update().catch(() => {});
+        }
+      }
+    });
+    window.addEventListener('focus', syncMidnightRollover);
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'saldo_calorico_v6' && e.newValue) {
+        loadState();
+        render();
+      }
     });
 
     loadState();
