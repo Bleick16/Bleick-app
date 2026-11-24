@@ -1,0 +1,120 @@
+// =========================================================================
+// SCRIPT DE BACKUP AUTOMÁTICO DO BLEICK NO GOOGLE DRIVE (v7.3)
+// =========================================================================
+// Como instalar (1 única vez):
+// 1. Acesse https://script.google.com e clique em "Novo projeto"
+// 2. Apague o código inicial e cole TODO este arquivo
+// 3. Clique em "Implantar" (topo direito) > "Nova implantação"
+// 4. Em "Selecionar tipo", escolha "App da Web"
+// 5. Configure:
+//      - Executar como: Eu (seu e-mail)
+//      - Quem pode acessar: Qualquer pessoa
+// 6. Clique em "Implantar", autorize o acesso ao seu Google Drive
+// 7. Copie a URL gerada (termina em /exec) e cole no botão ☁️ do app Bleick!
+// =========================================================================
+
+const FOLDER_NAME = 'Bleick_Backups';
+const CURRENT_FILE = 'bleick_dados_atual.json';
+const MAX_SNAPSHOTS = 30;
+
+function getOrCreateFolder_() {
+  const folders = DriveApp.getFoldersByName(FOLDER_NAME);
+  if (folders.hasNext()) return folders.next();
+  return DriveApp.createFolder(FOLDER_NAME);
+}
+
+function upsertJsonFile_(folder, fileName, content) {
+  const files = folder.getFilesByName(fileName);
+  if (files.hasNext()) {
+    const file = files.next();
+    file.setContent(content);
+    return file;
+  }
+  return folder.createFile(fileName, content, MimeType.PLAIN_TEXT);
+}
+
+function cleanupOldSnapshots_(folder) {
+  const files = folder.getFiles();
+  const snapshots = [];
+  while (files.hasNext()) {
+    const f = files.next();
+    const name = f.getName();
+    if (name !== CURRENT_FILE && name.indexOf('bleick_') === 0) {
+      snapshots.push({ file: f, time: f.getLastUpdated().getTime() });
+    }
+  }
+  if (snapshots.length <= MAX_SNAPSHOTS) return;
+  snapshots.sort(function(a, b) { return b.time - a.time; });
+  for (var i = MAX_SNAPSHOTS; i < snapshots.length; i++) {
+    snapshots[i].file.setTrashed(true);
+  }
+}
+
+function doPost(e) {
+  const lock = LockService.getScriptLock();
+  const acquired = lock.tryLock(15000);
+  try {
+    const raw = e && e.postData && e.postData.contents ? e.postData.contents : '{}';
+    const payload = JSON.parse(raw);
+    const folder = getOrCreateFolder_();
+    const pretty = JSON.stringify(payload, null, 2);
+
+    // 1. Sempre atualiza o arquivo principal com os dados mais recentes
+    upsertJsonFile_(folder, CURRENT_FILE, pretty);
+
+    // 2. Cria cópia separada quando houver atualização automática do app ou backup diário
+    const now = new Date();
+    const dateStamp = Utilities.formatDate(now, Session.getScriptTimeZone(), 'yyyy-MM-dd');
+    const ver = String(payload.appVersion || '7.3').replace(/[^0-9a-zA-Z._-]/g, '');
+
+    if (payload.reason === 'atualizacao_app' || payload.reason === 'pre_atualizacao_app') {
+      const timeStamp = Utilities.formatDate(now, Session.getScriptTimeZone(), 'HHmm');
+      const updateFile = 'bleick_atualizacao_v' + ver + '_' + dateStamp + '_' + timeStamp + '.json';
+      folder.createFile(updateFile, pretty, MimeType.PLAIN_TEXT);
+    } else {
+      // Mantém um histórico diário automático (1 arquivo por dia)
+      const dailyFile = 'bleick_dia_' + dateStamp + '_v' + ver + '.json';
+      upsertJsonFile_(folder, dailyFile, pretty);
+    }
+
+    cleanupOldSnapshots_(folder);
+
+    return ContentService
+      .createTextOutput(JSON.stringify({ ok: true, savedAt: now.toISOString(), version: ver }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch (err) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ ok: false, error: String(err) }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } finally {
+    if (acquired) lock.releaseLock();
+  }
+}
+
+function doGet(e) {
+  try {
+    const action = (e && e.parameter && e.parameter.action) ? e.parameter.action : 'restore';
+    const folder = getOrCreateFolder_();
+
+    if (action === 'restore') {
+      const files = folder.getFilesByName(CURRENT_FILE);
+      if (!files.hasNext()) {
+        return ContentService
+          .createTextOutput(JSON.stringify({ ok: false, error: 'Nenhum backup encontrado na pasta Bleick_Backups.' }))
+          .setMimeType(ContentService.MimeType.JSON);
+      }
+      const content = files.next().getBlob().getDataAsString('UTF-8');
+      return ContentService
+        .createTextOutput(content)
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+
+    return ContentService
+      .createTextOutput(JSON.stringify({ ok: true, status: 'Bleick Drive Backup v7.3 ativo' }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch (err) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ ok: false, error: String(err) }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bleick-store-ready-v7-1';
+const CACHE_NAME = 'bleick-store-ready-v7-3';
 const CORE_URLS = [
   './',
   './index.html',

@@ -13,7 +13,7 @@
   <link rel="manifest" href="./manifest.json">
 
   <meta name="description" content="Bleick - Controle diário de saldo calórico, água, peso e atividades físicas.">
-  <title>Bleick v7.1</title>
+  <title>Bleick v7.3</title>
   <style>
     :root {
       --bg: #0f172a;
@@ -816,6 +816,54 @@
       color: var(--muted);
       line-height: 1.4;
     }
+    .btn-drive {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .drive-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #64748b;
+      display: inline-block;
+    }
+    .drive-dot.ok { background: var(--primary); }
+    .drive-dot.syncing { background: var(--warning); }
+    .drive-dot.err { background: var(--danger); }
+    .drive-status-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .drive-status-box strong {
+      color: var(--text);
+    }
+    .drive-toggle-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .drive-toggle-row input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--primary);
+    }
+
     .toast {
       position: fixed;
       bottom: calc(20px + env(safe-area-inset-bottom, 0px));
@@ -869,8 +917,9 @@
 <body>
   <div class="app-container">
     <header>
-      <h1><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmdHcmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzBmMTcyYSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwNjVmNDYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJHcmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzM0ZDM5OSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxMGI5ODEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTEyIiBmaWxsPSJ1cmwoI2JnR3JhZCkiLz4KICA8Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjE3NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTBiOTgxIiBzdHJva2Utb3BhY2l0eT0iMC4yMiIgc3Ryb2tlLXdpZHRoPSIxMCIvPgogIDxwYXRoIGQ9Ik0xNzAgMTE2IEgyOTIgQzM0NiAxMTYgMzgyIDE0NiAzODIgMTkwIEMzODIgMjIyIDM2MiAyNDQgMzMyIDI1MiBDMzY4IDI2MCAzOTIgMjg2IDM5MiAzMjQgQzM5MiAzNzAgMzUyIDM5NiAyOTIgMzk2IEgxNzAgWiBNMjI4IDE2NCBWMjMwIEgyODYgQzMxMiAyMzAgMzI2IDIxNiAzMjYgMTk3IEMzMjYgMTc4IDMxMiAxNjQgMjg2IDE2NCBaIE0yMjggMjc2IFYzNDggSDI5MCBDMzE4IDM0OCAzMzQgMzM0IDMzNCAzMTIgQzMzNCAyOTAgMzE4IDI3NiAyOTAgMjc2IFoiIGZpbGw9InVybCgjYkdyYWQpIi8+Cjwvc3ZnPg==" alt="Bleick" style="width:28px;height:28px;border-radius:8px;border:1px solid var(--border);"> Bleick <small style="font-size:0.72rem;color:var(--primary);font-weight:700;">v7.1</small></h1>
+      <h1><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmdHcmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzBmMTcyYSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwNjVmNDYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJHcmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzM0ZDM5OSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxMGI5ODEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTEyIiBmaWxsPSJ1cmwoI2JnR3JhZCkiLz4KICA8Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjE3NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTBiOTgxIiBzdHJva2Utb3BhY2l0eT0iMC4yMiIgc3Ryb2tlLXdpZHRoPSIxMCIvPgogIDxwYXRoIGQ9Ik0xNzAgMTE2IEgyOTIgQzM0NiAxMTYgMzgyIDE0NiAzODIgMTkwIEMzODIgMjIyIDM2MiAyNDQgMzMyIDI1MiBDMzY4IDI2MCAzOTIgMjg2IDM5MiAzMjQgQzM5MiAzNzAgMzUyIDM5NiAyOTIgMzk2IEgxNzAgWiBNMjI4IDE2NCBWMjMwIEgyODYgQzMxMiAyMzAgMzI2IDIxNiAzMjYgMTk3IEMzMjYgMTc4IDMxMiAxNjQgMjg2IDE2NCBaIE0yMjggMjc2IFYzNDggSDI5MCBDMzE4IDM0OCAzMzQgMzM0IDMzNCAzMTIgQzMzNCAyOTAgMzE4IDI3NiAyOTAgMjc2IFoiIGZpbGw9InVybCgjYkdyYWQpIi8+Cjwvc3ZnPg==" alt="Bleick" style="width:28px;height:28px;border-radius:8px;border:1px solid var(--border);"> Bleick <small style="font-size:0.72rem;color:var(--primary);font-weight:700;">v7.3</small></h1>
       <div class="header-actions">
+        <button class="btn-top btn-drive" id="btnDriveModal" onclick="openDriveModal()" title="Backup no Google Drive"><span class="drive-dot" id="driveDot"></span>☁️</button>
         <button class="btn-top" id="btnToggleHistory" onclick="toggleArchiveView()">📅 Meses</button>
         <button class="btn-top" onclick="openGoalModal()">Meta: <span id="headerGoal">2300</span></button>
       </div>
@@ -1102,6 +1151,39 @@
     </div>
   </div>
 
+  <!-- MODAL GOOGLE DRIVE BACKUP -->
+  <div class="modal-backdrop" id="driveModal" onclick="if(event.target===this)closeDriveModal()">
+    <div class="modal">
+      <h3>☁️ Backup no Google Drive</h3>
+      <div class="drive-status-box">
+        <div>Status: <strong id="driveStatusLabel">Não configurado</strong></div>
+        <div>Último backup: <strong id="driveLastSyncLabel">Nunca</strong></div>
+        <div>Versão atual do app: <strong id="driveAppVersionLabel">v7.3</strong></div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <label for="driveUrlInput" class="hint"><strong>Link do Web App (Google Apps Script):</strong></label>
+        <input type="text" id="driveUrlInput" placeholder="https://script.google.com/macros/s/.../exec" autocomplete="off">
+      </div>
+
+      <label class="drive-toggle-row">
+        <span>Backup automático (dados e atualizações)</span>
+        <input type="checkbox" id="driveAutoToggle" checked onchange="toggleDriveAuto()">
+      </label>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <button class="btn-add" style="padding:11px 10px;font-size:0.86rem;" onclick="saveDriveConfigAndSync()">Salvar e Testar</button>
+        <button class="btn-top" style="padding:11px 10px;" onclick="syncToGoogleDrive('manual', { force: true })">☁️ Backup Agora</button>
+      </div>
+
+      <button class="btn-top" style="width:100%;padding:11px;" onclick="restoreFromGoogleDrive()">⬇️ Restaurar do Google Drive</button>
+
+      <p class="hint">Quando ativo, o Bleick salva automaticamente no seu Google Drive (pasta <strong>Bleick_Backups</strong>) sempre que você registra dados ou quando o app recebe uma atualização automática.</p>
+
+      <button class="btn-top" style="width:100%;margin-top:2px;padding:10px;" onclick="closeDriveModal()">Fechar</button>
+    </div>
+  </div>
+
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <script>
@@ -1110,6 +1192,11 @@
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('./sw.js').then((reg) => {
           _swReg = reg;
+          reg.addEventListener('updatefound', () => {
+            if (driveCfg.webhookUrl && driveCfg.autoBackup) {
+              syncToGoogleDrive('pre_atualizacao_app', { silent: true });
+            }
+          });
         }).catch(() => {});
       });
     }
@@ -1726,12 +1813,313 @@
       stateVersion++;
     }
 
-    function saveState() {
+    const APP_VERSION = '7.3';
+    const DRIVE_CFG_KEY = 'bleick_drive_config_v1';
+    const LAST_APP_VER_KEY = 'bleick_last_app_version';
+
+    let driveCfg = {
+      webhookUrl: '',
+      autoBackup: true,
+      lastBackupAt: '',
+      lastBackedUpVersion: '',
+      pendingSync: false
+    };
+    let _driveSyncTimer = null;
+    let _driveSyncInFlight = false;
+    let _driveResyncQueued = false;
+
+    function loadDriveConfig() {
+      try {
+        const raw = localStorage.getItem(DRIVE_CFG_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (parsed && typeof parsed === 'object') {
+            driveCfg.webhookUrl = typeof parsed.webhookUrl === 'string' ? parsed.webhookUrl.trim() : '';
+            driveCfg.autoBackup = parsed.autoBackup !== false;
+            driveCfg.lastBackupAt = typeof parsed.lastBackupAt === 'string' ? parsed.lastBackupAt : '';
+            driveCfg.lastBackedUpVersion = typeof parsed.lastBackedUpVersion === 'string' ? parsed.lastBackedUpVersion : '';
+            driveCfg.pendingSync = Boolean(parsed.pendingSync);
+          }
+        }
+      } catch (e) {}
+    }
+
+    function saveDriveConfig() {
+      try {
+        localStorage.setItem(DRIVE_CFG_KEY, JSON.stringify(driveCfg));
+      } catch (e) {}
+      updateDriveUi();
+    }
+
+    function isValidDriveUrl(url) {
+      return typeof url === 'string' && /^https:\/\/script\.google\.com\/macros\/s\/.+\/exec$/i.test(url.trim());
+    }
+
+    function updateDriveUi(statusState) {
+      const dot = document.getElementById('driveDot');
+      const statusEl = document.getElementById('driveStatusLabel');
+      const lastEl = document.getElementById('driveLastSyncLabel');
+      const verEl = document.getElementById('driveAppVersionLabel');
+      if (verEl) verEl.textContent = 'v' + APP_VERSION;
+      if (lastEl) lastEl.textContent = driveCfg.lastBackupAt || 'Nunca';
+
+      if (!dot || !statusEl) return;
+      dot.classList.remove('ok', 'syncing', 'err');
+
+      if (!driveCfg.webhookUrl) {
+        statusEl.textContent = 'Não configurado';
+        return;
+      }
+      if (statusState === 'syncing') {
+        dot.classList.add('syncing');
+        statusEl.textContent = 'Enviando para o Google Drive...';
+      } else if (statusState === 'err') {
+        dot.classList.add('err');
+        statusEl.textContent = 'Erro na sincronização (tentará novamente)';
+      } else if (driveCfg.pendingSync) {
+        dot.classList.add('syncing');
+        statusEl.textContent = 'Pendente (aguardando envio)';
+      } else {
+        dot.classList.add('ok');
+        statusEl.textContent = driveCfg.autoBackup ? 'Ativo (backup automático)' : 'Conectado (manual)';
+      }
+    }
+
+    function openDriveModal() {
+      const urlInput = document.getElementById('driveUrlInput');
+      const toggle = document.getElementById('driveAutoToggle');
+      if (urlInput) urlInput.value = driveCfg.webhookUrl || '';
+      if (toggle) toggle.checked = driveCfg.autoBackup !== false;
+      updateDriveUi();
+      document.getElementById('driveModal').classList.add('open');
+    }
+
+    function closeDriveModal() {
+      document.getElementById('driveModal').classList.remove('open');
+    }
+
+    function toggleDriveAuto() {
+      const toggle = document.getElementById('driveAutoToggle');
+      driveCfg.autoBackup = Boolean(toggle && toggle.checked);
+      saveDriveConfig();
+      showToast(driveCfg.autoBackup ? '☁️ Backup automático ativado' : 'Backup automático pausado');
+    }
+
+    function saveDriveConfigAndSync() {
+      const urlInput = document.getElementById('driveUrlInput');
+      const val = urlInput ? urlInput.value.trim() : '';
+      if (!val) {
+        driveCfg.webhookUrl = '';
+        driveCfg.pendingSync = false;
+        saveDriveConfig();
+        showToast('Conexão com Google Drive removida');
+        return;
+      }
+      if (!isValidDriveUrl(val)) {
+        alert('Cole o link completo do Web App do Google Apps Script (começa com https://script.google.com/macros/s/ e termina com /exec).');
+        return;
+      }
+      driveCfg.webhookUrl = val;
+      saveDriveConfig();
+      syncToGoogleDrive('config_teste', { force: true });
+    }
+
+    function scheduleAutoDriveBackup(reason = 'auto_dados') {
+      if (!driveCfg.webhookUrl || !driveCfg.autoBackup) return;
+      driveCfg.pendingSync = true;
+      saveDriveConfig();
+      clearTimeout(_driveSyncTimer);
+      _driveSyncTimer = setTimeout(() => {
+        syncToGoogleDrive(reason, { silent: true });
+      }, 3500);
+    }
+
+    function buildDrivePayload(reason, previousVersion) {
+      return {
+        action: 'backup',
+        reason,
+        appVersion: APP_VERSION,
+        previousVersion: previousVersion || driveCfg.lastBackedUpVersion || '',
+        appUrl: window.location.href,
+        backedUpAt: new Date().toISOString(),
+        data: state
+      };
+    }
+
+    function flushPendingDriveOnHide() {
+      if (!driveCfg.webhookUrl || !driveCfg.autoBackup || !driveCfg.pendingSync || !navigator.onLine) return;
+      clearTimeout(_driveSyncTimer);
+      try {
+        const body = JSON.stringify(buildDrivePayload('auto_dados', ''));
+        if (navigator.sendBeacon) {
+          const blob = new Blob([body], { type: 'text/plain;charset=utf-8' });
+          navigator.sendBeacon(driveCfg.webhookUrl, blob);
+        } else {
+          fetch(driveCfg.webhookUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body,
+            redirect: 'follow',
+            keepalive: true
+          }).catch(() => {});
+        }
+      } catch (e) {}
+    }
+
+    async function fetchWithTimeout(url, options = {}, timeoutMs = 20000) {
+      const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+      let timerId = null;
+      if (controller) {
+        timerId = setTimeout(() => controller.abort(), timeoutMs);
+      }
+      try {
+        return await fetch(url, {
+          ...options,
+          redirect: 'follow',
+          signal: controller ? controller.signal : undefined
+        });
+      } finally {
+        if (timerId) clearTimeout(timerId);
+      }
+    }
+
+    async function syncToGoogleDrive(reason = 'manual', opts = {}) {
+      if (!driveCfg.webhookUrl) {
+        if (!opts.silent) alert('Configure primeiro o link do Google Apps Script.');
+        return false;
+      }
+      if (!navigator.onLine) {
+        driveCfg.pendingSync = true;
+        saveDriveConfig();
+        if (!opts.silent) showToast('Sem internet: o backup será enviado ao reconectar', { error: true });
+        return false;
+      }
+      if (_driveSyncInFlight) {
+        _driveResyncQueued = true;
+        return false;
+      }
+      _driveSyncInFlight = true;
+      _driveResyncQueued = false;
+      clearTimeout(_driveSyncTimer);
+      updateDriveUi('syncing');
+
+      const syncVersionSnapshot = stateVersion;
+      const now = new Date();
+      const nowLabel = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+      const payload = buildDrivePayload(reason, opts.previousVersion);
+
+      try {
+        const res = await fetchWithTimeout(driveCfg.webhookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(payload)
+        }, 20000);
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const json = await res.json().catch(() => ({ ok: true }));
+        if (json && json.ok === false) throw new Error(json.error || 'Erro no script');
+
+        driveCfg.lastBackupAt = nowLabel;
+        driveCfg.lastBackedUpVersion = APP_VERSION;
+        try { localStorage.setItem(LAST_APP_VER_KEY, APP_VERSION); } catch (e) {}
+
+        // Only clear pendingSync if user did not make new edits while upload was in flight
+        const editedDuringUpload = (stateVersion !== syncVersionSnapshot);
+        driveCfg.pendingSync = editedDuringUpload;
+        saveDriveConfig();
+        updateDriveUi(editedDuringUpload ? 'syncing' : 'ok');
+
+        if (!opts.silent) {
+          showToast(reason === 'atualizacao_app'
+            ? `☁️ Atualização v${APP_VERSION} salva no Drive`
+            : '☁️ Backup salvo no Google Drive!');
+        }
+        return true;
+      } catch (err) {
+        driveCfg.pendingSync = true;
+        saveDriveConfig();
+        updateDriveUi('err');
+        if (!opts.silent) {
+          showToast('⚠️ Falha ao enviar para o Drive. Verifique o link.', { error: true });
+        }
+        return false;
+      } finally {
+        _driveSyncInFlight = false;
+        if (_driveResyncQueued || (driveCfg.pendingSync && stateVersion !== syncVersionSnapshot)) {
+          _driveResyncQueued = false;
+          scheduleAutoDriveBackup('auto_dados');
+        }
+      }
+    }
+
+    async function restoreFromGoogleDrive() {
+      if (!driveCfg.webhookUrl) {
+        alert('Configure primeiro o link do Google Apps Script.');
+        return;
+      }
+      if (!navigator.onLine) {
+        alert('Você precisa estar conectado à internet para restaurar do Google Drive.');
+        return;
+      }
+      if (!confirm('Restaurar do Google Drive vai substituir os dados atuais deste aparelho pelo último backup salvo na nuvem. Continuar?')) {
+        return;
+      }
+      updateDriveUi('syncing');
+      try {
+        const sep = driveCfg.webhookUrl.includes('?') ? '&' : '?';
+        const res = await fetchWithTimeout(`${driveCfg.webhookUrl}${sep}action=restore&t=${Date.now()}`, {}, 20000);
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const json = await res.json();
+        if (json && json.ok === false) {
+          throw new Error(json.error || 'Nenhum backup encontrado no Google Drive.');
+        }
+        const restoredData = json && json.data ? json.data : json;
+        if (!restoredData || typeof restoredData !== 'object' || typeof restoredData.history !== 'object') {
+          throw new Error('Nenhum backup válido encontrado no Google Drive.');
+        }
+        state = sanitizeLoadedState(restoredData);
+        driveCfg.pendingSync = false;
+        saveState({ skipDriveSync: true });
+        saveDriveConfig();
+        render();
+        updateDriveUi('ok');
+        closeDriveModal();
+        showToast('☁️ Dados restaurados do Google Drive!');
+      } catch (err) {
+        updateDriveUi('err');
+        alert('Não foi possível restaurar do Google Drive: ' + (err.message || 'verifique o link e permissões do script.'));
+      }
+    }
+
+    function checkAppVersionUpdateBackup() {
+      let prevVer = '';
+      try {
+        prevVer = localStorage.getItem(LAST_APP_VER_KEY) || '';
+      } catch (e) {}
+
+      const effectivePrev = driveCfg.lastBackedUpVersion || prevVer;
+      if (driveCfg.webhookUrl && driveCfg.autoBackup) {
+        if (effectivePrev && effectivePrev !== APP_VERSION) {
+          // Only marks LAST_APP_VER_KEY after Drive backup actually succeeds, so offline updates retry automatically
+          syncToGoogleDrive('atualizacao_app', { previousVersion: effectivePrev, silent: false });
+        } else if (driveCfg.pendingSync) {
+          syncToGoogleDrive('auto_dados', { silent: true });
+        } else {
+          try { localStorage.setItem(LAST_APP_VER_KEY, APP_VERSION); } catch (e) {}
+        }
+      } else {
+        try { localStorage.setItem(LAST_APP_VER_KEY, APP_VERSION); } catch (e) {}
+      }
+    }
+
+    function saveState(opts = {}) {
       stateVersion++;
       try {
         localStorage.setItem('saldo_calorico_v6', JSON.stringify(state));
       } catch (e) {
         showToast('⚠️ Espaço cheio no dispositivo: faça um backup!', { error: true });
+      }
+      if (!opts.skipDriveSync) {
+        scheduleAutoDriveBackup('auto_dados');
       }
     }
 
@@ -2529,14 +2917,17 @@
       reader.onload = function(e) {
         try {
           const parsed = JSON.parse(e.target.result);
-          if (!parsed || typeof parsed !== 'object' || typeof parsed.history !== 'object') {
+          const payloadData = (parsed && typeof parsed === 'object' && parsed.data && typeof parsed.data === 'object' && typeof parsed.data.history === 'object')
+            ? parsed.data
+            : parsed;
+          if (!payloadData || typeof payloadData !== 'object' || typeof payloadData.history !== 'object') {
             alert('Arquivo de backup inválido.');
             return;
           }
           if (!confirm('Restaurar este backup vai substituir os registros atuais deste aparelho. Deseja continuar?')) {
             return;
           }
-          state = sanitizeLoadedState(parsed);
+          state = sanitizeLoadedState(payloadData);
           saveState();
           render();
           closeGoalModal();
@@ -2821,10 +3212,14 @@
     document.getElementById('customWaterGoalInput').addEventListener('keydown', function(e) {
       if (e.key === 'Enter') saveCustomWaterGoal();
     });
+    document.getElementById('driveUrlInput').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') saveDriveConfigAndSync();
+    });
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
         closeGoalModal();
         closeWaterModal();
+        closeDriveModal();
       }
     });
 
@@ -2845,8 +3240,14 @@
         if (_swReg && typeof _swReg.update === 'function') {
           _swReg.update().catch(() => {});
         }
+        if (driveCfg.webhookUrl && driveCfg.autoBackup && driveCfg.pendingSync && navigator.onLine) {
+          syncToGoogleDrive('auto_dados', { silent: true });
+        }
+      } else {
+        flushPendingDriveOnHide();
       }
     });
+    window.addEventListener('pagehide', flushPendingDriveOnHide);
     window.addEventListener('focus', syncMidnightRollover);
     window.addEventListener('storage', (e) => {
       if (e.key === 'saldo_calorico_v6' && e.newValue) {
@@ -2855,9 +3256,22 @@
       }
     });
 
+    window.addEventListener('online', () => {
+      if (driveCfg.webhookUrl && driveCfg.autoBackup) {
+        if (driveCfg.lastBackedUpVersion && driveCfg.lastBackedUpVersion !== APP_VERSION) {
+          syncToGoogleDrive('atualizacao_app', { previousVersion: driveCfg.lastBackedUpVersion, silent: false });
+        } else if (driveCfg.pendingSync) {
+          syncToGoogleDrive('auto_dados', { silent: true });
+        }
+      }
+    });
+
+    loadDriveConfig();
     loadState();
     selectCategory(activeCategory);
     render();
+    updateDriveUi();
+    checkAppVersionUpdateBackup();
   </script>
 </body>
 </html>
