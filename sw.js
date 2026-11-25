@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bleick-store-ready-v7-3';
+const CACHE_NAME = 'bleick-store-ready-v8-1';
 const CORE_URLS = [
   './',
   './index.html',
@@ -14,8 +14,18 @@ const OPTIONAL_URLS = [
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(async (cache) => {
-      await cache.addAll(CORE_URLS);
-      await Promise.allSettled(OPTIONAL_URLS.map((u) => cache.add(u)));
+      await Promise.all(
+        CORE_URLS.map(async (u) => {
+          const res = await fetch(new Request(u, { cache: 'reload' }));
+          if (res && res.ok) await cache.put(u, res);
+        })
+      );
+      await Promise.allSettled(
+        OPTIONAL_URLS.map(async (u) => {
+          const res = await fetch(new Request(u, { cache: 'reload' }));
+          if (res && res.ok) await cache.put(u, res);
+        })
+      );
     })
   );
   self.skipWaiting();

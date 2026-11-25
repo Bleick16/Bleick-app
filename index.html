@@ -13,7 +13,19 @@
   <link rel="manifest" href="./manifest.json">
 
   <meta name="description" content="Bleick - Controle diário de saldo calórico, água, peso e atividades físicas.">
-  <title>Bleick v7.3</title>
+  <title>Bleick v8.1</title>
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('bleick_theme_v1');
+        if (t === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+          var mc = document.querySelector('meta[name="theme-color"]');
+          if (mc) mc.setAttribute('content', '#059669');
+        }
+      } catch (e) {}
+    })();
+  </script>
   <style>
     :root {
       --bg: #0f172a;
@@ -23,10 +35,47 @@
       --muted: #94a3b8;
       --primary: #10b981;
       --primary-dark: #059669;
+      --primary-contrast: #064e3b;
       --danger: #ef4444;
       --warning: #f59e0b;
       --water: #38bdf8;
+      --water-btn-text: #e0f2fe;
+      --water-btn-active: #0369a1;
+      --activity-accent: #c084fc;
       --border: #334155;
+      --balance-bg: linear-gradient(145deg, #1e293b, #0f172a);
+      --balance-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      --track-bg: #0f172a;
+      --btn-del-bg: #334155;
+      --btn-weight-bg: #334155;
+      --btn-weight-border: #475569;
+      --backdrop: rgba(0,0,0,0.75);
+      color-scheme: dark;
+    }
+    [data-theme="light"] {
+      --bg: #f1f5f9;
+      --card: #ffffff;
+      --card-hover: #e2e8f0;
+      --text: #0f172a;
+      --muted: #475569;
+      --primary: #059669;
+      --primary-dark: #047857;
+      --primary-contrast: #ffffff;
+      --danger: #dc2626;
+      --warning: #d97706;
+      --water: #0284c7;
+      --water-btn-text: #0369a1;
+      --water-btn-active: #bae6fd;
+      --activity-accent: #9333ea;
+      --border: #cbd5e1;
+      --balance-bg: linear-gradient(145deg, #ffffff, #f8fafc);
+      --balance-shadow: 0 8px 20px rgba(15,23,42,0.08);
+      --track-bg: #e2e8f0;
+      --btn-del-bg: #e2e8f0;
+      --btn-weight-bg: #e2e8f0;
+      --btn-weight-border: #cbd5e1;
+      --backdrop: rgba(15,23,42,0.5);
+      color-scheme: light;
     }
     * {
       box-sizing: border-box;
@@ -38,6 +87,7 @@
     body {
       background-color: var(--bg);
       color: var(--text);
+      transition: background-color 0.2s ease, color 0.2s ease;
       min-height: 100vh;
       display: flex;
       justify-content: center;
@@ -63,10 +113,19 @@
       padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px));
     }
     header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 4px 0;
+      padding: 8px 4px;
+      margin: -8px -4px 0;
+      background: var(--bg);
+      border-bottom: 1px solid transparent;
+    }
+    header.scrolled {
+      border-bottom-color: var(--border);
     }
     header h1 {
       font-size: 1.18rem;
@@ -77,21 +136,29 @@
     }
     .header-actions {
       display: flex;
-      gap: 8px;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
     }
     .btn-top {
       background: var(--card);
       color: var(--text);
       border: 1px solid var(--border);
-      padding: 8px 11px;
+      padding: 8px 10px;
       border-radius: 10px;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 600;
       cursor: pointer;
+      white-space: nowrap;
+    }
+    @media (max-width: 400px) {
+      header h1 { font-size: 1.0rem; gap: 4px; }
+      .header-actions { gap: 4px; }
+      .btn-top { padding: 7px 7px; font-size: 0.72rem; }
     }
     .btn-top.active {
       background: var(--primary);
-      color: #064e3b;
+      color: var(--primary-contrast);
       border-color: var(--primary);
     }
     .date-nav {
@@ -135,12 +202,12 @@
       font-weight: 600;
     }
     .balance-card {
-      background: linear-gradient(145deg, #1e293b, #0f172a);
+      background: var(--balance-bg);
       border: 1px solid var(--border);
       border-radius: 20px;
       padding: 20px;
       text-align: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      box-shadow: var(--balance-shadow);
     }
     .balance-label {
       font-size: 0.86rem;
@@ -166,7 +233,7 @@
     .progress-bar-bg {
       width: 100%;
       height: 12px;
-      background: #0f172a;
+      background: var(--track-bg);
       border-radius: 999px;
       overflow: hidden;
       margin: 14px 0;
@@ -209,7 +276,7 @@
     }
     .cat-tab.active {
       background: var(--primary);
-      color: #064e3b;
+      color: var(--primary-contrast);
       border-color: var(--primary);
     }
 
@@ -244,7 +311,7 @@
     }
     .btn-add {
       background: var(--primary);
-      color: #064e3b;
+      color: var(--primary-contrast);
       font-weight: 800;
       border: none;
       padding: 0 18px;
@@ -345,7 +412,7 @@
     .btn-water {
       background: var(--bg);
       border: 1px solid var(--border);
-      color: #e0f2fe;
+      color: var(--water-btn-text);
       padding: 9px 6px;
       border-radius: 10px;
       font-size: 0.8rem;
@@ -353,7 +420,7 @@
       cursor: pointer;
     }
     .btn-water:active {
-      background: #0369a1;
+      background: var(--water-btn-active);
     }
     .btn-water-undo {
       background: transparent;
@@ -388,7 +455,7 @@
     .activity-badge {
       font-size: 0.85rem;
       font-weight: 800;
-      color: #c084fc;
+      color: var(--activity-accent);
     }
     .activity-form {
       display: grid;
@@ -406,7 +473,7 @@
       width: 100%;
     }
     .btn-act-add {
-      background: #a855f7;
+      background: var(--activity-accent);
       color: #ffffff;
       border: none;
       padding: 0 14px;
@@ -495,9 +562,9 @@
       font-size: 0.92rem;
     }
     .btn-weight-save {
-      background: #334155;
+      background: var(--btn-weight-bg);
       color: var(--text);
-      border: 1px solid #475569;
+      border: 1px solid var(--btn-weight-border);
       padding: 0 14px;
       border-radius: 10px;
       font-size: 0.85rem;
@@ -506,7 +573,7 @@
     }
     .btn-weight-save:active {
       background: var(--primary);
-      color: #064e3b;
+      color: var(--primary-contrast);
     }
     .weight-history-mini {
       display: flex;
@@ -648,7 +715,7 @@
       font-size: 0.92rem;
     }
     .btn-del {
-      background: #334155;
+      background: var(--btn-del-bg);
       color: var(--text);
       border: none;
       width: 28px;
@@ -761,7 +828,7 @@
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.75);
+      background: var(--backdrop);
       display: none;
       justify-content: center;
       align-items: center;
@@ -917,8 +984,9 @@
 <body>
   <div class="app-container">
     <header>
-      <h1><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmdHcmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzBmMTcyYSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwNjVmNDYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJHcmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzM0ZDM5OSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxMGI5ODEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTEyIiBmaWxsPSJ1cmwoI2JnR3JhZCkiLz4KICA8Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjE3NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTBiOTgxIiBzdHJva2Utb3BhY2l0eT0iMC4yMiIgc3Ryb2tlLXdpZHRoPSIxMCIvPgogIDxwYXRoIGQ9Ik0xNzAgMTE2IEgyOTIgQzM0NiAxMTYgMzgyIDE0NiAzODIgMTkwIEMzODIgMjIyIDM2MiAyNDQgMzMyIDI1MiBDMzY4IDI2MCAzOTIgMjg2IDM5MiAzMjQgQzM5MiAzNzAgMzUyIDM5NiAyOTIgMzk2IEgxNzAgWiBNMjI4IDE2NCBWMjMwIEgyODYgQzMxMiAyMzAgMzI2IDIxNiAzMjYgMTk3IEMzMjYgMTc4IDMxMiAxNjQgMjg2IDE2NCBaIE0yMjggMjc2IFYzNDggSDI5MCBDMzE4IDM0OCAzMzQgMzM0IDMzNCAzMTIgQzMzNCAyOTAgMzE4IDI3NiAyOTAgMjc2IFoiIGZpbGw9InVybCgjYkdyYWQpIi8+Cjwvc3ZnPg==" alt="Bleick" style="width:28px;height:28px;border-radius:8px;border:1px solid var(--border);"> Bleick <small style="font-size:0.72rem;color:var(--primary);font-weight:700;">v7.3</small></h1>
+      <h1><img src="./icon-192.png" decoding="async" onerror="this.onerror=null;this.src='data:image/png;base64,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'" alt="Bleick" style="width:28px;height:28px;border-radius:8px;border:1px solid var(--border);object-fit:cover;"> Bleick <small style="font-size:0.72rem;color:var(--primary);font-weight:700;">v8.1</small></h1>
       <div class="header-actions">
+        <button class="btn-top" id="btnThemeToggle" onclick="toggleTheme()" title="Alternar modo claro/escuro" aria-label="Alternar modo claro e escuro">☀️</button>
         <button class="btn-top btn-drive" id="btnDriveModal" onclick="openDriveModal()" title="Backup no Google Drive"><span class="drive-dot" id="driveDot"></span>☁️</button>
         <button class="btn-top" id="btnToggleHistory" onclick="toggleArchiveView()">📅 Meses</button>
         <button class="btn-top" onclick="openGoalModal()">Meta: <span id="headerGoal">2300</span></button>
@@ -1158,7 +1226,7 @@
       <div class="drive-status-box">
         <div>Status: <strong id="driveStatusLabel">Não configurado</strong></div>
         <div>Último backup: <strong id="driveLastSyncLabel">Nunca</strong></div>
-        <div>Versão atual do app: <strong id="driveAppVersionLabel">v7.3</strong></div>
+        <div>Versão atual do app: <strong id="driveAppVersionLabel">v8.1</strong></div>
       </div>
 
       <div style="display:flex;flex-direction:column;gap:6px;">
@@ -1223,6 +1291,155 @@
       { cat: 'doces', keys: ['milka ao leite', 'milka alpine', 'milka', 'chocolate milka', 'doces milka'], name: 'Chocolate Milka ao Leite (barra 100g)', kcal: 530 },
       { cat: 'doces', keys: ['milka pedaco', 'milka quadrado', 'quadradinho milka', 'fileira milka'], name: 'Chocolate Milka (1 fileira / 4 quadradinhos - 25g)', kcal: 133 },
       { cat: 'doces', keys: ['sorvete por xicara', 'sorvete por chicara', 'xicara de sorvete', 'chicara de sorvete', 'sorvete xicara', 'sorvete chicara', 'pote de sorvete xicara'], name: 'Sorvete cremoso (1 xícara / 150g)', kcal: 295 },
+
+      // ==================== NOVAS COMIDAS, DOCES E BEBIDAS (v7.4) ====================
+      { cat: 'refeicoes', keys: ['maminha', 'maminha assada'], name: 'Maminha assada / grelhada (150g)', kcal: 315 },
+      { cat: 'refeicoes', keys: ['fraldinha', 'fraldinha assada'], name: 'Fraldinha assada / na brasa (150g)', kcal: 330 },
+      { cat: 'refeicoes', keys: ['file mignon', 'filé mignon'], name: 'Filé mignon grelhado (150g)', kcal: 275 },
+      { cat: 'refeicoes', keys: ['carne seca', 'carne de sol', 'jabá', 'jaba'], name: 'Carne seca / carne de sol acebolada (150g)', kcal: 345 },
+      { cat: 'refeicoes', keys: ['figado', 'fígado', 'figado acebolado', 'fígado acebolado'], name: 'Fígado bovino acebolado (150g)', kcal: 265 },
+      { cat: 'refeicoes', keys: ['almondega', 'almôndega', 'almondegas', 'almôndegas'], name: 'Almôndegas ao molho (3 un - 120g)', kcal: 260 },
+      { cat: 'refeicoes', keys: ['kibe assado', 'quibe assado'], name: 'Quibe assado de bandeja (1 pedaço - 150g)', kcal: 295 },
+      { cat: 'refeicoes', keys: ['frango xadrez'], name: 'Frango xadrez (200g)', kcal: 270 },
+      { cat: 'refeicoes', keys: ['frango a passarinho', 'frango passarinho'], name: 'Frango à passarinho frito (150g)', kcal: 385 },
+      { cat: 'refeicoes', keys: ['moela', 'moela de frango'], name: 'Moela de frango ensopada (150g)', kcal: 225 },
+      { cat: 'refeicoes', keys: ['camarao', 'camarão', 'camarao grelhado'], name: 'Camarão grelhado / alho e óleo (150g)', kcal: 195 },
+      { cat: 'refeicoes', keys: ['camarao empanado', 'camarão empanado'], name: 'Camarão empanado frito (150g)', kcal: 355 },
+      { cat: 'refeicoes', keys: ['bacalhau', 'bacalhoada'], name: 'Bacalhoada / bacalhau cozido com azeite (150g)', kcal: 260 },
+      { cat: 'refeicoes', keys: ['moqueca', 'moqueca de peixe'], name: 'Moqueca de peixe com dendê/leite de coco (200g)', kcal: 290 },
+      { cat: 'refeicoes', keys: ['bobo de camarao', 'bobó de camarão'], name: 'Bobó de camarão (200g)', kcal: 335 },
+      { cat: 'refeicoes', keys: ['baiao de dois', 'baião de dois'], name: 'Baião de dois com queijo coalho (200g)', kcal: 340 },
+      { cat: 'refeicoes', keys: ['tutu de feijao', 'tutu de feijão', 'tutu'], name: 'Tutu de feijão (150g)', kcal: 220 },
+      { cat: 'refeicoes', keys: ['virado a paulista', 'virado paulista'], name: 'Virado à paulista completo (1 prato - 450g)', kcal: 760 },
+      { cat: 'refeicoes', keys: ['galinhada'], name: 'Galinhada / arroz com frango (250g)', kcal: 365 },
+      { cat: 'refeicoes', keys: ['risoto', 'risoto de frango', 'risoto de queijo'], name: 'Risoto cremoso (200g)', kcal: 330 },
+      { cat: 'refeicoes', keys: ['polenta', 'polenta cozida', 'angu'], name: 'Polenta cozida / angu (150g)', kcal: 135 },
+      { cat: 'refeicoes', keys: ['polenta frita'], name: 'Polenta frita (porção 150g)', kcal: 360 },
+      { cat: 'refeicoes', keys: ['macarrao ao alho e oleo', 'macarrão alho e óleo', 'alho e oleo'], name: 'Macarrão ao alho e óleo (200g)', kcal: 350 },
+      { cat: 'refeicoes', keys: ['macarrao carbonara', 'carbonara'], name: 'Macarrão à carbonara (250g)', kcal: 490 },
+      { cat: 'refeicoes', keys: ['ravioli', 'capeletti', 'capelete'], name: 'Ravioli / capeletti ao molho (200g)', kcal: 340 },
+      { cat: 'refeicoes', keys: ['canelone', 'rondelli', 'rondeli'], name: 'Canelone / rondelli ao molho (200g)', kcal: 360 },
+      { cat: 'refeicoes', keys: ['sushi', 'hossomaki', 'uramaki'], name: 'Sushi / Uramaki / Hossomaki (8 peças - 160g)', kcal: 260 },
+      { cat: 'refeicoes', keys: ['hot roll', 'hot philadelphia'], name: 'Hot Roll / Hot Philadelphia frito (8 peças - 180g)', kcal: 390 },
+      { cat: 'refeicoes', keys: ['temaki', 'temaki salmao', 'temaki salmão'], name: 'Temaki de salmão com cream cheese (1 un - 150g)', kcal: 310 },
+      { cat: 'refeicoes', keys: ['sashimi', 'sashimi salmao', 'sashimi salmão'], name: 'Sashimi de salmão (5 fatias - 100g)', kcal: 180 },
+      { cat: 'refeicoes', keys: ['guioza', 'gyoza'], name: 'Guioza frito/cozido (4 unidades - 120g)', kcal: 240 },
+      { cat: 'refeicoes', keys: ['rolinho primavera', 'harumaki'], name: 'Rolinho primavera frito (1 un - 80g)', kcal: 190 },
+      { cat: 'refeicoes', keys: ['taco', 'tacos', 'burrito'], name: 'Burrito / Taco recheado carne e queijo (1 un - 220g)', kcal: 460 },
+      { cat: 'refeicoes', keys: ['nachos', 'doritos'], name: 'Doritos / Nachos de milho (porção 50g)', kcal: 245 },
+      { cat: 'refeicoes', keys: ['salgadinho', 'cheetos', 'ruffles', 'fandangos', 'batata chips'], name: 'Salgadinho de pacote Ruffles/Cheetos/Fandangos (50g)', kcal: 255 },
+      { cat: 'refeicoes', keys: ['pao de alho', 'pão de alho'], name: 'Pão de alho assado na brasa (1 un - 65g)', kcal: 225 },
+      { cat: 'refeicoes', keys: ['queijo coalho', 'espetinho de queijo'], name: 'Espetinho de queijo coalho assado (1 un - 70g)', kcal: 230 },
+      { cat: 'refeicoes', keys: ['espetinho de carne', 'espetinho', 'churrasquinho'], name: 'Espetinho de carne bovina (1 un - 100g)', kcal: 220 },
+      { cat: 'refeicoes', keys: ['espetinho de frango'], name: 'Espetinho de frango (1 un - 100g)', kcal: 165 },
+      { cat: 'refeicoes', keys: ['acaraje', 'acarajé'], name: 'Acarajé médio com vatapá (1 un - 180g)', kcal: 450 },
+      { cat: 'refeicoes', keys: ['bolinho de bacalhau'], name: 'Bolinho de bacalhau frito (3 un - 90g)', kcal: 240 },
+      { cat: 'refeicoes', keys: ['bolinha de queijo', 'risole', 'risoles'], name: 'Bolinha de queijo / Risole frito (3 un - 90g)', kcal: 255 },
+      { cat: 'refeicoes', keys: ['croissant'], name: 'Croissant tradicional / queijo e presunto (1 un - 85g)', kcal: 310 },
+      { cat: 'refeicoes', keys: ['pao sirio', 'pão sírio', 'beirute'], name: 'Beirute tradicional carne/frango (1 un - 280g)', kcal: 610 },
+      { cat: 'refeicoes', keys: ['bauru'], name: 'Sanduíche Bauru (pão + rosbife/presunto + queijo - 180g)', kcal: 380 },
+      { cat: 'refeicoes', keys: ['torrada', 'torradas'], name: 'Torrada tradicional (3 fatias - 30g)', kcal: 115 },
+      { cat: 'refeicoes', keys: ['bisnaguinha'], name: 'Bisnaguinha (2 unidades - 40g)', kcal: 125 },
+      { cat: 'refeicoes', keys: ['crepioca'], name: 'Crepioca simples (1 ovo + 2 col. tapioca - 100g)', kcal: 190 },
+      { cat: 'refeicoes', keys: ['caldo verde', 'sopa', 'canja'], name: 'Sopa / Caldo verde / Canja (1 prato fundo - 300ml)', kcal: 230 },
+      { cat: 'refeicoes', keys: ['caldo de feijao', 'caldinho de feijao', 'caldinho de feijão'], name: 'Caldinho de feijão com bacon (1 copo - 200ml)', kcal: 195 },
+      { cat: 'refeicoes', keys: ['maionese', 'salada de maionese'], name: 'Salada de maionese com batata (150g)', kcal: 245 },
+      { cat: 'refeicoes', keys: ['vinagrete'], name: 'Vinagrete tradicional (3 colheres sopa - 60g)', kcal: 45 },
+      { cat: 'refeicoes', keys: ['azeite', 'colher de azeite'], name: 'Azeite de oliva extra virgem (1 colher sopa - 13ml)', kcal: 108 },
+      { cat: 'refeicoes', keys: ['ketchup', 'catchup', 'mostarda'], name: 'Ketchup / Mostarda (1 colher sopa - 15g)', kcal: 18 },
+      { cat: 'refeicoes', keys: ['molho barbecue', 'barbecue'], name: 'Molho barbecue (1 colher sopa - 20g)', kcal: 35 },
+      { cat: 'refeicoes', keys: ['catupiry', 'cream cheese'], name: 'Catupiry / Cream cheese (1 colher sopa - 30g)', kcal: 85 },
+      { cat: 'refeicoes', keys: ['cheddar', 'queijo cheddar'], name: 'Queijo cheddar fatiado/cremoso (30g)', kcal: 115 },
+      { cat: 'refeicoes', keys: ['mortadela'], name: 'Mortadela fatiada (2 fatias - 40g)', kcal: 112 },
+      { cat: 'refeicoes', keys: ['peito de peru'], name: 'Peito de peru defumado (2 fatias - 40g)', kcal: 44 },
+      { cat: 'refeicoes', keys: ['salame'], name: 'Salame italiano (5 fatias - 30g)', kcal: 126 },
+      { cat: 'doces', keys: ['pave', 'pavê', 'pave de chocolate', 'pavê de chocolate'], name: 'Pavê de chocolate / biscoito (1 fatia - 120g)', kcal: 315 },
+      { cat: 'doces', keys: ['petit gateau', 'petit gâteau'], name: 'Petit Gâteau com 1 bola de sorvete (150g)', kcal: 465 },
+      { cat: 'doces', keys: ['tiramisu', 'tiramisù'], name: 'Tiramisù (1 porção - 120g)', kcal: 310 },
+      { cat: 'doces', keys: ['cheesecake'], name: 'Cheesecake com calda de frutas vermelhas (1 fatia - 120g)', kcal: 370 },
+      { cat: 'doces', keys: ['banoffee'], name: 'Torta Banoffee (1 fatia - 120g)', kcal: 395 },
+      { cat: 'doces', keys: ['red velvet', 'bolo red velvet'], name: 'Bolo Red Velvet com cobertura (1 fatia - 100g)', kcal: 360 },
+      { cat: 'doces', keys: ['bolo de fuba', 'bolo de fubá'], name: 'Bolo de fubá simples (1 fatia - 70g)', kcal: 215 },
+      { cat: 'doces', keys: ['bolo de milho'], name: 'Bolo de milho cremoso (1 fatia - 80g)', kcal: 235 },
+      { cat: 'doces', keys: ['bolo de laranja'], name: 'Bolo de laranja simples (1 fatia - 70g)', kcal: 210 },
+      { cat: 'doces', keys: ['bolo de pote', 'bolo no pote'], name: 'Bolo de pote recheado (1 pote - 180g)', kcal: 490 },
+      { cat: 'doces', keys: ['panetone', 'chocotone'], name: 'Panetone / Chocotone (1 fatia - 80g)', kcal: 295 },
+      { cat: 'doces', keys: ['rocambole', 'rocambole doce'], name: 'Rocambole de doce de leite / chocolate (1 fatia - 80g)', kcal: 265 },
+      { cat: 'doces', keys: ['palha italiana'], name: 'Palha italiana (1 quadrado - 45g)', kcal: 195 },
+      { cat: 'doces', keys: ['cajuzinho'], name: 'Cajuzinho de amendoim (1 un - 20g)', kcal: 78 },
+      { cat: 'doces', keys: ['quindim'], name: 'Quindim tradicional (1 un - 55g)', kcal: 175 },
+      { cat: 'doces', keys: ['cocada'], name: 'Cocada branca ou queimada (1 un - 40g)', kcal: 165 },
+      { cat: 'doces', keys: ['maria mole'], name: 'Maria-mole com coco (1 un - 35g)', kcal: 120 },
+      { cat: 'doces', keys: ['suspiro'], name: 'Suspiro tradicional (5 unidades - 25g)', kcal: 98 },
+      { cat: 'doces', keys: ['pe de moca', 'pé de moça'], name: 'Pé de moça cremoso (1 un - 30g)', kcal: 135 },
+      { cat: 'doces', keys: ['rapadura'], name: 'Rapadura (1 pedaço - 30g)', kcal: 110 },
+      { cat: 'doces', keys: ['arroz doce'], name: 'Arroz doce cremoso (1 taça - 150g)', kcal: 235 },
+      { cat: 'doces', keys: ['canjica', 'mungunza', 'mungunzá'], name: 'Canjica / Mungunzá doce (1 taça - 150g)', kcal: 225 },
+      { cat: 'doces', keys: ['curau', 'pamonha doce', 'pamonha'], name: 'Pamonha / Curau de milho doce (1 un - 160g)', kcal: 290 },
+      { cat: 'doces', keys: ['manjar', 'manjar de coco'], name: 'Manjar branco com calda de ameixa (1 fatia - 120g)', kcal: 210 },
+      { cat: 'doces', keys: ['romeu e julieta'], name: 'Romeu e Julieta (queijo minas + goiabada - 80g)', kcal: 225 },
+      { cat: 'doces', keys: ['salada de frutas'], name: 'Salada de frutas simples sem leite condensado (200g)', kcal: 115 },
+      { cat: 'doces', keys: ['gelatina'], name: 'Gelatina tradicional pronta (1 taça - 120g)', kcal: 72 },
+      { cat: 'doces', keys: ['gelatina zero', 'gelatina diet'], name: 'Gelatina Zero Açúcar pronta (1 taça - 120g)', kcal: 10 },
+      { cat: 'doces', keys: ['danette', 'chandelle', 'flan'], name: 'Sobremesa láctea Danette / Chandelle (1 pote - 90g)', kcal: 135 },
+      { cat: 'doces', keys: ['magnum', 'picole magnum', 'picolé magnum'], name: 'Picolé Magnum clássico / branco (1 un - 80g)', kcal: 250 },
+      { cat: 'doces', keys: ['cornetto', 'corneto'], name: 'Sorvete Cornetto clássico (1 un - 90g)', kcal: 230 },
+      { cat: 'doces', keys: ['mcflurry', 'sundae'], name: 'Sundae / McFlurry médio (180g)', kcal: 390 },
+      { cat: 'doces', keys: ['toblerone'], name: 'Chocolate Toblerone (1 barra pequena - 35g)', kcal: 185 },
+      { cat: 'doces', keys: ['lindt', 'lindor'], name: 'Trufa Lindt Lindor (1 un - 12,5g)', kcal: 78 },
+      { cat: 'doces', keys: ['cacau show', 'trufa', 'trufa de chocolate'], name: 'Trufa de chocolate artesanal / Cacau Show (1 un - 30g)', kcal: 155 },
+      { cat: 'doces', keys: ['chocolate amargo', 'chocolate 70'], name: 'Chocolate meio amargo / 70% cacau (4 quadradinhos - 25g)', kcal: 138 },
+      { cat: 'doces', keys: ['bis branco'], name: 'Caixa Bis Branco (100,8g)', kcal: 544 },
+      { cat: 'doces', keys: ['stikadinho'], name: 'Stikadinho Neugebauer (1 un - 12,3g)', kcal: 61 },
+      { cat: 'doces', keys: ['bibs', 'bib\'s'], name: 'Bib\'s Neugebauer chocolate/amendoim (pacote 40g)', kcal: 205 },
+      { cat: 'doces', keys: ['mentos', 'bala mentos'], name: 'Mentos tubo inteiro (37,5g)', kcal: 145 },
+      { cat: 'doces', keys: ['halls'], name: 'Bala Halls (1 unidade - 3,4g)', kcal: 13 },
+      { cat: 'doces', keys: ['paçoquita cremosa', 'pacoquita cremosa', 'pasta de amendoim'], name: 'Pasta de amendoim / Paçoquita cremosa (1 colher sopa - 20g)', kcal: 118 },
+      { cat: 'doces', keys: ['mel', 'colher de mel'], name: 'Mel de abelha (1 colher sopa - 20g)', kcal: 62 },
+      { cat: 'doces', keys: ['geleia', 'geléia'], name: 'Geleia de frutas tradicional (1 colher sopa - 20g)', kcal: 52 },
+      { cat: 'doces', keys: ['waffle', 'panqueca doce'], name: 'Waffle / Panqueca doce com calda (1 un - 90g)', kcal: 285 },
+      { cat: 'doces', keys: ['pastel de belem', 'pastel de nata'], name: 'Pastel de Belém / nata (1 un - 65g)', kcal: 215 },
+      { cat: 'doces', keys: ['macaron'], name: 'Macaron francês (1 un - 20g)', kcal: 85 },
+      { cat: 'doces', keys: ['alfajor'], name: 'Alfajor recheado doce de leite (1 un - 55g)', kcal: 235 },
+      { cat: 'bebidas', keys: ['suco de abacaxi', 'abacaxi com hortela'], name: 'Suco natural de abacaxi com hortelã (copo 300ml)', kcal: 135 },
+      { cat: 'bebidas', keys: ['suco de maracuja', 'suco de maracujá'], name: 'Suco de maracujá adoçado (copo 300ml)', kcal: 125 },
+      { cat: 'bebidas', keys: ['suco de limao', 'limonada', 'limonada suica', 'limonada suíça'], name: 'Limonada suíça / suco de limão adoçado (copo 300ml)', kcal: 115 },
+      { cat: 'bebidas', keys: ['suco de melancia'], name: 'Suco natural de melancia sem açúcar (copo 300ml)', kcal: 90 },
+      { cat: 'bebidas', keys: ['suco de manga'], name: 'Suco natural de manga (copo 300ml)', kcal: 150 },
+      { cat: 'bebidas', keys: ['suco de goiaba'], name: 'Suco natural de goiaba (copo 300ml)', kcal: 140 },
+      { cat: 'bebidas', keys: ['suco de acerola'], name: 'Suco natural de acerola adoçado (copo 300ml)', kcal: 105 },
+      { cat: 'bebidas', keys: ['suco de caju'], name: 'Suco de caju adoçado (copo 300ml)', kcal: 120 },
+      { cat: 'bebidas', keys: ['suco verde', 'suco detox'], name: 'Suco verde / detox (couve, limão, maçã - 300ml)', kcal: 95 },
+      { cat: 'bebidas', keys: ['caldo de cana', 'garapa'], name: 'Caldo de cana / garapa (copo 300ml)', kcal: 215 },
+      { cat: 'bebidas', keys: ['vitamina de banana', 'vitamina'], name: 'Vitamina de banana com leite integral (copo 300ml)', kcal: 245 },
+      { cat: 'bebidas', keys: ['vitamina de abacate'], name: 'Vitamina de abacate com leite (copo 300ml)', kcal: 310 },
+      { cat: 'bebidas', keys: ['vitamina de morango'], name: 'Vitamina de morango com leite (copo 300ml)', kcal: 210 },
+      { cat: 'bebidas', keys: ['whey', 'whey protein', 'shake proteina', 'shake proteína'], name: 'Shake de Whey Protein com água (1 scoop 30g - 300ml)', kcal: 120 },
+      { cat: 'bebidas', keys: ['yopro', 'whey pronto', 'bebida proteica'], name: 'Bebida proteica YoPRO / Piracanjuba Whey (250ml)', kcal: 145 },
+      { cat: 'bebidas', keys: ['cafe com leite', 'café com leite', 'pingado'], name: 'Café com leite / Pingado sem açúcar (xícara 200ml)', kcal: 68 },
+      { cat: 'bebidas', keys: ['cafe gelado', 'café gelado', 'iced coffee'], name: 'Café gelado cremoso adoçado (copo 300ml)', kcal: 165 },
+      { cat: 'bebidas', keys: ['frappuccino', 'frapuccino'], name: 'Frappuccino / café batido com chantilly (350ml)', kcal: 340 },
+      { cat: 'bebidas', keys: ['chocolate quente'], name: 'Chocolate quente cremoso (xícara 200ml)', kcal: 220 },
+      { cat: 'bebidas', keys: ['cha verde', 'chá verde', 'cha de camomila', 'chá de camomila', 'cha de hibisco', 'cha sem acucar'], name: 'Chá natural quente/gelado sem açúcar (250ml)', kcal: 2 },
+      { cat: 'bebidas', keys: ['kombucha'], name: 'Kombucha artesanal (garrafa 300ml)', kcal: 55 },
+      { cat: 'bebidas', keys: ['agua com gas', 'água com gás', 'agua com limao'], name: 'Água com gás / com limão (copo 300ml)', kcal: 0 },
+      { cat: 'bebidas', keys: ['agua saborizada', 'água saborizada', 'aquarius fresh'], name: 'Água saborizada Aquarius Fresh / Crystal (510ml)', kcal: 0 },
+      { cat: 'bebidas', keys: ['tang', 'clight', 'suco em po', 'suco em pó'], name: 'Suco em pó Tang / Clight preparado (copo 200ml)', kcal: 15 },
+      { cat: 'bebidas', keys: ['soda italiana'], name: 'Soda italiana com xarope de fruta (copo 300ml)', kcal: 110 },
+      { cat: 'bebidas', keys: ['cha matte com limao', 'mate com limao'], name: 'Matte gelado com limão adoçado (copo 300ml)', kcal: 95 },
+      { cat: 'bebidas', keys: ['dr pepper'], name: 'Dr Pepper normal (lata 355ml)', kcal: 150 },
+      { cat: 'bebidas', keys: ['coca cafe', 'coca café', 'coca-cola cafe'], name: 'Coca-Cola Café Espresso (lata 220ml)', kcal: 66 },
+      { cat: 'bebidas', keys: ['chopp', 'chope', 'cerveja long neck'], name: 'Chopp / Cerveja Long Neck (330ml)', kcal: 142 },
+      { cat: 'bebidas', keys: ['cerveja ipa', 'ipa'], name: 'Cerveja artesanal IPA (lata/pint 350ml)', kcal: 195 },
+      { cat: 'bebidas', keys: ['vinho tinto', 'vinho seco', 'vinho'], name: 'Vinho tinto ou branco seco (1 taça - 150ml)', kcal: 125 },
+      { cat: 'bebidas', keys: ['vinho suave'], name: 'Vinho suave (1 taça - 150ml)', kcal: 165 },
+      { cat: 'bebidas', keys: ['espumante', 'champagne', 'prosecco'], name: 'Espumante / Prosecco Brut (1 taça - 150ml)', kcal: 110 },
+      { cat: 'bebidas', keys: ['caipirinha'], name: 'Caipirinha tradicional de limão com açúcar (copo 200ml)', kcal: 260 },
+      { cat: 'bebidas', keys: ['caipirinha sem acucar', 'caipirinha com adocante'], name: 'Caipirinha de limão com adoçante (copo 200ml)', kcal: 155 },
+      { cat: 'bebidas', keys: ['gin tonica', 'gin tônica'], name: 'Gin Tônica tradicional (taça 250ml)', kcal: 185 },
+      { cat: 'bebidas', keys: ['gin tonica zero', 'gin tônica zero'], name: 'Gin Tônica com tônica zero (taça 250ml)', kcal: 115 },
+      { cat: 'bebidas', keys: ['whisky', 'uísque', 'vodka', 'cachaca', 'cachaça'], name: 'Destilado puro Whisky/Vodka/Cachaça (1 dose - 50ml)', kcal: 115 },
+      { cat: 'bebidas', keys: ['smirnoff ice', 'beats', 'skol beats'], name: 'Skol Beats / Smirnoff Ice (long neck 269ml)', kcal: 215 },
 
       // ==================== ALMOÇO E JANTAR ====================
       { cat: 'refeicoes', keys: ['arroz branco', 'arroz'], name: 'Arroz branco cozido (150g)', kcal: 195 },
@@ -1509,7 +1726,12 @@
         { label: 'Pão Hambúrguer (1 un)', kcal: 195 },
         { label: 'Farofa (1 colher)', kcal: 60 },
         { label: 'Manteiga (1 colher)', kcal: 72 },
-        { label: 'Pão de Queijo (1 un)', kcal: 95 }
+        { label: 'Pão de Queijo (1 un)', kcal: 95 },
+        { label: 'Pão de Alho (1 un)', kcal: 225 },
+        { label: 'Espetinho Carne', kcal: 220 },
+        { label: 'Sushi (8 peças)', kcal: 260 },
+        { label: 'Temaki Salmão', kcal: 310 },
+        { label: 'Doritos (50g)', kcal: 245 }
       ],
       frutas: [
         { label: 'Banana (1 un)', kcal: 90 },
@@ -1555,7 +1777,13 @@
         { label: 'Pudim (1 fatia)', kcal: 220 },
         { label: 'Bolo Choc. (1 fatia)', kcal: 280 },
         { label: 'Pipoca Micro. (pct)', kcal: 440 },
-        { label: 'Pipoca Light (pct)', kcal: 320 }
+        { label: 'Pipoca Light (pct)', kcal: 320 },
+        { label: 'Pavê (1 fatia)', kcal: 315 },
+        { label: 'Bolo de Pote', kcal: 490 },
+        { label: 'Petit Gâteau', kcal: 465 },
+        { label: 'Trufa (30g)', kcal: 155 },
+        { label: 'Magnum (1 un)', kcal: 250 },
+        { label: 'Palha Italiana', kcal: 195 }
       ],
       bebidas: [
         { label: 'Coca Zero Lata', kcal: 0 },
@@ -1599,7 +1827,14 @@
         { label: 'Del Valle Normal', kcal: 95 },
         { label: 'Matte Leão Zero', kcal: 0 },
         { label: 'Matte Leão Normal', kcal: 85 },
-        { label: 'Café s/ açúcar', kcal: 3 }
+        { label: 'Café s/ açúcar', kcal: 3 },
+        { label: 'Café c/ Leite', kcal: 68 },
+        { label: 'Whey (300ml)', kcal: 120 },
+        { label: 'Vitamina Banana', kcal: 245 },
+        { label: 'Limonada (300ml)', kcal: 115 },
+        { label: 'Caldo de Cana', kcal: 215 },
+        { label: 'Água c/ Gás', kcal: 0 },
+        { label: 'Cerveja Lata', kcal: 150 }
       ]
     };
 
@@ -1663,17 +1898,27 @@
       return String(str).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
     }
 
-    // Pre-index FOOD_DB once at startup with reference gram/ml parsing for proportional scaling
+    // Pre-index FOOD_DB once at startup with precompiled word RegExps & reference gram/ml parsing
     const INDEXED_FOOD_DB = FOOD_DB.map((entry, idx) => {
       const um = entry.name.match(/(\d+(?:[.,]\d+)?)\s*(g|ml)\b/i);
       const refAmount = um ? parseFloat(um[1].replace(',', '.')) : null;
       const refUnit = um ? um[2].toLowerCase() : null;
       const baseName = entry.name.replace(/\s*\([^)]*\)\s*$/, '').trim();
+      const normKeys = entry.keys.map(k => normalizeText(k));
+      const keyRules = normKeys.map(nk => {
+        const escaped = nk.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        return {
+          nk,
+          len: nk.length,
+          wordRe: new RegExp(`(?:^|\\s)${escaped}(?:$|\\s)`)
+        };
+      });
       return {
         ...entry,
         _idx: idx,
         _normName: normalizeText(entry.name),
-        _normKeys: entry.keys.map(k => normalizeText(k)),
+        _normKeys: normKeys,
+        _keyRules: keyRules,
         _refAmount: refAmount,
         _refUnit: refUnit,
         _baseName: baseName || entry.name
@@ -1813,7 +2058,45 @@
       stateVersion++;
     }
 
-    const APP_VERSION = '7.3';
+    const THEME_STORAGE_KEY = 'bleick_theme_v1';
+
+    function applyTheme(theme) {
+      const isLight = (theme === 'light');
+      if (isLight) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+      }
+      const btn = document.getElementById('btnThemeToggle');
+      if (btn) {
+        btn.textContent = isLight ? '🌙' : '☀️';
+        btn.title = isLight ? 'Mudar para modo escuro' : 'Mudar para modo claro';
+      }
+      const mc = document.querySelector('meta[name="theme-color"]');
+      if (mc) {
+        mc.setAttribute('content', isLight ? '#059669' : '#10b981');
+      }
+    }
+
+    function loadTheme() {
+      let saved = 'dark';
+      try {
+        saved = localStorage.getItem(THEME_STORAGE_KEY) || 'dark';
+      } catch (e) {}
+      applyTheme(saved === 'light' ? 'light' : 'dark');
+    }
+
+    function toggleTheme() {
+      const currentIsLight = document.documentElement.getAttribute('data-theme') === 'light';
+      const next = currentIsLight ? 'dark' : 'light';
+      try {
+        localStorage.setItem(THEME_STORAGE_KEY, next);
+      } catch (e) {}
+      applyTheme(next);
+      showToast(next === 'light' ? '☀️ Modo claro ativado' : '🌙 Modo escuro ativado');
+    }
+
+    const APP_VERSION = '8.1';
     const DRIVE_CFG_KEY = 'bleick_drive_config_v1';
     const LAST_APP_VER_KEY = 'bleick_last_app_version';
 
@@ -1852,7 +2135,7 @@
     }
 
     function isValidDriveUrl(url) {
-      return typeof url === 'string' && /^https:\/\/script\.google\.com\/macros\/s\/.+\/exec$/i.test(url.trim());
+      return typeof url === 'string' && /^https:\/\/script\.google\.com\/(?:a\/macros\/[^/]+\/|macros\/)s\/.+\/exec$/i.test(url.trim());
     }
 
     function updateDriveUi(statusState) {
@@ -1947,14 +2230,17 @@
     }
 
     function flushPendingDriveOnHide() {
-      if (!driveCfg.webhookUrl || !driveCfg.autoBackup || !driveCfg.pendingSync || !navigator.onLine) return;
+      flushStorageNow();
+      if (!driveCfg.webhookUrl || !driveCfg.autoBackup || !driveCfg.pendingSync || !navigator.onLine || _driveSyncInFlight) return;
       clearTimeout(_driveSyncTimer);
       try {
         const body = JSON.stringify(buildDrivePayload('auto_dados', ''));
+        let sent = false;
         if (navigator.sendBeacon) {
           const blob = new Blob([body], { type: 'text/plain;charset=utf-8' });
-          navigator.sendBeacon(driveCfg.webhookUrl, blob);
-        } else {
+          sent = navigator.sendBeacon(driveCfg.webhookUrl, blob);
+        }
+        if (!sent) {
           fetch(driveCfg.webhookUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'text/plain;charset=utf-8' },
@@ -2015,7 +2301,15 @@
           body: JSON.stringify(payload)
         }, 20000);
         if (!res.ok) throw new Error('HTTP ' + res.status);
-        const json = await res.json().catch(() => ({ ok: true }));
+        const rawText = await res.text();
+        let json = { ok: true };
+        if (rawText && rawText.trim()) {
+          const trimmed = rawText.trim();
+          if (trimmed.startsWith('<')) {
+            throw new Error("A resposta do Google Drive veio em HTML. Confira se o App da Web está publicado para 'Qualquer pessoa'.");
+          }
+          json = JSON.parse(trimmed);
+        }
         if (json && json.ok === false) throw new Error(json.error || 'Erro no script');
 
         driveCfg.lastBackupAt = nowLabel;
@@ -2068,7 +2362,15 @@
         const sep = driveCfg.webhookUrl.includes('?') ? '&' : '?';
         const res = await fetchWithTimeout(`${driveCfg.webhookUrl}${sep}action=restore&t=${Date.now()}`, {}, 20000);
         if (!res.ok) throw new Error('HTTP ' + res.status);
-        const json = await res.json();
+        const rawText = await res.text();
+        const trimmed = (rawText || '').trim();
+        if (!trimmed) {
+          throw new Error('Resposta vazia do Google Drive.');
+        }
+        if (trimmed.startsWith('<')) {
+          throw new Error("A resposta do Google Drive veio em HTML. Confira se o App da Web está publicado para 'Qualquer pessoa'.");
+        }
+        const json = JSON.parse(trimmed);
         if (json && json.ok === false) {
           throw new Error(json.error || 'Nenhum backup encontrado no Google Drive.');
         }
@@ -2111,13 +2413,26 @@
       }
     }
 
-    function saveState(opts = {}) {
-      stateVersion++;
+    let _persistTimer = null;
+    let _dirtyStorage = false;
+
+    function flushStorageNow() {
+      if (!_dirtyStorage) return;
+      clearTimeout(_persistTimer);
+      _persistTimer = null;
       try {
         localStorage.setItem('saldo_calorico_v6', JSON.stringify(state));
+        _dirtyStorage = false;
       } catch (e) {
         showToast('⚠️ Espaço cheio no dispositivo: faça um backup!', { error: true });
       }
+    }
+
+    function saveState(opts = {}) {
+      stateVersion++;
+      _dirtyStorage = true;
+      clearTimeout(_persistTimer);
+      _persistTimer = setTimeout(flushStorageNow, 180);
       if (!opts.skipDriveSync) {
         scheduleAutoDriveBackup('auto_dados');
       }
@@ -2236,6 +2551,12 @@
       return state.startWeightKg || 160.0;
     }
 
+    function formatKm(km) {
+      const rounded = Math.round((Number(km) || 0) * 100) / 100;
+      const tenths = Math.round(rounded * 1000);
+      return tenths % 100 === 0 ? rounded.toFixed(1).replace('.', ',') : rounded.toFixed(2).replace('.', ',');
+    }
+
     function addActivityEntry() {
       const type = document.getElementById('actTypeSelect').value;
       const kmInput = document.getElementById('actKmInput');
@@ -2245,7 +2566,7 @@
         return;
       }
       const cleanKm = Math.round(kmVal * 100) / 100;
-      const kmFmt = Number.isInteger(cleanKm * 10) ? cleanKm.toFixed(1).replace('.', ',') : cleanKm.toFixed(2).replace('.', ',');
+      const kmFmt = formatKm(cleanKm);
       const meta = ACT_META[type] || ACT_META.caminhada;
       const kcal = Math.round(cleanKm * getCurrentWeightForCalc() * meta.perKgKm);
       const dayObj = ensureDayData(selectedDateKey);
@@ -2291,8 +2612,7 @@
       const list = Array.isArray(activities) ? activities : [];
       const totalKm = list.reduce((s, a) => s + (a.km || 0), 0);
       const totalKcal = list.reduce((s, a) => s + (a.kcal || 0), 0);
-      const roundedTotalKm = Math.round(totalKm * 100) / 100;
-      const totalKmFmt = Number.isInteger(roundedTotalKm * 10) ? roundedTotalKm.toFixed(1).replace('.', ',') : roundedTotalKm.toFixed(2).replace('.', ',');
+      const totalKmFmt = formatKm(totalKm);
       document.getElementById('activitySummaryText').textContent =
         `${totalKmFmt} km • +${totalKcal} kcal`;
       const ul = document.getElementById('activityList');
@@ -2307,7 +2627,7 @@
             <small style="color:var(--muted);font-size:0.72rem;">Registrado às ${escapeHtml(a.time || '')}</small>
           </div>
           <div style="display:flex;align-items:center;gap:8px;">
-            <span style="color:#c084fc;font-weight:700;">+${a.kcal} kcal</span>
+            <span style="color:var(--activity-accent);font-weight:700;">+${a.kcal} kcal</span>
             <button class="btn-del" data-del-act="${escapeHtml(String(a.id))}" aria-label="Remover atividade">×</button>
           </div>
         </li>
@@ -2386,7 +2706,7 @@
 
     function deleteWeightLog(id) {
       if (String(id) === 'init-160') {
-        alert('O registro inicial de 160,0 kg é sua referência base.');
+        alert(`O registro inicial de ${(state.startWeightKg || 160).toFixed(1).replace('.', ',')} kg é sua referência base.`);
         return;
       }
       const idx = state.weightLogs.findIndex(w => String(w.id) === String(id));
@@ -2522,7 +2842,28 @@
         }
       }
 
-      // 2. If no weight/volume unit, check fractions/halves, leading multiplier, or trailing count+unit ("farofa 2 colheres", "pizza 2 fatias", "ovo 3 un")
+      // 2. Check leading multiplier even when a weight/volume unit was given (e.g., "2x 150g arroz" -> 300g)
+      if (reqAmount !== null) {
+        const leadMultWithUnit = query.match(/^(\d+(?:[.,]\d+)?)\s*x\s+(.+)$/i);
+        if (leadMultWithUnit) {
+          const lm = parseFloat(leadMultWithUnit[1].replace(',', '.'));
+          if (!isNaN(lm) && lm > 0 && lm <= 50) {
+            reqAmount = reqAmount * lm;
+            query = leadMultWithUnit[2].trim();
+            if (reqUnit === 'g') {
+              reqDisplay = reqAmount >= 1000 && reqAmount % 100 === 0
+                ? `${(reqAmount / 1000).toString().replace('.', ',')}kg`
+                : `${Math.round(reqAmount)}g`;
+            } else if (reqUnit === 'ml') {
+              reqDisplay = reqAmount >= 1000 && reqAmount % 100 === 0
+                ? `${(reqAmount / 1000).toString().replace('.', ',')}L`
+                : `${Math.round(reqAmount)}ml`;
+            }
+          }
+        }
+      }
+
+      // 3. If no weight/volume unit, check fractions/halves, leading multiplier, or trailing count+unit ("farofa 2 colheres", "pizza 2 fatias", "ovo 3 un")
       if (reqAmount === null) {
         const fracMatch = query.match(/^(?:(1\/2|1\/4|3\/4|meia|meio)\s+(?:de\s+)?)(.+)$/i);
         if (fracMatch) {
@@ -2599,16 +2940,18 @@
         }
       }
 
-      // Explicit leading unit (e.g., "350 kcal bolo caseiro")
-      const matchStartUnit = clean.match(/^(\d+)\s*(?:kcal|cal)\s+(.+)$/i);
+      // Explicit leading unit (e.g., "350 kcal bolo caseiro" or "150,5 kcal lanche")
+      const matchStartUnit = clean.match(/^(\d+(?:[.,]\d+)?)\s*(?:kcal|cal)\s+(.+)$/i);
       if (matchStartUnit) {
-        return { name: matchStartUnit[2].trim(), kcal: parseInt(matchStartUnit[1], 10), cat: activeCategory };
+        const val = Math.round(parseFloat(matchStartUnit[1].replace(',', '.')));
+        return { name: matchStartUnit[2].trim(), kcal: val, cat: activeCategory };
       }
 
-      // Trailing calories (e.g., "pastel 300" or "bolo 250 kcal")
-      const matchEnd = clean.match(/^(.+?)\s+(\d+)\s*(?:kcal|cal)?$/i);
+      // Trailing calories (e.g., "pastel 300", "bolo 250 kcal" or "lanche 180,5")
+      const matchEnd = clean.match(/^(.+?)\s+(\d+(?:[.,]\d+)?)\s*(?:kcal|cal)?$/i);
       if (matchEnd) {
-        return { name: matchEnd[1].trim(), kcal: parseInt(matchEnd[2], 10), cat: activeCategory };
+        const val = Math.round(parseFloat(matchEnd[2].replace(',', '.')));
+        return { name: matchEnd[1].trim(), kcal: val, cat: activeCategory };
       }
 
       const norm = normalizeText(clean);
@@ -2620,18 +2963,14 @@
 
       if (query.length > 0) {
         for (const entry of INDEXED_FOOD_DB) {
-          for (const nk of entry._normKeys) {
+          for (const rule of entry._keyRules) {
             let score = -1;
-            if (query === nk) {
-              score = 1000 + nk.length;
-            } else {
-              const escaped = nk.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-              const wordRe = new RegExp(`(?:^|\\s)${escaped}(?:$|\\s)`);
-              if (wordRe.test(query)) {
-                score = 500 + nk.length;
-              } else if (nk.length >= 4 && query.includes(nk)) {
-                score = 100 + nk.length;
-              }
+            if (query === rule.nk) {
+              score = 1000 + rule.len;
+            } else if (rule.wordRe.test(query)) {
+              score = 500 + rule.len;
+            } else if (rule.len >= 4 && query.includes(rule.nk)) {
+              score = 100 + rule.len;
             }
             if (score > bestScore) {
               bestScore = score;
@@ -2843,7 +3182,7 @@
 
       const netEl = document.getElementById('monthNetBalance');
       netEl.textContent = (netBalance >= 0 ? `+${netBalance}` : `${netBalance}`) + ' kcal';
-      netEl.style.color = netBalance >= 0 ? '#10b981' : '#ef4444';
+      netEl.style.color = netBalance >= 0 ? 'var(--primary)' : 'var(--danger)';
 
       const listEl = document.getElementById('monthDaysList');
       if (daysCount === 0) {
@@ -2881,6 +3220,7 @@
     }
 
     function exportBackupJson() {
+      flushStorageNow();
       const payload = JSON.stringify(state, null, 2);
       try {
         const blob = new Blob([payload], { type: 'application/json' });
@@ -3125,12 +3465,12 @@
 
       if (isOver) {
         remEl.classList.add('danger');
-        bar.style.backgroundColor = '#ef4444';
+        bar.style.backgroundColor = 'var(--danger)';
       } else if (remaining <= effectiveBudget * 0.2) {
         remEl.classList.add('warning');
-        bar.style.backgroundColor = '#f59e0b';
+        bar.style.backgroundColor = 'var(--warning)';
       } else {
-        bar.style.backgroundColor = '#10b981';
+        bar.style.backgroundColor = 'var(--primary)';
       }
 
       renderActivitiesSection(dayData.activities);
@@ -3248,11 +3588,17 @@
       }
     });
     window.addEventListener('pagehide', flushPendingDriveOnHide);
+    window.addEventListener('beforeunload', flushStorageNow);
     window.addEventListener('focus', syncMidnightRollover);
     window.addEventListener('storage', (e) => {
       if (e.key === 'saldo_calorico_v6' && e.newValue) {
         loadState();
         render();
+      } else if (e.key === DRIVE_CFG_KEY && e.newValue) {
+        loadDriveConfig();
+        updateDriveUi();
+      } else if (e.key === THEME_STORAGE_KEY) {
+        loadTheme();
       }
     });
 
@@ -3266,6 +3612,12 @@
       }
     });
 
+    const _headerEl = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      if (_headerEl) _headerEl.classList.toggle('scrolled', window.scrollY > 8);
+    }, { passive: true });
+
+    loadTheme();
     loadDriveConfig();
     loadState();
     selectCategory(activeCategory);
