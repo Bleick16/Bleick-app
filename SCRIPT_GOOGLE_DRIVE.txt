@@ -1,5 +1,5 @@
 // =========================================================================
-// SCRIPT DE BACKUP AUTOMÁTICO DO BLEICK NO GOOGLE DRIVE (v8.1)
+// SCRIPT DE BACKUP AUTOMÁTICO DO BLEICK NO GOOGLE DRIVE (v8.5)
 // =========================================================================
 // Como instalar (1 única vez):
 // 1. Acesse https://script.google.com e clique em "Novo projeto"
@@ -70,7 +70,7 @@ function doPost(e) {
     // 2. Cria cópia separada quando houver atualização automática do app ou backup diário
     const now = new Date();
     const dateStamp = Utilities.formatDate(now, Session.getScriptTimeZone(), 'yyyy-MM-dd');
-    const ver = String(payload.appVersion || '8.1').replace(/[^0-9a-zA-Z._-]/g, '');
+    const ver = String(payload.appVersion || '8.5').replace(/[^0-9a-zA-Z._-]/g, '');
 
     if (payload.reason === 'atualizacao_app' || payload.reason === 'pre_atualizacao_app') {
       const timeStamp = Utilities.formatDate(now, Session.getScriptTimeZone(), 'HHmm');
@@ -115,7 +115,7 @@ function doGet(e) {
     }
 
     return ContentService
-      .createTextOutput(JSON.stringify({ ok: true, status: 'Bleick Drive Backup v8.1 ativo' }))
+      .createTextOutput(JSON.stringify({ ok: true, status: 'Bleick Drive Backup v8.5 ativo' }))
       .setMimeType(ContentService.MimeType.JSON);
   } catch (err) {
     return ContentService
