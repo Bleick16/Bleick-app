@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bleick-v9-2-cache';
+const CACHE_NAME = 'bleick-v9-9-1-cache';
 const ASSETS = [
   './',
   './index.html',

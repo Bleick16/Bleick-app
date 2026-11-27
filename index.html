@@ -13,7 +13,7 @@
   <link rel="manifest" href="./manifest.json">
 
   <meta name="description" content="Bleick - Controle diário de saldo calórico, água, peso e atividades físicas.">
-  <title>Bleick v9.2</title>
+  <title>Bleick v9.9</title>
   <script>
     (function() {
       try {
@@ -379,6 +379,117 @@ background: var(--card-hover);
 color: var(--primary);
 font-weight: 700;
 }
+.sun-card {
+background: var(--card);
+border: 1px solid var(--border);
+border-radius: 16px;
+padding: 16px;
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+.sun-top {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.sun-top h2 {
+font-size: 0.96rem;
+font-weight: 700;
+}
+.sun-amount {
+font-size: 1.02rem;
+font-weight: 800;
+color: var(--warning);
+}
+.sun-sub-row {
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-size: 0.78rem;
+color: var(--muted);
+}
+.btn-link-sun {
+background: none;
+border: none;
+color: var(--warning);
+font-size: 0.78rem;
+font-weight: 700;
+text-decoration: underline;
+cursor: pointer;
+}
+.sun-bar-bg {
+width: 100%;
+height: 12px;
+background: var(--bg);
+border-radius: 999px;
+overflow: hidden;
+border: 1px solid var(--border);
+}
+.sun-bar-fill {
+height: 100%;
+background: linear-gradient(90deg, #f59e0b, #fbbf24);
+width: 0%;
+transition: width 0.25s ease;
+}
+.sun-timer-box {
+background: var(--bg);
+border: 1px solid var(--border);
+border-radius: 12px;
+padding: 10px 12px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 8px;
+}
+.sun-timer-info {
+display: flex;
+flex-direction: column;
+gap: 2px;
+}
+.sun-timer-info strong {
+font-size: 0.95rem;
+color: var(--warning);
+font-variant-numeric: tabular-nums;
+}
+.sun-timer-info small {
+font-size: 0.72rem;
+color: var(--muted);
+}
+.btn-sun-timer {
+background: var(--warning);
+color: #1e293b;
+border: none;
+padding: 9px 12px;
+border-radius: 10px;
+font-size: 0.8rem;
+font-weight: 800;
+cursor: pointer;
+white-space: nowrap;
+}
+.btn-sun-timer.running {
+background: var(--primary);
+color: var(--primary-contrast);
+}
+.sun-buttons {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 6px;
+}
+.btn-sun {
+background: var(--bg);
+border: 1px solid var(--border);
+color: var(--warning);
+padding: 9px 6px;
+border-radius: 10px;
+font-size: 0.8rem;
+font-weight: 700;
+cursor: pointer;
+}
+.btn-sun:active {
+background: rgba(245, 158, 11, 0.18);
+}
+
 .water-card {
 background: var(--card);
 border: 1px solid var(--border);
@@ -927,6 +1038,269 @@ color: var(--muted);
 font-size: 0.88rem;
 padding: 14px 0;
 }
+.profile-view {
+display: none;
+flex-direction: column;
+gap: 14px;
+}
+.profile-view.open {
+display: flex;
+}
+.profile-hero-card {
+background: var(--balance-bg);
+border: 1px solid var(--border);
+border-radius: 18px;
+padding: 16px;
+display: flex;
+flex-direction: column;
+gap: 10px;
+box-shadow: var(--balance-shadow);
+}
+.profile-hero-top {
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 10px;
+}
+.profile-hero-top h2 {
+font-size: 1.05rem;
+font-weight: 800;
+}
+.profile-imc-pill {
+background: rgba(16, 185, 129, 0.16);
+color: var(--primary);
+border: 1px solid rgba(16, 185, 129, 0.35);
+padding: 4px 10px;
+border-radius: 999px;
+font-size: 0.76rem;
+font-weight: 800;
+white-space: nowrap;
+}
+.profile-stats-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 8px;
+}
+.profile-stat-box {
+background: var(--bg);
+border: 1px solid var(--border);
+border-radius: 12px;
+padding: 10px 12px;
+display: flex;
+flex-direction: column;
+gap: 2px;
+}
+.profile-stat-box small {
+font-size: 0.71rem;
+color: var(--muted);
+font-weight: 600;
+}
+.profile-stat-box strong {
+font-size: 0.98rem;
+font-weight: 800;
+color: var(--text);
+}
+.profile-stat-box span {
+font-size: 0.7rem;
+color: var(--muted);
+}
+.profile-edit-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 8px;
+}
+.profile-field {
+display: flex;
+flex-direction: column;
+gap: 4px;
+}
+.profile-field label {
+font-size: 0.73rem;
+font-weight: 700;
+color: var(--muted);
+}
+.profile-field input {
+width: 100%;
+padding: 9px 10px;
+font-size: 0.9rem;
+}
+.completed-list {
+display: flex;
+flex-direction: column;
+gap: 7px;
+}
+.completed-row {
+background: var(--bg);
+border: 1px solid var(--border);
+border-radius: 10px;
+padding: 9px 12px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 8px;
+font-size: 0.82rem;
+}
+.completed-row.done {
+border-color: rgba(16, 185, 129, 0.45);
+}
+.completed-row strong {
+color: var(--text);
+}
+.completed-tag {
+font-size: 0.74rem;
+font-weight: 800;
+white-space: nowrap;
+}
+.completed-tag.done {
+color: var(--primary);
+}
+.completed-tag.pending {
+color: var(--muted);
+}
+.loss-plan-box {
+background: var(--bg);
+border: 1px solid var(--border);
+border-radius: 12px;
+padding: 11px 12px;
+display: flex;
+flex-direction: column;
+gap: 6px;
+font-size: 0.81rem;
+}
+.loss-plan-row {
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 8px;
+}
+.loss-plan-row strong {
+color: var(--activity-accent);
+}
+
+.nutrients-view {
+display: none;
+flex-direction: column;
+gap: 14px;
+}
+.nutrients-view.open {
+display: flex;
+}
+.macro-summary-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 8px;
+}
+.macro-box {
+background: var(--card);
+border: 1px solid var(--border);
+border-radius: 14px;
+padding: 12px 10px;
+text-align: center;
+display: flex;
+flex-direction: column;
+gap: 3px;
+}
+.macro-box small {
+font-size: 0.72rem;
+color: var(--muted);
+font-weight: 600;
+}
+.macro-box strong {
+font-size: 1.05rem;
+font-weight: 800;
+color: var(--text);
+}
+.macro-bar-bg {
+width: 100%;
+height: 6px;
+background: var(--bg);
+border-radius: 999px;
+overflow: hidden;
+border: 1px solid var(--border);
+margin-top: 4px;
+}
+.macro-bar-fill {
+height: 100%;
+background: var(--primary);
+border-radius: 999px;
+width: 0%;
+transition: width 0.25s ease, background-color 0.25s ease;
+}
+.nut-goal-grid {
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+.nut-goal-row {
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 8px;
+background: var(--bg);
+border: 1px solid var(--border);
+border-radius: 10px;
+padding: 8px 10px;
+}
+.nut-goal-row label {
+font-size: 0.8rem;
+font-weight: 700;
+color: var(--text);
+flex: 1;
+}
+.nut-goal-row input {
+width: 92px;
+padding: 7px 8px;
+font-size: 0.86rem;
+text-align: right;
+}
+
+.macro-box span {
+font-size: 0.69rem;
+color: var(--muted);
+}
+.vitamins-list {
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+.vit-row {
+background: var(--bg);
+border: 1px solid var(--border);
+border-radius: 11px;
+padding: 10px 12px;
+display: flex;
+flex-direction: column;
+gap: 5px;
+}
+.vit-row-top {
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-size: 0.84rem;
+font-weight: 700;
+}
+.vit-row-top span:last-child {
+color: var(--primary);
+}
+.vit-bar-bg {
+width: 100%;
+height: 7px;
+background: var(--card);
+border-radius: 999px;
+overflow: hidden;
+border: 1px solid var(--border);
+}
+.vit-bar-fill {
+height: 100%;
+background: var(--primary);
+border-radius: 999px;
+transition: width 0.25s ease;
+}
+.vit-sources {
+font-size: 0.71rem;
+color: var(--muted);
+}
+
 .stats-view {
 display: none;
 flex-direction: column;
@@ -1316,10 +1690,12 @@ flex-shrink: 0;
 <body>
 <div class="app-container">
 <header>
-<h1><img src="./icon-192.png" decoding="async" onerror="this.onerror=null;this.src='data:image/png;base64,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'" alt="Bleick" style="width:28px;height:28px;border-radius:8px;border:1px solid var(--border);object-fit:cover;"> Bleick <small style="font-size:0.72rem;color:var(--primary);font-weight:700;">v9.2</small></h1>
+<h1><img src="./icon-192.png" decoding="async" onerror="this.onerror=null;this.src='data:image/png;base64,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'" alt="Bleick" style="width:28px;height:28px;border-radius:8px;border:1px solid var(--border);object-fit:cover;"> Bleick <small style="font-size:0.72rem;color:var(--primary);font-weight:700;">v9.9</small></h1>
 <div class="header-actions">
+<button class="btn-top" id="btnToggleProfile" onclick="toggleProfileView()" title="Meu Perfil, Metas Cumpridas e Perda de Peso">👤</button>
 <button class="btn-top" id="btnThemeToggle" onclick="toggleTheme()" title="Alternar modo claro/escuro" aria-label="Alternar modo claro e escuro">☀️</button>
 <button class="btn-top btn-drive" id="btnDriveModal" onclick="openDriveModal()" title="Backup no Google Drive"><span class="drive-dot" id="driveDot"></span>☁️</button>
+<button class="btn-top" id="btnToggleNutrients" onclick="toggleNutrientsView()" title="Vitaminas, Açúcares, Carboidratos e Gorduras">🧬</button>
 <button class="btn-top" id="btnToggleStats" onclick="toggleStatsView()" title="Gráficos e Estatísticas">📊</button>
 <button class="btn-top" id="btnToggleHistory" onclick="toggleArchiveView()">📅 Meses</button>
 <button class="btn-top" onclick="openGoalModal()">Meta: <span id="headerGoal">2300</span></button>
@@ -1372,8 +1748,8 @@ flex-shrink: 0;
 <div class="hint">Use o pedômetro do celular no bolso ou lance manualmente pelo Basike W88 Pro Max:</div>
 <div class="pedometer-box">
 <div class="pedometer-top">
-<span class="pedometer-title">👟 Pedômetro Nativo (Bolso)</span>
-<span class="pedo-status-pill" id="pedoStatusPill">Parado</span>
+<span class="pedometer-title">👟 Pedômetro Automático (Bolso)</span>
+<span class="pedo-status-pill" id="pedoStatusPill">Aguardando movimento</span>
 </div>
 <div class="pedometer-stats">
 <div class="pedo-stat">
@@ -1390,11 +1766,11 @@ flex-shrink: 0;
 </div>
 </div>
 <div class="pedometer-actions">
-<button type="button" class="btn-pedo-toggle" id="btnPedoToggle" onclick="togglePedometer()">▶ Iniciar Passos</button>
-<button type="button" class="btn-pedo-save" id="btnPedoSave" onclick="savePedometerToDay()" disabled>✓ Salvar no Dia</button>
+<button type="button" class="btn-pedo-toggle" id="btnPedoToggle" onclick="togglePedometer()">⏸ Pausar Auto</button>
+<button type="button" class="btn-pedo-save" id="btnPedoSave" onclick="savePedometerToDay(true)" disabled>✓ Consolidar</button>
 <button type="button" class="btn-pedo-reset" onclick="resetPedometer()">Zerar</button>
 </div>
-<small id="pedoHintText" style="color:var(--muted);font-size:0.72rem;">Mantenha esta aba aberta (pode bloquear a tela no bolso) enquanto caminha.</small>
+<small id="pedoHintText" style="color:var(--muted);font-size:0.72rem;">Detecta movimento automaticamente no bolso e registra a caminhada no dia em tempo real.</small>
 </div>
 <div class="activity-form">
 <select id="actTypeSelect" class="activity-select">
@@ -1431,6 +1807,32 @@ flex-shrink: 0;
 <button type="button" class="btn-water-undo" onclick="removeLastWater()">-250 ml</button>
 </div>
 </div>
+<div class="sun-card">
+<div class="sun-top">
+<h2>☀️ Banho de Sol (Vitamina D)</h2>
+<span class="sun-amount" id="sunMinText">0 min • ~0 UI Vit. D</span>
+</div>
+<div class="sun-sub-row">
+<span id="sunGoalText">Meta diária: 20 min (0%)</span>
+<button class="btn-link-sun" onclick="openSunModal()">Alterar meta</button>
+</div>
+<div class="sun-bar-bg">
+<div class="sun-bar-fill" id="sunProgressBar"></div>
+</div>
+<div class="sun-timer-box">
+<div class="sun-timer-info">
+<strong id="sunTimerDisplay">⏱️ 00:00</strong>
+<small id="sunTimerHint">Cronômetro ao vivo para tomar sol e sintetizar Vitamina D</small>
+</div>
+<button type="button" class="btn-sun-timer" id="btnSunTimerToggle" onclick="toggleSunTimer()">☀️ Iniciar Sol</button>
+</div>
+<div class="sun-buttons">
+<button type="button" class="btn-sun" onclick="addSunMinutes(5)">+5 min</button>
+<button type="button" class="btn-sun" onclick="addSunMinutes(10)">+10 min</button>
+<button type="button" class="btn-sun" onclick="addSunMinutes(15)">+15 min</button>
+<button type="button" class="btn-water-undo" onclick="removeSunMinutes(5)">-5 min</button>
+</div>
+</div>
 <div class="weight-card">
 <div class="weight-header">
 <h2>⚖️ Controle de Peso (Automático)</h2>
@@ -1456,8 +1858,12 @@ flex-shrink: 0;
 <strong id="dayWeightEffect">0,000 kg (0 kcal)</strong>
 </div>
 <div class="weight-auto-row">
-<span>Gasto basal + atividades:</span>
-<strong id="dayTdeeRef">3.200 kcal</strong>
+<span>Basal em repouso:</span>
+<strong id="dayBasalRef">2.590 kcal/dia</strong>
+</div>
+<div class="weight-auto-row">
+<span>Gasto total + atividades:</span>
+<strong id="dayTdeeRef">3.238 kcal</strong>
 </div>
 <small style="color:var(--muted);font-size:0.72rem;">Atualiza automaticamente todo dia: comer acima do gasto aumenta o peso (~1 kg a cada 7.700 kcal extras) e comer abaixo reduz.</small>
 </div>
@@ -1587,6 +1993,137 @@ flex-shrink: 0;
 </div>
 </div>
 </div>
+<div id="nutrientsView" class="nutrients-view">
+<div class="history-card" style="padding:14px 16px;">
+<div class="history-header" style="margin-bottom:6px;">
+<h2>🧬 Metas & Nutrientes (<span id="nutDateLabel">Hoje</span>)</h2>
+<button class="btn-link-small" onclick="openNutrientsGoalModal()">Alterar metas</button>
+</div>
+<p class="hint" id="nutWeightSyncHint">⚖️ Metas ajustadas automaticamente pelo seu peso atual (<strong>160,00 kg</strong>).</p>
+</div>
+<div class="macro-summary-grid">
+<div class="macro-box">
+<small>🍞 Carboidratos</small>
+<strong id="nutCarbsVal">0,0 g</strong>
+<span id="nutCarbsGoalSub">Meta: 230 g (0%)</span>
+<div class="macro-bar-bg"><div class="macro-bar-fill" id="nutCarbsBar"></div></div>
+</div>
+<div class="macro-box">
+<small>🍬 Açúcares (Máx.)</small>
+<strong id="nutSugarsVal">0,0 g</strong>
+<span id="nutSugarsGoalSub">Limite: 45 g (0%)</span>
+<div class="macro-bar-bg"><div class="macro-bar-fill" id="nutSugarsBar"></div></div>
+</div>
+<div class="macro-box">
+<small>🧈 Gorduras</small>
+<strong id="nutFatsVal">0,0 g</strong>
+<span id="nutFatsGoalSub">Meta: 70 g (0%)</span>
+<div class="macro-bar-bg"><div class="macro-bar-fill" id="nutFatsBar"></div></div>
+</div>
+</div>
+<div class="history-card">
+<div class="history-header">
+<h2>💊 Metas Diárias de Vitaminas</h2>
+<span style="font-size:0.76rem;color:var(--primary);font-weight:700;" id="nutVitCountLabel">0/11 metas batidas</span>
+</div>
+<div class="vitamins-list" id="nutVitaminsList"></div>
+</div>
+<div class="history-card">
+<div class="history-header">
+<h2>📋 Detalhe por Item (<span id="nutItemsCount">0</span>)</h2>
+</div>
+<div class="vitamins-list" id="nutItemsDetailList"></div>
+</div>
+</div>
+<div id="profileView" class="profile-view">
+<div class="profile-hero-card">
+<div class="profile-hero-top">
+<h2>👤 <span id="profNameHeading">Fabio da Silva Farias</span></h2>
+<span class="profile-imc-pill" id="profImcBadge">IMC 49,4</span>
+</div>
+<p class="hint" id="profLocationSub">28 anos • São Paulo, SP • Meta de emagrecimento e saúde</p>
+<div class="profile-stats-grid">
+<div class="profile-stat-box">
+<small>📏 Altura</small>
+<strong id="profHeightVal">1,80 m</strong>
+<span>Base de passos e IMC</span>
+</div>
+<div class="profile-stat-box">
+<small>⚖️ Peso Atual / Inicial</small>
+<strong id="profWeightVal">160,00 kg</strong>
+<span id="profStartWeightSub">Início: 160,0 kg</span>
+</div>
+<div class="profile-stat-box">
+<small>🎯 Peso Alvo</small>
+<strong id="profTargetWeightVal">110,0 kg</strong>
+<span id="profToLoseSub">Faltam 50,00 kg</span>
+</div>
+<div class="profile-stat-box">
+<small>💤 Metabolismo Basal</small>
+<strong id="profBasalVal">2.590 kcal</strong>
+<span id="profBasalFormulaSub">Repouso (Mifflin-St Jeor)</span>
+</div>
+<div class="profile-stat-box" style="grid-column:span 2;">
+<small>🔥 Gasto Total Estimado & Meta Diária</small>
+<strong id="profTdeeVal">3.238 kcal</strong>
+<span id="profCalGoalSub">Meta: 2.300 kcal/dia</span>
+</div>
+</div>
+</div>
+
+<div class="history-card">
+<div class="history-header">
+<h2>✏️ Dados do Perfil</h2>
+<button type="button" class="btn-add" style="padding:7px 12px;font-size:0.8rem;" onclick="saveProfileData()">Salvar Perfil</button>
+</div>
+<div class="profile-edit-grid">
+<div class="profile-field" style="grid-column:span 2;">
+<label for="profNameInput">Nome</label>
+<input type="text" id="profNameInput" placeholder="Seu nome">
+</div>
+<div class="profile-field">
+<label for="profAgeInput">Idade (anos)</label>
+<input type="number" inputmode="numeric" min="10" max="120" id="profAgeInput">
+</div>
+<div class="profile-field">
+<label for="profHeightInput">Altura (m, ex: 1.80)</label>
+<input type="number" inputmode="decimal" step="0.01" min="1.0" max="2.5" id="profHeightInput">
+</div>
+<div class="profile-field">
+<label for="profStartWeightInput">Peso Inicial (kg)</label>
+<input type="number" inputmode="decimal" step="0.1" min="30" max="400" id="profStartWeightInput">
+</div>
+<div class="profile-field">
+<label for="profTargetWeightInput">Peso Alvo (kg)</label>
+<input type="number" inputmode="decimal" step="0.1" min="30" max="400" id="profTargetWeightInput">
+</div>
+<div class="profile-field" style="grid-column:span 2;">
+<label for="profCityInput">Cidade / Estado</label>
+<input type="text" id="profCityInput" placeholder="Ex: São Paulo, SP">
+</div>
+</div>
+</div>
+
+<div class="history-card">
+<div class="history-header">
+<h2>✅ Metas Diárias Cumpridas (<span id="profDoneDateLabel">Hoje</span>)</h2>
+<span style="font-size:0.78rem;color:var(--primary);font-weight:800;" id="profDoneSummary">0/0 cumpridas</span>
+</div>
+<div class="completed-list" id="profCompletedList"></div>
+</div>
+
+<div class="history-card">
+<div class="history-header">
+<h2>🏃 Atividade Física para Perda de Peso</h2>
+<span style="font-size:0.78rem;color:var(--activity-accent);font-weight:800;" id="profLossBurnBadge">0 kcal hoje</span>
+</div>
+<div class="loss-plan-box" id="profWeightLossPlan"></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;">
+<button type="button" class="btn-act-add" style="padding:10px;" onclick="quickLogLossWalk(2)">+ Caminhada 2 km</button>
+<button type="button" class="btn-top" style="padding:10px;" onclick="quickLogLossWalk(3)">+ Caminhada 3 km</button>
+</div>
+</div>
+</div>
 <div class="modal-backdrop" id="goalModal" onclick="if(event.target===this)closeGoalModal()">
 <div class="modal">
 <h3>Configurar Meta Diária de Calorias</h3>
@@ -1645,13 +2182,52 @@ flex-shrink: 0;
 <button class="btn-top" style="width:100%; margin-top:4px; padding:10px;" onclick="closeWaterModal()">Fechar</button>
 </div>
 </div>
+<div class="modal-backdrop" id="sunModal" onclick="if(event.target===this)closeSunModal()">
+<div class="modal">
+<h3>☀️ Meta Diária de Banho de Sol</h3>
+<p class="hint">Escolha quantos minutos diários de sol você quer tomar para ativar a produção natural de Vitamina D:</p>
+<button class="preset-btn" onclick="setSunGoal(15)">
+<strong>15 minutos — Exposição Rápida</strong>
+<small>Ideal para sol forte (10h às 15h) com braços e pernas descobertos (~1.500 UI)</small>
+</button>
+<button class="preset-btn" onclick="setSunGoal(20)">
+<strong>20 minutos — Padrão Diário (Recomendado)</strong>
+<small>Equilíbrio seguro para síntese de ~2.000 UI de Vitamina D</small>
+</button>
+<button class="preset-btn" onclick="setSunGoal(30)">
+<strong>30 minutos — Exposição Completa</strong>
+<small>Indicado para início da manhã ou fim da tarde (~3.000 UI)</small>
+</button>
+<div class="modal-footer">
+<input type="number" inputmode="numeric" min="5" max="240" id="customSunGoalInput" placeholder="Em minutos (ex: 25)">
+<button class="btn-add" onclick="saveCustomSunGoal()">Salvar</button>
+</div>
+<button class="btn-top" style="width:100%; margin-top:4px; padding:10px;" onclick="closeSunModal()">Fechar</button>
+</div>
+</div>
+<div class="modal-backdrop" id="nutrientsGoalModal" onclick="if(event.target===this)closeNutrientsGoalModal()">
+<div class="modal">
+<h3>🧬 Metas Diárias de Nutrientes e Vitaminas</h3>
+<label class="drive-toggle-row">
+<span>⚖️ Atualizar metas automaticamente com o peso</span>
+<input type="checkbox" id="nutAutoWeightToggle" checked onchange="toggleNutAutoWeightPreview()">
+</label>
+<p class="hint" id="nutModalWeightHint">Calculadas para o seu peso atual de <strong>160,00 kg</strong> (recalcula conforme você emagrece ou calibra a balança):</p>
+<div class="nut-goal-grid" id="nutGoalsFormList"></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px;">
+<button class="btn-add" style="padding:11px 10px;font-size:0.86rem;" onclick="saveNutrientsGoals()">Salvar Metas</button>
+<button class="btn-top" style="padding:11px 10px;" onclick="resetDefaultNutrientsGoals()">Recalcular pelo Peso</button>
+</div>
+<button class="btn-top" style="width:100%; margin-top:2px; padding:10px;" onclick="closeNutrientsGoalModal()">Fechar</button>
+</div>
+</div>
 <div class="modal-backdrop" id="driveModal" onclick="if(event.target===this)closeDriveModal()">
 <div class="modal">
 <h3>☁️ Backup no Google Drive</h3>
 <div class="drive-status-box">
 <div>Status: <strong id="driveStatusLabel">Não configurado</strong></div>
 <div>Último backup: <strong id="driveLastSyncLabel">Nunca</strong></div>
-<div>Versão atual do app: <strong id="driveAppVersionLabel">v9.2</strong></div>
+<div>Versão atual do app: <strong id="driveAppVersionLabel">v9.9</strong></div>
 </div>
 <div style="display:flex;flex-direction:column;gap:6px;">
 <label for="driveUrlInput" class="hint"><strong>Link do Web App (Google Apps Script):</strong></label>
@@ -2464,9 +3040,105 @@ return new Date(y, m - 1, d);
 function getTodayKey() {
 return dateToKey(new Date());
 }
+const DEFAULT_NUTRIENT_GOALS = {
+autoByWeight: true,
+carbsG: 230,
+sugarsG: 45,
+fatsG: 70,
+vitamins: {
+'Vitamina C': 90,
+'Vitamina B3 (Niacina)': 16,
+'Vitamina B5 (Ác. Pantotênico)': 5,
+'Vitamina B6': 1.7,
+'Vitamina B2 (Riboflavina)': 1.3,
+'Vitamina B12': 2.4,
+'Vitamina A': 900,
+'Vitamina E': 15,
+'Vitamina K': 120,
+'Vitamina B9 (Folato)': 400,
+'Vitamina D (Sol)': 2000
+}
+};
+
+function computeWeightScaledNutrientGoals(weightKg) {
+const w = (typeof weightKg === 'number' && !isNaN(weightKg) && weightKg > 30) ? weightKg : 160.0;
+const ratio = w / 160.0;
+const carbsG = Math.max(110, Math.round(230 * ratio));
+const sugarsG = Math.max(25, Math.round(45 * ratio));
+const fatsG = Math.max(40, Math.round(70 * ratio));
+// Higher body mass requires higher Vitamin D synthesis/intake; scales between 1000 UI (<=80kg) and 2000 UI (160kg+)
+const vitD = Math.max(1000, Math.min(4000, Math.round((2000 * ratio) / 100) * 100));
+return {
+autoByWeight: true,
+carbsG,
+sugarsG,
+fatsG,
+vitamins: {
+'Vitamina C': 90,
+'Vitamina B3 (Niacina)': 16,
+'Vitamina B5 (Ác. Pantotênico)': 5,
+'Vitamina B6': 1.7,
+'Vitamina B2 (Riboflavina)': 1.3,
+'Vitamina B12': 2.4,
+'Vitamina A': 900,
+'Vitamina E': 15,
+'Vitamina K': 120,
+'Vitamina B9 (Folato)': 400,
+'Vitamina D (Sol)': vitD
+}
+};
+}
+
+function getEffectiveNutrientGoals(weightKg) {
+const w = (typeof weightKg === 'number' && !isNaN(weightKg) && weightKg > 30) ? weightKg : getCurrentWeightForCalc();
+const stored = (state.nutrientGoals && typeof state.nutrientGoals === 'object') ? state.nutrientGoals : null;
+const autoMode = !stored || stored.autoByWeight !== false;
+if (autoMode) {
+const dynamic = computeWeightScaledNutrientGoals(w);
+// Preserve any custom vitamin overrides the user explicitly edited while keeping weight-scaled macros & Vit D
+if (stored && stored.customVitamins && typeof stored.customVitamins === 'object') {
+Object.entries(stored.customVitamins).forEach(([k, v]) => {
+if (dynamic.vitamins[k] !== undefined && Number(v) > 0) {
+dynamic.vitamins[k] = Number(v);
+}
+});
+}
+dynamic.weightUsed = w;
+return dynamic;
+}
+const fixed = cloneDefaultNutrientGoals();
+fixed.autoByWeight = false;
+fixed.carbsG = Number(stored.carbsG) >= 10 ? Math.round(Number(stored.carbsG)) : 230;
+fixed.sugarsG = Number(stored.sugarsG) >= 5 ? Math.round(Number(stored.sugarsG)) : 45;
+fixed.fatsG = Number(stored.fatsG) >= 10 ? Math.round(Number(stored.fatsG)) : 70;
+if (stored.vitamins && typeof stored.vitamins === 'object') {
+Object.keys(fixed.vitamins).forEach(vk => {
+const v = Number(stored.vitamins[vk]);
+if (!isNaN(v) && v > 0) fixed.vitamins[vk] = Math.round(v * 10) / 10;
+});
+}
+fixed.weightUsed = w;
+return fixed;
+}
+
+function cloneDefaultNutrientGoals() {
+return computeWeightScaledNutrientGoals(state && state.startWeightKg ? state.startWeightKg : 160.0);
+}
+
+const DEFAULT_PROFILE = {
+name: 'Fabio da Silva Farias',
+age: 28,
+heightM: 1.80,
+targetWeightKg: 110.0,
+city: 'São Paulo, SP'
+};
+
 let state = {
+profile: { ...DEFAULT_PROFILE },
 goal: 2300,
 waterGoalMl: 3500,
+sunGoalMin: 20,
+nutrientGoals: cloneDefaultNutrientGoals(),
 startWeightKg: 160.0,
 weightLogs: [
 { id: 'init-160', date: getTodayKey(), weight: 160.0, label: 'Peso Inicial' }
@@ -2619,7 +3291,8 @@ if (!d || typeof d !== 'object') return false;
 const hasItems = Array.isArray(d.items) && d.items.length > 0;
 const hasActs = Array.isArray(d.activities) && d.activities.length > 0;
 const wb = normalizeWaterBreakdown(d);
-return hasItems || hasActs || wb.total > 0;
+const hasSun = typeof d.sunMin === 'number' && !isNaN(d.sunMin) && d.sunMin > 0;
+return hasItems || hasActs || wb.total > 0 || hasSun;
 }
 function pruneEmptyDay(key) {
 if (state.history[key] && !dayHasData(state.history[key])) {
@@ -2628,7 +3301,7 @@ delete state.history[key];
 }
 function ensureDayData(key) {
 if (!state.history[key]) {
-state.history[key] = { goal: state.goal, items: [], activities: [], waterMl: 0, waterDrinks: {} };
+state.history[key] = { goal: state.goal, items: [], activities: [], waterMl: 0, waterDrinks: {}, sunMin: 0 };
 } else {
 if (!Array.isArray(state.history[key].items)) state.history[key].items = [];
 if (!Array.isArray(state.history[key].activities)) state.history[key].activities = [];
@@ -2636,19 +3309,64 @@ const wb = normalizeWaterBreakdown(state.history[key]);
 state.history[key].waterDrinks = { ...wb.drinks };
 state.history[key].waterMl = wb.total;
 delete state.history[key].waterByType;
+state.history[key].sunMin = (typeof state.history[key].sunMin === 'number' && !isNaN(state.history[key].sunMin) && state.history[key].sunMin > 0)
+? Math.round(state.history[key].sunMin)
+: 0;
 }
 return state.history[key];
 }
 function getDayData(key) {
 if (!state.history[key]) {
-return { goal: state.goal, items: [], activities: [], waterMl: 0, waterDrinks: {} };
+return { goal: state.goal, items: [], activities: [], waterMl: 0, waterDrinks: {}, sunMin: 0 };
 }
 return ensureDayData(key);
 }
 function sanitizeLoadedState(parsed) {
 const clean = {
+profile: (() => {
+const p = { ...DEFAULT_PROFILE };
+if (parsed.profile && typeof parsed.profile === 'object') {
+if (typeof parsed.profile.name === 'string' && parsed.profile.name.trim()) p.name = parsed.profile.name.trim().slice(0, 80);
+const ageN = Number(parsed.profile.age);
+if (!isNaN(ageN) && ageN >= 10 && ageN <= 120) p.age = Math.round(ageN);
+const hN = Number(String(parsed.profile.heightM).replace(',', '.'));
+if (!isNaN(hN) && hN >= 1.0 && hN <= 2.5) p.heightM = Math.round(hN * 100) / 100;
+const twN = Number(String(parsed.profile.targetWeightKg).replace(',', '.'));
+if (!isNaN(twN) && twN >= 30 && twN <= 400) p.targetWeightKg = Math.round(twN * 10) / 10;
+if (typeof parsed.profile.city === 'string' && parsed.profile.city.trim()) p.city = parsed.profile.city.trim().slice(0, 60);
+}
+return p;
+})(),
 goal: Number(parsed.goal) >= 500 && Number(parsed.goal) <= 15000 ? Math.round(Number(parsed.goal)) : 2300,
 waterGoalMl: Number(parsed.waterGoalMl) >= 500 && Number(parsed.waterGoalMl) <= 15000 ? Math.round(Number(parsed.waterGoalMl)) : 3500,
+sunGoalMin: Number(parsed.sunGoalMin) >= 5 && Number(parsed.sunGoalMin) <= 240 ? Math.round(Number(parsed.sunGoalMin)) : 20,
+nutrientGoals: (() => {
+const ng = cloneDefaultNutrientGoals();
+if (parsed.nutrientGoals && typeof parsed.nutrientGoals === 'object') {
+ng.autoByWeight = parsed.nutrientGoals.autoByWeight !== false;
+if (Number(parsed.nutrientGoals.carbsG) >= 10 && Number(parsed.nutrientGoals.carbsG) <= 1000) ng.carbsG = Math.round(Number(parsed.nutrientGoals.carbsG));
+if (Number(parsed.nutrientGoals.sugarsG) >= 5 && Number(parsed.nutrientGoals.sugarsG) <= 500) ng.sugarsG = Math.round(Number(parsed.nutrientGoals.sugarsG));
+if (Number(parsed.nutrientGoals.fatsG) >= 10 && Number(parsed.nutrientGoals.fatsG) <= 500) ng.fatsG = Math.round(Number(parsed.nutrientGoals.fatsG));
+if (parsed.nutrientGoals.vitamins && typeof parsed.nutrientGoals.vitamins === 'object') {
+Object.keys(ng.vitamins).forEach(vk => {
+const v = Number(parsed.nutrientGoals.vitamins[vk]);
+if (!isNaN(v) && v > 0 && v <= 50000) {
+ng.vitamins[vk] = Math.round(v * 10) / 10;
+}
+});
+}
+if (parsed.nutrientGoals.customVitamins && typeof parsed.nutrientGoals.customVitamins === 'object') {
+ng.customVitamins = {};
+Object.keys(ng.vitamins).forEach(vk => {
+const v = Number(parsed.nutrientGoals.customVitamins[vk]);
+if (!isNaN(v) && v > 0 && v <= 50000) {
+ng.customVitamins[vk] = Math.round(v * 10) / 10;
+}
+});
+}
+}
+return ng;
+})(),
 startWeightKg: typeof parsed.startWeightKg === 'number' && parsed.startWeightKg >= 30 && parsed.startWeightKg <= 400 ? parsed.startWeightKg : 160.0,
 weightLogs: [],
 history: {}
@@ -2711,9 +3429,10 @@ time: typeof a.time === 'string' ? a.time : ''
 : [];
 const wb = normalizeWaterBreakdown(d);
 const waterMl = wb.total;
+const sunMin = (typeof d.sunMin === 'number' && !isNaN(d.sunMin) && d.sunMin > 0) ? Math.min(600, Math.round(d.sunMin)) : 0;
 const goal = Number(d.goal) >= 500 && Number(d.goal) <= 15000 ? Math.round(Number(d.goal)) : clean.goal;
-if (items.length > 0 || activities.length > 0 || waterMl > 0) {
-clean.history[k] = { goal, items, activities, waterMl, waterDrinks: { ...wb.drinks } };
+if (items.length > 0 || activities.length > 0 || waterMl > 0 || sunMin > 0) {
+clean.history[k] = { goal, items, activities, waterMl, waterDrinks: { ...wb.drinks }, sunMin };
 }
 });
 }
@@ -2768,7 +3487,7 @@ _lastStatsCacheKey = '';
 applyTheme(next);
 showToast(next === 'light' ? '☀️ Modo claro ativado' : '🌙 Modo escuro ativado');
 }
-const APP_VERSION = '9.2';
+const APP_VERSION = '9.9';
 const DRIVE_CFG_KEY = 'bleick_drive_config_v1';
 const LAST_APP_VER_KEY = 'bleick_last_app_version';
 let driveCfg = {
@@ -3096,9 +3815,26 @@ corrida: { label: 'Corrida', icon: '🏃', perKgKm: 1.03 },
 bicicleta: { label: 'Bicicleta', icon: '🚴', perKgKm: 0.35 }
 };
 const KCAL_PER_KG = 7700;
+function getProfileHeightM() {
+const h = state && state.profile && Number(state.profile.heightM);
+return (!isNaN(h) && h >= 1.0 && h <= 2.5) ? h : 1.80;
+}
+
+function getStepLengthKm() {
+return (getProfileHeightM() * 0.415) / 1000;
+}
+
+function getBasalMetabolicRateKcal(weightKg) {
+const w = (typeof weightKg === 'number' && !isNaN(weightKg) && weightKg > 30) ? weightKg : (state.startWeightKg || 160.0);
+const hCm = getProfileHeightM() * 100;
+const age = (state && state.profile && Number(state.profile.age) > 0) ? Number(state.profile.age) : 28;
+const bmr = (10 * w) + (6.25 * hCm) - (5 * age) + 5;
+return Math.max(800, Math.round(bmr));
+}
+
 function getDailyMaintenanceKcal(weightKg) {
-const w = weightKg || state.startWeightKg || 160.0;
-return Math.round(3200 * (w / 160.0));
+const bmr = getBasalMetabolicRateKcal(weightKg);
+return Math.round(bmr * 1.25);
 }
 let _cachedTimeline = null;
 let _cachedTimelineKey = '';
@@ -3179,10 +3915,14 @@ return tenths % 100 === 0 ? rounded.toFixed(1).replace('.', ',') : rounded.toFix
 const PEDO_STORAGE_KEY = 'bleick_pedometer_v1';
 const USER_HEIGHT_M = 1.80;
 const STEP_LENGTH_KM = (USER_HEIGHT_M * 0.415) / 1000;
+const AUTO_MIN_STEPS_TO_RECORD = 8;
 let pedoState = {
-active: false,
+active: true,
+moving: false,
 steps: 0,
-date: getTodayKey()
+date: getTodayKey(),
+autoActId: null,
+startTime: ''
 };
 let _pedoListenerAttached = false;
 let _pedoWakeLock = null;
@@ -3192,23 +3932,32 @@ let _pedoWasAbove = false;
 let _pedoLastStepTs = 0;
 let _pedoSamplesCount = 0;
 let _pedoSaveTimer = null;
+let _pedoLastSyncedSteps = 0;
 
 function loadPedometerState() {
+const todayKey = getTodayKey();
 try {
 const raw = localStorage.getItem(PEDO_STORAGE_KEY);
 if (raw) {
 const parsed = JSON.parse(raw);
-if (parsed && typeof parsed === 'object') {
-if (parsed.date === getTodayKey()) {
+if (parsed && typeof parsed === 'object' && parsed.date === todayKey) {
 pedoState.steps = Math.max(0, Math.round(Number(parsed.steps) || 0));
-pedoState.date = parsed.date;
+pedoState.date = todayKey;
+pedoState.active = parsed.active !== false;
+pedoState.autoActId = typeof parsed.autoActId === 'string' && parsed.autoActId ? parsed.autoActId : null;
+pedoState.startTime = typeof parsed.startTime === 'string' ? parsed.startTime : '';
+pedoState.moving = pedoState.active && pedoState.steps > 0;
 } else {
 pedoState.steps = 0;
-pedoState.date = getTodayKey();
-}
+pedoState.date = todayKey;
+pedoState.active = true;
+pedoState.moving = false;
+pedoState.autoActId = null;
+pedoState.startTime = '';
 }
 }
 } catch (e) {}
+_pedoLastSyncedSteps = pedoState.steps;
 }
 
 function flushPedometerStorage() {
@@ -3216,14 +3965,17 @@ clearTimeout(_pedoSaveTimer);
 try {
 localStorage.setItem(PEDO_STORAGE_KEY, JSON.stringify({
 steps: pedoState.steps,
-date: pedoState.date
+date: pedoState.date,
+active: pedoState.active,
+autoActId: pedoState.autoActId,
+startTime: pedoState.startTime
 }));
 } catch (e) {}
 }
 
 function persistPedometerState() {
 clearTimeout(_pedoSaveTimer);
-_pedoSaveTimer = setTimeout(flushPedometerStorage, 350);
+_pedoSaveTimer = setTimeout(flushPedometerStorage, 400);
 }
 
 function getTodayWeightForCalc() {
@@ -3235,10 +3987,58 @@ return state.startWeightKg || 160.0;
 }
 
 function getPedometerMetrics() {
-const km = pedoState.steps * STEP_LENGTH_KM;
+const km = pedoState.steps * getStepLengthKm();
 const cleanKm = Math.round(km * 100) / 100;
 const kcal = Math.round(km * getTodayWeightForCalc() * ACT_META.caminhada.perKgKm);
 return { steps: pedoState.steps, km, cleanKm, kcal };
+}
+
+function syncAutoWalkingActivity(forceRender = false, triggerDrive = false) {
+if (pedoState.steps < AUTO_MIN_STEPS_TO_RECORD) return false;
+const targetDate = isValidDateKey(pedoState.date) ? pedoState.date : getTodayKey();
+const m = getPedometerMetrics();
+const cleanKm = Math.max(0.01, m.cleanKm);
+const kmFmt = formatKm(cleanKm);
+const kcal = Math.max(1, m.kcal);
+const dayObj = ensureDayData(targetDate);
+const now = new Date();
+const timeStr = pedoState.startTime || (String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0'));
+if (!pedoState.startTime) pedoState.startTime = timeStr;
+
+if (!pedoState.autoActId) {
+pedoState.autoActId = 'auto_walk_' + genId();
+}
+const entryPayload = {
+id: pedoState.autoActId,
+type: 'caminhada',
+name: `👟 Caminhada Auto (${m.steps.toLocaleString('pt-BR')} passos • ${kmFmt} km)`,
+km: cleanKm,
+kcal,
+time: timeStr,
+autoRecorded: true
+};
+
+const existingIdx = dayObj.activities.findIndex(a => String(a.id) === String(pedoState.autoActId));
+if (existingIdx >= 0) {
+dayObj.activities[existingIdx] = entryPayload;
+} else {
+dayObj.activities.unshift(entryPayload);
+}
+
+_pedoLastSyncedSteps = pedoState.steps;
+saveState({ skipDriveSync: !triggerDrive });
+flushPedometerStorage();
+if (forceRender) {
+render();
+} else {
+if (targetDate === selectedDateKey) {
+renderActivitiesSection(dayObj.activities);
+}
+if (isStatsOpen) renderStatsView();
+if (isArchiveOpen) renderArchive();
+if (isNutrientsOpen) renderNutrientsView();
+}
+return true;
 }
 
 function renderPedometerUI() {
@@ -3255,15 +4055,22 @@ stepsEl.textContent = m.steps.toLocaleString('pt-BR');
 distEl.textContent = `${m.km.toFixed(2).replace('.', ',')} km`;
 kcalEl.textContent = `+${m.kcal} kcal`;
 
-pill.classList.toggle('active', pedoState.active);
-pill.textContent = pedoState.active ? '● Contando' : 'Parado';
+const isRunning = pedoState.active;
+pill.classList.toggle('active', isRunning && pedoState.moving);
+if (!isRunning) {
+pill.textContent = 'Pausado';
+} else if (pedoState.moving) {
+pill.textContent = '● Em movimento';
+} else {
+pill.textContent = 'Auto ativo';
+}
 
 if (toggleBtn) {
-toggleBtn.classList.toggle('running', pedoState.active);
-toggleBtn.textContent = pedoState.active ? '⏸ Pausar' : (m.steps > 0 ? '▶ Continuar' : '▶ Iniciar Passos');
+toggleBtn.classList.toggle('running', !isRunning);
+toggleBtn.textContent = isRunning ? '⏸ Pausar Auto' : '▶ Ativar Auto';
 }
 if (saveBtn) {
-saveBtn.disabled = m.steps < 10;
+saveBtn.disabled = m.steps < AUTO_MIN_STEPS_TO_RECORD;
 }
 }
 
@@ -3314,14 +4121,36 @@ const now = Date.now();
 if (!_pedoWasAbove && hp > STEP_HIGH_THRESHOLD && _pedoHpPrev <= STEP_HIGH_THRESHOLD) {
 const dt = now - _pedoLastStepTs;
 if (_pedoLastStepTs === 0 || (dt >= MIN_STEP_INTERVAL_MS && dt <= MAX_STEP_INTERVAL_MS)) {
-if (pedoState.date !== getTodayKey()) {
+const todayKey = getTodayKey();
+if (pedoState.date !== todayKey) {
 pedoState.steps = 0;
-pedoState.date = getTodayKey();
+pedoState.date = todayKey;
+pedoState.autoActId = null;
+pedoState.startTime = '';
+_pedoLastSyncedSteps = 0;
+if (_lastKnownToday !== todayKey) {
+_lastKnownToday = todayKey;
+if (selectedDateKey < todayKey) selectedDateKey = todayKey;
 }
+}
+const wasMoving = pedoState.moving;
+pedoState.moving = true;
 pedoState.steps += 1;
 _pedoLastStepTs = now;
 persistPedometerState();
 renderPedometerUI();
+
+if (pedoState.steps >= AUTO_MIN_STEPS_TO_RECORD && (
+!wasMoving ||
+pedoState.steps - _pedoLastSyncedSteps >= 8 ||
+pedoState.steps === AUTO_MIN_STEPS_TO_RECORD
+)) {
+const driveSync = (pedoState.steps - _pedoLastSyncedSteps >= 25);
+syncAutoWalkingActivity(false, driveSync);
+if (!wasMoving) {
+showToast('👟 Movimento detectado! Registrando caminhada automaticamente');
+}
+}
 } else if (dt > MAX_STEP_INTERVAL_MS) {
 _pedoLastStepTs = now;
 }
@@ -3332,99 +4161,114 @@ _pedoWasAbove = false;
 _pedoHpPrev = hp;
 }
 
-async function startPedometer() {
+async function initAutoPedometerSensor(userInitiated = false) {
 if (typeof window.DeviceMotionEvent === 'undefined') {
+if (userInitiated) {
 alert('Este navegador ou aparelho não disponibilizou o sensor de movimento (acelerômetro).');
-return;
+}
+return false;
 }
 if (typeof DeviceMotionEvent.requestPermission === 'function') {
+if (!userInitiated) return false;
 try {
 const perm = await DeviceMotionEvent.requestPermission();
 if (perm !== 'granted') {
 alert('Permissão de sensor de movimento negada. Ative nas configurações do navegador para contar passos.');
-return;
+return false;
 }
 } catch (e) {
 alert('Não foi possível ativar o sensor de movimento.');
-return;
+return false;
 }
 }
 if (!_pedoListenerAttached) {
 window.addEventListener('devicemotion', handleDeviceMotionStep, { passive: true });
 _pedoListenerAttached = true;
 }
+if (pedoState.active) {
+requestPedoWakeLock();
+}
+return true;
+}
+
+async function startPedometer(userInitiated = false) {
 pedoState.active = true;
 pedoState.date = getTodayKey();
 _pedoLastStepTs = 0;
 _pedoWasAbove = false;
 _pedoSamplesCount = 0;
-requestPedoWakeLock();
+persistPedometerState();
+const ok = await initAutoPedometerSensor(userInitiated);
 renderPedometerUI();
-showToast('👟 Pedômetro ativo! Pode colocar o celular no bolso');
+if (userInitiated && ok) {
+showToast('👟 Detecção automática ativa! Pode colocar o celular no bolso');
+}
 }
 
 function stopPedometer(silent = false) {
+if (pedoState.steps >= AUTO_MIN_STEPS_TO_RECORD && pedoState.steps !== _pedoLastSyncedSteps) {
+syncAutoWalkingActivity(false, true);
+}
 pedoState.active = false;
+pedoState.moving = false;
 releasePedoWakeLock();
 flushPedometerStorage();
 renderPedometerUI();
-if (!silent) showToast('⏸ Pedômetro pausado');
+if (!silent) showToast('⏸ Detecção automática pausada');
 }
 
 function togglePedometer() {
 if (pedoState.active) {
 stopPedometer(false);
 } else {
-startPedometer();
+startPedometer(true);
 }
 }
 
 function resetPedometer() {
-if (pedoState.steps === 0) return;
-if (!confirm('Zerar os passos contados atualmente no pedômetro?')) return;
-pedoState.steps = 0;
-pedoState.date = getTodayKey();
-_pedoLastStepTs = 0;
-flushPedometerStorage();
-renderPedometerUI();
-showToast('Passos zerados');
-}
-
-function savePedometerToDay() {
-const m = getPedometerMetrics();
-if (m.steps < 10) {
-alert('Dê pelo menos 10 passos antes de salvar no dia.');
-return;
-}
+if (pedoState.steps === 0 && !pedoState.autoActId) return;
+if (!confirm('Zerar os passos atuais e remover o registro automático desta caminhada?')) return;
 const targetDate = isValidDateKey(pedoState.date) ? pedoState.date : getTodayKey();
-const cleanKm = Math.max(0.01, m.cleanKm);
-const kmFmt = formatKm(cleanKm);
-const kcal = Math.max(1, m.kcal);
-const dayObj = ensureDayData(targetDate);
-const now = new Date();
-const time = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
-dayObj.activities.unshift({
-id: genId(),
-type: 'caminhada',
-name: `👟 Caminhada Bolso (${m.steps.toLocaleString('pt-BR')} passos • ${kmFmt} km)`,
-km: cleanKm,
-kcal,
-time
-});
+if (pedoState.autoActId && state.history[targetDate] && Array.isArray(state.history[targetDate].activities)) {
+state.history[targetDate].activities = state.history[targetDate].activities.filter(a => String(a.id) !== String(pedoState.autoActId));
+pruneEmptyDay(targetDate);
+saveState({ skipDriveSync: false });
+}
 pedoState.steps = 0;
+pedoState.moving = false;
+pedoState.autoActId = null;
+pedoState.startTime = '';
 pedoState.date = getTodayKey();
 _pedoLastStepTs = 0;
 _pedoSamplesCount = 0;
-selectedDateKey = targetDate;
-if (pedoState.active) {
-stopPedometer(true);
-} else {
+_pedoLastSyncedSteps = 0;
 flushPedometerStorage();
-renderPedometerUI();
-}
-saveState();
 render();
-showToast(`✓ ${m.steps.toLocaleString('pt-BR')} passos salvos (+${kcal} kcal)`);
+showToast('Passos e registro automático zerados');
+}
+
+function savePedometerToDay(finalizeSession = false) {
+const m = getPedometerMetrics();
+if (m.steps < AUTO_MIN_STEPS_TO_RECORD) {
+alert(`Dê pelo menos ${AUTO_MIN_STEPS_TO_RECORD} passos para registrar a caminhada.`);
+return;
+}
+const targetDate = isValidDateKey(pedoState.date) ? pedoState.date : getTodayKey();
+syncAutoWalkingActivity(false, true);
+if (finalizeSession) {
+pedoState.steps = 0;
+pedoState.moving = false;
+pedoState.autoActId = null;
+pedoState.startTime = '';
+pedoState.date = getTodayKey();
+_pedoLastStepTs = 0;
+_pedoSamplesCount = 0;
+_pedoLastSyncedSteps = 0;
+flushPedometerStorage();
+}
+selectedDateKey = targetDate;
+render();
+showToast(finalizeSession ? `✓ Caminhada consolidada (${m.steps.toLocaleString('pt-BR')} passos)` : `✓ Registrado no dia (+${m.kcal} kcal)`);
 }
 function addActivityEntry() {
 const type = document.getElementById('actTypeSelect').value;
@@ -3631,6 +4475,134 @@ for (let i = 0; i < label.length; i++) hash = (hash * 31 + label.charCodeAt(i)) 
 return palette[Math.abs(hash) % palette.length];
 }
 
+
+const VITAMIN_D_UI_PER_MIN = 100; // ~100 UI de Vitamina D sintetizada por minuto de exposição solar moderada
+let _sunTimerRunning = false;
+let _sunTimerStartMs = 0;
+let _sunTimerAccumSec = 0;
+let _sunTimerInterval = null;
+
+function openSunModal() { document.getElementById('sunModal').classList.add('open'); }
+function closeSunModal() { document.getElementById('sunModal').classList.remove('open'); }
+
+function setSunGoal(minVal) {
+state.sunGoalMin = minVal;
+saveState();
+render();
+closeSunModal();
+showToast(`☀️ Meta de sol: ${minVal} min/dia`);
+}
+
+function saveCustomSunGoal() {
+const val = parseInt(document.getElementById('customSunGoalInput').value, 10);
+if (!val || val < 5 || val > 240) {
+alert('Digite uma meta de sol válida entre 5 e 240 minutos.');
+return;
+}
+setSunGoal(val);
+document.getElementById('customSunGoalInput').value = '';
+}
+
+function addSunMinutes(mins) {
+const addM = Math.max(1, Math.round(mins));
+const dateSnap = selectedDateKey;
+const dayObj = ensureDayData(dateSnap);
+const prevSun = dayObj.sunMin || 0;
+dayObj.sunMin = Math.min(600, prevSun + addM);
+saveState();
+render();
+const vitUi = addM * VITAMIN_D_UI_PER_MIN;
+showToast(`☀️ +${addM} min de sol (~+${vitUi.toLocaleString('pt-BR')} UI Vit. D)`, {
+onUndo: () => {
+const targetDay = ensureDayData(dateSnap);
+targetDay.sunMin = prevSun;
+pruneEmptyDay(dateSnap);
+saveState();
+render();
+showToast('Registro de sol desfeito');
+}
+});
+}
+
+function removeSunMinutes(mins) {
+if (!state.history[selectedDateKey]) return;
+const dayObj = ensureDayData(selectedDateKey);
+const cur = dayObj.sunMin || 0;
+if (cur <= 0) return;
+dayObj.sunMin = Math.max(0, cur - Math.max(1, Math.round(mins)));
+pruneEmptyDay(selectedDateKey);
+saveState();
+render();
+}
+
+function getSunTimerElapsedSec() {
+if (!_sunTimerRunning) return _sunTimerAccumSec;
+return _sunTimerAccumSec + Math.max(0, Math.floor((Date.now() - _sunTimerStartMs) / 1000));
+}
+
+function updateSunTimerDisplay() {
+const disp = document.getElementById('sunTimerDisplay');
+const btn = document.getElementById('btnSunTimerToggle');
+const hint = document.getElementById('sunTimerHint');
+if (!disp || !btn) return;
+const totalSec = getSunTimerElapsedSec();
+const mm = String(Math.floor(totalSec / 60)).padStart(2, '0');
+const ss = String(totalSec % 60).padStart(2, '0');
+disp.textContent = `⏱️ ${mm}:${ss}`;
+btn.classList.toggle('running', _sunTimerRunning);
+btn.textContent = _sunTimerRunning ? '⏹ Parar e Salvar' : '☀️ Iniciar Sol';
+if (hint) {
+if (_sunTimerRunning) {
+const estUi = Math.round((totalSec / 60) * VITAMIN_D_UI_PER_MIN);
+hint.textContent = `Tomando sol agora (~${estUi.toLocaleString('pt-BR')} UI de Vitamina D geradas)`;
+} else {
+hint.textContent = 'Cronômetro ao vivo para tomar sol e sintetizar Vitamina D';
+}
+}
+}
+
+function toggleSunTimer() {
+if (!_sunTimerRunning) {
+_sunTimerRunning = true;
+_sunTimerStartMs = Date.now();
+clearInterval(_sunTimerInterval);
+_sunTimerInterval = setInterval(updateSunTimerDisplay, 500);
+updateSunTimerDisplay();
+showToast('☀️ Cronômetro de sol iniciado!');
+} else {
+const elapsedSec = getSunTimerElapsedSec();
+_sunTimerRunning = false;
+_sunTimerStartMs = 0;
+_sunTimerAccumSec = 0;
+clearInterval(_sunTimerInterval);
+_sunTimerInterval = null;
+updateSunTimerDisplay();
+const minsToAdd = Math.max(1, Math.round(elapsedSec / 60));
+if (elapsedSec >= 20) {
+addSunMinutes(minsToAdd);
+} else {
+showToast('Sessão menor que 20s não registrada');
+}
+}
+}
+
+function renderSunSection(dayData) {
+const sunMin = (dayData && typeof dayData.sunMin === 'number') ? dayData.sunMin : 0;
+const sunGoal = state.sunGoalMin || 20;
+const pct = sunGoal > 0 ? Math.min(100, Math.round((sunMin / sunGoal) * 100)) : 0;
+const realPct = sunGoal > 0 ? Math.round((sunMin / sunGoal) * 100) : 0;
+const doneMark = realPct >= 100 ? ' ✓' : '';
+const vitUi = sunMin * VITAMIN_D_UI_PER_MIN;
+
+const amtEl = document.getElementById('sunMinText');
+const goalEl = document.getElementById('sunGoalText');
+const barEl = document.getElementById('sunProgressBar');
+if (amtEl) amtEl.textContent = `${sunMin} min • ~${vitUi.toLocaleString('pt-BR')} UI Vit. D`;
+if (goalEl) goalEl.textContent = `Meta diária: ${sunGoal} min (${realPct}%${doneMark})`;
+if (barEl) barEl.style.width = `${pct}%`;
+updateSunTimerDisplay();
+}
+
 function formatLiters(ml) {
 const liters = (ml / 1000).toFixed(2).replace('.', ',');
 return `${liters} L (${ml} ml)`;
@@ -3725,6 +4697,8 @@ const dayTdeeEl = document.getElementById('dayTdeeRef');
 if (dayEffLabelEl) {
 dayEffLabelEl.textContent = selectedDateKey === todayKey ? 'Projeção de hoje:' : 'Efeito do dia:';
 }
+const dayBasalEl = document.getElementById('dayBasalRef');
+if (dayBasalEl) dayBasalEl.textContent = `${getBasalMetabolicRateKcal(estW).toLocaleString('pt-BR')} kcal/dia`;
 if (dayEffEl && dayTdeeEl) {
 dayTdeeEl.textContent = `${activeDayInfo.totalBurn.toLocaleString('pt-BR')} kcal/dia`;
 if (!activeDayInfo.hasActivityOrFood) {
@@ -4024,6 +4998,12 @@ if (confirm('Deseja zerar os registros de comida, atividades e água deste dia?'
 const backupDay = JSON.parse(JSON.stringify(dayData));
 const dateSnap = selectedDateKey;
 delete state.history[dateSnap];
+if (pedoState.date === dateSnap) {
+pedoState.autoActId = null;
+pedoState.startTime = '';
+_pedoLastSyncedSteps = 0;
+flushPedometerStorage();
+}
 saveState();
 render();
 showToast('Dia zerado', {
@@ -4052,12 +5032,18 @@ function openDateFromArchive(key) {
 selectedDateKey = key;
 isArchiveOpen = false;
 isStatsOpen = false;
+isNutrientsOpen = false;
+isProfileOpen = false;
 updateViewVisibility();
 render();
 }
 function toggleArchiveView() {
 isArchiveOpen = !isArchiveOpen;
-if (isArchiveOpen) isStatsOpen = false;
+if (isArchiveOpen) {
+isStatsOpen = false;
+isNutrientsOpen = false;
+isProfileOpen = false;
+}
 updateViewVisibility();
 if (isArchiveOpen) {
 populateMonthSelector();
@@ -4068,7 +5054,11 @@ render();
 }
 function toggleStatsView() {
 isStatsOpen = !isStatsOpen;
-if (isStatsOpen) isArchiveOpen = false;
+if (isStatsOpen) {
+isArchiveOpen = false;
+isNutrientsOpen = false;
+isProfileOpen = false;
+}
 updateViewVisibility();
 if (isStatsOpen) {
 renderStatsView();
@@ -4083,20 +5073,766 @@ btn.classList.toggle('active', Number(btn.dataset.days) === days);
 });
 renderStatsView();
 }
+
+const VITAMIN_DAILY_REF = {
+'Vitamina C': { unit: 'mg', dv: 90, color: '#f59e0b' },
+'Vitamina B3 (Niacina)': { unit: 'mg', dv: 16, color: '#38bdf8' },
+'Vitamina B5 (Ác. Pantotênico)': { unit: 'mg', dv: 5, color: '#2dd4bf' },
+'Vitamina B6': { unit: 'mg', dv: 1.7, color: '#c084fc' },
+'Vitamina B2 (Riboflavina)': { unit: 'mg', dv: 1.3, color: '#a3e635' },
+'Vitamina B12': { unit: 'mcg', dv: 2.4, color: '#10b981' },
+'Vitamina A': { unit: 'mcg', dv: 900, color: '#fb7185' },
+'Vitamina E': { unit: 'mg', dv: 15, color: '#60a5fa' },
+'Vitamina K': { unit: 'mcg', dv: 120, color: '#34d399' },
+'Vitamina B9 (Folato)': { unit: 'mcg', dv: 400, color: '#f472b6' },
+'Vitamina D (Sol)': { unit: 'UI', dv: 2000, color: '#fbbf24' }
+};
+
+const _nutCache = new Map();
+function getItemNutrition(item) {
+const safeKcal = Math.max(0, Number(item && item.kcal) || 0);
+const cacheKey = `${(item && item.name) || ''}|${safeKcal}|${(item && item.cat) || 'refeicoes'}`;
+if (_nutCache.has(cacheKey)) {
+const hit = _nutCache.get(cacheKey);
+return { carbs: hit.carbs, sugars: hit.sugars, fats: hit.fats, vitamins: { ...hit.vitamins } };
+}
+const _nutResult = _computeItemNutritionUncached(item, safeKcal);
+if (_nutCache.size > 400) _nutCache.clear();
+_nutCache.set(cacheKey, _nutResult);
+return { carbs: _nutResult.carbs, sugars: _nutResult.sugars, fats: _nutResult.fats, vitamins: { ..._nutResult.vitamins } };
+}
+function _computeItemNutritionUncached(item, safeKcal) {
+const rawName = (item && item.name) ? String(item.name) : '';
+const n = normalizeText(rawName);
+const cat = (item && item.cat) ? item.cat : 'refeicoes';
+
+let mult = 1;
+const leadM = rawName.match(/^(\d+(?:[.,]\d+)?)\s*x\s+/i);
+if (leadM) {
+const parsedM = parseFloat(leadM[1].replace(',', '.'));
+if (!isNaN(parsedM) && parsedM > 0 && parsedM <= 50) mult = parsedM;
+}
+const mlM = rawName.match(/(\d+(?:[.,]\d+)?)\s*ml\b/i);
+const lM = rawName.match(/(\d+(?:[.,]\d+)?)\s*(?:l|litros?)\b/i);
+const gM = rawName.match(/(\d+(?:[.,]\d+)?)\s*g\b/i);
+let volFactor = 1;
+if (mlM) {
+const mlV = parseFloat(mlM[1].replace(',', '.'));
+if (!isNaN(mlV) && mlV > 0) {
+if (n.includes('monster')) volFactor = mlV / 473;
+else volFactor = mlV / 250;
+}
+} else if (lM) {
+const lMl = parseFloat(lM[1].replace(',', '.')) * 1000;
+if (!isNaN(lMl) && lMl > 0) {
+if (n.includes('monster')) volFactor = lMl / 473;
+else volFactor = lMl / 250;
+}
+} else if (gM) {
+const gV = parseFloat(gM[1].replace(',', '.'));
+if (!isNaN(gV) && gV > 0) volFactor = gV / 100;
+}
+const scale = mult * volFactor;
+
+let carbs = 0;
+let sugars = 0;
+let fats = 0;
+const vitamins = {};
+
+const addVit = (vitName, amount) => {
+if (!amount || amount <= 0) return;
+vitamins[vitName] = (vitamins[vitName] || 0) + amount;
+};
+
+// Monster Energy drinks (Zero/Ultra and Tradicional/Mango Loco/Juice)
+if (n.includes('monster')) {
+const isZero = n.includes('zero') || n.includes('ultra');
+carbs = isZero ? Math.round(2.5 * scale * 10) / 10 : Math.round(54 * scale * 10) / 10;
+sugars = isZero ? 0 : Math.round(51 * scale * 10) / 10;
+fats = 0;
+addVit('Vitamina B3 (Niacina)', Math.round(17 * scale * 10) / 10);
+addVit('Vitamina B5 (Ác. Pantotênico)', Math.round(5 * scale * 10) / 10);
+addVit('Vitamina B6', Math.round(2 * scale * 10) / 10);
+addVit('Vitamina B2 (Riboflavina)', Math.round(1.4 * scale * 10) / 10);
+addVit('Vitamina B12', Math.round(6 * scale * 10) / 10);
+return { carbs, sugars, fats, vitamins };
+}
+
+// Other energy drinks
+if (n.includes('red bull') || n.includes('redbull') || n.includes('tnt') || n.includes('baly') || n.includes('fusion') || n.includes('reign')) {
+const isZero = n.includes('zero') || n.includes('sugarfree');
+carbs = isZero ? Math.round(1.5 * scale * 10) / 10 : Math.round(28 * scale * 10) / 10;
+sugars = isZero ? 0 : Math.round(27 * scale * 10) / 10;
+fats = 0;
+addVit('Vitamina B3 (Niacina)', Math.round(15 * scale * 10) / 10);
+addVit('Vitamina B5 (Ác. Pantotênico)', Math.round(4 * scale * 10) / 10);
+addVit('Vitamina B6', Math.round(2 * scale * 10) / 10);
+addVit('Vitamina B12', Math.round(2.5 * scale * 10) / 10);
+return { carbs, sugars, fats, vitamins };
+}
+
+// Regular sodas & sugary drinks
+if (cat === 'bebidas') {
+if (!n.includes('agua de coco') && (n.includes('zero') || n.includes('light') || n.includes('diet') || n.includes('h2oh') || n.includes('sem acucar') || n.includes('sem açúcar') || n === 'agua' || n.startsWith('agua '))) {
+carbs = 0;
+sugars = 0;
+fats = 0;
+if (n.includes('limao') || n.includes('limão') || n.includes('laranja') || n.includes('acerola') || n.includes('maracuja') || n.includes('maracujá')) {
+addVit('Vitamina C', Math.round(18 * scale * 10) / 10);
+}
+return { carbs, sugars, fats, vitamins };
+}
+if (n.includes('suco') || n.includes('limonada') || n.includes('garapa') || n.includes('caldo de cana')) {
+sugars = Math.round(((safeKcal * 0.85) / 4) * 10) / 10;
+carbs = Math.round(((safeKcal * 0.92) / 4) * 10) / 10;
+fats = Math.round(((safeKcal * 0.04) / 9) * 10) / 10;
+if (n.includes('laranja') || n.includes('acerola') || n.includes('limao') || n.includes('limão') || n.includes('abacaxi') || n.includes('goiaba') || n.includes('caju')) {
+addVit('Vitamina C', Math.round(45 * scale * 10) / 10);
+}
+if (n.includes('manga') || n.includes('maracuja') || n.includes('maracujá')) {
+addVit('Vitamina A', Math.round(140 * scale));
+addVit('Vitamina C', Math.round(25 * scale * 10) / 10);
+}
+return { carbs, sugars, fats, vitamins };
+}
+if (n.includes('leite') || n.includes('achocolatado') || n.includes('nescau') || n.includes('toddy') || n.includes('vitamina de') || n.includes('iogurte') || n.includes('yakult')) {
+sugars = Math.round(((safeKcal * 0.35) / 4) * 10) / 10;
+carbs = Math.round(((safeKcal * 0.48) / 4) * 10) / 10;
+fats = Math.round(((safeKcal * 0.32) / 9) * 10) / 10;
+addVit('Vitamina B12', Math.round(0.8 * scale * 10) / 10);
+addVit('Vitamina B2 (Riboflavina)', Math.round(0.3 * scale * 10) / 10);
+return { carbs, sugars, fats, vitamins };
+}
+// Standard sweetened soda / drink
+sugars = Math.round(((safeKcal * 0.96) / 4) * 10) / 10;
+carbs = Math.round(((safeKcal * 0.98) / 4) * 10) / 10;
+fats = 0;
+return { carbs, sugars, fats, vitamins };
+}
+
+// Sweets / Doces
+if (cat === 'doces') {
+if (n.includes('zero') || n.includes('diet') || n.includes('sem acucar') || n.includes('sem açúcar')) {
+sugars = 0;
+carbs = Math.round(((safeKcal * 0.25) / 4) * 10) / 10;
+fats = 0;
+return { carbs, sugars, fats, vitamins };
+}
+sugars = Math.round(((safeKcal * 0.45) / 4) * 10) / 10;
+carbs = Math.round(((safeKcal * 0.56) / 4) * 10) / 10;
+fats = Math.round(((safeKcal * 0.38) / 9) * 10) / 10;
+if (n.includes('acai') || n.includes('açaí')) {
+addVit('Vitamina E', Math.round(2.5 * scale * 10) / 10);
+}
+return { carbs, sugars, fats, vitamins };
+}
+
+// Fruits / Frutas
+if (cat === 'frutas') {
+sugars = Math.round(((safeKcal * 0.72) / 4) * 10) / 10;
+carbs = Math.round(((safeKcal * 0.88) / 4) * 10) / 10;
+fats = Math.round(((safeKcal * 0.06) / 9) * 10) / 10;
+if (n.includes('laranja') || n.includes('morango') || n.includes('abacaxi') || n.includes('kiwi') || n.includes('goiaba') || n.includes('acerola') || n.includes('limao') || n.includes('limão') || n.includes('caju') || n.includes('melancia') || n.includes('mamao') || n.includes('mamão')) {
+addVit('Vitamina C', Math.round(48 * scale * 10) / 10);
+}
+if (n.includes('manga') || n.includes('mamao') || n.includes('mamão') || n.includes('caqui') || n.includes('damasco')) {
+addVit('Vitamina A', Math.round(160 * scale));
+}
+if (n.includes('banana')) {
+addVit('Vitamina B6', Math.round(0.4 * scale * 10) / 10);
+}
+if (n.includes('abacate') || n.includes('castanha') || n.includes('amendoa') || n.includes('amêndoa') || n.includes('nozes') || n.includes('pistache')) {
+fats = Math.round(((safeKcal * 0.75) / 9) * 10) / 10;
+sugars = Math.round(((safeKcal * 0.05) / 4) * 10) / 10;
+carbs = Math.round(((safeKcal * 0.16) / 4) * 10) / 10;
+addVit('Vitamina E', Math.round(2.8 * scale * 10) / 10);
+}
+return { carbs, sugars, fats, vitamins };
+}
+
+// Meals / Refeições (meats, rice, beans, potatoes, breads, pasta, snacks)
+const isMeatOrEgg = n.includes('frango') || n.includes('bife') || n.includes('picanha') || n.includes('carne') || n.includes('peixe') || n.includes('tilapia') || n.includes('salmao') || n.includes('ovo') || n.includes('costela') || n.includes('costelinha') || n.includes('linguica') || n.includes('linguiça') || n.includes('bacon') || n.includes('figado') || n.includes('fígado') || n.includes('ancho') || n.includes('chorizo') || n.includes('pernil') || n.includes('torresmo');
+if (isMeatOrEgg) {
+fats = Math.round(((safeKcal * 0.45) / 9) * 10) / 10;
+carbs = Math.round(((safeKcal * 0.05) / 4) * 10) / 10;
+sugars = 0;
+if (n.includes('bife') || n.includes('picanha') || n.includes('carne') || n.includes('figado') || n.includes('fígado') || n.includes('ancho') || n.includes('chorizo')) {
+addVit('Vitamina B12', Math.round(2.2 * scale * 10) / 10);
+addVit('Vitamina B3 (Niacina)', Math.round(6.5 * scale * 10) / 10);
+addVit('Vitamina B6', Math.round(0.4 * scale * 10) / 10);
+}
+if (n.includes('frango') || n.includes('peixe') || n.includes('tilapia') || n.includes('salmao') || n.includes('ovo')) {
+addVit('Vitamina B3 (Niacina)', Math.round(7.5 * scale * 10) / 10);
+addVit('Vitamina B6', Math.round(0.5 * scale * 10) / 10);
+addVit('Vitamina B12', Math.round(1.1 * scale * 10) / 10);
+}
+if (n.includes('figado') || n.includes('fígado')) {
+addVit('Vitamina A', Math.round(650 * scale));
+}
+return { carbs, sugars, fats, vitamins };
+}
+
+// Carbs / grains / beans / breads / snacks
+carbs = Math.round(((safeKcal * 0.65) / 4) * 10) / 10;
+fats = Math.round(((safeKcal * 0.22) / 9) * 10) / 10;
+sugars = Math.round(((safeKcal * 0.06) / 4) * 10) / 10;
+if (n.includes('feijao') || n.includes('feijão') || n.includes('lentilha') || n.includes('grao de bico')) {
+addVit('Vitamina B9 (Folato)', Math.round(110 * scale));
+}
+if (n.includes('batata')) {
+addVit('Vitamina C', Math.round(14 * scale * 10) / 10);
+addVit('Vitamina B6', Math.round(0.3 * scale * 10) / 10);
+}
+return { carbs, sugars, fats, vitamins };
+}
+}
+
+let isNutrientsOpen = false;
+
+let isProfileOpen = false;
+
+function toggleProfileView() {
+isProfileOpen = !isProfileOpen;
+if (isProfileOpen) {
+isArchiveOpen = false;
+isStatsOpen = false;
+isNutrientsOpen = false;
+}
+updateViewVisibility();
+if (isProfileOpen) {
+renderProfileView();
+} else {
+render();
+}
+}
+
+function saveProfileData() {
+const nameVal = (document.getElementById('profNameInput').value || '').trim();
+const ageVal = parseInt(document.getElementById('profAgeInput').value, 10);
+const hVal = parseFloat(String(document.getElementById('profHeightInput').value).replace(',', '.'));
+const swVal = parseFloat(String(document.getElementById('profStartWeightInput').value).replace(',', '.'));
+const twVal = parseFloat(String(document.getElementById('profTargetWeightInput').value).replace(',', '.'));
+const cityVal = (document.getElementById('profCityInput').value || '').trim();
+
+if (isNaN(hVal) || hVal < 1.0 || hVal > 2.5) {
+alert('Digite uma altura válida em metros (ex: 1.80).');
+return;
+}
+if (isNaN(swVal) || swVal < 30 || swVal > 400) {
+alert('Digite um peso inicial válido entre 30 e 400 kg.');
+return;
+}
+if (isNaN(twVal) || twVal < 30 || twVal > 400) {
+alert('Digite um peso alvo válido entre 30 e 400 kg.');
+return;
+}
+
+const roundedSw = Math.round(swVal * 10) / 10;
+state.profile = {
+name: nameVal || DEFAULT_PROFILE.name,
+age: (!isNaN(ageVal) && ageVal >= 10 && ageVal <= 120) ? ageVal : DEFAULT_PROFILE.age,
+heightM: Math.round(hVal * 100) / 100,
+targetWeightKg: Math.round(twVal * 10) / 10,
+city: cityVal || DEFAULT_PROFILE.city
+};
+state.startWeightKg = roundedSw;
+if (Array.isArray(state.weightLogs)) {
+const initLog = state.weightLogs.find(w => String(w.id) === 'init-160');
+if (initLog) initLog.weight = roundedSw;
+}
+saveState();
+renderProfileView();
+showToast('👤 Perfil salvo e metas atualizadas!');
+}
+
+function quickLogLossWalk(kmDist) {
+const cleanKm = Math.round(Number(kmDist) * 100) / 100;
+const kmFmt = formatKm(cleanKm);
+const kcal = Math.round(cleanKm * getCurrentWeightForCalc() * ACT_META.caminhada.perKgKm);
+const dayObj = ensureDayData(selectedDateKey);
+const now = new Date();
+const time = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
+dayObj.activities.unshift({
+id: genId(),
+type: 'caminhada',
+name: `🚶 Caminhada Perda de Peso (${kmFmt} km)`,
+km: cleanKm,
+kcal,
+time
+});
+saveState();
+render();
+showToast(`🏃 +${kmFmt} km (+${kcal} kcal para perda de peso)`);
+}
+
+function renderProfileView() {
+const p = (state.profile && typeof state.profile === 'object') ? { ...DEFAULT_PROFILE, ...state.profile } : { ...DEFAULT_PROFILE };
+const curW = getCurrentWeightForCalc();
+const startW = state.startWeightKg || 160.0;
+const hM = p.heightM || 1.80;
+const imc = curW / (hM * hM);
+const targetW = p.targetWeightKg || 110.0;
+const toLose = Math.max(0, curW - targetW);
+const basalKcal = getBasalMetabolicRateKcal(curW);
+const maintKcal = getDailyMaintenanceKcal(curW);
+
+document.getElementById('profNameHeading').textContent = p.name;
+document.getElementById('profImcBadge').textContent = `IMC ${imc.toFixed(1).replace('.', ',')}`;
+document.getElementById('profLocationSub').textContent = `${p.age} anos • ${p.city} • Foco em perda de peso`;
+document.getElementById('profHeightVal').textContent = `${hM.toFixed(2).replace('.', ',')} m`;
+document.getElementById('profWeightVal').textContent = `${curW.toFixed(2).replace('.', ',')} kg`;
+document.getElementById('profStartWeightSub').textContent = `Início: ${startW.toFixed(1).replace('.', ',')} kg`;
+document.getElementById('profTargetWeightVal').textContent = `${targetW.toFixed(1).replace('.', ',')} kg`;
+document.getElementById('profToLoseSub').textContent = toLose > 0 ? `Faltam ${toLose.toFixed(2).replace('.', ',')} kg` : 'Meta de peso atingida!';
+const basalEl = document.getElementById('profBasalVal');
+if (basalEl) basalEl.textContent = `${basalKcal.toLocaleString('pt-BR')} kcal`;
+document.getElementById('profTdeeVal').textContent = `${maintKcal.toLocaleString('pt-BR')} kcal`;
+document.getElementById('profCalGoalSub').textContent = `Meta diária: ${state.goal.toLocaleString('pt-BR')} kcal`;
+
+const nameInp = document.getElementById('profNameInput');
+if (nameInp && document.activeElement !== nameInp) nameInp.value = p.name;
+const ageInp = document.getElementById('profAgeInput');
+if (ageInp && document.activeElement !== ageInp) ageInp.value = p.age;
+const hInp = document.getElementById('profHeightInput');
+if (hInp && document.activeElement !== hInp) hInp.value = hM.toFixed(2);
+const swInp = document.getElementById('profStartWeightInput');
+if (swInp && document.activeElement !== swInp) swInp.value = startW.toFixed(1);
+const twInp = document.getElementById('profTargetWeightInput');
+if (twInp && document.activeElement !== twInp) twInp.value = targetW.toFixed(1);
+const cityInp = document.getElementById('profCityInput');
+if (cityInp && document.activeElement !== cityInp) cityInp.value = p.city;
+
+// Completed daily goals checklist for selectedDateKey
+const todayKey = getTodayKey();
+const info = formatFriendlyDate(selectedDateKey);
+document.getElementById('profDoneDateLabel').textContent = selectedDateKey === todayKey ? 'Hoje' : info.title.split('•')[1].trim();
+
+const dayData = getDayData(selectedDateKey);
+const items = Array.isArray(dayData.items) ? dayData.items : [];
+const acts = Array.isArray(dayData.activities) ? dayData.activities : [];
+const consumedKcal = items.reduce((s, i) => s + (i.kcal || 0), 0);
+const actKcal = acts.reduce((s, a) => s + (a.kcal || 0), 0);
+const actKm = acts.reduce((s, a) => s + (a.km || 0), 0);
+const wb = normalizeWaterBreakdown(dayData);
+const sunMin = dayData.sunMin || 0;
+const sunGoal = state.sunGoalMin || 20;
+
+let totalCarbs = 0, totalSugars = 0, totalFats = 0;
+const vitTotals = {};
+items.forEach(it => {
+const nut = getItemNutrition(it);
+totalCarbs += nut.carbs;
+totalSugars += nut.sugars;
+totalFats += nut.fats;
+Object.entries(nut.vitamins).forEach(([vk, va]) => {
+if (va > 0) vitTotals[vk] = (vitTotals[vk] || 0) + va;
+});
+});
+if (sunMin > 0) {
+vitTotals['Vitamina D (Sol)'] = (vitTotals['Vitamina D (Sol)'] || 0) + (sunMin * VITAMIN_D_UI_PER_MIN);
+}
+
+const nGoals = getEffectiveNutrientGoals(curW);
+const checks = [];
+const hasFood = items.length > 0;
+checks.push({
+label: '🔥 Meta de Calorias',
+detail: `${consumedKcal} / ${(dayData.goal || state.goal) + actKcal} kcal`,
+done: hasFood && consumedKcal <= ((dayData.goal || state.goal) + actKcal)
+});
+checks.push({
+label: '💧 Meta de Água',
+detail: `${(wb.total / 1000).toFixed(2).replace('.', ',')} / ${((state.waterGoalMl || 3500) / 1000).toFixed(2).replace('.', ',')} L`,
+done: wb.total >= (state.waterGoalMl || 3500)
+});
+checks.push({
+label: '☀️ Meta de Banho de Sol',
+detail: `${sunMin} / ${sunGoal} min`,
+done: sunMin >= sunGoal
+});
+checks.push({
+label: '🍞 Meta de Carboidratos',
+detail: `${totalCarbs.toFixed(1).replace('.', ',')} / ${nGoals.carbsG} g`,
+done: hasFood && totalCarbs <= nGoals.carbsG * 1.05
+});
+checks.push({
+label: '🍬 Limite de Açúcares',
+detail: `${totalSugars.toFixed(1).replace('.', ',')} / ${nGoals.sugarsG} g máx.`,
+done: hasFood && totalSugars <= nGoals.sugarsG
+});
+checks.push({
+label: '🧈 Meta de Gorduras',
+detail: `${totalFats.toFixed(1).replace('.', ',')} / ${nGoals.fatsG} g`,
+done: hasFood && totalFats <= nGoals.fatsG * 1.1
+});
+
+Object.entries(VITAMIN_DAILY_REF).forEach(([vName, ref]) => {
+const targetV = (nGoals.vitamins && Number(nGoals.vitamins[vName]) > 0) ? Number(nGoals.vitamins[vName]) : ref.dv;
+const curV = vitTotals[vName] || 0;
+const curFmt = Number.isInteger(curV) ? `${curV}` : `${curV.toFixed(1).replace('.', ',')}`;
+const tgtFmt = Number.isInteger(targetV) ? `${targetV}` : `${targetV.toFixed(1).replace('.', ',')}`;
+checks.push({
+label: `💊 ${vName}`,
+detail: `${curFmt} / ${tgtFmt} ${ref.unit}`,
+done: curV >= targetV
+});
+});
+
+const doneCount = checks.filter(c => c.done).length;
+document.getElementById('profDoneSummary').textContent = `${doneCount}/${checks.length} cumpridas`;
+document.getElementById('profCompletedList').innerHTML = checks.map(c => `
+<div class="completed-row ${c.done ? 'done' : ''}">
+<div>
+<strong>${escapeHtml(c.label)}</strong><br>
+<small style="color:var(--muted);">${escapeHtml(c.detail)}</small>
+</div>
+<span class="completed-tag ${c.done ? 'done' : 'pending'}">${c.done ? '✓ Cumprida' : 'Pendente'}</span>
+</div>
+`).join('');
+
+// Weight-loss physical activity guidance & daily progress
+const walk2Kcal = Math.round(2 * curW * ACT_META.caminhada.perKgKm);
+const deficitKcal = Math.max(0, maintKcal - (dayData.goal || state.goal));
+const estWeeklyLossKg = ((deficitKcal * 7) / KCAL_PER_KG).toFixed(2).replace('.', ',');
+document.getElementById('profLossBurnBadge').textContent = `${formatKm(actKm)} km • +${actKcal} kcal`;
+document.getElementById('profWeightLossPlan').innerHTML = `
+<div class="loss-plan-row"><span>💤 Basal em repouso hoje:</span><strong>${basalKcal.toLocaleString('pt-BR')} kcal/dia</strong></div>
+<div class="loss-plan-row"><span>🚶 Caminhada recomendada (2 km):</span><strong>~${walk2Kcal} kcal extras</strong></div>
+<div class="loss-plan-row"><span>📉 Déficit calórico diário atual:</span><strong>${deficitKcal.toLocaleString('pt-BR')} kcal/dia</strong></div>
+<div class="loss-plan-row"><span>🗓️ Ritmo estimado de perda:</span><strong>~${estWeeklyLossKg} kg / semana</strong></div>
+<small style="color:var(--muted);margin-top:2px;">Para seus ${curW.toFixed(1).replace('.', ',')} kg, caminhadas constantes de 1,5 a 3 km + déficit calórico aceleram a redução de peso com baixo impacto articular.</small>
+`;
+}
+
+
+
+function toggleNutAutoWeightPreview() {
+const chk = document.getElementById('nutAutoWeightToggle');
+const curW = getCurrentWeightForCalc();
+const wFmt = curW.toFixed(2).replace('.', ',');
+const hint = document.getElementById('nutModalWeightHint');
+if (chk && chk.checked) {
+const dyn = computeWeightScaledNutrientGoals(curW);
+const cIn = document.getElementById('ngCarbsInput');
+const sIn = document.getElementById('ngSugarsInput');
+const fIn = document.getElementById('ngFatsInput');
+if (cIn) cIn.value = dyn.carbsG;
+if (sIn) sIn.value = dyn.sugarsG;
+if (fIn) fIn.value = dyn.fatsG;
+document.querySelectorAll('#nutGoalsFormList input[data-vit-key]').forEach(inp => {
+const vk = inp.dataset.vitKey;
+if (vk && dyn.vitamins[vk] !== undefined) inp.value = dyn.vitamins[vk];
+});
+if (hint) hint.innerHTML = `Calculadas automaticamente para o seu peso atual de <strong>${wFmt} kg</strong>:`;
+} else if (hint) {
+hint.innerHTML = `Modo manual fixo ativo (peso atual: <strong>${wFmt} kg</strong>):`;
+}
+}
+
+function openNutrientsGoalModal() {
+const curW = getCurrentWeightForCalc();
+const wFmt = curW.toFixed(2).replace('.', ',');
+const nGoals = getEffectiveNutrientGoals(curW);
+const chk = document.getElementById('nutAutoWeightToggle');
+if (chk) chk.checked = nGoals.autoByWeight !== false;
+const hint = document.getElementById('nutModalWeightHint');
+if (hint) {
+hint.innerHTML = nGoals.autoByWeight !== false
+? `Calculadas automaticamente para o seu peso atual de <strong>${wFmt} kg</strong>:`
+: `Modo manual fixo ativo (peso atual: <strong>${wFmt} kg</strong>):`;
+}
+const box = document.getElementById('nutGoalsFormList');
+if (box) {
+let rowsHtml = `
+<div class="nut-goal-row">
+<label for="ngCarbsInput">🍞 Carboidratos (g/dia)</label>
+<input type="number" inputmode="numeric" min="10" max="1000" id="ngCarbsInput" value="${nGoals.carbsG}">
+</div>
+<div class="nut-goal-row">
+<label for="ngSugarsInput">🍬 Açúcares Máx. (g/dia)</label>
+<input type="number" inputmode="numeric" min="5" max="500" id="ngSugarsInput" value="${nGoals.sugarsG}">
+</div>
+<div class="nut-goal-row">
+<label for="ngFatsInput">🧈 Gorduras (g/dia)</label>
+<input type="number" inputmode="numeric" min="10" max="500" id="ngFatsInput" value="${nGoals.fatsG}">
+</div>
+`;
+Object.entries(VITAMIN_DAILY_REF).forEach(([vName, ref], idx) => {
+const val = (nGoals.vitamins && Number(nGoals.vitamins[vName]) > 0) ? Number(nGoals.vitamins[vName]) : ref.dv;
+rowsHtml += `
+<div class="nut-goal-row">
+<label for="ngVit_${idx}">💊 ${escapeHtml(vName)} (${escapeHtml(ref.unit)})</label>
+<input type="number" inputmode="decimal" step="0.1" min="0.1" max="50000" id="ngVit_${idx}" data-vit-key="${escapeHtml(vName)}" value="${val}">
+</div>
+`;
+});
+box.innerHTML = rowsHtml;
+}
+document.getElementById('nutrientsGoalModal').classList.add('open');
+}
+
+function closeNutrientsGoalModal() {
+document.getElementById('nutrientsGoalModal').classList.remove('open');
+}
+
+function saveNutrientsGoals() {
+const curW = getCurrentWeightForCalc();
+const chk = document.getElementById('nutAutoWeightToggle');
+const autoMode = chk ? chk.checked : true;
+const baseForW = computeWeightScaledNutrientGoals(curW);
+
+const next = {
+autoByWeight: autoMode,
+carbsG: baseForW.carbsG,
+sugarsG: baseForW.sugarsG,
+fatsG: baseForW.fatsG,
+vitamins: { ...baseForW.vitamins },
+customVitamins: {}
+};
+
+const cVal = parseFloat(String(document.getElementById('ngCarbsInput').value).replace(',', '.'));
+const sVal = parseFloat(String(document.getElementById('ngSugarsInput').value).replace(',', '.'));
+const fVal = parseFloat(String(document.getElementById('ngFatsInput').value).replace(',', '.'));
+if (!isNaN(cVal) && cVal >= 10 && cVal <= 1000) next.carbsG = Math.round(cVal);
+if (!isNaN(sVal) && sVal >= 5 && sVal <= 500) next.sugarsG = Math.round(sVal);
+if (!isNaN(fVal) && fVal >= 10 && fVal <= 500) next.fatsG = Math.round(fVal);
+
+// If user edited macro numbers differently from weight formula while saving, respect manual override
+if (next.carbsG !== baseForW.carbsG || next.sugarsG !== baseForW.sugarsG || next.fatsG !== baseForW.fatsG) {
+next.autoByWeight = false;
+}
+
+document.querySelectorAll('#nutGoalsFormList input[data-vit-key]').forEach(inp => {
+const vKey = inp.dataset.vitKey;
+const vNum = parseFloat(String(inp.value).replace(',', '.'));
+if (vKey && !isNaN(vNum) && vNum > 0 && vNum <= 50000) {
+const roundedV = Math.round(vNum * 10) / 10;
+next.vitamins[vKey] = roundedV;
+if (roundedV !== baseForW.vitamins[vKey]) {
+next.customVitamins[vKey] = roundedV;
+}
+}
+});
+
+state.nutrientGoals = next;
+saveState();
+closeNutrientsGoalModal();
+if (isNutrientsOpen) renderNutrientsView();
+showToast(next.autoByWeight ? '⚖️ Metas vinculadas ao seu peso!' : '🧬 Metas personalizadas salvas!');
+}
+
+function resetDefaultNutrientsGoals() {
+const curW = getCurrentWeightForCalc();
+state.nutrientGoals = computeWeightScaledNutrientGoals(curW);
+saveState();
+openNutrientsGoalModal();
+if (isNutrientsOpen) renderNutrientsView();
+showToast(`⚖️ Recalculado para ${curW.toFixed(2).replace('.', ',')} kg`);
+}
+
+function toggleNutrientsView() {
+isNutrientsOpen = !isNutrientsOpen;
+if (isNutrientsOpen) {
+isArchiveOpen = false;
+isStatsOpen = false;
+isProfileOpen = false;
+}
+updateViewVisibility();
+if (isNutrientsOpen) {
+renderNutrientsView();
+} else {
+render();
+}
+}
+
+function renderNutrientsView() {
+const todayKey = getTodayKey();
+const info = formatFriendlyDate(selectedDateKey);
+const dateLbl = document.getElementById('nutDateLabel');
+if (dateLbl) dateLbl.textContent = selectedDateKey === todayKey ? 'Hoje' : info.title.split('•')[1].trim();
+
+const dayData = getDayData(selectedDateKey);
+const items = Array.isArray(dayData.items) ? dayData.items : [];
+const cntEl = document.getElementById('nutItemsCount');
+if (cntEl) cntEl.textContent = `${items.length} ${items.length === 1 ? 'item' : 'itens'}`;
+
+let totalCarbs = 0;
+let totalSugars = 0;
+let totalFats = 0;
+const vitTotals = {};
+const vitSources = {};
+const perItemRows = [];
+
+items.forEach(item => {
+const nut = getItemNutrition(item);
+totalCarbs += nut.carbs;
+totalSugars += nut.sugars;
+totalFats += nut.fats;
+
+const vitSummaryParts = [];
+Object.entries(nut.vitamins).forEach(([vName, vAmt]) => {
+if (!vAmt || vAmt <= 0) return;
+vitTotals[vName] = (vitTotals[vName] || 0) + vAmt;
+if (!vitSources[vName]) vitSources[vName] = [];
+if (!vitSources[vName].includes(item.name)) vitSources[vName].push(item.name);
+const ref = VITAMIN_DAILY_REF[vName] || { unit: 'mg' };
+const amtFmt = Number.isInteger(vAmt) ? `${vAmt}` : `${vAmt.toFixed(1).replace('.', ',')}`;
+vitSummaryParts.push(`${vName}: ${amtFmt} ${ref.unit}`);
+});
+
+perItemRows.push({
+name: item.name,
+carbs: nut.carbs,
+sugars: nut.sugars,
+fats: nut.fats,
+vitText: vitSummaryParts.length > 0 ? vitSummaryParts.join(' • ') : 'Sem vitaminas relevantes registradas'
+});
+});
+
+const daySunMin = (dayData && typeof dayData.sunMin === 'number') ? dayData.sunMin : 0;
+if (daySunMin > 0) {
+const sunVitUi = daySunMin * VITAMIN_D_UI_PER_MIN;
+vitTotals['Vitamina D (Sol)'] = (vitTotals['Vitamina D (Sol)'] || 0) + sunVitUi;
+vitSources['Vitamina D (Sol)'] = [`☀️ Banho de sol (${daySunMin} min)`];
+perItemRows.unshift({
+name: `☀️ Banho de sol (${daySunMin} min)`,
+carbs: 0,
+sugars: 0,
+fats: 0,
+vitText: `Vitamina D (Sol): ${sunVitUi.toLocaleString('pt-BR')} UI sintetizadas`
+});
+}
+
+const curW = getCurrentWeightForCalc();
+const nGoals = getEffectiveNutrientGoals(curW);
+const carbGoal = nGoals.carbsG || 230;
+const sugarLimit = nGoals.sugarsG || 45;
+const fatGoal = nGoals.fatsG || 70;
+const syncHintEl = document.getElementById('nutWeightSyncHint');
+if (syncHintEl) {
+const wFmt = curW.toFixed(2).replace('.', ',');
+syncHintEl.innerHTML = nGoals.autoByWeight
+? `⚖️ Metas atualizadas automaticamente pelo peso do dia (<strong>${wFmt} kg</strong>).`
+: `📌 Metas fixas personalizadas (peso atual: <strong>${wFmt} kg</strong>).`;
+}
+
+const carbPct = carbGoal > 0 ? Math.round((totalCarbs / carbGoal) * 100) : 0;
+const sugarPct = sugarLimit > 0 ? Math.round((totalSugars / sugarLimit) * 100) : 0;
+const fatPct = fatGoal > 0 ? Math.round((totalFats / fatGoal) * 100) : 0;
+
+document.getElementById('nutCarbsVal').textContent = `${totalCarbs.toFixed(1).replace('.', ',')} g`;
+document.getElementById('nutCarbsGoalSub').textContent = `Meta: ${carbGoal} g (${carbPct}%)`;
+const carbsBar = document.getElementById('nutCarbsBar');
+if (carbsBar) {
+carbsBar.style.width = `${Math.min(100, carbPct)}%`;
+carbsBar.style.backgroundColor = carbPct > 110 ? 'var(--warning)' : 'var(--primary)';
+}
+
+document.getElementById('nutSugarsVal').textContent = `${totalSugars.toFixed(1).replace('.', ',')} g`;
+document.getElementById('nutSugarsGoalSub').textContent = `Limite: ${sugarLimit} g (${sugarPct}%)`;
+const sugarsBar = document.getElementById('nutSugarsBar');
+if (sugarsBar) {
+sugarsBar.style.width = `${Math.min(100, sugarPct)}%`;
+sugarsBar.style.backgroundColor = sugarPct > 100 ? 'var(--danger)' : (sugarPct >= 80 ? 'var(--warning)' : 'var(--primary)');
+}
+
+document.getElementById('nutFatsVal').textContent = `${totalFats.toFixed(1).replace('.', ',')} g`;
+document.getElementById('nutFatsGoalSub').textContent = `Meta: ${fatGoal} g (${fatPct}%)`;
+const fatsBar = document.getElementById('nutFatsBar');
+if (fatsBar) {
+fatsBar.style.width = `${Math.min(100, fatPct)}%`;
+fatsBar.style.backgroundColor = fatPct > 110 ? 'var(--warning)' : 'var(--water)';
+}
+
+const allVitKeys = Object.keys(VITAMIN_DAILY_REF);
+let vitGoalsMet = 0;
+const vitRowsData = allVitKeys.map(vName => {
+const ref = VITAMIN_DAILY_REF[vName];
+const targetVal = (nGoals.vitamins && Number(nGoals.vitamins[vName]) > 0) ? Number(nGoals.vitamins[vName]) : ref.dv;
+const curVal = vitTotals[vName] || 0;
+const realPct = targetVal > 0 ? Math.round((curVal / targetVal) * 100) : 0;
+if (realPct >= 100) vitGoalsMet++;
+return { vName, ref, targetVal, curVal, realPct, sources: vitSources[vName] || [] };
+});
+vitRowsData.sort((a, b) => (b.curVal > 0 ? 1 : 0) - (a.curVal > 0 ? 1 : 0) || b.realPct - a.realPct);
+
+const vitCountEl = document.getElementById('nutVitCountLabel');
+if (vitCountEl) {
+vitCountEl.textContent = `${vitGoalsMet}/${allVitKeys.length} metas batidas`;
+}
+
+const vitListEl = document.getElementById('nutVitaminsList');
+if (vitListEl) {
+vitListEl.innerHTML = vitRowsData.map(row => {
+const barW = Math.min(100, row.realPct);
+const curFmt = Number.isInteger(row.curVal) ? `${row.curVal}` : `${row.curVal.toFixed(1).replace('.', ',')}`;
+const tgtFmt = Number.isInteger(row.targetVal) ? `${row.targetVal}` : `${row.targetVal.toFixed(1).replace('.', ',')}`;
+const doneMark = row.realPct >= 100 ? ' ✓' : '';
+const srcText = row.sources.length > 0
+? `Origem: ${row.sources.slice(0, 3).join(', ')}`
+: 'Ainda não consumida hoje';
+return `
+<div class="vit-row">
+<div class="vit-row-top">
+<span>${escapeHtml(row.vName)}</span>
+<span style="color:${row.realPct >= 100 ? 'var(--primary)' : row.ref.color};">${curFmt} / ${tgtFmt} ${escapeHtml(row.ref.unit)} (${row.realPct}%${doneMark})</span>
+</div>
+<div class="vit-bar-bg">
+<div class="vit-bar-fill" style="width:${barW}%;background:${row.ref.color};"></div>
+</div>
+<div class="vit-sources">${escapeHtml(srcText)}</div>
+</div>
+`;
+}).join('');
+}
+
+const detailEl = document.getElementById('nutItemsDetailList');
+if (detailEl) {
+if (perItemRows.length === 0) {
+detailEl.innerHTML = '<div class="empty-msg">Sem itens registrados neste dia.</div>';
+} else {
+detailEl.innerHTML = perItemRows.map(r => `
+<div class="vit-row">
+<div class="vit-row-top">
+<span>${escapeHtml(r.name)}</span>
+<span style="color:var(--text);font-size:0.76rem;">Carb ${r.carbs.toFixed(1).replace('.', ',')}g • Açúc ${r.sugars.toFixed(1).replace('.', ',')}g • Gord ${r.fats.toFixed(1).replace('.', ',')}g</span>
+</div>
+<div class="vit-sources">${escapeHtml(r.vitText)}</div>
+</div>
+`).join('');
+}
+}
+}
+
 function updateViewVisibility() {
 const daily = document.getElementById('dailyView');
 const archive = document.getElementById('archiveView');
 const stats = document.getElementById('statsView');
+const nutrients = document.getElementById('nutrientsView');
+const profile = document.getElementById('profileView');
 const btnHist = document.getElementById('btnToggleHistory');
 const btnStats = document.getElementById('btnToggleStats');
-daily.style.display = (!isArchiveOpen && !isStatsOpen) ? 'flex' : 'none';
+const btnNut = document.getElementById('btnToggleNutrients');
+const btnProf = document.getElementById('btnToggleProfile');
+const anySecondary = isArchiveOpen || isStatsOpen || isNutrientsOpen || isProfileOpen;
+daily.style.display = !anySecondary ? 'flex' : 'none';
 archive.classList.toggle('open', isArchiveOpen);
 if (stats) stats.classList.toggle('open', isStatsOpen);
+if (nutrients) nutrients.classList.toggle('open', isNutrientsOpen);
+if (profile) profile.classList.toggle('open', isProfileOpen);
 btnHist.classList.toggle('active', isArchiveOpen);
 btnHist.textContent = isArchiveOpen ? '◀ Voltar' : '📅 Meses';
 if (btnStats) {
 btnStats.classList.toggle('active', isStatsOpen);
 btnStats.textContent = isStatsOpen ? '◀ Voltar' : '📊';
+}
+if (btnNut) {
+btnNut.classList.toggle('active', isNutrientsOpen);
+btnNut.textContent = isNutrientsOpen ? '◀ Voltar' : '🧬';
+}
+if (btnProf) {
+btnProf.classList.toggle('active', isProfileOpen);
+btnProf.textContent = isProfileOpen ? '◀ Voltar' : '👤';
 }
 }
 function getStatsDateRange() {
@@ -4796,6 +6532,7 @@ bar.style.backgroundColor = 'var(--warning)';
 } else {
 bar.style.backgroundColor = 'var(--primary)';
 }
+renderSunSection(dayData);
 renderActivitiesSection(dayData.activities);
 renderGroupedHistory(dayData.items);
 renderWeight();
@@ -4806,6 +6543,12 @@ renderArchive();
 }
 if (isStatsOpen) {
 renderStatsView();
+}
+if (isNutrientsOpen) {
+renderNutrientsView();
+}
+if (isProfileOpen) {
+renderProfileView();
 }
 }
 document.getElementById('toast').addEventListener('click', function(e) {
@@ -4875,6 +6618,9 @@ if (e.key === 'Enter') saveCustomGoal();
 document.getElementById('customWaterGoalInput').addEventListener('keydown', function(e) {
 if (e.key === 'Enter') saveCustomWaterGoal();
 });
+document.getElementById('customSunGoalInput').addEventListener('keydown', function(e) {
+if (e.key === 'Enter') saveCustomSunGoal();
+});
 document.getElementById('driveUrlInput').addEventListener('keydown', function(e) {
 if (e.key === 'Enter') saveDriveConfigAndSync();
 });
@@ -4882,6 +6628,8 @@ document.addEventListener('keydown', function(e) {
 if (e.key === 'Escape') {
 closeGoalModal();
 closeWaterModal();
+closeSunModal();
+closeNutrientsGoalModal();
 closeDriveModal();
 }
 });
@@ -4895,6 +6643,10 @@ selectedDateKey = nowToday;
 if (pedoState.date !== nowToday) {
 pedoState.steps = 0;
 pedoState.date = nowToday;
+pedoState.autoActId = null;
+pedoState.startTime = '';
+pedoState.moving = false;
+_pedoLastSyncedSteps = 0;
 flushPedometerStorage();
 }
 _lastKnownToday = nowToday;
@@ -4912,11 +6664,14 @@ if (driveCfg.webhookUrl && driveCfg.autoBackup && driveCfg.pendingSync && naviga
 syncToGoogleDrive('auto_dados', { silent: true });
 }
 } else {
+if (pedoState.steps >= AUTO_MIN_STEPS_TO_RECORD && pedoState.steps !== _pedoLastSyncedSteps) {
+syncAutoWalkingActivity(false, false);
+}
 flushPedometerStorage();
 flushPendingDriveOnHide();
 }
 });
-window.addEventListener('pagehide', () => { flushPedometerStorage(); flushPendingDriveOnHide(); });
+window.addEventListener('pagehide', () => { if (pedoState.steps >= AUTO_MIN_STEPS_TO_RECORD && pedoState.steps !== _pedoLastSyncedSteps) syncAutoWalkingActivity(false, false); flushPedometerStorage(); flushPendingDriveOnHide(); });
 window.addEventListener('beforeunload', () => { flushStorageNow(); flushPedometerStorage(); });
 window.addEventListener('focus', syncMidnightRollover);
 window.addEventListener('storage', (e) => {
@@ -4952,6 +6707,9 @@ loadState();
 loadPedometerState();
 selectCategory(activeCategory);
 render();
+if (pedoState.active) {
+initAutoPedometerSensor(false).catch(() => {});
+}
 updateDriveUi();
 checkAppVersionUpdateBackup();
 </script>
