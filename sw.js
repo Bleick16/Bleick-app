@@ -1,11 +1,12 @@
-const CACHE_NAME = 'bleick-v8-6-cache';
+const CACHE_NAME = 'bleick-v9-2-cache';
 const ASSETS = [
   './',
   './index.html',
   './manifest.json',
   './icon-192.png',
   './icon-512.png',
-  './icon-512-maskable.png'
+  './icon-512-maskable.png',
+  './screenshot-mobile.png'
 ];
 
 self.addEventListener('install', (event) => {

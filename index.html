@@ -13,7 +13,7 @@
   <link rel="manifest" href="./manifest.json">
 
   <meta name="description" content="Bleick - Controle diário de saldo calórico, água, peso e atividades físicas.">
-  <title>Bleick v8.6</title>
+  <title>Bleick v9.2</title>
   <script>
     (function() {
       try {
@@ -257,6 +257,39 @@ padding-top: 4px;
 color: var(--text);
 font-weight: 700;
 }
+.protein-streak-row {
+margin-top: 10px;
+padding-top: 10px;
+border-top: 1px dashed var(--border);
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 8px;
+flex-wrap: wrap;
+}
+.protein-streak-badge {
+display: inline-flex;
+align-items: center;
+gap: 5px;
+padding: 4px 10px;
+border-radius: 999px;
+font-size: 0.75rem;
+font-weight: 700;
+background: rgba(16, 185, 129, 0.14);
+color: var(--primary);
+border: 1px solid rgba(16, 185, 129, 0.35);
+}
+.protein-streak-badge.inactive {
+background: var(--bg);
+color: var(--muted);
+border-color: var(--border);
+}
+.protein-streak-detail {
+font-size: 0.73rem;
+color: var(--muted);
+font-weight: 600;
+}
+
 .category-tabs {
 display: grid;
 grid-template-columns: repeat(4, 1fr);
@@ -385,20 +418,93 @@ font-weight: 700;
 text-decoration: underline;
 cursor: pointer;
 }
+.water-type-tabs {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 5px;
+}
+.water-type-btn {
+background: var(--bg);
+border: 1px solid var(--border);
+color: var(--muted);
+padding: 8px 4px;
+border-radius: 10px;
+font-size: 0.72rem;
+font-weight: 700;
+cursor: pointer;
+text-align: center;
+transition: all 0.15s ease;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+.water-type-btn.active[data-wtype="agua"] {
+background: rgba(56, 189, 248, 0.18);
+color: var(--water);
+border-color: var(--water);
+}
+.water-type-btn.active[data-wtype="sprite"] {
+background: rgba(16, 185, 129, 0.18);
+color: var(--primary);
+border-color: var(--primary);
+}
+.water-type-btn.active[data-wtype="monster"] {
+background: rgba(245, 158, 11, 0.18);
+color: var(--warning);
+border-color: var(--warning);
+}
+.water-type-btn.active[data-wtype="outras"] {
+background: rgba(192, 132, 252, 0.18);
+color: var(--activity-accent);
+border-color: var(--activity-accent);
+}
 .water-bar-bg {
 width: 100%;
-height: 10px;
+height: 12px;
 background: var(--bg);
 border-radius: 999px;
 overflow: hidden;
 border: 1px solid var(--border);
+display: flex;
 }
-.water-bar-fill {
+.water-seg {
 height: 100%;
-background: var(--water);
-width: 0%;
 transition: width 0.25s ease;
 }
+.water-breakdown {
+display: flex;
+flex-wrap: wrap;
+gap: 6px;
+}
+.wb-pill {
+flex: 1 1 calc(33.33% - 6px);
+min-width: 96px;
+background: var(--bg);
+border: 1px solid var(--border);
+border-radius: 10px;
+padding: 7px 6px;
+text-align: center;
+display: flex;
+flex-direction: column;
+gap: 2px;
+}
+.wb-pill small {
+font-size: 0.68rem;
+color: var(--muted);
+font-weight: 600;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+.wb-pill strong {
+font-size: 0.84rem;
+color: var(--text);
+}
+.wb-pill span {
+font-size: 0.68rem;
+font-weight: 700;
+}
+
 .water-buttons {
 display: grid;
 grid-template-columns: repeat(4, 1fr);
@@ -473,6 +579,108 @@ padding: 0 14px;
 border-radius: 10px;
 font-size: 0.84rem;
 font-weight: 800;
+cursor: pointer;
+}
+.pedometer-box {
+background: var(--bg);
+border: 1px solid var(--border);
+border-radius: 12px;
+padding: 11px 12px;
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+.pedometer-top {
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 8px;
+}
+.pedometer-title {
+font-size: 0.84rem;
+font-weight: 700;
+color: var(--text);
+display: flex;
+align-items: center;
+gap: 6px;
+}
+.pedo-status-pill {
+font-size: 0.72rem;
+font-weight: 700;
+padding: 3px 8px;
+border-radius: 999px;
+background: var(--card);
+color: var(--muted);
+border: 1px solid var(--border);
+}
+.pedo-status-pill.active {
+background: rgba(16, 185, 129, 0.16);
+color: var(--primary);
+border-color: var(--primary);
+}
+.pedometer-stats {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 6px;
+text-align: center;
+}
+.pedo-stat {
+background: var(--card);
+border: 1px solid var(--border);
+border-radius: 9px;
+padding: 7px 4px;
+}
+.pedo-stat small {
+display: block;
+font-size: 0.68rem;
+color: var(--muted);
+margin-bottom: 2px;
+}
+.pedo-stat strong {
+font-size: 0.94rem;
+color: var(--text);
+}
+.pedometer-actions {
+display: grid;
+grid-template-columns: 1.2fr 1fr auto;
+gap: 6px;
+}
+.btn-pedo-toggle {
+background: var(--primary);
+color: var(--primary-contrast);
+border: none;
+padding: 9px 10px;
+border-radius: 10px;
+font-size: 0.8rem;
+font-weight: 800;
+cursor: pointer;
+}
+.btn-pedo-toggle.running {
+background: var(--warning);
+color: #1e293b;
+}
+.btn-pedo-save {
+background: var(--activity-accent);
+color: #ffffff;
+border: none;
+padding: 9px 10px;
+border-radius: 10px;
+font-size: 0.8rem;
+font-weight: 800;
+cursor: pointer;
+}
+.btn-pedo-save:disabled {
+opacity: 0.45;
+cursor: not-allowed;
+}
+.btn-pedo-reset {
+background: transparent;
+border: 1px solid var(--border);
+color: var(--muted);
+padding: 9px 10px;
+border-radius: 10px;
+font-size: 0.78rem;
+font-weight: 700;
 cursor: pointer;
 }
 .act-list {
@@ -1108,7 +1316,7 @@ flex-shrink: 0;
 <body>
 <div class="app-container">
 <header>
-<h1><img src="./icon-192.png" decoding="async" onerror="this.onerror=null;this.src='data:image/png;base64,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'" alt="Bleick" style="width:28px;height:28px;border-radius:8px;border:1px solid var(--border);object-fit:cover;"> Bleick <small style="font-size:0.72rem;color:var(--primary);font-weight:700;">v8.6</small></h1>
+<h1><img src="./icon-192.png" decoding="async" onerror="this.onerror=null;this.src='data:image/png;base64,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'" alt="Bleick" style="width:28px;height:28px;border-radius:8px;border:1px solid var(--border);object-fit:cover;"> Bleick <small style="font-size:0.72rem;color:var(--primary);font-weight:700;">v9.2</small></h1>
 <div class="header-actions">
 <button class="btn-top" id="btnThemeToggle" onclick="toggleTheme()" title="Alternar modo claro/escuro" aria-label="Alternar modo claro e escuro">☀️</button>
 <button class="btn-top btn-drive" id="btnDriveModal" onclick="openDriveModal()" title="Backup no Google Drive"><span class="drive-dot" id="driveDot"></span>☁️</button>
@@ -1137,6 +1345,10 @@ flex-shrink: 0;
 <div>Consumido: <strong id="consumedKcal">0 kcal</strong></div>
 <div>Meta: <strong id="goalKcal">2300 kcal</strong></div>
 </div>
+<div class="protein-streak-row" id="proteinStreakRow">
+<span class="protein-streak-badge inactive" id="proteinStreakBadge">🥩 Proteína: 0d seguidos</span>
+<span class="protein-streak-detail" id="proteinStreakDetail">Base: frango, carne vermelha, peixe, feijão</span>
+</div>
 </div>
 <div class="input-card">
 <div class="category-tabs">
@@ -1157,7 +1369,33 @@ flex-shrink: 0;
 <h2>🏃 Atividades Físicas (km)</h2>
 <span class="activity-badge" id="activitySummaryText">0,0 km • +0 kcal</span>
 </div>
-<div class="hint">Registro manual (W88 Pro Max): informe quantos km caminhou, correu ou pedalou no dia.</div>
+<div class="hint">Use o pedômetro do celular no bolso ou lance manualmente pelo Basike W88 Pro Max:</div>
+<div class="pedometer-box">
+<div class="pedometer-top">
+<span class="pedometer-title">👟 Pedômetro Nativo (Bolso)</span>
+<span class="pedo-status-pill" id="pedoStatusPill">Parado</span>
+</div>
+<div class="pedometer-stats">
+<div class="pedo-stat">
+<small>Passos</small>
+<strong id="pedoStepsVal">0</strong>
+</div>
+<div class="pedo-stat">
+<small>Distância Est.</small>
+<strong id="pedoDistVal">0,00 km</strong>
+</div>
+<div class="pedo-stat">
+<small>Gasto Est.</small>
+<strong id="pedoKcalVal">+0 kcal</strong>
+</div>
+</div>
+<div class="pedometer-actions">
+<button type="button" class="btn-pedo-toggle" id="btnPedoToggle" onclick="togglePedometer()">▶ Iniciar Passos</button>
+<button type="button" class="btn-pedo-save" id="btnPedoSave" onclick="savePedometerToDay()" disabled>✓ Salvar no Dia</button>
+<button type="button" class="btn-pedo-reset" onclick="resetPedometer()">Zerar</button>
+</div>
+<small id="pedoHintText" style="color:var(--muted);font-size:0.72rem;">Mantenha esta aba aberta (pode bloquear a tela no bolso) enquanto caminha.</small>
+</div>
 <div class="activity-form">
 <select id="actTypeSelect" class="activity-select">
 <option value="caminhada">🚶 Caminhada</option>
@@ -1171,21 +1409,26 @@ flex-shrink: 0;
 </div>
 <div class="water-card">
 <div class="water-top">
-<h2>💧 Água Consumida</h2>
+<h2>💧 Hidratação por Líquido</h2>
 <span class="water-amount" id="waterLitersText">0,00 L (0 ml)</span>
 </div>
 <div class="water-sub-row">
-<span id="waterGoalText">Meta diária: 3,50 L (0%)</span>
-<button class="btn-link-small" onclick="openWaterModal()">Alterar meta de água</button>
+<span id="waterGoalText">Meta: 3,50 L (0%) • Água pura: 0%</span>
+<button class="btn-link-small" onclick="openWaterModal()">Alterar meta</button>
 </div>
-<div class="water-bar-bg">
-<div class="water-bar-fill" id="waterBar"></div>
+<div class="water-bar-bg" id="waterBarSegments"></div>
+<div class="water-breakdown" id="waterBreakdownBox"></div>
+<div class="water-type-tabs" id="waterTypeTabs">
+<button type="button" class="water-type-btn active" data-wtype="agua" onclick="selectWaterType('agua')">💧 Água</button>
+<button type="button" class="water-type-btn" data-wtype="sprite" onclick="selectWaterType('sprite')">🍋 Sprite 0</button>
+<button type="button" class="water-type-btn" data-wtype="monster" onclick="selectWaterType('monster')">⚡ Monster 0</button>
+<button type="button" class="water-type-btn" data-wtype="outras" onclick="selectWaterType('outras')">🥤 Outra</button>
 </div>
-<div class="water-buttons">
-<button class="btn-water" onclick="addWater(250)">+250 ml</button>
-<button class="btn-water" onclick="addWater(500)">+500 ml</button>
-<button class="btn-water" onclick="addWater(1000)">+1,0 L</button>
-<button class="btn-water-undo" onclick="removeLastWater()">-250 ml</button>
+<div class="water-buttons" id="waterQuickButtons">
+<button type="button" class="btn-water" onclick="addWater(250)">+250 ml</button>
+<button type="button" class="btn-water" onclick="addWater(500)">+500 ml</button>
+<button type="button" class="btn-water" onclick="addWater(1000)">+1,0 L</button>
+<button type="button" class="btn-water-undo" onclick="removeLastWater()">-250 ml</button>
 </div>
 </div>
 <div class="weight-card">
@@ -1408,7 +1651,7 @@ flex-shrink: 0;
 <div class="drive-status-box">
 <div>Status: <strong id="driveStatusLabel">Não configurado</strong></div>
 <div>Último backup: <strong id="driveLastSyncLabel">Nunca</strong></div>
-<div>Versão atual do app: <strong id="driveAppVersionLabel">v8.6</strong></div>
+<div>Versão atual do app: <strong id="driveAppVersionLabel">v9.2</strong></div>
 </div>
 <div style="display:flex;flex-direction:column;gap:6px;">
 <label for="driveUrlInput" class="hint"><strong>Link do Web App (Google Apps Script):</strong></label>
@@ -1449,6 +1692,178 @@ doces: { label: 'Doces', icon: '🍫' },
 bebidas: { label: 'Bebidas', icon: '🥤' }
 };
 const FOOD_DB = [
+{ cat: 'refeicoes', keys: ['ribeye', 'ancho', 'bife ancho', 'entrecote', 'entrecôte'], name: 'Bife ancho / entrecôte grelhado (150g)', kcal: 345 },
+{ cat: 'refeicoes', keys: ['chorizo', 'bife de chorizo'], name: 'Bife de chorizo grelhado (150g)', kcal: 335 },
+{ cat: 'refeicoes', keys: ['t-bone', 'tbone'], name: 'Bife T-Bone grelhado (200g)', kcal: 440 },
+{ cat: 'refeicoes', keys: ['costela de ripa', 'costela bafo', 'costela no bafo'], name: 'Costela bovina no bafo desfiada (150g)', kcal: 455 },
+{ cat: 'refeicoes', keys: ['lagarto', 'carne louca', 'sanduiche de carne louca'], name: 'Carne louca / lagarto desfiado (150g)', kcal: 290 },
+{ cat: 'refeicoes', keys: ['roast beef', 'rosbife'], name: 'Rosbife fatiado (100g)', kcal: 175 },
+{ cat: 'refeicoes', keys: ['panceta', 'torresmo', 'barriga de porco'], name: 'Torresmo / panceta suína pururuca (100g)', kcal: 540 },
+{ cat: 'refeicoes', keys: ['pernil assado', 'pernil de porco'], name: 'Pernil suíno assado fatiado (150g)', kcal: 320 },
+{ cat: 'refeicoes', keys: ['costelinha barbecue', 'costelinha com barbecue'], name: 'Costelinha suína ao molho barbecue (200g)', kcal: 520 },
+{ cat: 'refeicoes', keys: ['linguica de frango', 'linguiça de frango'], name: 'Linguiça de frango assada/airfryer (100g)', kcal: 195 },
+{ cat: 'refeicoes', keys: ['paio', 'linguica paio', 'linguiça paio'], name: 'Linguiça paio cozida (100g)', kcal: 315 },
+{ cat: 'refeicoes', keys: ['asa de frango', 'asinha de frango', 'tulipa', 'meio da asa'], name: 'Tulipa / asinha de frango assada/airfryer (150g)', kcal: 330 },
+{ cat: 'refeicoes', keys: ['coxinha da asa', 'drumete'], name: 'Coxinha da asa / drumete assado (150g)', kcal: 285 },
+{ cat: 'refeicoes', keys: ['frango desfiado'], name: 'Peito de frango cozido desfiado (150g)', kcal: 235 },
+{ cat: 'refeicoes', keys: ['frango teriyaki'], name: 'Frango teriyaki (150g)', kcal: 265 },
+{ cat: 'refeicoes', keys: ['file de frango empanado', 'steak de frango'], name: 'Steak de frango empanado (1 un - 100g)', kcal: 245 },
+{ cat: 'refeicoes', keys: ['peru assado', 'peito de peru assado'], name: 'Peito de peru assado fatiado (150g)', kcal: 210 },
+{ cat: 'refeicoes', keys: ['posta de cacao', 'posta de cação', 'cacao'], name: 'Posta de cação cozida/ensopada (150g)', kcal: 175 },
+{ cat: 'refeicoes', keys: ['pintado', 'file de pintado'], name: 'Filé de pintado grelhado (150g)', kcal: 190 },
+{ cat: 'refeicoes', keys: ['truta', 'truta grelhada'], name: 'Truta grelhada (150g)', kcal: 225 },
+{ cat: 'refeicoes', keys: ['manjuba', 'manjubinha', 'lambari'], name: 'Manjubinha / lambari frito (100g)', kcal: 295 },
+{ cat: 'refeicoes', keys: ['lula', 'aneis de lula', 'anéis de lula'], name: 'Anéis de lula à dorê / empanados (150g)', kcal: 330 },
+{ cat: 'refeicoes', keys: ['ceviche'], name: 'Ceviche de peixe branco (150g)', kcal: 145 },
+{ cat: 'refeicoes', keys: ['arroz a grega', 'arroz à grega'], name: 'Arroz à grega (150g)', kcal: 215 },
+{ cat: 'refeicoes', keys: ['arroz de forno'], name: 'Arroz de forno cremoso com presunto e queijo (200g)', kcal: 360 },
+{ cat: 'refeicoes', keys: ['arroz doce salgado', 'arroz com pequi'], name: 'Arroz com pequi (150g)', kcal: 240 },
+{ cat: 'refeicoes', keys: ['feijao branco', 'feijão branco', 'dobradinha'], name: 'Dobradinha / feijão branco cozido (200g)', kcal: 270 },
+{ cat: 'refeicoes', keys: ['lentilha', 'lentilha cozida'], name: 'Lentilha cozida (1 concha - 100g)', kcal: 93 },
+{ cat: 'refeicoes', keys: ['grao de bico', 'grão de bico', 'grão-de-bico'], name: 'Grão-de-bico cozido (100g)', kcal: 120 },
+{ cat: 'refeicoes', keys: ['batata rostie', 'batata rosti'], name: 'Batata rosti recheada (1 un - 200g)', kcal: 380 },
+{ cat: 'refeicoes', keys: ['batata soute', 'batata souté', 'batata corada'], name: 'Batata corada / souté na manteiga (150g)', kcal: 195 },
+{ cat: 'refeicoes', keys: ['batata rustica', 'batata rústica'], name: 'Batata rústica assada / airfryer (150g)', kcal: 185 },
+{ cat: 'refeicoes', keys: ['nhoque recheado'], name: 'Nhoque recheado com queijo ao molho (200g)', kcal: 345 },
+{ cat: 'refeicoes', keys: ['macarrao quatro queijos', 'macarrão 4 queijos'], name: 'Macarrão ao molho quatro queijos (250g)', kcal: 480 },
+{ cat: 'refeicoes', keys: ['macarrao molho branco', 'macarrão ao molho branco'], name: 'Macarrão ao molho branco (250g)', kcal: 420 },
+{ cat: 'refeicoes', keys: ['talharim', 'fettuccine'], name: 'Talharim / Fettuccine cozido (150g)', kcal: 220 },
+{ cat: 'refeicoes', keys: ['panqueca de frango'], name: 'Panqueca de frango com catupiry (1 un)', kcal: 245 },
+{ cat: 'refeicoes', keys: ['torta de frango', 'torta salgada'], name: 'Torta de frango cremosa (1 fatia - 120g)', kcal: 295 },
+{ cat: 'refeicoes', keys: ['empadão de frango', 'empadao de frango'], name: 'Empadão de frango (1 fatia - 140g)', kcal: 365 },
+{ cat: 'refeicoes', keys: ['pao na chapa', 'pão na chapa'], name: 'Pão francês na chapa com manteiga (1 un)', kcal: 205 },
+{ cat: 'refeicoes', keys: ['pao com ovo', 'pão com ovo'], name: 'Pão francês com 1 ovo frito/mexido (1 un)', kcal: 235 },
+{ cat: 'refeicoes', keys: ['queijo quente'], name: 'Queijo quente no pão de forma (1 un)', kcal: 265 },
+{ cat: 'refeicoes', keys: ['americano', 'lanche americano'], name: 'Sanduíche Americano (pão, presunto, queijo, ovo)', kcal: 390 },
+{ cat: 'refeicoes', keys: ['wrap de frango', 'rap10', 'rap 10'], name: 'Wrap / Rap10 recheado com frango e queijo (1 un)', kcal: 280 },
+{ cat: 'refeicoes', keys: ['esfiha aberta habibs', 'esfiha de carne', 'bibsfiha'], name: 'Esfiha aberta de carne (1 un - 70g)', kcal: 175 },
+{ cat: 'refeicoes', keys: ['esfiha de queijo'], name: 'Esfiha aberta de queijo (1 un - 70g)', kcal: 195 },
+{ cat: 'refeicoes', keys: ['esfiha de frango'], name: 'Esfiha aberta de frango (1 un - 70g)', kcal: 170 },
+{ cat: 'refeicoes', keys: ['pao de batata', 'pão de batata'], name: 'Pão de batata com catupiry (1 un - 80g)', kcal: 245 },
+{ cat: 'refeicoes', keys: ['hamburguer artesanal', 'burger artesanal'], name: 'Hambúrguer artesanal smash/blend (160g carne + pão + queijo)', kcal: 620 },
+{ cat: 'refeicoes', keys: ['big mac', 'quarteirao', 'quarteirão', 'cheddar mcmelt'], name: 'Sanduíche fast-food duplo tipo Big Mac / Cheddar (1 un)', kcal: 510 },
+{ cat: 'refeicoes', keys: ['pizza calabresa', 'pizza de calabresa'], name: 'Pizza de calabresa (1 fatia - 110g)', kcal: 310 },
+{ cat: 'refeicoes', keys: ['pizza mussarela', 'pizza de mussarela', 'pizza quatro queijos'], name: 'Pizza de mussarela / 4 queijos (1 fatia - 110g)', kcal: 305 },
+{ cat: 'refeicoes', keys: ['pizza frango catupiry', 'pizza de frango'], name: 'Pizza de frango com catupiry (1 fatia - 110g)', kcal: 295 },
+{ cat: 'refeicoes', keys: ['pizza portuguesa'], name: 'Pizza portuguesa (1 fatia - 115g)', kcal: 290 },
+{ cat: 'refeicoes', keys: ['queijo minas', 'queijo fresco'], name: 'Queijo Minas frescal (2 fatias - 50g)', kcal: 132 },
+{ cat: 'refeicoes', keys: ['queijo coalho espeto', 'queijo coalho fatiado'], name: 'Queijo coalho grelhado (50g)', kcal: 165 },
+{ cat: 'refeicoes', keys: ['ovo de codorna'], name: 'Ovo de codorna cozido (5 unidades - 50g)', kcal: 79 },
+{ cat: 'doces', keys: ['kinder joy'], name: 'Kinder Joy (1 un - 20g)', kcal: 110 },
+{ cat: 'doces', keys: ['kinder tronky', 'tronky'], name: 'Kinder Tronky (1 un - 18g)', kcal: 95 },
+{ cat: 'doces', keys: ['kinder chocolate', 'barrinha kinder'], name: 'Kinder Chocolate barrinha (1 un - 12,5g)', kcal: 71 },
+{ cat: 'doces', keys: ['bueno white', 'kinder bueno white'], name: 'Kinder Bueno White (1 pacote 2 un - 39g)', kcal: 223 },
+{ cat: 'doces', keys: ['kitkat white', 'kit kat branco', 'kitkat branco'], name: 'KitKat Branco (1 un - 41,5g)', kcal: 224 },
+{ cat: 'doces', keys: ['kitkat dark', 'kit kat meio amargo'], name: 'KitKat Dark / Meio Amargo (1 un - 41,5g)', kcal: 212 },
+{ cat: 'doces', keys: ['milkybar', 'chocolate branco'], name: 'Chocolate Branco Laka / Galak / Milkybar (25g)', kcal: 136 },
+{ cat: 'doces', keys: ['bis oreo'], name: 'Caixa Bis Oreo (100,8g)', kcal: 532 },
+{ cat: 'doces', keys: ['bis black'], name: 'Caixa Bis Black (100,8g)', kcal: 528 },
+{ cat: 'doces', keys: ['trakinas', 'bolacha trakinas'], name: 'Biscoito recheado Trakinas (3 un - 36g)', kcal: 172 },
+{ cat: 'doces', keys: ['passatempo', 'biscoito passatempo'], name: 'Biscoito recheado Passatempo (3 un - 36g)', kcal: 168 },
+{ cat: 'doces', keys: ['negresco', 'biscoito negresco'], name: 'Biscoito recheado Negresco (3 un - 36g)', kcal: 170 },
+{ cat: 'doces', keys: ['biscoito maizena', 'bolacha maizena', 'bolacha maria'], name: 'Biscoito Maizena / Maria (5 unidades - 30g)', kcal: 132 },
+{ cat: 'doces', keys: ['rosquinha de coco', 'rosquinha de leite'], name: 'Rosquinha doce de coco / leite (5 un - 35g)', kcal: 155 },
+{ cat: 'doces', keys: ['bolo de prestigio', 'bolo prestígio'], name: 'Bolo gelado de Prestígio (1 pedaço - 100g)', kcal: 340 },
+{ cat: 'doces', keys: ['bolo de leite ninho', 'bolo ninho'], name: 'Bolo recheado de Leite Ninho (1 fatia - 100g)', kcal: 365 },
+{ cat: 'doces', keys: ['bolo formigueiro'], name: 'Bolo formigueiro (1 fatia - 75g)', kcal: 245 },
+{ cat: 'doces', keys: ['bolo de coco'], name: 'Bolo de coco molhado (1 fatia - 85g)', kcal: 265 },
+{ cat: 'doces', keys: ['torta de morango'], name: 'Torta de morango com creme (1 fatia - 110g)', kcal: 290 },
+{ cat: 'doces', keys: ['torta de maracuja', 'torta de maracujá'], name: 'Torta mousse de maracujá (1 fatia - 100g)', kcal: 310 },
+{ cat: 'doces', keys: ['banoffee pote', 'copo da felicidade'], name: 'Copo da felicidade / sobremesa no copo (200g)', kcal: 540 },
+{ cat: 'doces', keys: ['churros espanhol', 'porcao de churros'], name: 'Mini churros com doce de leite (6 unidades - 120g)', kcal: 380 },
+{ cat: 'doces', keys: ['pastel doce', 'pastel de chocolate', 'pastel de nutella'], name: 'Pastel doce de chocolate / Nutella (1 un - 90g)', kcal: 325 },
+{ cat: 'doces', keys: ['pastel de banana'], name: 'Pastel de banana com canela (1 un - 90g)', kcal: 270 },
+{ cat: 'doces', keys: ['banana caramelizada', 'doce de banana', 'bananada'], name: 'Bananada / doce de banana (1 un - 35g)', kcal: 105 },
+{ cat: 'doces', keys: ['doce de abobora', 'doce de abóbora'], name: 'Doce de abóbora com coco (50g)', kcal: 115 },
+{ cat: 'doces', keys: ['ambrosia'], name: 'Ambrosia tradicional (100g)', kcal: 195 },
+{ cat: 'doces', keys: ['bomba de chocolate', 'eclair', 'éclair'], name: 'Bomba de chocolate / Éclair (1 un - 85g)', kcal: 275 },
+{ cat: 'doces', keys: ['carolina', 'carolinas'], name: 'Carolinas recheadas com doce de leite (3 un - 60g)', kcal: 210 },
+{ cat: 'doces', keys: ['folhado doce', 'mil folhas', 'mil-folhas'], name: 'Mil-folhas de creme (1 un - 90g)', kcal: 320 },
+{ cat: 'doces', keys: ['sorvete kibon', 'pote de sorvete 2 bolas', 'sorvete 2 bolas'], name: 'Sorvete cremoso (2 bolas - 120g)', kcal: 250 },
+{ cat: 'doces', keys: ['picole de fruta', 'picolé de fruta', 'picole limao', 'picole uva'], name: 'Picolé de fruta limão / uva / abacaxi (1 un - 60g)', kcal: 68 },
+{ cat: 'doces', keys: ['picole de chocolate', 'picolé de chocolate', 'eskibon', 'chicabon'], name: 'Picolé cremoso Chicabon / Brigadeiro (1 un - 65g)', kcal: 145 },
+{ cat: 'doces', keys: ['acai completo', 'açaí com leite condensado', 'acai com granola'], name: 'Açaí na tigela com leite em pó e granola (300ml)', kcal: 440 },
+{ cat: 'doces', keys: ['creme de papaya', 'creme de papaia'], name: 'Creme de papaia com licor de cassis (150g)', kcal: 215 },
+{ cat: 'doces', keys: ['pacoca cremosa', 'pacoquita'], name: 'Paçoquita quadrada (1 un - 18g)', kcal: 91 },
+{ cat: 'doces', keys: ['torrone'], name: 'Torrone de amendoim (1 barra - 25g)', kcal: 112 },
+{ cat: 'doces', keys: ['marshmallow'], name: 'Marshmallow (5 unidades - 30g)', kcal: 100 },
+{ cat: 'doces', keys: ['bala de goma', 'jujuba'], name: 'Jujuba / bala de goma (10 unidades - 30g)', kcal: 105 },
+{ cat: 'doces', keys: ['pirulito'], name: 'Pirulito tradicional (1 un - 15g)', kcal: 58 },
+{ cat: 'doces', keys: ['chiclete', 'trident'], name: 'Chiclete sem açúcar Trident (1 unidade)', kcal: 3 },
+{ cat: 'bebidas', keys: ['monster ultra violet', 'monster ultra paradise', 'monster ultra fiesta', 'monster ultra watermelon', 'monster ultra rosa'], name: 'Monster Ultra Sabores Zero (lata 473ml)', kcal: 12 },
+{ cat: 'bebidas', keys: ['monster pipeline punch', 'monster pacific punch', 'monster khaotic'], name: 'Monster Juice / Punch Normal (lata 473ml)', kcal: 215 },
+{ cat: 'bebidas', keys: ['monster dragon tea', 'monster cha'], name: 'Monster Dragon Ice Tea (lata 473ml)', kcal: 95 },
+{ cat: 'bebidas', keys: ['red bull tropical', 'red bull melancia', 'red bull pitaya', 'red bull coco', 'red bull editions'], name: 'Red Bull Editions Sabores (lata 250ml)', kcal: 115 },
+{ cat: 'bebidas', keys: ['red bull zero 355', 'red bull 355'], name: 'Red Bull Lata Grande (355ml)', kcal: 160 },
+{ cat: 'bebidas', keys: ['reign', 'reign total body fuel'], name: 'Reign Energy Zero Açúcar (lata 473ml)', kcal: 10 },
+{ cat: 'bebidas', keys: ['monster 269', 'monster lata pequena'], name: 'Monster Energy Lata Pequena (269ml)', kcal: 125 },
+{ cat: 'bebidas', keys: ['coca zero 600', 'coca-cola zero 600'], name: 'Coca-Cola Zero Açúcar (garrafa 600ml)', kcal: 0 },
+{ cat: 'bebidas', keys: ['coca 600', 'coca-cola 600', 'coca normal 600'], name: 'Coca-Cola Original Normal (garrafa 600ml)', kcal: 255 },
+{ cat: 'bebidas', keys: ['sprite zero 600'], name: 'Sprite Zero Açúcar (garrafa 600ml)', kcal: 0 },
+{ cat: 'bebidas', keys: ['sprite 600', 'sprite normal 600'], name: 'Sprite Normal (garrafa 600ml)', kcal: 240 },
+{ cat: 'bebidas', keys: ['guarana zero 600', 'guaraná zero 600'], name: 'Guaraná Antarctica Zero (garrafa 600ml)', kcal: 0 },
+{ cat: 'bebidas', keys: ['guarana 600', 'guaraná 600'], name: 'Guaraná Antarctica Normal (garrafa 600ml)', kcal: 240 },
+{ cat: 'bebidas', keys: ['coca zero 200', 'coca caculinha zero', 'caculinha zero'], name: 'Coca-Cola Zero Caçulinha (200ml)', kcal: 0 },
+{ cat: 'bebidas', keys: ['coca 200', 'coca caculinha', 'caculinha'], name: 'Coca-Cola Normal Caçulinha (200ml)', kcal: 85 },
+{ cat: 'bebidas', keys: ['h2oh limoneto 1.5', 'h2oh 500'], name: 'H2OH! Limoneto Zero (500ml)', kcal: 0 },
+{ cat: 'bebidas', keys: ['agua tonica diet', 'schweppes zero'], name: 'Schweppes Tônica Zero (lata 350ml)', kcal: 0 },
+{ cat: 'bebidas', keys: ['suco de pessego', 'suco de pêssego'], name: 'Suco de pêssego (caixinha 200ml)', kcal: 92 },
+{ cat: 'bebidas', keys: ['suco de manga caixinha', 'nectar de manga'], name: 'Néctar de manga (caixinha 200ml)', kcal: 98 },
+{ cat: 'bebidas', keys: ['suco de uva caixinha', 'nectar de uva'], name: 'Néctar de uva (caixinha 200ml)', kcal: 102 },
+{ cat: 'bebidas', keys: ['suco de laranja 300', 'suco natural laranja 300'], name: 'Suco de laranja natural (copo 300ml)', kcal: 135 },
+{ cat: 'bebidas', keys: ['suco de morango', 'suco natural morango'], name: 'Suco natural de morango adoçado (copo 300ml)', kcal: 110 },
+{ cat: 'bebidas', keys: ['suco de melao', 'suco de melão'], name: 'Suco natural de melão (copo 300ml)', kcal: 85 },
+{ cat: 'bebidas', keys: ['suco de tangerina', 'suco de mexerica'], name: 'Suco natural de tangerina/mexerica (copo 300ml)', kcal: 125 },
+{ cat: 'bebidas', keys: ['agua de coco 330', 'agua de coco garrafa'], name: 'Água de coco (garrafa 330ml)', kcal: 66 },
+{ cat: 'bebidas', keys: ['cafe expresso', 'café expresso', 'espresso'], name: 'Café expresso puro sem açúcar (50ml)', kcal: 2 },
+{ cat: 'bebidas', keys: ['cafe com leite e acucar', 'café com leite e açúcar'], name: 'Café com leite integral e açúcar (xícara 200ml)', kcal: 115 },
+{ cat: 'bebidas', keys: ['mocaccino', 'mocha'], name: 'Mocaccino / Café Mocha (xícara 200ml)', kcal: 155 },
+{ cat: 'bebidas', keys: ['latte', 'cafe latte'], name: 'Café Latte cremoso sem açúcar (250ml)', kcal: 110 },
+{ cat: 'bebidas', keys: ['cha gelado pessego', 'chá gelado pêssego', 'ice tea pessego'], name: 'Ice Tea Pêssego Normal (340ml)', kcal: 88 },
+{ cat: 'bebidas', keys: ['cha gelado pessego zero', 'ice tea pessego zero'], name: 'Ice Tea Pêssego Zero (340ml)', kcal: 0 },
+{ cat: 'bebidas', keys: ['leite semidesnatado'], name: 'Leite semidesnatado (copo 200ml)', kcal: 92 },
+{ cat: 'bebidas', keys: ['leite de coco bebida', 'leite vegetal'], name: 'Bebida vegetal / leite de amêndoas sem açúcar (200ml)', kcal: 35 },
+{ cat: 'bebidas', keys: ['nescau 2.0', 'toddyinho'], name: 'Achocolatado Toddynho / Nescau (caixinha 200ml)', kcal: 178 },
+{ cat: 'bebidas', keys: ['alpino pronto', 'bebida alpino'], name: 'Bebida láctea Alpino / Nestlé Fast (280ml)', kcal: 235 },
+{ cat: 'bebidas', keys: ['chopp 500', 'caneca chopp', 'pint cerveja'], name: 'Chopp / Cerveja Caneca Pint (500ml)', kcal: 215 },
+{ cat: 'bebidas', keys: ['heineken long neck', 'budweiser long neck', 'stella artois', 'corona'], name: 'Cerveja Long Neck Heineken / Stella / Corona (330ml)', kcal: 142 },
+{ cat: 'bebidas', keys: ['caipirinha de morango', 'caipiroska'], name: 'Caipirinha / Caipiroska de morango com açúcar (250ml)', kcal: 285 },
+{ cat: 'bebidas', keys: ['aperol spritz', 'aperol'], name: 'Aperol Spritz (taça 250ml)', kcal: 175 },
+{ cat: 'bebidas', keys: ['negroni'], name: 'Negroni (copo 120ml)', kcal: 195 },
+{ cat: 'frutas', keys: ['banana maca', 'banana maçã'], name: 'Banana maçã (1 un média - 65g)', kcal: 62 },
+{ cat: 'frutas', keys: ['banana da terra'], name: 'Banana-da-terra cozida/assada (100g)', kcal: 128 },
+{ cat: 'frutas', keys: ['maca verde', 'maçã verde'], name: 'Maçã verde (1 un média - 130g)', kcal: 68 },
+{ cat: 'frutas', keys: ['manga espada'], name: 'Manga espada (1 unidade média - 140g)', kcal: 84 },
+{ cat: 'frutas', keys: ['manga rosa'], name: 'Manga rosa (1 unidade média - 150g)', kcal: 90 },
+{ cat: 'frutas', keys: ['mamao papaia', 'mamão papaia'], name: 'Mamão papaia (meia unidade - 150g)', kcal: 60 },
+{ cat: 'frutas', keys: ['abacaxi em calda'], name: 'Abacaxi em calda (2 rodelas - 100g)', kcal: 95 },
+{ cat: 'frutas', keys: ['pessego em calda', 'pêssego em calda'], name: 'Pêssego em calda (2 metades - 100g)', kcal: 82 },
+{ cat: 'frutas', keys: ['uva verde', 'uva thompson'], name: 'Uva verde sem semente (100g)', kcal: 67 },
+{ cat: 'frutas', keys: ['uva roxa', 'uva rubi', 'uva vitoria', 'uva vitória'], name: 'Uva roxa / Vitória (100g)', kcal: 71 },
+{ cat: 'frutas', keys: ['laranja lima'], name: 'Laranja lima (1 unidade média - 140g)', kcal: 62 },
+{ cat: 'frutas', keys: ['laranja bahia'], name: 'Laranja bahia (1 unidade média - 180g)', kcal: 82 },
+{ cat: 'frutas', keys: ['ponkan', 'mexerica ponkan', 'tangerina ponkan'], name: 'Tangerina Ponkan (1 unidade grande - 150g)', kcal: 72 },
+{ cat: 'frutas', keys: ['pitaya', 'pitaia'], name: 'Pitaya branca ou vermelha (100g)', kcal: 50 },
+{ cat: 'frutas', keys: ['jabuticaba'], name: 'Jabuticaba (1 xícara / 100g)', kcal: 58 },
+{ cat: 'frutas', keys: ['caju'], name: 'Caju fresco (1 unidade - 100g)', kcal: 43 },
+{ cat: 'frutas', keys: ['carambola'], name: 'Carambola (1 unidade média - 100g)', kcal: 31 },
+{ cat: 'frutas', keys: ['figo'], name: 'Figo fresco (2 unidades - 100g)', kcal: 74 },
+{ cat: 'frutas', keys: ['framboesa'], name: 'Framboesa fresca (100g)', kcal: 52 },
+{ cat: 'frutas', keys: ['mirtilo', 'blueberry'], name: 'Mirtilo / Blueberry (100g)', kcal: 57 },
+{ cat: 'frutas', keys: ['amora'], name: 'Amora fresca (100g)', kcal: 43 },
+{ cat: 'frutas', keys: ['cereja'], name: 'Cereja fresca (100g)', kcal: 63 },
+{ cat: 'frutas', keys: ['jaca'], name: 'Jaca (5 bagos - 100g)', kcal: 88 },
+{ cat: 'frutas', keys: ['pinha', 'fruta do conde', 'ata'], name: 'Fruta-do-conde / Pinha / Ata (1 unidade - 100g)', kcal: 94 },
+{ cat: 'frutas', keys: ['graviola'], name: 'Graviola (100g)', kcal: 62 },
+{ cat: 'frutas', keys: ['coco fresco', 'coco verde', 'polpa de coco'], name: 'Coco fresco / polpa (50g)', kcal: 177 },
+{ cat: 'frutas', keys: ['limao', 'limão'], name: 'Limão tahiti / siciliano (1 unidade - 60g)', kcal: 18 },
+{ cat: 'frutas', keys: ['romã', 'roma'], name: 'Romã (100g)', kcal: 83 },
+{ cat: 'frutas', keys: ['tamara', 'tâmara'], name: 'Tâmara seca (3 unidades - 24g)', kcal: 68 },
+{ cat: 'frutas', keys: ['uva passa', 'passas'], name: 'Uva-passa (1 colher de sopa - 18g)', kcal: 54 },
+{ cat: 'frutas', keys: ['damasco', 'damasco seco'], name: 'Damasco seco (3 unidades - 21g)', kcal: 51 },
+{ cat: 'frutas', keys: ['nozes', 'noz'], name: 'Nozes (5 metades - 25g)', kcal: 163 },
+{ cat: 'frutas', keys: ['amendoa', 'amêndoa', 'amendoas', 'amêndoas'], name: 'Amêndoas torradas (punhado - 30g)', kcal: 174 },
+{ cat: 'frutas', keys: ['pistache'], name: 'Pistache torrado (punhado - 30g)', kcal: 170 },
 { cat: 'refeicoes', keys: ['picanha assada', 'picanha na brasa', 'picanha grelhada', 'picanha'], name: 'Picanha assada / grelhada (150g)', kcal: 360 },
 { cat: 'refeicoes', keys: ['costelinha de porco assada', 'costelinha de porco', 'custelinha de porco', 'custelinhas de porco', 'costelinha suina', 'costelinha suína', 'costelinha'], name: 'Costelinha de porco assada (150g)', kcal: 425 },
 { cat: 'refeicoes', keys: ['pao frances', 'pão francês', 'pao de sal', 'pão de sal', 'pao media', 'cacetinho', 'pao', 'pão'], name: 'Pão francês (1 unidade - 50g)', kcal: 135 },
@@ -1870,21 +2285,26 @@ const FOOD_DB = [
 ];
 const QUICK_CHIPS_BY_CAT = {
 refeicoes: [
-{ label: 'Arroz (150g)', kcal: 195 },
+{ label: 'Arroz Branco (150g)', kcal: 195 },
 { label: 'Arroz Integral (100g)', kcal: 124 },
 { label: 'Feijão Carioca (100g)', kcal: 76 },
 { label: 'Feijão Preto (100g)', kcal: 77 },
-{ label: 'Frango (150g)', kcal: 240 },
+{ label: 'Frango Grelhado (150g)', kcal: 240 },
 { label: 'Sobrecoxa s/ Pele (100g)', kcal: 233 },
+{ label: 'Tulipa AirFryer (150g)', kcal: 330 },
 { label: 'Coração Frango (100g)', kcal: 207 },
-{ label: 'Bife (120g)', kcal: 250 },
+{ label: 'Bife Grelhado (120g)', kcal: 250 },
+{ label: 'Bife Ancho (150g)', kcal: 345 },
 { label: 'Contrafilé (100g)', kcal: 278 },
 { label: 'Alcatra (100g)', kcal: 241 },
 { label: 'Patinho Moído (100g)', kcal: 219 },
 { label: 'Picanha Assada (150g)', kcal: 360 },
+{ label: 'Costela no Bafo (150g)', kcal: 455 },
 { label: 'Costelinha Porco (150g)', kcal: 425 },
+{ label: 'Torresmo (100g)', kcal: 540 },
 { label: 'Linguiça Toscana (80g)', kcal: 240 },
 { label: 'Tilápia (100g)', kcal: 128 },
+{ label: 'Salmão Grelhado (150g)', kcal: 312 },
 { label: 'Merluza Empanada (100g)', kcal: 245 },
 { label: 'Ovo Mexido (2 un)', kcal: 180 },
 { label: 'Omelete c/ Queijo', kcal: 245 },
@@ -1892,33 +2312,54 @@ refeicoes: [
 { label: 'Mandioca AirFryer (100g)', kcal: 230 },
 { label: 'Purê Batata (100g)', kcal: 115 },
 { label: 'Batata AirFryer (150g)', kcal: 140 },
+{ label: 'Batata Rústica (150g)', kcal: 185 },
 { label: 'Batata Frita (150g)', kcal: 410 },
 { label: 'Espaguete (100g)', kcal: 157 },
 { label: 'Macarrão Bolonhesa (100g)', kcal: 165 },
+{ label: 'Lasanha (1 fatia)', kcal: 310 },
+{ label: 'Strogonoff (200g)', kcal: 340 },
+{ label: 'Miojo (1 pct)', kcal: 375 },
+{ label: 'Pão Francês (1 un)', kcal: 135 },
+{ label: 'Pão na Chapa', kcal: 205 },
+{ label: 'Pão com Ovo', kcal: 235 },
 { label: 'Tapioca c/ Manteiga', kcal: 215 },
 { label: 'Pão de Queijo Médio', kcal: 165 },
+{ label: 'Esfiha Carne (1 un)', kcal: 175 },
 { label: 'Coxinha Média', kcal: 285 },
 { label: 'Pastel Carne/Queijo', kcal: 310 },
-{ label: 'Pão Francês (1 un)', kcal: 135 },
+{ label: 'Pizza Calabresa (1 fatia)', kcal: 310 },
+{ label: 'Hambúrguer Artesanal', kcal: 620 },
 { label: 'Farofa (1 colher)', kcal: 60 },
 { label: 'Manteiga (1 colher)', kcal: 72 }
 ],
 frutas: [
 { label: 'Banana Nanica (90g)', kcal: 83 },
 { label: 'Banana Prata (70g)', kcal: 68 },
+{ label: 'Banana Maçã (65g)', kcal: 62 },
 { label: 'Maçã Fuji/Gala (130g)', kcal: 72 },
+{ label: 'Maçã Verde (130g)', kcal: 68 },
 { label: 'Manga Palmer/Tommy', kcal: 60 },
+{ label: 'Manga Espada (140g)', kcal: 84 },
 { label: 'Mamão Formosa (100g)', kcal: 45 },
+{ label: 'Mamão Papaia (1/2 un)', kcal: 60 },
 { label: 'Melancia (200g)', kcal: 60 },
 { label: 'Melão (150g)', kcal: 44 },
 { label: 'Abacaxi Pérola (100g)', kcal: 48 },
 { label: 'Laranja Pera (140g)', kcal: 65 },
+{ label: 'Laranja Lima (140g)', kcal: 62 },
 { label: 'Mexerica/Tangerina', kcal: 48 },
+{ label: 'Tangerina Ponkan (150g)', kcal: 72 },
 { label: 'Uva s/ Semente (100g)', kcal: 69 },
 { label: 'Morango (100g)', kcal: 32 },
 { label: 'Pera (130g)', kcal: 74 },
 { label: 'Goiaba Vermelha (100g)', kcal: 54 },
-{ label: 'Abacate (100g)', kcal: 160 }
+{ label: 'Kiwi (75g)', kcal: 46 },
+{ label: 'Pitaya (100g)', kcal: 50 },
+{ label: 'Jabuticaba (100g)', kcal: 58 },
+{ label: 'Abacate (100g)', kcal: 160 },
+{ label: 'Coco Fresco (50g)', kcal: 177 },
+{ label: 'Castanha Caju (30g)', kcal: 172 },
+{ label: 'Amendoim (30g)', kcal: 176 }
 ],
 doces: [
 { label: 'Brigadeiro (25g)', kcal: 95 },
@@ -1928,46 +2369,78 @@ doces: [
 { label: 'Pé de Moleque (20g)', kcal: 98 },
 { label: 'Choc. ao Leite (25g)', kcal: 134 },
 { label: 'Choc. Meio Amargo (25g)', kcal: 138 },
+{ label: 'Choc. Branco (25g)', kcal: 136 },
 { label: 'Bis ao Leite (1 un)', kcal: 38 },
+{ label: 'Bis Caixa (100g)', kcal: 536 },
+{ label: 'Bis Oreo Caixa (100g)', kcal: 532 },
 { label: 'Sonho de Valsa (1 un)', kcal: 108 },
 { label: 'Ouro Branco (1 un)', kcal: 108 },
 { label: 'Pudim (100g)', kcal: 215 },
+{ label: 'Pavê Chocolate (120g)', kcal: 315 },
 { label: 'Bolo Cenoura Cob.', kcal: 295 },
 { label: 'Bolo Choc. Simples', kcal: 270 },
-{ label: 'Sorvete Bola (60g)', kcal: 125 },
-{ label: 'Açaí Tigela (200ml)', kcal: 220 },
+{ label: 'Bolo Prestígio (100g)', kcal: 340 },
+{ label: 'Bolo Leite Ninho (100g)', kcal: 365 },
+{ label: 'Sorvete 1 Bola (60g)', kcal: 125 },
+{ label: 'Sorvete 2 Bolas (120g)', kcal: 250 },
+{ label: 'Picolé de Fruta (60g)', kcal: 68 },
+{ label: 'Magnum (1 un)', kcal: 250 },
+{ label: 'Açaí Puro (200ml)', kcal: 220 },
+{ label: 'Açaí Completo (300ml)', kcal: 440 },
 { label: 'Goiabada Cascão (30g)', kcal: 90 },
+{ label: 'Romeu e Julieta (80g)', kcal: 225 },
 { label: 'Biscoito Recheado (3 un)', kcal: 140 },
 { label: 'Crunch (80g)', kcal: 429 },
 { label: 'Milka Ao Leite (100g)', kcal: 530 },
 { label: 'Milka Oreo (100g)', kcal: 555 },
+{ label: 'Kinder Bueno (43g)', kcal: 246 },
+{ label: 'Kinder Joy (20g)', kcal: 110 },
 { label: 'KitKat (41,5g)', kcal: 218 },
-{ label: 'Snickers (45g)', kcal: 218 }
+{ label: 'Snickers (45g)', kcal: 218 },
+{ label: 'Nutella (1 colher)', kcal: 108 },
+{ label: 'Brownie (60g)', kcal: 260 },
+{ label: 'Churros Doce Leite', kcal: 290 },
+{ label: 'Pastel Nutella (90g)', kcal: 325 }
 ],
 bebidas: [
 { label: 'Sprite Zero (350ml)', kcal: 0 },
 { label: 'Sprite Normal (350ml)', kcal: 140 },
 { label: 'Guaraná Zero (350ml)', kcal: 0 },
 { label: 'Guaraná Normal (350ml)', kcal: 140 },
-{ label: 'Fanta Laranja Zero', kcal: 0 },
-{ label: 'Fanta Laranja Normal', kcal: 133 },
-{ label: 'H2OH! (500ml)', kcal: 0 },
-{ label: 'Monster Zero (473ml)', kcal: 10 },
-{ label: 'Monster Tradicional', kcal: 210 },
-{ label: 'Red Bull Sugarfree', kcal: 8 },
-{ label: 'Red Bull Tradicional', kcal: 112 },
+{ label: 'Coca Zero (350ml)', kcal: 0 },
+{ label: 'Coca Normal (350ml)', kcal: 149 },
+{ label: 'Pepsi Black Zero (350ml)', kcal: 0 },
+{ label: 'Fanta Laranja Zero (350ml)', kcal: 0 },
+{ label: 'Fanta Laranja Normal (350ml)', kcal: 133 },
+{ label: 'Fanta Uva Zero (350ml)', kcal: 0 },
+{ label: 'Schweppes Citrus Zero (350ml)', kcal: 0 },
+{ label: 'H2OH! Limoneto (500ml)', kcal: 0 },
+{ label: 'Monster Zero Sugar (473ml)', kcal: 10 },
+{ label: 'Monster Ultra Sabores (473ml)', kcal: 12 },
+{ label: 'Monster Tradicional (473ml)', kcal: 210 },
+{ label: 'Red Bull Sugarfree (250ml)', kcal: 8 },
+{ label: 'Red Bull Tradicional (250ml)', kcal: 112 },
+{ label: 'TNT Zero (269ml)', kcal: 5 },
+{ label: 'Baly Zero (250ml)', kcal: 5 },
+{ label: 'Gatorade Zero (500ml)', kcal: 0 },
+{ label: 'Gatorade Normal (500ml)', kcal: 120 },
 { label: 'Suco Laranja (250ml)', kcal: 112 },
-{ label: 'Suco Uva Integral', kcal: 125 },
+{ label: 'Suco Uva Integral (200ml)', kcal: 125 },
 { label: 'Suco Maracujá (250ml)', kcal: 95 },
+{ label: 'Limonada Suíça (300ml)', kcal: 115 },
 { label: 'Água de Coco (200ml)', kcal: 40 },
-{ label: 'Gatorade (500ml)', kcal: 120 },
-{ label: 'Café c/ Leite s/ Açúcar', kcal: 85 },
+{ label: 'Caldo de Cana (300ml)', kcal: 215 },
+{ label: 'Vitamina Banana (300ml)', kcal: 245 },
+{ label: 'Whey c/ Água (300ml)', kcal: 120 },
+{ label: 'YoPRO Proteico (250ml)', kcal: 145 },
+{ label: 'Café s/ Açúcar (150ml)', kcal: 3 },
+{ label: 'Café c/ Leite s/ Açúcar (200ml)', kcal: 85 },
+{ label: 'Cappuccino Zero (150ml)', kcal: 55 },
 { label: 'Achocolatado (200ml)', kcal: 145 },
-{ label: 'Coca Zero Lata', kcal: 0 },
-{ label: 'Coca Normal Lata', kcal: 149 },
-{ label: 'Pepsi Black Zero', kcal: 0 },
-{ label: 'Café s/ açúcar', kcal: 3 },
-{ label: 'Água c/ Gás', kcal: 0 }
+{ label: 'Água c/ Gás (300ml)', kcal: 0 },
+{ label: 'Chá Gelado Zero (340ml)', kcal: 0 },
+{ label: 'Cerveja Zero (350ml)', kcal: 55 },
+{ label: 'Cerveja Lata (350ml)', kcal: 150 }
 ]
 };
 const MONTHS_PT = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
@@ -2063,12 +2536,90 @@ el.classList.remove('show');
 _undoCallback = null;
 }, duration);
 }
+const PURE_WATER_LABEL = '💧 Água Pura';
+const SPRITE_ZERO_LABEL = '🍋 Sprite Zero';
+const MONSTER_ZERO_LABEL = '⚡ Monster Zero';
+
+function canonicalDrinkLabel(rawLabel) {
+const clean = String(rawLabel || '').trim();
+if (!clean) return PURE_WATER_LABEL;
+const n = normalizeText(clean);
+if (n === 'agua' || n === 'agua pura' || n === '💧 agua pura' || n === 'agua mineral' || n.startsWith('agua com gas') || n.startsWith('agua saborizada')) {
+return PURE_WATER_LABEL;
+}
+if (n.includes('sprite zero') || n.includes('sprite lemon fresh')) {
+return SPRITE_ZERO_LABEL;
+}
+if (n.includes('monster') && (n.includes('zero') || n.includes('ultra'))) {
+return MONSTER_ZERO_LABEL;
+}
+// Strip trailing volume/portion parentheses like " (lata 350ml)" or " (copo 300ml)"
+const stripped = clean.replace(/\s*\([^)]*\)\s*$/g, '').trim();
+return stripped || clean;
+}
+
+function extractDrinkMlFromText(nameStr, explicitMl) {
+if (typeof explicitMl === 'number' && !isNaN(explicitMl) && explicitMl > 0) {
+return Math.round(explicitMl);
+}
+const s = String(nameStr || '');
+const multMatch = s.match(/^(\d+(?:[.,]\d+)?)\s*x\s+/i);
+const mult = multMatch ? parseFloat(multMatch[1].replace(',', '.')) : 1;
+const mlMatch = s.match(/(\d+(?:[.,]\d+)?)\s*ml\b/i);
+if (mlMatch) {
+const v = parseFloat(mlMatch[1].replace(',', '.'));
+if (!isNaN(v) && v > 0) return Math.round(v * (mult > 0 ? mult : 1));
+}
+const lMatch = s.match(/(\d+(?:[.,]\d+)?)\s*l\b/i);
+if (lMatch) {
+const v = parseFloat(lMatch[1].replace(',', '.')) * 1000;
+if (!isNaN(v) && v > 0) return Math.round(v * (mult > 0 ? mult : 1));
+}
+const n = normalizeText(s);
+if (n.includes('monster')) return Math.round(473 * mult);
+if (n.includes('red bull') || n.includes('redbull') || n.includes('tnt') || n.includes('baly') || n.includes('fusion')) return Math.round(250 * mult);
+if (n.includes('gatorade') || n.includes('powerade') || n.includes('h2oh')) return Math.round(500 * mult);
+if (n.includes('coca') || n.includes('pepsi') || n.includes('guarana') || n.includes('fanta') || n.includes('sprite') || n.includes('soda') || n.includes('sukita') || n.includes('kuat') || n.includes('schweppes') || n.includes('tonica') || n.includes('cerveja')) return Math.round(350 * mult);
+if (n.includes('suco') || n.includes('vitamina') || n.includes('caldo de cana') || n.includes('limonada')) return Math.round(250 * mult);
+if (n.includes('agua de coco') || n.includes('toddy') || n.includes('nescau') || n.includes('achocolatado') || n.includes('leite')) return Math.round(200 * mult);
+if (n.includes('cafe') || n.includes('cappuccino') || n.includes('capuccino')) return Math.round(150 * mult);
+return Math.round(250 * mult);
+}
+
+function normalizeWaterBreakdown(d) {
+const rawTotal = (d && typeof d.waterMl === 'number' && !isNaN(d.waterMl) && d.waterMl > 0) ? Math.round(d.waterMl) : 0;
+const drinks = {};
+if (d && d.waterDrinks && typeof d.waterDrinks === 'object') {
+Object.entries(d.waterDrinks).forEach(([k, v]) => {
+if (typeof v === 'number' && !isNaN(v) && v > 0) {
+const lbl = canonicalDrinkLabel(k);
+drinks[lbl] = (drinks[lbl] || 0) + Math.round(v);
+}
+});
+}
+if (Object.keys(drinks).length === 0 && d && d.waterByType && typeof d.waterByType === 'object') {
+const wb = d.waterByType;
+if (typeof wb.agua === 'number' && wb.agua > 0) drinks[PURE_WATER_LABEL] = Math.round(wb.agua);
+if (typeof wb.sprite === 'number' && wb.sprite > 0) drinks[SPRITE_ZERO_LABEL] = Math.round(wb.sprite);
+if (typeof wb.monster === 'number' && wb.monster > 0) drinks[MONSTER_ZERO_LABEL] = Math.round(wb.monster);
+}
+const sumParts = Object.values(drinks).reduce((a, b) => a + b, 0);
+if (sumParts === 0 && rawTotal > 0) {
+drinks[PURE_WATER_LABEL] = rawTotal;
+} else if (rawTotal > sumParts) {
+drinks[PURE_WATER_LABEL] = (drinks[PURE_WATER_LABEL] || 0) + (rawTotal - sumParts);
+}
+const total = Object.values(drinks).reduce((a, b) => a + b, 0);
+const agua = drinks[PURE_WATER_LABEL] || 0;
+return { drinks, agua, total };
+}
+
 function dayHasData(d) {
 if (!d || typeof d !== 'object') return false;
 const hasItems = Array.isArray(d.items) && d.items.length > 0;
 const hasActs = Array.isArray(d.activities) && d.activities.length > 0;
-const hasWater = typeof d.waterMl === 'number' && d.waterMl > 0;
-return hasItems || hasActs || hasWater;
+const wb = normalizeWaterBreakdown(d);
+return hasItems || hasActs || wb.total > 0;
 }
 function pruneEmptyDay(key) {
 if (state.history[key] && !dayHasData(state.history[key])) {
@@ -2077,19 +2628,20 @@ delete state.history[key];
 }
 function ensureDayData(key) {
 if (!state.history[key]) {
-state.history[key] = { goal: state.goal, items: [], activities: [], waterMl: 0 };
+state.history[key] = { goal: state.goal, items: [], activities: [], waterMl: 0, waterDrinks: {} };
 } else {
 if (!Array.isArray(state.history[key].items)) state.history[key].items = [];
 if (!Array.isArray(state.history[key].activities)) state.history[key].activities = [];
-if (typeof state.history[key].waterMl !== 'number' || isNaN(state.history[key].waterMl)) {
-state.history[key].waterMl = 0;
-}
+const wb = normalizeWaterBreakdown(state.history[key]);
+state.history[key].waterDrinks = { ...wb.drinks };
+state.history[key].waterMl = wb.total;
+delete state.history[key].waterByType;
 }
 return state.history[key];
 }
 function getDayData(key) {
 if (!state.history[key]) {
-return { goal: state.goal, items: [], activities: [], waterMl: 0 };
+return { goal: state.goal, items: [], activities: [], waterMl: 0, waterDrinks: {} };
 }
 return ensureDayData(key);
 }
@@ -2112,6 +2664,11 @@ weight: Math.round(w.weight * 10) / 10,
 label: typeof w.label === 'string' ? w.label : 'Balança'
 }));
 }
+clean.weightLogs.forEach(w => {
+if (String(w.id) === 'init-160') {
+w.weight = clean.startWeightKg;
+}
+});
 if (clean.weightLogs.length === 0) {
 clean.weightLogs = [{ id: 'init-160', date: getTodayKey(), weight: clean.startWeightKg, label: 'Peso Inicial' }];
 } else {
@@ -2129,13 +2686,18 @@ if (!isValidDateKey(k)) return;
 const d = parsed.history[k];
 if (!d || typeof d !== 'object') return;
 const items = Array.isArray(d.items)
-? d.items.filter(i => i && typeof i.name === 'string' && !isNaN(Number(i.kcal))).map(i => ({
+? d.items.filter(i => i && typeof i.name === 'string' && !isNaN(Number(i.kcal))).map(i => {
+const obj = {
 id: i.id !== undefined ? i.id : genId(),
 name: i.name,
 kcal: Math.max(0, Math.round(Number(i.kcal))),
 cat: CATEGORIES[i.cat] ? i.cat : 'refeicoes',
 time: typeof i.time === 'string' ? i.time : ''
-}))
+};
+if (typeof i.waterMl === 'number' && i.waterMl > 0) obj.waterMl = Math.round(i.waterMl);
+if (typeof i.drinkLabel === 'string' && i.drinkLabel) obj.drinkLabel = i.drinkLabel;
+return obj;
+})
 : [];
 const activities = Array.isArray(d.activities)
 ? d.activities.filter(a => a && !isNaN(Number(a.kcal))).map(a => ({
@@ -2147,10 +2709,11 @@ kcal: Math.max(0, Math.round(Number(a.kcal))),
 time: typeof a.time === 'string' ? a.time : ''
 }))
 : [];
-const waterMl = typeof d.waterMl === 'number' && d.waterMl > 0 ? Math.round(d.waterMl) : 0;
+const wb = normalizeWaterBreakdown(d);
+const waterMl = wb.total;
 const goal = Number(d.goal) >= 500 && Number(d.goal) <= 15000 ? Math.round(Number(d.goal)) : clean.goal;
 if (items.length > 0 || activities.length > 0 || waterMl > 0) {
-clean.history[k] = { goal, items, activities, waterMl };
+clean.history[k] = { goal, items, activities, waterMl, waterDrinks: { ...wb.drinks } };
 }
 });
 }
@@ -2205,7 +2768,7 @@ _lastStatsCacheKey = '';
 applyTheme(next);
 showToast(next === 'light' ? '☀️ Modo claro ativado' : '🌙 Modo escuro ativado');
 }
-const APP_VERSION = '8.6';
+const APP_VERSION = '9.2';
 const DRIVE_CFG_KEY = 'bleick_drive_config_v1';
 const LAST_APP_VER_KEY = 'bleick_last_app_version';
 let driveCfg = {
@@ -2613,6 +3176,256 @@ const rounded = Math.round((Number(km) || 0) * 100) / 100;
 const tenths = Math.round(rounded * 1000);
 return tenths % 100 === 0 ? rounded.toFixed(1).replace('.', ',') : rounded.toFixed(2).replace('.', ',');
 }
+const PEDO_STORAGE_KEY = 'bleick_pedometer_v1';
+const USER_HEIGHT_M = 1.80;
+const STEP_LENGTH_KM = (USER_HEIGHT_M * 0.415) / 1000;
+let pedoState = {
+active: false,
+steps: 0,
+date: getTodayKey()
+};
+let _pedoListenerAttached = false;
+let _pedoWakeLock = null;
+let _pedoLpMag = 9.81;
+let _pedoHpPrev = 0;
+let _pedoWasAbove = false;
+let _pedoLastStepTs = 0;
+let _pedoSamplesCount = 0;
+let _pedoSaveTimer = null;
+
+function loadPedometerState() {
+try {
+const raw = localStorage.getItem(PEDO_STORAGE_KEY);
+if (raw) {
+const parsed = JSON.parse(raw);
+if (parsed && typeof parsed === 'object') {
+if (parsed.date === getTodayKey()) {
+pedoState.steps = Math.max(0, Math.round(Number(parsed.steps) || 0));
+pedoState.date = parsed.date;
+} else {
+pedoState.steps = 0;
+pedoState.date = getTodayKey();
+}
+}
+}
+} catch (e) {}
+}
+
+function flushPedometerStorage() {
+clearTimeout(_pedoSaveTimer);
+try {
+localStorage.setItem(PEDO_STORAGE_KEY, JSON.stringify({
+steps: pedoState.steps,
+date: pedoState.date
+}));
+} catch (e) {}
+}
+
+function persistPedometerState() {
+clearTimeout(_pedoSaveTimer);
+_pedoSaveTimer = setTimeout(flushPedometerStorage, 350);
+}
+
+function getTodayWeightForCalc() {
+const todayKey = getTodayKey();
+const tl = computeAutoWeightTimeline();
+if (tl[todayKey]) return tl[todayKey].weightAfterDay;
+if (state.weightLogs && state.weightLogs.length > 0) return state.weightLogs[0].weight;
+return state.startWeightKg || 160.0;
+}
+
+function getPedometerMetrics() {
+const km = pedoState.steps * STEP_LENGTH_KM;
+const cleanKm = Math.round(km * 100) / 100;
+const kcal = Math.round(km * getTodayWeightForCalc() * ACT_META.caminhada.perKgKm);
+return { steps: pedoState.steps, km, cleanKm, kcal };
+}
+
+function renderPedometerUI() {
+const pill = document.getElementById('pedoStatusPill');
+const stepsEl = document.getElementById('pedoStepsVal');
+const distEl = document.getElementById('pedoDistVal');
+const kcalEl = document.getElementById('pedoKcalVal');
+const toggleBtn = document.getElementById('btnPedoToggle');
+const saveBtn = document.getElementById('btnPedoSave');
+if (!pill || !stepsEl) return;
+
+const m = getPedometerMetrics();
+stepsEl.textContent = m.steps.toLocaleString('pt-BR');
+distEl.textContent = `${m.km.toFixed(2).replace('.', ',')} km`;
+kcalEl.textContent = `+${m.kcal} kcal`;
+
+pill.classList.toggle('active', pedoState.active);
+pill.textContent = pedoState.active ? '● Contando' : 'Parado';
+
+if (toggleBtn) {
+toggleBtn.classList.toggle('running', pedoState.active);
+toggleBtn.textContent = pedoState.active ? '⏸ Pausar' : (m.steps > 0 ? '▶ Continuar' : '▶ Iniciar Passos');
+}
+if (saveBtn) {
+saveBtn.disabled = m.steps < 10;
+}
+}
+
+async function requestPedoWakeLock() {
+try {
+if ('wakeLock' in navigator && !_pedoWakeLock) {
+_pedoWakeLock = await navigator.wakeLock.request('screen');
+_pedoWakeLock.addEventListener('release', () => { _pedoWakeLock = null; });
+}
+} catch (e) {}
+}
+
+function releasePedoWakeLock() {
+try {
+if (_pedoWakeLock) {
+_pedoWakeLock.release();
+_pedoWakeLock = null;
+}
+} catch (e) {}
+}
+
+function handleDeviceMotionStep(event) {
+if (!pedoState.active) return;
+const acc = event.accelerationIncludingGravity || event.acceleration;
+if (!acc || acc.x === null || acc.y === null || acc.z === null) return;
+
+const x = Number(acc.x) || 0;
+const y = Number(acc.y) || 0;
+const z = Number(acc.z) || 0;
+const mag = Math.sqrt(x * x + y * y + z * z);
+
+if (_pedoSamplesCount < 4) {
+_pedoLpMag = _pedoSamplesCount === 0 ? mag : (0.5 * _pedoLpMag + 0.5 * mag);
+_pedoHpPrev = 0;
+_pedoSamplesCount++;
+return;
+}
+
+_pedoLpMag = 0.85 * _pedoLpMag + 0.15 * mag;
+const hp = mag - _pedoLpMag;
+
+const STEP_HIGH_THRESHOLD = 1.25;
+const STEP_LOW_THRESHOLD = 0.45;
+const MIN_STEP_INTERVAL_MS = 310;
+const MAX_STEP_INTERVAL_MS = 2200;
+
+const now = Date.now();
+if (!_pedoWasAbove && hp > STEP_HIGH_THRESHOLD && _pedoHpPrev <= STEP_HIGH_THRESHOLD) {
+const dt = now - _pedoLastStepTs;
+if (_pedoLastStepTs === 0 || (dt >= MIN_STEP_INTERVAL_MS && dt <= MAX_STEP_INTERVAL_MS)) {
+if (pedoState.date !== getTodayKey()) {
+pedoState.steps = 0;
+pedoState.date = getTodayKey();
+}
+pedoState.steps += 1;
+_pedoLastStepTs = now;
+persistPedometerState();
+renderPedometerUI();
+} else if (dt > MAX_STEP_INTERVAL_MS) {
+_pedoLastStepTs = now;
+}
+_pedoWasAbove = true;
+} else if (_pedoWasAbove && hp < STEP_LOW_THRESHOLD) {
+_pedoWasAbove = false;
+}
+_pedoHpPrev = hp;
+}
+
+async function startPedometer() {
+if (typeof window.DeviceMotionEvent === 'undefined') {
+alert('Este navegador ou aparelho não disponibilizou o sensor de movimento (acelerômetro).');
+return;
+}
+if (typeof DeviceMotionEvent.requestPermission === 'function') {
+try {
+const perm = await DeviceMotionEvent.requestPermission();
+if (perm !== 'granted') {
+alert('Permissão de sensor de movimento negada. Ative nas configurações do navegador para contar passos.');
+return;
+}
+} catch (e) {
+alert('Não foi possível ativar o sensor de movimento.');
+return;
+}
+}
+if (!_pedoListenerAttached) {
+window.addEventListener('devicemotion', handleDeviceMotionStep, { passive: true });
+_pedoListenerAttached = true;
+}
+pedoState.active = true;
+pedoState.date = getTodayKey();
+_pedoLastStepTs = 0;
+_pedoWasAbove = false;
+_pedoSamplesCount = 0;
+requestPedoWakeLock();
+renderPedometerUI();
+showToast('👟 Pedômetro ativo! Pode colocar o celular no bolso');
+}
+
+function stopPedometer(silent = false) {
+pedoState.active = false;
+releasePedoWakeLock();
+flushPedometerStorage();
+renderPedometerUI();
+if (!silent) showToast('⏸ Pedômetro pausado');
+}
+
+function togglePedometer() {
+if (pedoState.active) {
+stopPedometer(false);
+} else {
+startPedometer();
+}
+}
+
+function resetPedometer() {
+if (pedoState.steps === 0) return;
+if (!confirm('Zerar os passos contados atualmente no pedômetro?')) return;
+pedoState.steps = 0;
+pedoState.date = getTodayKey();
+_pedoLastStepTs = 0;
+flushPedometerStorage();
+renderPedometerUI();
+showToast('Passos zerados');
+}
+
+function savePedometerToDay() {
+const m = getPedometerMetrics();
+if (m.steps < 10) {
+alert('Dê pelo menos 10 passos antes de salvar no dia.');
+return;
+}
+const targetDate = isValidDateKey(pedoState.date) ? pedoState.date : getTodayKey();
+const cleanKm = Math.max(0.01, m.cleanKm);
+const kmFmt = formatKm(cleanKm);
+const kcal = Math.max(1, m.kcal);
+const dayObj = ensureDayData(targetDate);
+const now = new Date();
+const time = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
+dayObj.activities.unshift({
+id: genId(),
+type: 'caminhada',
+name: `👟 Caminhada Bolso (${m.steps.toLocaleString('pt-BR')} passos • ${kmFmt} km)`,
+km: cleanKm,
+kcal,
+time
+});
+pedoState.steps = 0;
+pedoState.date = getTodayKey();
+_pedoLastStepTs = 0;
+_pedoSamplesCount = 0;
+selectedDateKey = targetDate;
+if (pedoState.active) {
+stopPedometer(true);
+} else {
+flushPedometerStorage();
+renderPedometerUI();
+}
+saveState();
+render();
+showToast(`✓ ${m.steps.toLocaleString('pt-BR')} passos salvos (+${kcal} kcal)`);
+}
 function addActivityEntry() {
 const type = document.getElementById('actTypeSelect').value;
 const kmInput = document.getElementById('actKmInput');
@@ -2672,6 +3485,7 @@ document.getElementById('activitySummaryText').textContent =
 const ul = document.getElementById('activityList');
 if (list.length === 0) {
 ul.innerHTML = '<li class="empty-msg" style="padding:6px 0;font-size:0.8rem;">Nenhuma atividade registrada neste dia.</li>';
+renderPedometerUI();
 return;
 }
 ul.innerHTML = list.map(a => `
@@ -2686,35 +3500,137 @@ ul.innerHTML = list.map(a => `
 </div>
 </li>
 `).join('');
+renderPedometerUI();
 }
-function addWater(ml) {
+let activeWaterType = 'agua';
+let lastCustomDrinkLabel = '';
+const WATER_TYPE_META = {
+agua: { label: PURE_WATER_LABEL, short: 'água pura', icon: '💧', defaultStep: 250 },
+sprite: { label: SPRITE_ZERO_LABEL, short: 'Sprite Zero', icon: '🍋', defaultStep: 350 },
+monster: { label: MONSTER_ZERO_LABEL, short: 'Monster Zero', icon: '⚡', defaultStep: 473 },
+outras: { label: '🥤 Outra Bebida', short: 'bebida', icon: '🥤', defaultStep: 250 }
+};
+
+function selectWaterType(wtype) {
+if (!WATER_TYPE_META[wtype]) return;
+activeWaterType = wtype;
+document.querySelectorAll('#waterTypeTabs .water-type-btn').forEach(btn => {
+btn.classList.toggle('active', btn.dataset.wtype === wtype);
+});
+const btnsBox = document.getElementById('waterQuickButtons');
+if (btnsBox) {
+if (wtype === 'sprite') {
+btnsBox.innerHTML = `
+<button type="button" class="btn-water" onclick="addWater(200, 'sprite')">+200 ml</button>
+<button type="button" class="btn-water" onclick="addWater(350, 'sprite')">+350 ml (Lata)</button>
+<button type="button" class="btn-water" onclick="addWater(600, 'sprite')">+600 ml</button>
+<button type="button" class="btn-water-undo" onclick="removeLastWater('sprite')">-350 ml</button>
+`;
+} else if (wtype === 'monster') {
+btnsBox.innerHTML = `
+<button type="button" class="btn-water" onclick="addWater(250, 'monster')">+250 ml</button>
+<button type="button" class="btn-water" onclick="addWater(473, 'monster')">+473 ml (Lata)</button>
+<button type="button" class="btn-water" onclick="addWater(946, 'monster')">+2 Latas</button>
+<button type="button" class="btn-water-undo" onclick="removeLastWater('monster')">-473 ml</button>
+`;
+} else if (wtype === 'outras') {
+btnsBox.innerHTML = `
+<button type="button" class="btn-water" onclick="addCustomDrinkHydration(200)">+200 ml</button>
+<button type="button" class="btn-water" onclick="addCustomDrinkHydration(300)">+300 ml</button>
+<button type="button" class="btn-water" onclick="addCustomDrinkHydration(350)">+350 ml</button>
+<button type="button" class="btn-water" onclick="addCustomDrinkHydration(500)">+500 ml</button>
+`;
+} else {
+btnsBox.innerHTML = `
+<button type="button" class="btn-water" onclick="addWater(250, 'agua')">+250 ml</button>
+<button type="button" class="btn-water" onclick="addWater(500, 'agua')">+500 ml</button>
+<button type="button" class="btn-water" onclick="addWater(1000, 'agua')">+1,0 L</button>
+<button type="button" class="btn-water-undo" onclick="removeLastWater('agua')">-250 ml</button>
+`;
+}
+}
+}
+
+function addCustomDrinkHydration(ml) {
+const suggested = lastCustomDrinkLabel || 'Suco / Refrigerante / Café';
+const rawName = prompt(`Qual bebida você tomou (${ml} ml)?
+Ex: Coca Zero, Suco de Laranja, Café com Leite, Guaraná...`, suggested);
+if (rawName === null) return;
+const clean = rawName.trim();
+if (!clean) return;
+lastCustomDrinkLabel = clean;
+const drinkLabel = canonicalDrinkLabel(clean);
 const dateSnap = selectedDateKey;
 const dayObj = ensureDayData(dateSnap);
-const prevWater = dayObj.waterMl || 0;
-dayObj.waterMl = Math.max(0, prevWater + ml);
+const prevDrinks = { ...dayObj.waterDrinks };
+dayObj.waterDrinks[drinkLabel] = Math.max(0, (dayObj.waterDrinks[drinkLabel] || 0) + ml);
+dayObj.waterMl = Object.values(dayObj.waterDrinks).reduce((a, b) => a + b, 0);
 saveState();
 render();
-const label = ml >= 1000 ? `${(ml / 1000).toFixed(1).replace('.', ',')} L` : `${ml} ml`;
-showToast(`💧 +${label} de água`, {
+showToast(`🥤 +${ml} ml de ${drinkLabel}`, {
 onUndo: () => {
 const targetDay = ensureDayData(dateSnap);
-targetDay.waterMl = Math.max(0, prevWater);
+targetDay.waterDrinks = { ...prevDrinks };
+targetDay.waterMl = Object.values(prevDrinks).reduce((a, b) => a + b, 0);
 pruneEmptyDay(dateSnap);
 saveState();
 render();
-showToast('Água desfeita');
+showToast('Registro desfeito');
 }
 });
 }
-function removeLastWater() {
+
+function addWater(ml, wtype) {
+const typeKey = WATER_TYPE_META[wtype] ? wtype : activeWaterType;
+const meta = WATER_TYPE_META[typeKey];
+const drinkLabel = meta.label;
+const dateSnap = selectedDateKey;
+const dayObj = ensureDayData(dateSnap);
+const prevDrinks = { ...dayObj.waterDrinks };
+dayObj.waterDrinks[drinkLabel] = Math.max(0, (dayObj.waterDrinks[drinkLabel] || 0) + ml);
+dayObj.waterMl = Object.values(dayObj.waterDrinks).reduce((a, b) => a + b, 0);
+saveState();
+render();
+const label = ml >= 1000 ? `${(ml / 1000).toFixed(1).replace('.', ',')} L` : `${ml} ml`;
+showToast(`${meta.icon} +${label} de ${meta.short}`, {
+onUndo: () => {
+const targetDay = ensureDayData(dateSnap);
+targetDay.waterDrinks = { ...prevDrinks };
+targetDay.waterMl = Object.values(prevDrinks).reduce((a, b) => a + b, 0);
+pruneEmptyDay(dateSnap);
+saveState();
+render();
+showToast('Registro desfeito');
+}
+});
+}
+
+function removeLastWater(wtype) {
 if (!state.history[selectedDateKey]) return;
-const cur = state.history[selectedDateKey].waterMl || 0;
+const dayObj = ensureDayData(selectedDateKey);
+const typeKey = WATER_TYPE_META[wtype] ? wtype : activeWaterType;
+const drinkLabel = WATER_TYPE_META[typeKey].label;
+const step = WATER_TYPE_META[typeKey].defaultStep;
+const cur = dayObj.waterDrinks[drinkLabel] || 0;
 if (cur <= 0) return;
-state.history[selectedDateKey].waterMl = Math.max(0, cur - 250);
+dayObj.waterDrinks[drinkLabel] = Math.max(0, cur - step);
+if (dayObj.waterDrinks[drinkLabel] === 0) delete dayObj.waterDrinks[drinkLabel];
+dayObj.waterMl = Object.values(dayObj.waterDrinks).reduce((a, b) => a + b, 0);
 pruneEmptyDay(selectedDateKey);
 saveState();
 render();
 }
+
+function getDrinkColor(label) {
+if (label === PURE_WATER_LABEL) return 'var(--water)';
+if (label === SPRITE_ZERO_LABEL) return 'var(--primary)';
+if (label === MONSTER_ZERO_LABEL) return 'var(--warning)';
+const palette = ['#c084fc', '#f472b6', '#2dd4bf', '#fb7185', '#60a5fa', '#a3e635'];
+let hash = 0;
+for (let i = 0; i < label.length; i++) hash = (hash * 31 + label.charCodeAt(i)) | 0;
+return palette[Math.abs(hash) % palette.length];
+}
+
 function formatLiters(ml) {
 const liters = (ml / 1000).toFixed(2).replace('.', ',');
 return `${liters} L (${ml} ml)`;
@@ -3013,19 +3929,33 @@ return { unknown: true, text: clean, cat: activeCategory };
 }
 function addEntry(name, kcal, cat) {
 const safeKcal = Math.min(20000, Math.max(0, Math.round(kcal)));
+const itemCat = cat || activeCategory;
 const dayObj = ensureDayData(selectedDateKey);
 const now = new Date();
 const time = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
-dayObj.items.unshift({
+const entryObj = {
 id: genId(),
 name,
 kcal: safeKcal,
-cat: cat || activeCategory,
+cat: itemCat,
 time
-});
+};
+let addedDrinkNote = '';
+if (itemCat === 'bebidas') {
+const drinkMl = extractDrinkMlFromText(name);
+const drinkLabel = canonicalDrinkLabel(name);
+if (drinkMl > 0) {
+entryObj.waterMl = drinkMl;
+entryObj.drinkLabel = drinkLabel;
+dayObj.waterDrinks[drinkLabel] = (dayObj.waterDrinks[drinkLabel] || 0) + drinkMl;
+dayObj.waterMl = Object.values(dayObj.waterDrinks).reduce((a, b) => a + b, 0);
+addedDrinkNote = ` • +${drinkMl} ml hidratação`;
+}
+}
+dayObj.items.unshift(entryObj);
 saveState();
 render();
-showToast(`✓ ${name} (${safeKcal} kcal)`);
+showToast(`✓ ${name} (${safeKcal} kcal)${addedDrinkNote}`);
 }
 function handleAdd() {
 const input = document.getElementById('foodInput');
@@ -3056,6 +3986,16 @@ if (idx === -1) return;
 const removed = dData.items[idx];
 const dateSnap = selectedDateKey;
 dData.items.splice(idx, 1);
+if (removed.cat === 'bebidas') {
+const dMl = extractDrinkMlFromText(removed.name, removed.waterMl);
+const dLbl = canonicalDrinkLabel(removed.drinkLabel || removed.name);
+const dayObj = ensureDayData(dateSnap);
+if (dMl > 0 && dayObj.waterDrinks[dLbl]) {
+dayObj.waterDrinks[dLbl] = Math.max(0, dayObj.waterDrinks[dLbl] - dMl);
+if (dayObj.waterDrinks[dLbl] === 0) delete dayObj.waterDrinks[dLbl];
+dayObj.waterMl = Object.values(dayObj.waterDrinks).reduce((a, b) => a + b, 0);
+}
+}
 pruneEmptyDay(dateSnap);
 saveState();
 render();
@@ -3063,6 +4003,14 @@ showToast(`Removido: ${removed.name}`, {
 onUndo: () => {
 const targetDay = ensureDayData(dateSnap);
 targetDay.items.splice(Math.min(idx, targetDay.items.length), 0, removed);
+if (removed.cat === 'bebidas') {
+const dMl = extractDrinkMlFromText(removed.name, removed.waterMl);
+const dLbl = canonicalDrinkLabel(removed.drinkLabel || removed.name);
+if (dMl > 0) {
+targetDay.waterDrinks[dLbl] = (targetDay.waterDrinks[dLbl] || 0) + dMl;
+targetDay.waterMl = Object.values(targetDay.waterDrinks).reduce((a, b) => a + b, 0);
+}
+}
 saveState();
 render();
 showToast('Item restaurado');
@@ -3366,10 +4314,16 @@ document.getElementById('kpiGoalHitSub').textContent = activeFoodDays > 0
 ? `${daysWithinGoal} de ${activeFoodDays} ${activeFoodDays === 1 ? 'dia' : 'dias'} na meta`
 : 'Sem refeições no período';
 document.getElementById('chartKcalSummary').textContent = `Média: ${avgKcal.toLocaleString('pt-BR')} kcal/dia`;
+let totalPureWaterMl = 0;
+keys.forEach(k => {
+const dObj = state.history[k];
+if (dObj) totalPureWaterMl += normalizeWaterBreakdown(dObj).agua;
+});
+const periodPurePct = totalWaterMl > 0 ? Math.round((totalPureWaterMl / totalWaterMl) * 100) : 0;
 const avgWaterL = keys.length > 0 ? (totalWaterMl / keys.length / 1000) : 0;
 const totalWaterL = totalWaterMl / 1000;
 document.getElementById('kpiAvgWater').textContent = `${avgWaterL.toFixed(2).replace('.', ',')} L`;
-document.getElementById('kpiWaterTotalSub').textContent = `Total: ${totalWaterL.toFixed(1).replace('.', ',')} L`;
+document.getElementById('kpiWaterTotalSub').textContent = `Total: ${totalWaterL.toFixed(1).replace('.', ',')} L (${periodPurePct}% água pura)`;
 document.getElementById('chartWaterSummary').textContent = `Meta: ${((state.waterGoalMl || 3500) / 1000).toFixed(2).replace('.', ',')} L/dia`;
 document.getElementById('kpiTotalKm').textContent = `${formatKm(totalKm)} km`;
 document.getElementById('kpiActKcalSub').textContent = `${totalActKcal.toLocaleString('pt-BR')} kcal gastas`;
@@ -3644,6 +4598,80 @@ return { title: `Hoje • ${ddmm.slice(0, 5)}`, sub: `${WEEKDAYS_PT[d.getDay()]}
 }
 return { title: `${WEEKDAYS_PT[d.getDay()]} • ${ddmm}`, sub: 'Toque aqui para voltar a Hoje' };
 }
+function isProteinBaseItem(item) {
+if (!item || !item.name) return false;
+const n = normalizeText(item.name);
+const proteinKeywords = [
+'frango', 'coxa', 'sobrecoxa', 'tulipa', 'asinha', 'drumete', 'moela', 'coracao', 'steak',
+'bife', 'picanha', 'maminha', 'fraldinha', 'file mignon', 'carne', 'patinho', 'acem', 'musculo',
+'alcatra', 'contrafile', 'cupim', 'costela', 'figado', 'almondega', 'quibe', 'kibe', 'ancho',
+'chorizo', 't-bone', 'tbone', 'lagarto', 'rosbife', 'carne seca', 'carne de sol',
+'peixe', 'tilapia', 'merluza', 'salmao', 'sardinha', 'atum', 'camarao', 'bacalhau', 'moqueca',
+'bobo de camarao', 'cacao', 'pintado', 'truta', 'manjuba', 'lula', 'ceviche',
+'feijao', 'feijoada', 'tutu', 'baiao de dois', 'dobradinha', 'lentilha', 'grao de bico', 'grao-de-bico'
+];
+return proteinKeywords.some(kw => n.includes(kw));
+}
+
+function dayHasProteinBase(dayObj) {
+if (!dayObj || !Array.isArray(dayObj.items)) return false;
+return dayObj.items.some(isProteinBaseItem);
+}
+
+let _cachedStreak = null;
+let _cachedStreakKey = '';
+function computeProteinStreak() {
+const todayKey = getTodayKey();
+const refKey = (selectedDateKey && selectedDateKey <= todayKey) ? selectedDateKey : todayKey;
+const cacheKey = `${stateVersion}|${refKey}|${todayKey}`;
+if (_cachedStreak && _cachedStreakKey === cacheKey) {
+return _cachedStreak;
+}
+const isToday = (refKey === todayKey);
+const todayHas = dayHasProteinBase(state.history[todayKey]);
+const refHas = dayHasProteinBase(state.history[refKey]);
+let streak = 0;
+const cur = keyToDate(refKey);
+if (!refHas) {
+cur.setDate(cur.getDate() - 1);
+}
+let guard = 0;
+while (guard < 365) {
+guard++;
+const k = dateToKey(cur);
+if (dayHasProteinBase(state.history[k])) {
+streak++;
+cur.setDate(cur.getDate() - 1);
+} else {
+break;
+}
+}
+_cachedStreak = { streak, todayHas, refHas, isToday, refKey, todayKey };
+_cachedStreakKey = cacheKey;
+return _cachedStreak;
+}
+
+function renderProteinStreak() {
+const badge = document.getElementById('proteinStreakBadge');
+const detail = document.getElementById('proteinStreakDetail');
+if (!badge || !detail) return;
+const info = computeProteinStreak();
+const dayWord = info.streak === 1 ? 'dia seguido' : 'dias seguidos';
+badge.textContent = `🥩 Proteína: ${info.streak} ${dayWord}`;
+badge.classList.toggle('inactive', info.streak === 0 && !info.refHas);
+if (info.isToday) {
+if (info.todayHas) {
+detail.textContent = '✓ Base proteica garantida hoje';
+} else if (info.streak > 0) {
+detail.textContent = 'Falta registrar base proteica hoje para manter';
+} else {
+detail.textContent = 'Base: frango, carne vermelha, peixe, feijão';
+}
+} else {
+detail.textContent = info.refHas ? '✓ Base proteica registrada neste dia' : 'Sem base proteica neste dia';
+}
+}
+
 function renderGroupedHistory(items) {
 const container = document.getElementById('groupedHistoryContainer');
 if (!items || items.length === 0) {
@@ -3703,14 +4731,54 @@ const isOver = remaining < 0;
 document.getElementById('balanceTitle').textContent = isOver
 ? (selectedDateKey === todayKey ? 'Você passou da meta hoje' : 'Passou da meta neste dia')
 : (selectedDateKey === todayKey ? 'Você ainda pode comer hoje' : 'Saldo deste dia');
-const waterMl = dayData.waterMl || 0;
+const wb = normalizeWaterBreakdown(dayData);
+const waterMl = wb.total;
 const waterGoalMl = state.waterGoalMl || 3500;
 const waterGoalL = (waterGoalMl / 1000).toFixed(2).replace('.', ',');
 const waterPct = Math.round((waterMl / waterGoalMl) * 100);
 const waterDoneMark = waterPct >= 100 ? ' ✓' : '';
+const pureSharePct = waterMl > 0 ? Math.round((wb.agua / waterMl) * 100) : 0;
 document.getElementById('waterLitersText').textContent = formatLiters(waterMl);
-document.getElementById('waterGoalText').textContent = `Meta diária: ${waterGoalL} L (${waterPct}%${waterDoneMark})`;
-document.getElementById('waterBar').style.width = Math.min(100, (waterMl / waterGoalMl) * 100) + '%';
+document.getElementById('waterGoalText').textContent = `Meta: ${waterGoalL} L (${waterPct}%${waterDoneMark}) • Água pura: ${pureSharePct}%`;
+
+const orderedEntries = [];
+const baseKeys = [PURE_WATER_LABEL, SPRITE_ZERO_LABEL, MONSTER_ZERO_LABEL];
+baseKeys.forEach(k => {
+orderedEntries.push({ label: k, ml: wb.drinks[k] || 0 });
+});
+Object.entries(wb.drinks).forEach(([k, v]) => {
+if (!baseKeys.includes(k) && v > 0) {
+orderedEntries.push({ label: k, ml: v });
+}
+});
+
+const barDenom = Math.max(waterGoalMl, waterMl, 1);
+const segBox = document.getElementById('waterBarSegments');
+if (segBox) {
+segBox.innerHTML = orderedEntries
+.filter(e => e.ml > 0)
+.map(e => {
+const wPct = ((e.ml / barDenom) * 100).toFixed(2);
+const col = getDrinkColor(e.label);
+return `<div class="water-seg" style="width:${wPct}%;background:${col};" title="${escapeHtml(e.label)}: ${e.ml} ml"></div>`;
+})
+.join('');
+}
+
+const bdBox = document.getElementById('waterBreakdownBox');
+if (bdBox) {
+bdBox.innerHTML = orderedEntries.map(e => {
+const share = waterMl > 0 ? Math.round((e.ml / waterMl) * 100) : 0;
+const col = getDrinkColor(e.label);
+return `
+<div class="wb-pill">
+<small title="${escapeHtml(e.label)}">${escapeHtml(e.label)}</small>
+<strong>${e.ml} ml</strong>
+<span style="color:${col};">${share}%</span>
+</div>
+`;
+}).join('');
+}
 document.getElementById('consumedKcal').textContent = consumed + ' kcal';
 const remEl = document.getElementById('remainingKcal');
 remEl.textContent = isOver ? `+${Math.abs(remaining)}` : remaining;
@@ -3731,6 +4799,7 @@ bar.style.backgroundColor = 'var(--primary)';
 renderActivitiesSection(dayData.activities);
 renderGroupedHistory(dayData.items);
 renderWeight();
+renderProteinStreak();
 if (isArchiveOpen) {
 populateMonthSelector();
 renderArchive();
@@ -3823,6 +4892,11 @@ if (nowToday !== _lastKnownToday) {
 if (selectedDateKey === _lastKnownToday) {
 selectedDateKey = nowToday;
 }
+if (pedoState.date !== nowToday) {
+pedoState.steps = 0;
+pedoState.date = nowToday;
+flushPedometerStorage();
+}
 _lastKnownToday = nowToday;
 render();
 }
@@ -3830,6 +4904,7 @@ render();
 document.addEventListener('visibilitychange', () => {
 if (document.visibilityState === 'visible') {
 syncMidnightRollover();
+if (pedoState.active) requestPedoWakeLock();
 if (_swReg && typeof _swReg.update === 'function') {
 _swReg.update().catch(() => {});
 }
@@ -3837,11 +4912,12 @@ if (driveCfg.webhookUrl && driveCfg.autoBackup && driveCfg.pendingSync && naviga
 syncToGoogleDrive('auto_dados', { silent: true });
 }
 } else {
+flushPedometerStorage();
 flushPendingDriveOnHide();
 }
 });
-window.addEventListener('pagehide', flushPendingDriveOnHide);
-window.addEventListener('beforeunload', flushStorageNow);
+window.addEventListener('pagehide', () => { flushPedometerStorage(); flushPendingDriveOnHide(); });
+window.addEventListener('beforeunload', () => { flushStorageNow(); flushPedometerStorage(); });
 window.addEventListener('focus', syncMidnightRollover);
 window.addEventListener('storage', (e) => {
 if (e.key === 'saldo_calorico_v6' && e.newValue) {
@@ -3852,6 +4928,9 @@ loadDriveConfig();
 updateDriveUi();
 } else if (e.key === THEME_STORAGE_KEY) {
 loadTheme();
+} else if (e.key === PEDO_STORAGE_KEY) {
+loadPedometerState();
+renderPedometerUI();
 }
 });
 window.addEventListener('online', () => {
@@ -3870,6 +4949,7 @@ if (_headerEl) _headerEl.classList.toggle('scrolled', window.scrollY > 8);
 loadTheme();
 loadDriveConfig();
 loadState();
+loadPedometerState();
 selectCategory(activeCategory);
 render();
 updateDriveUi();
