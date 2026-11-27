@@ -6672,43 +6672,41 @@ window.addEventListener('pagehide', () => { if (pedoState.steps >= AUTO_MIN_STEP
 window.addEventListener('beforeunload', () => { flushStorageNow(); flushPedometerStorage(); });
 window.addEventListener('focus', syncMidnightRollover);
 window.addEventListener('storage', (e) => {
-if (e.key === 'saldo_calorico_v6' && e.newValue) {
-loadState();
-render();
-} else if (e.key === DRIVE_CFG_KEY && e.newValue) {
-loadDriveConfig();
-updateDriveUi();
-} else if (e.key === THEME_STORAGE_KEY) {
-loadTheme();
-} else if (e.key === PEDO_STORAGE_KEY) {
-loadPedometerState();
-renderPedometerUI();
-}
-});
-window.addEventListener('online', () => {
-if (driveCfg.webhookUrl && driveCfg.autoBackup) {
-if (driveCfg.lastBackedUpVersion && driveCfg.lastBackedUpVersion !== APP_VERSION) {
-syncToGoogleDrive('atualizacao_app', { previousVersion: driveCfg.lastBackedUpVersion, silent: false });
-} else if (driveCfg.pendingSync) {
-syncToGoogleDrive('auto_dados', { silent: true });
-}
-}
+  if (e.key === 'saldo_calorico_v6' && e.newValue) {
+    loadState();
+    render();
+  } else if (e.key === DRIVE_CFG_KEY && e.newValue) {
+    loadDriveConfig();
+    updateDriveUi();
+  } else if (e.key === THEME_STORAGE_KEY) {
+    loadTheme();
+  } else if (e.key === PEDO_STORAGE_KEY) {
+    loadPedometerState();
+    renderPedometerUI();
+  }
 });
 const _headerEl = document.querySelector('header');
 window.addEventListener('scroll', () => {
-if (_headerEl) _headerEl.classList.toggle('scrolled', window.scrollY > 8);
+  if (_headerEl) _headerEl.classList.toggle('scrolled', window.scrollY > 8);
 }, { passive: true });
-loadTheme();
-loadDriveConfig();
-loadState();
-loadPedometerState();
-selectCategory(activeCategory);
-render();
-if (pedoState.active) {
-initAutoPedometerSensor(false).catch(() => {});
+try {
+  loadTheme();
+  loadDriveConfig();
+  loadState();
+  loadPedometerState();
+  selectCategory(activeCategory);
+  render();
+  if (pedoState.active) {
+    initAutoPedometerSensor(false).catch(() => {});
+  }
+  updateDriveUi();
+  checkAppVersionUpdateBackup();
+} catch (err) {
+  try {
+    if (typeof render === 'function') render();
+    if (typeof showToast === 'function') showToast('⚠️ Aviso ao iniciar: ' + (err && err.message ? err.message : 'verifique os dados'), { error: true });
+  } catch (e2) {}
 }
-updateDriveUi();
-checkAppVersionUpdateBackup();
 </script>
 </body>
 </html>

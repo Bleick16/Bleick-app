@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bleick-v9-9-2-cache';
+const CACHE_NAME = 'bleick-v9-9-5-cache';
 const ASSETS = [
   './',
   './index.html',
@@ -33,8 +33,10 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
       fetch(event.request)
         .then((res) => {
-          const copy = res.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
+          if (res && res.ok) {
+            const copy = res.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy)).catch(() => {});
+          }
           return res;
         })
         .catch(() => caches.match(event.request).then((r) => r || caches.match('./index.html')))
