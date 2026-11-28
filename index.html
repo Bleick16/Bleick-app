@@ -10,7 +10,18 @@
   <meta name="apple-mobile-web-app-title" content="Bleick">
   <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
   <link rel="apple-touch-icon" href="./icon-192.png">
-  <link rel="manifest" href="./manifest.json">
+  <script>
+(function() {
+  try {
+    if (window.location.protocol !== 'file:') {
+      var lnk = document.createElement('link');
+      lnk.rel = 'manifest';
+      lnk.href = './manifest.json';
+      document.head.appendChild(lnk);
+    }
+  } catch (e) {}
+})();
+</script>
 
   <meta name="description" content="Bleick - Controle diário de saldo calórico, água, peso e atividades físicas.">
   <title>Bleick v9.9</title>
@@ -3118,8 +3129,14 @@ fixed.weightUsed = w;
 return fixed;
 }
 
-function cloneDefaultNutrientGoals() {
-return computeWeightScaledNutrientGoals(state && state.startWeightKg ? state.startWeightKg : 160.0);
+function cloneDefaultNutrientGoals(fallbackWeightKg) {
+var safeW = (typeof fallbackWeightKg === 'number' && !isNaN(fallbackWeightKg) && fallbackWeightKg > 30) ? fallbackWeightKg : 160.0;
+try {
+if (typeof state !== 'undefined' && state && typeof state.startWeightKg === 'number' && state.startWeightKg > 30) {
+safeW = state.startWeightKg;
+}
+} catch (e) {}
+return computeWeightScaledNutrientGoals(safeW);
 }
 
 const DEFAULT_PROFILE = {
